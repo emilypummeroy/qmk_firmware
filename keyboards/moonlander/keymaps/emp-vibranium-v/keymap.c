@@ -4,18 +4,43 @@
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
-  ST_MACRO_0,
-  ST_MACRO_1,
-  ST_MACRO_2,
-  ST_MACRO_3,
-  ST_MACRO_4,
-  ST_MACRO_5,
-  ST_MACRO_6,
-  ST_MACRO_7,
-  ST_MACRO_8,
-  ST_MACRO_9,
-  ST_MACRO_10,
-  ST_MACRO_11,
+  ST_MACRO_QU,
+  ST_MACRO_WH,
+  ST_MACRO_GH,
+  ST_MACRO_SH,
+  ST_MACRO_CH,
+  ST_MACRO_TH,
+  ST_MACRO_PH,
+  ST_MACRO_DIAMOND,
+  ST_MACRO_PARENS,
+  ST_MACRO_SQUARE,
+  ST_MACRO_CURLS,
+  ST_MACRO_ARROW_BRACE,
+  ST_MACRO_FULL_STOP,
+
+  AD_MACRO_LG,
+  AD_MACRO_ML,
+  AD_MACRO_GL,
+  AD_MACRO_LK,
+  AD_MACRO_SK,
+  AD_MACRO_LM,
+  AD_MACRO_CK,
+  AD_MACRO_NK,
+  AD_MACRO_KN,
+  AD_MACRO_KC,
+  AD_MACRO_KS,
+  AD_MACRO_AU,
+  AD_MACRO_EO,
+  AD_MACRO_IJ,
+  AD_MACRO_UA,
+  AD_MACRO_OE,
+  AD_MACRO_YI,
+  AD_MACRO_BY,
+  AD_MACRO_BO,
+  AD_MACRO_BI,
+  AD_MACRO_JI,
+  AD_MACRO_IB,
+  AD_MACRO_JO,
 };
 
 
@@ -47,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     LSFT(KC_TAB),   KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_NO,          LSFT(KC_A),     LSFT(KC_E),     LSFT(KC_I),     LSFT(KC_H),     KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          LSFT(KC_U),     LSFT(KC_O),     LSFT(KC_Y),     LSFT(KC_P),     KC_TRANSPARENT, 
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT, KC_NO,                                                                                                          KC_BSPC,        OSM(MOD_LSFT),  KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, LSFT(KC_ENTER), ST_MACRO_11
+    KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, LSFT(KC_ENTER), ST_MACRO_FULL_STOP
   ),
   [2] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
@@ -98,10 +123,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
 };
+
+
+const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
+const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM combo0[] = { KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_W, KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_G, KC_DQUO, COMBO_END};
 const uint16_t PROGMEM combo5[] = { KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM combo6[] = { KC_C, KC_N, COMBO_END};
@@ -135,7 +163,7 @@ const uint16_t PROGMEM combo33[] = { KC_LPRN, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM combo34[] = { KC_LPRN, KC_DOT, KC_E, COMBO_END};
 const uint16_t PROGMEM combo35[] = { KC_MINUS, KC_U, COMBO_END};
 const uint16_t PROGMEM combo36[] = { KC_MINUS, KC_O, COMBO_END};
-const uint16_t PROGMEM combo37[] = { KC_MINUS, KC_Y, COMBO_END};
+const uint16_t PROGMEM combo37[] = { KC_U, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo38[] = { KC_MINUS, KC_U, KC_O, COMBO_END};
 const uint16_t PROGMEM combo39[] = { KC_MINUS, KC_A, KC_E, COMBO_END};
 const uint16_t PROGMEM combo40[] = { KC_MINUS, KC_E, KC_Y, COMBO_END};
@@ -144,16 +172,101 @@ const uint16_t PROGMEM combo42[] = { KC_S, KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM combo43[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM combo44[] = { KC_N, KC_T, KC_K, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, KC_Z),
-    COMBO(combo1, ST_MACRO_0),
-    COMBO(combo2, ST_MACRO_1),
-    COMBO(combo3, KC_Q),
+
+enum combo_index {
+    AD_MG_LG,
+    AD_MT_ML,
+    AD_GM_GL,
+    AD_GK_LK,
+    AD_CK_SK,
+    AD_CM_LM,
+    AD_NK_CK,
+    AD_TK_NK,
+    AD_KT_KN,
+    AD_KN_KC,
+    AD_KC_KS,
+
+    AD_A__AU,
+    AD_E__EO,
+    AD_I__IJ,
+    AD_U__UA,
+    AU_O__OE,
+    AD_Y__YI,
+    AD_B__BY,
+    AD_B__BO,
+    AD_BJ_BI,
+    AD_J__JI,
+    AD_JB_IB,
+    AD_JE_JO,
+    
+    ADAPTIVE_COUNT,
+    ST_COMBO_WG_QU,
+    ST_COMBO_WMG_Q,
+};
+
+const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveCK[] = { KC_C, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveNK[] = { KC_N, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveKN[] = { KC_K, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveKC[] = { KC_K, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveAparen[] = { KC_A, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveEparen[] = { KC_E, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveIparen[] = { KC_I, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveUparen[] = { KC_U, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveOparen[] = { KC_O, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveYparen[] = { KC_Y, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveBparen[] = { KC_B, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveJparen[] = { KC_J, KC_LPRN, COMBO_END };
+const uint16_t PROGMEM adaptiveBapost[] = { KC_B, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveBJ[] = { KC_B, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveJB[] = { KC_J, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveJE[] = { KC_J, KC_E, COMBO_END };
+
+
+
+combo_t key_combos[] = {
+
+    [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
+    [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
+    [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
+    [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
+    [AD_CK_SK] = COMBO(adaptiveCK, AD_MACRO_SK),
+    [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
+    [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
+    [AD_TK_NK] = COMBO(adaptiveTK, AD_MACRO_NK),
+    [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
+    [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
+    [AD_KC_KS] = COMBO(adaptiveKC, AD_MACRO_KS),
+    [AD_A__AU] = COMBO(adaptiveAparen, AD_MACRO_AU),
+    [AD_E__EO] = COMBO(adaptiveEparen, AD_MACRO_EO),
+    [AD_I__IJ] = COMBO(adaptiveIparen, AD_MACRO_IJ),
+    [AD_U__UA] = COMBO(adaptiveUparen, AD_MACRO_UA),
+    [AU_O__OE] = COMBO(adaptiveOparen, AD_MACRO_OE),
+    [AD_Y__YI] = COMBO(adaptiveYparen, AD_MACRO_YI),
+    [AD_B__BY] = COMBO(adaptiveBparen, AD_MACRO_BY),
+    [AD_B__BO] = COMBO(adaptiveBapost, AD_MACRO_BO),
+    [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
+    [AD_J__JI] = COMBO(adaptiveJparen, AD_MACRO_JI),
+    [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
+    [AD_JE_JO] = COMBO(adaptiveJE, AD_MACRO_JO),
+
+
+    [ADAPTIVE_COUNT] = COMBO(combo0, KC_Z),
+    [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
+    [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
+    COMBO(combo1, ST_MACRO_WH),
+    COMBO(combo2, ST_MACRO_GH),
     COMBO(combo4, KC_EXLM),
-    COMBO(combo5, ST_MACRO_2),
-    COMBO(combo6, ST_MACRO_3),
-    COMBO(combo7, ST_MACRO_4),
-    COMBO(combo8, ST_MACRO_5),
+    COMBO(combo5, ST_MACRO_SH),
+    COMBO(combo6, ST_MACRO_CH),
+    COMBO(combo7, ST_MACRO_TH),
+    COMBO(combo8, ST_MACRO_PH),
     COMBO(combo9, LCTL(KC_Z)),
     COMBO(combo10, LCTL(KC_C)),
     COMBO(combo11, LCTL(KC_V)),
@@ -170,16 +283,16 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo22, KC_PERC),
     COMBO(combo23, KC_LABK),
     COMBO(combo24, KC_RABK),
-    COMBO(combo25, ST_MACRO_6),
+    COMBO(combo25, ST_MACRO_DIAMOND),
     COMBO(combo26, KC_RPRN),
-    COMBO(combo27, ST_MACRO_7),
+    COMBO(combo27, ST_MACRO_PARENS),
     COMBO(combo28, KC_LBRC),
     COMBO(combo29, KC_RBRC),
-    COMBO(combo30, ST_MACRO_8),
+    COMBO(combo30, ST_MACRO_SQUARE),
     COMBO(combo31, KC_LCBR),
     COMBO(combo32, KC_RCBR),
-    COMBO(combo33, ST_MACRO_9),
-    COMBO(combo34, ST_MACRO_10),
+    COMBO(combo33, ST_MACRO_CURLS),
+    COMBO(combo34, ST_MACRO_ARROW_BRACE),
     COMBO(combo35, KC_PLUS),
     COMBO(combo36, KC_EQUAL),
     COMBO(combo37, KC_UNDS),
@@ -191,32 +304,229 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo43, KC_TAB),
     COMBO(combo44, KC_BSPC),
 };
+
+uint16_t get_combo_term(uint16_t index, combo_t *combo) {
+    return index < ADAPTIVE_COUNT ? ADAPTIVE_TERM : COMBO_TERM;
+}
+
+bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
+    return index < ADAPTIVE_COUNT;
+}
+
+bool get_combo_must_tap(uint16_t index, combo_t *combo) {
+    return index < ADAPTIVE_COUNT;
+}
+
+bool get_combo_must_hold(uint16_t index, combo_t *combo) {
+    return false;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case ST_MACRO_QU:
+            if (record->event.pressed) {
+                SEND_STRING("qu");
+            }
+            break;
+        case AD_MACRO_LG:
+            if (record->event.pressed) {
+                SEND_STRING("lg");
+            }
+            break;
+        case AD_MACRO_ML:
+            if (record->event.pressed) {
+                SEND_STRING("ml");
+            }
+            break;
+        case AD_MACRO_GL:
+            if (record->event.pressed) {
+                SEND_STRING("gl");
+            }
+            break;
+        case AD_MACRO_LK:
+            if (record->event.pressed) {
+                SEND_STRING("lk");
+            }
+            break;
+        case AD_MACRO_SK:
+            if (record->event.pressed) {
+                SEND_STRING("sk");
+            }
+            break;
+        case AD_MACRO_LM:
+            if (record->event.pressed) {
+                SEND_STRING("lm");
+            }
+            break;
+        case AD_MACRO_CK:
+            if (record->event.pressed) {
+                SEND_STRING("ck");
+            }
+            break;
+        case AD_MACRO_NK:
+            if (record->event.pressed) {
+                SEND_STRING("nk");
+            }
+            break;
+        case AD_MACRO_KN:
+            if (record->event.pressed) {
+                SEND_STRING("kn");
+            }
+            break;
+        case AD_MACRO_KC:
+            if (record->event.pressed) {
+                SEND_STRING("kc");
+            }
+            break;
+        case AD_MACRO_KS:
+            if (record->event.pressed) {
+                SEND_STRING("ks");
+            }
+            break;
+        case AD_MACRO_AU:
+            if (record->event.pressed) {
+                SEND_STRING("au");
+            }
+            break;
+        case AD_MACRO_EO:
+            if (record->event.pressed) {
+                SEND_STRING("eo");
+            }
+            break;
+        case AD_MACRO_IJ:
+            if (record->event.pressed) {
+                SEND_STRING("ij");
+            }
+            break;
+        case AD_MACRO_UA:
+            if (record->event.pressed) {
+                SEND_STRING("ua");
+            }
+            break;
+        case AD_MACRO_OE:
+            if (record->event.pressed) {
+                SEND_STRING("oe");
+            }
+            break;
+        case AD_MACRO_YI:
+            if (record->event.pressed) {
+                SEND_STRING("yi");
+            }
+            break;
+        case AD_MACRO_BY:
+            if (record->event.pressed) {
+                SEND_STRING("by");
+            }
+            break;
+        case AD_MACRO_BO:
+            if (record->event.pressed) {
+                SEND_STRING("bo");
+            }
+            break;
+        case AD_MACRO_BI:
+            if (record->event.pressed) {
+                SEND_STRING("bi");
+            }
+            break;
+        case AD_MACRO_JI:
+            if (record->event.pressed) {
+                SEND_STRING("ji");
+            }
+            break;
+        case AD_MACRO_IB:
+            if (record->event.pressed) {
+                SEND_STRING("ib");
+            }
+            break;
+        case AD_MACRO_JO:
+            if (record->event.pressed) {
+                SEND_STRING("jo");
+            }
+            break;
+        case ST_MACRO_WH:
+            if (record->event.pressed) {
+                SEND_STRING("wh");
+            }
+            break;
+        case ST_MACRO_GH:
+            if (record->event.pressed) {
+                SEND_STRING("gh");
+            }
+            break;
+        case ST_MACRO_SH:
+            if (record->event.pressed) {
+                SEND_STRING("sh");
+            }
+            break;
+        case ST_MACRO_CH:
+            if (record->event.pressed) {
+                SEND_STRING("ch");
+            }
+            break;
+        case ST_MACRO_TH:
+            if (record->event.pressed) {
+                SEND_STRING("th");
+            }
+            break;
+        case ST_MACRO_PH:
+            if (record->event.pressed) {
+                SEND_STRING("ph");
+            }
+            break;
+        case ST_MACRO_DIAMOND:
+            if (record->event.pressed) {
+                SEND_STRING("<>");
+            }
+            break;
+        case ST_MACRO_PARENS:
+            if (record->event.pressed) {
+                SEND_STRING("()");
+            }
+            break;
+        case ST_MACRO_SQUARE:
+            if (record->event.pressed) {
+                SEND_STRING("[]");
+            }
+            break;
+        case ST_MACRO_CURLS:
+            if (record->event.pressed) {
+                SEND_STRING("{}");
+            }
+            break;
+        case ST_MACRO_ARROW_BRACE:
+            if (record->event.pressed) {
+                SEND_STRING("=> {");
+            }
+            break;
+        case ST_MACRO_FULL_STOP:
+            if (record->event.pressed) {
+                SEND_STRING(". ");
+            }
+            break;
+        case TD(DANCE_0):
+        case TD(DANCE_1):
+        case TD(DANCE_2):
+        case TD(DANCE_3):
+            action = &tap_dance_actions[TD_INDEX(keycode)];
+            if (!record->event.pressed && action->state.count && !action->state.finished) {
+                tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+                tap_code16(tap_hold->tap);
+            }
+            break;
+        case RGB_SLD:
+            if (rawhid_state.rgb_control) {
+                return false;
+            }
+            if (record->event.pressed) {
+                rgblight_mode(1);
+            }
+            return false;
+    }
+    return true;
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_W:
-            return g_tapping_term -155;
-        case KC_M:
-            return g_tapping_term -155;
-        case KC_G:
-            return g_tapping_term -155;
-        case KC_S:
-            return g_tapping_term -155;
-        case KC_C:
-            return g_tapping_term -155;
-        case KC_N:
-            return g_tapping_term -155;
-        case KC_T:
-            return g_tapping_term -155;
-        case KC_K:
-            return g_tapping_term -155;
-        case KC_V:
-            return g_tapping_term -155;
-        case KC_F:
-            return g_tapping_term -155;
-        case KC_L:
-            return g_tapping_term -155;
-        case KC_D:
-            return g_tapping_term -155;
         case TD(DANCE_0):
             return g_tapping_term + 75;
         case MT(MOD_LGUI, KC_LEFT):
@@ -311,91 +621,6 @@ bool rgb_matrix_indicators_user(void) {
     if (rgb_matrix_get_flags() == LED_FLAG_NONE)
       rgb_matrix_set_color_all(0, 0, 0);
     break;
-  }
-  return true;
-}
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  switch (keycode) {
-    case ST_MACRO_0:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_W) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_1:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_G) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_2:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_S) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_3:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_C) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_4:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_T) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_5:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_P) SS_DELAY(100) SS_TAP(X_H));
-    }
-    break;
-    case ST_MACRO_6:
-    if (record->event.pressed) {
-      SEND_STRING(SS_RSFT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_RSFT(SS_TAP(X_DOT)));
-    }
-    break;
-    case ST_MACRO_7:
-    if (record->event.pressed) {
-      SEND_STRING(SS_RSFT(SS_TAP(X_9)) SS_DELAY(100) SS_RSFT(SS_TAP(X_0)));
-    }
-    break;
-    case ST_MACRO_8:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_LBRC) SS_DELAY(100) SS_TAP(X_RBRC));
-    }
-    break;
-    case ST_MACRO_9:
-    if (record->event.pressed) {
-      SEND_STRING(SS_RSFT(SS_TAP(X_LBRC)) SS_DELAY(100) SS_RSFT(SS_TAP(X_RBRC)));
-    }
-    break;
-    case ST_MACRO_10:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_RSFT(SS_TAP(X_DOT)) SS_DELAY(100) SS_TAP(X_SPACE) SS_DELAY(100) SS_RSFT(SS_TAP(X_LBRC)));
-    }
-    break;
-    case ST_MACRO_11:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(100) SS_TAP(X_SPACE));
-    }
-    break;
-
-    case TD(DANCE_0):
-    case TD(DANCE_1):
-    case TD(DANCE_2):
-    case TD(DANCE_3):
-        action = &tap_dance_actions[TD_INDEX(keycode)];
-        if (!record->event.pressed && action->state.count && !action->state.finished) {
-            tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-            tap_code16(tap_hold->tap);
-        }
-        break;
-    case RGB_SLD:
-        if (rawhid_state.rgb_control) {
-            return false;
-        }
-        if (record->event.pressed) {
-            rgblight_mode(1);
-        }
-        return false;
   }
   return true;
 }
