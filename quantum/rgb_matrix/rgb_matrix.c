@@ -19,6 +19,7 @@
 #include "rgb_matrix.h"
 #include "progmem.h"
 #include "eeprom.h"
+#include "config.h"
 #include "eeconfig.h"
 #include "keyboard.h"
 #include "sync_timer.h"
@@ -49,6 +50,9 @@ __attribute__((weak)) RGB rgb_matrix_hsv_to_rgb(HSV hsv) {
 
 #include "rgb_matrix_effects.inc"
 #ifdef RGB_MATRIX_CUSTOM_KB
+#    ifdef ORYX_ENABLE
+extern RGB webhid_leds[DRIVER_LED_TOTAL];
+#    endif
 #    include "rgb_matrix_kb.inc"
 #endif
 #ifdef RGB_MATRIX_CUSTOM_USER
