@@ -43,11 +43,10 @@ enum custom_keycodes {
   AD_MACRO_JO,
 };
 
-
 typedef struct {
-    uint16_t tap;
-    uint16_t hold;
-    uint16_t held;
+  uint16_t tap;
+  uint16_t hold;
+  uint16_t held;
 } tap_dance_tap_hold_t;
 tap_dance_action_t *action;
 
@@ -57,8 +56,20 @@ enum tap_dance_codes {
   DANCE_2,
   DANCE_3,
 };
+
+enum Layers {
+  LAYER_BASE,
+  LAYER_LMOD,
+  LAYER_RMOD,
+  LAYER_NUM,
+  LAYER_FN,
+  LAYER_LEFT,
+  LAYER_LFN,
+  LAYER_FIRMWARE,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_moonlander(
+  [LAYER_BASE] = LAYOUT_moonlander(
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,          
     KC_TRANSPARENT, KC_X,           KC_W,           KC_M,           KC_G,           KC_DQUO,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_B,           KC_TRANSPARENT, 
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_LPRN,        KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT, 
@@ -66,15 +77,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(5),          KC_NO,          TT(3),          TT(4),          MO(1),          KC_ESCAPE,                                                                                                      RCTL(KC_BSPC),  MO(2),          MO(4),          CW_TOGG,        KC_NO,          KC_TRANSPARENT, 
     KC_R,           TD(DANCE_0),    KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
-  [1] = LAYOUT_moonlander(
+  [LAYER_LMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          RSFT(KC_J),     LSFT(KC_B),     KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          LSFT(KC_J),     LSFT(KC_B),     KC_TRANSPARENT, 
     LSFT(KC_TAB),   KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_NO,          LSFT(KC_A),     LSFT(KC_E),     LSFT(KC_I),     LSFT(KC_H),     KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          LSFT(KC_U),     LSFT(KC_O),     LSFT(KC_Y),     LSFT(KC_P),     KC_TRANSPARENT, 
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT, KC_NO,                                                                                                          KC_BSPC,        OSM(MOD_LSFT),  KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, LSFT(KC_ENTER), ST_MACRO_FULL_STOP
   ),
-  [2] = LAYOUT_moonlander(
+  [LAYER_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
     KC_TRANSPARENT, RSFT(KC_X),     RSFT(KC_W),     RSFT(KC_M),     RSFT(KC_G),     KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT, 
     RSFT(KC_TAB),   RSFT(KC_S),     RSFT(KC_C),     RSFT(KC_N),     RSFT(KC_T),     RSFT(KC_K),     KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_NO,          KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT, 
@@ -82,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          OSM(MOD_RSFT),  RSFT(KC_ESCAPE),                                                                                                KC_NO,          KC_TRANSPARENT, KC_NO,          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     RSFT(KC_R),     KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_NO,          KC_NO
   ),
-  [3] = LAYOUT_moonlander(
+  [LAYER_NUM] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_LABK,        KC_D,           KC_E,           KC_F,           KC_RABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_7,           KC_8,           KC_9,           TD(DANCE_1),    KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_X,           MT(MOD_LGUI, KC_LEFT),MT(MOD_LALT, KC_UP),MT(MOD_LCTL, KC_DOWN),KC_RIGHT,       KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_HASH,        KC_TRANSPARENT, 
@@ -90,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_SHIFT,  KC_TRANSPARENT,                                                                                                 KC_BSPC,        KC_0,           TD(DANCE_3),    KC_EQUAL,       KC_TRANSPARENT, TO(0),          
     KC_TRANSPARENT, KC_COMMA,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_KP_ENTER,    KC_TRANSPARENT
   ),
-  [4] = LAYOUT_moonlander(
+  [LAYER_FN] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_F14,         KC_F10,         KC_F11,         KC_F12,         KC_F15,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,         KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MEDIA_NEXT_TRACK,KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_MUTE,  KC_AUDIO_VOL_UP,
     KC_TRANSPARENT, KC_BRIGHTNESS_UP,MT(MOD_LGUI, KC_F6),MT(MOD_LALT, KC_F5),MT(MOD_LCTL, KC_F4),KC_F22,         KC_TRANSPARENT,                                                                 KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_AUDIO_VOL_DOWN,
@@ -98,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_LEFT_SHIFT,  KC_TRANSPARENT,                                                                                                 KC_BSPC,        KC_RIGHT_SHIFT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),          
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
-  [5] = LAYOUT_moonlander(
+  [LAYER_LEFT] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, 
     KC_LEFT_SHIFT,  KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,                                           KC_TRANSPARENT, KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,       
     KC_TAB,         KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                                                           KC_EQUAL,       KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       
@@ -106,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(6),          KC_TRANSPARENT, KC_LEFT_GUI,    KC_LEFT_CTRL,   KC_RIGHT_SHIFT, KC_ESCAPE,                                                                                                      KC_TRANSPARENT, KC_RIGHT_SHIFT, KC_RIGHT_ALT,   KC_RIGHT_GUI,   KC_TRANSPARENT, TO(0),          
     KC_SPACE,       KC_ENTER,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
-  [6] = LAYOUT_moonlander(
+  [LAYER_LFN] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_DELETE,      KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_U,                                           QK_DYNAMIC_TAPPING_TERM_UP,RGB_MODE_FORWARD,RGB_HUD,        RGB_HUI,        RGB_TOG,        QK_DYNAMIC_TAPPING_TERM_PRINT,KC_GRAVE,       
     KC_BSPC,        KC_F11,         KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       KC_L,                                                                           QK_DYNAMIC_TAPPING_TERM_DOWN,RGB_SLD,        RGB_VAD,        RGB_VAI,        TOGGLE_LAYER_COLOR,KC_PAUSE,       KC_PSCR,        
@@ -114,7 +125,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_GUI,   KC_RIGHT_CTRL,  KC_LEFT_SHIFT,  KC_ESCAPE,                                                                                                      KC_BSPC,        MO(7),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPS,        
     KC_SPACE,       KC_ENTER,       KC_TRANSPARENT,                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT
   ),
-  [7] = LAYOUT_moonlander(
+  [LAYER_FIRMWARE] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, EE_CLR,         KC_TRANSPARENT,                                 KC_TRANSPARENT, QK_BOOT,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -174,34 +185,34 @@ const uint16_t PROGMEM combo44[] = { KC_N, KC_T, KC_K, COMBO_END};
 
 
 enum combo_index {
-    AD_MG_LG,
-    AD_MT_ML,
-    AD_GM_GL,
-    AD_GK_LK,
-    AD_CK_SK,
-    AD_CM_LM,
-    AD_NK_CK,
-    AD_TK_NK,
-    AD_KT_KN,
-    AD_KN_KC,
-    AD_KC_KS,
+  AD_MG_LG,
+  AD_MT_ML,
+  AD_GM_GL,
+  AD_GK_LK,
+  AD_CK_SK,
+  AD_CM_LM,
+  AD_NK_CK,
+  AD_TK_NK,
+  AD_KT_KN,
+  AD_KN_KC,
+  AD_KC_KS,
 
-    AD_A__AU,
-    AD_E__EO,
-    AD_I__IJ,
-    AD_U__UA,
-    AU_O__OE,
-    AD_Y__YI,
-    AD_B__BY,
-    AD_B__BO,
-    AD_BJ_BI,
-    AD_J__JI,
-    AD_JB_IB,
-    AD_JE_JO,
-    
-    ADAPTIVE_COUNT,
-    ST_COMBO_WG_QU,
-    ST_COMBO_WMG_Q,
+  AD_A__AU,
+  AD_E__EO,
+  AD_I__IJ,
+  AD_U__UA,
+  AU_O__OE,
+  AD_Y__YI,
+  AD_B__BY,
+  AD_B__BO,
+  AD_BJ_BI,
+  AD_J__JI,
+  AD_JB_IB,
+  AD_JE_JO,
+  
+  ADAPTIVE_COUNT,
+  ST_COMBO_WG_QU,
+  ST_COMBO_WMG_Q,
 };
 
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
@@ -228,320 +239,316 @@ const uint16_t PROGMEM adaptiveBJ[] = { KC_B, KC_J, COMBO_END };
 const uint16_t PROGMEM adaptiveJB[] = { KC_J, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveJE[] = { KC_J, KC_E, COMBO_END };
 
-
-
 combo_t key_combos[] = {
+  [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
+  [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
+  [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
+  [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
+  [AD_CK_SK] = COMBO(adaptiveCK, AD_MACRO_SK),
+  [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
+  [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
+  [AD_TK_NK] = COMBO(adaptiveTK, AD_MACRO_NK),
+  [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
+  [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
+  [AD_KC_KS] = COMBO(adaptiveKC, AD_MACRO_KS),
+  [AD_A__AU] = COMBO(adaptiveAparen, AD_MACRO_AU),
+  [AD_E__EO] = COMBO(adaptiveEparen, AD_MACRO_EO),
+  [AD_I__IJ] = COMBO(adaptiveIparen, AD_MACRO_IJ),
+  [AD_U__UA] = COMBO(adaptiveUparen, AD_MACRO_UA),
+  [AU_O__OE] = COMBO(adaptiveOparen, AD_MACRO_OE),
+  [AD_Y__YI] = COMBO(adaptiveYparen, AD_MACRO_YI),
+  [AD_B__BY] = COMBO(adaptiveBparen, AD_MACRO_BY),
+  [AD_B__BO] = COMBO(adaptiveBapost, AD_MACRO_BO),
+  [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
+  [AD_J__JI] = COMBO(adaptiveJparen, AD_MACRO_JI),
+  [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
+  [AD_JE_JO] = COMBO(adaptiveJE, AD_MACRO_JO),
 
-    [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
-    [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
-    [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
-    [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
-    [AD_CK_SK] = COMBO(adaptiveCK, AD_MACRO_SK),
-    [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
-    [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
-    [AD_TK_NK] = COMBO(adaptiveTK, AD_MACRO_NK),
-    [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
-    [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
-    [AD_KC_KS] = COMBO(adaptiveKC, AD_MACRO_KS),
-    [AD_A__AU] = COMBO(adaptiveAparen, AD_MACRO_AU),
-    [AD_E__EO] = COMBO(adaptiveEparen, AD_MACRO_EO),
-    [AD_I__IJ] = COMBO(adaptiveIparen, AD_MACRO_IJ),
-    [AD_U__UA] = COMBO(adaptiveUparen, AD_MACRO_UA),
-    [AU_O__OE] = COMBO(adaptiveOparen, AD_MACRO_OE),
-    [AD_Y__YI] = COMBO(adaptiveYparen, AD_MACRO_YI),
-    [AD_B__BY] = COMBO(adaptiveBparen, AD_MACRO_BY),
-    [AD_B__BO] = COMBO(adaptiveBapost, AD_MACRO_BO),
-    [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
-    [AD_J__JI] = COMBO(adaptiveJparen, AD_MACRO_JI),
-    [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
-    [AD_JE_JO] = COMBO(adaptiveJE, AD_MACRO_JO),
-
-
-    [ADAPTIVE_COUNT] = COMBO(combo0, KC_Z),
-    [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
-    [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
-    COMBO(combo1, ST_MACRO_WH),
-    COMBO(combo2, ST_MACRO_GH),
-    COMBO(combo4, KC_EXLM),
-    COMBO(combo5, ST_MACRO_SH),
-    COMBO(combo6, ST_MACRO_CH),
-    COMBO(combo7, ST_MACRO_TH),
-    COMBO(combo8, ST_MACRO_PH),
-    COMBO(combo9, LCTL(KC_Z)),
-    COMBO(combo10, LCTL(KC_C)),
-    COMBO(combo11, LCTL(KC_V)),
-    COMBO(combo12, LCTL(KC_X)),
-    COMBO(combo13, LCTL(KC_A)),
-    COMBO(combo14, LCTL(KC_V)),
-    COMBO(combo15, KC_ASTR),
-    COMBO(combo16, KC_BSLS),
-    COMBO(combo17, KC_HASH),
-    COMBO(combo18, KC_COLN),
-    COMBO(combo19, KC_QUES),
-    COMBO(combo20, KC_AMPR),
-    COMBO(combo21, KC_PIPE),
-    COMBO(combo22, KC_PERC),
-    COMBO(combo23, KC_LABK),
-    COMBO(combo24, KC_RABK),
-    COMBO(combo25, ST_MACRO_DIAMOND),
-    COMBO(combo26, KC_RPRN),
-    COMBO(combo27, ST_MACRO_PARENS),
-    COMBO(combo28, KC_LBRC),
-    COMBO(combo29, KC_RBRC),
-    COMBO(combo30, ST_MACRO_SQUARE),
-    COMBO(combo31, KC_LCBR),
-    COMBO(combo32, KC_RCBR),
-    COMBO(combo33, ST_MACRO_CURLS),
-    COMBO(combo34, ST_MACRO_ARROW_BRACE),
-    COMBO(combo35, KC_PLUS),
-    COMBO(combo36, KC_EQUAL),
-    COMBO(combo37, KC_UNDS),
-    COMBO(combo38, KC_TILD),
-    COMBO(combo39, KC_CIRC),
-    COMBO(combo40, KC_DLR),
-    COMBO(combo41, KC_GRAVE),
-    COMBO(combo42, KC_ESCAPE),
-    COMBO(combo43, KC_TAB),
-    COMBO(combo44, KC_BSPC),
+  [ADAPTIVE_COUNT] = COMBO(combo0, KC_Z),
+  [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
+  [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
+  COMBO(combo1, ST_MACRO_WH),
+  COMBO(combo2, ST_MACRO_GH),
+  COMBO(combo4, KC_EXLM),
+  COMBO(combo5, ST_MACRO_SH),
+  COMBO(combo6, ST_MACRO_CH),
+  COMBO(combo7, ST_MACRO_TH),
+  COMBO(combo8, ST_MACRO_PH),
+  COMBO(combo9, LCTL(KC_Z)),
+  COMBO(combo10, LCTL(KC_C)),
+  COMBO(combo11, LCTL(KC_V)),
+  COMBO(combo12, LCTL(KC_X)),
+  COMBO(combo13, LCTL(KC_A)),
+  COMBO(combo14, LCTL(KC_V)),
+  COMBO(combo15, KC_ASTR),
+  COMBO(combo16, KC_BSLS),
+  COMBO(combo17, KC_HASH),
+  COMBO(combo18, KC_COLN),
+  COMBO(combo19, KC_QUES),
+  COMBO(combo20, KC_AMPR),
+  COMBO(combo21, KC_PIPE),
+  COMBO(combo22, KC_PERC),
+  COMBO(combo23, KC_LABK),
+  COMBO(combo24, KC_RABK),
+  COMBO(combo25, ST_MACRO_DIAMOND),
+  COMBO(combo26, KC_RPRN),
+  COMBO(combo27, ST_MACRO_PARENS),
+  COMBO(combo28, KC_LBRC),
+  COMBO(combo29, KC_RBRC),
+  COMBO(combo30, ST_MACRO_SQUARE),
+  COMBO(combo31, KC_LCBR),
+  COMBO(combo32, KC_RCBR),
+  COMBO(combo33, ST_MACRO_CURLS),
+  COMBO(combo34, ST_MACRO_ARROW_BRACE),
+  COMBO(combo35, KC_PLUS),
+  COMBO(combo36, KC_EQUAL),
+  COMBO(combo37, KC_UNDS),
+  COMBO(combo38, KC_TILD),
+  COMBO(combo39, KC_CIRC),
+  COMBO(combo40, KC_DLR),
+  COMBO(combo41, KC_GRAVE),
+  COMBO(combo42, KC_ESCAPE),
+  COMBO(combo43, KC_TAB),
+  COMBO(combo44, KC_BSPC),
 };
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-    return index < ADAPTIVE_COUNT ? ADAPTIVE_TERM : COMBO_TERM;
+  return index < ADAPTIVE_COUNT ? ADAPTIVE_TERM : COMBO_TERM;
 }
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
-    return index < ADAPTIVE_COUNT;
+  return index < ADAPTIVE_COUNT;
 }
 
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-    return index < ADAPTIVE_COUNT;
+  return index < ADAPTIVE_COUNT;
 }
 
 bool get_combo_must_hold(uint16_t index, combo_t *combo) {
-    return false;
+  return false;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ST_MACRO_QU:
-            if (record->event.pressed) {
-                SEND_STRING("qu");
-            }
-            break;
-        case AD_MACRO_LG:
-            if (record->event.pressed) {
-                SEND_STRING("lg");
-            }
-            break;
-        case AD_MACRO_ML:
-            if (record->event.pressed) {
-                SEND_STRING("ml");
-            }
-            break;
-        case AD_MACRO_GL:
-            if (record->event.pressed) {
-                SEND_STRING("gl");
-            }
-            break;
-        case AD_MACRO_LK:
-            if (record->event.pressed) {
-                SEND_STRING("lk");
-            }
-            break;
-        case AD_MACRO_SK:
-            if (record->event.pressed) {
-                SEND_STRING("sk");
-            }
-            break;
-        case AD_MACRO_LM:
-            if (record->event.pressed) {
-                SEND_STRING("lm");
-            }
-            break;
-        case AD_MACRO_CK:
-            if (record->event.pressed) {
-                SEND_STRING("ck");
-            }
-            break;
-        case AD_MACRO_NK:
-            if (record->event.pressed) {
-                SEND_STRING("nk");
-            }
-            break;
-        case AD_MACRO_KN:
-            if (record->event.pressed) {
-                SEND_STRING("kn");
-            }
-            break;
-        case AD_MACRO_KC:
-            if (record->event.pressed) {
-                SEND_STRING("kc");
-            }
-            break;
-        case AD_MACRO_KS:
-            if (record->event.pressed) {
-                SEND_STRING("ks");
-            }
-            break;
-        case AD_MACRO_AU:
-            if (record->event.pressed) {
-                SEND_STRING("au");
-            }
-            break;
-        case AD_MACRO_EO:
-            if (record->event.pressed) {
-                SEND_STRING("eo");
-            }
-            break;
-        case AD_MACRO_IJ:
-            if (record->event.pressed) {
-                SEND_STRING("ij");
-            }
-            break;
-        case AD_MACRO_UA:
-            if (record->event.pressed) {
-                SEND_STRING("ua");
-            }
-            break;
-        case AD_MACRO_OE:
-            if (record->event.pressed) {
-                SEND_STRING("oe");
-            }
-            break;
-        case AD_MACRO_YI:
-            if (record->event.pressed) {
-                SEND_STRING("yi");
-            }
-            break;
-        case AD_MACRO_BY:
-            if (record->event.pressed) {
-                SEND_STRING("by");
-            }
-            break;
-        case AD_MACRO_BO:
-            if (record->event.pressed) {
-                SEND_STRING("bo");
-            }
-            break;
-        case AD_MACRO_BI:
-            if (record->event.pressed) {
-                SEND_STRING("bi");
-            }
-            break;
-        case AD_MACRO_JI:
-            if (record->event.pressed) {
-                SEND_STRING("ji");
-            }
-            break;
-        case AD_MACRO_IB:
-            if (record->event.pressed) {
-                SEND_STRING("ib");
-            }
-            break;
-        case AD_MACRO_JO:
-            if (record->event.pressed) {
-                SEND_STRING("jo");
-            }
-            break;
-        case ST_MACRO_WH:
-            if (record->event.pressed) {
-                SEND_STRING("wh");
-            }
-            break;
-        case ST_MACRO_GH:
-            if (record->event.pressed) {
-                SEND_STRING("gh");
-            }
-            break;
-        case ST_MACRO_SH:
-            if (record->event.pressed) {
-                SEND_STRING("sh");
-            }
-            break;
-        case ST_MACRO_CH:
-            if (record->event.pressed) {
-                SEND_STRING("ch");
-            }
-            break;
-        case ST_MACRO_TH:
-            if (record->event.pressed) {
-                SEND_STRING("th");
-            }
-            break;
-        case ST_MACRO_PH:
-            if (record->event.pressed) {
-                SEND_STRING("ph");
-            }
-            break;
-        case ST_MACRO_DIAMOND:
-            if (record->event.pressed) {
-                SEND_STRING("<>");
-            }
-            break;
-        case ST_MACRO_PARENS:
-            if (record->event.pressed) {
-                SEND_STRING("()");
-            }
-            break;
-        case ST_MACRO_SQUARE:
-            if (record->event.pressed) {
-                SEND_STRING("[]");
-            }
-            break;
-        case ST_MACRO_CURLS:
-            if (record->event.pressed) {
-                SEND_STRING("{}");
-            }
-            break;
-        case ST_MACRO_ARROW_BRACE:
-            if (record->event.pressed) {
-                SEND_STRING("=> {");
-            }
-            break;
-        case ST_MACRO_FULL_STOP:
-            if (record->event.pressed) {
-                SEND_STRING(". ");
-            }
-            break;
-        case TD(DANCE_0):
-        case TD(DANCE_1):
-        case TD(DANCE_2):
-        case TD(DANCE_3):
-            action = &tap_dance_actions[TD_INDEX(keycode)];
-            if (!record->event.pressed && action->state.count && !action->state.finished) {
-                tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
-                tap_code16(tap_hold->tap);
-            }
-            break;
-        case RGB_SLD:
-            if (rawhid_state.rgb_control) {
-                return false;
-            }
-            if (record->event.pressed) {
-                rgblight_mode(1);
-            }
-            return false;
+  switch (keycode) {
+  case ST_MACRO_QU:
+    if (record->event.pressed) {
+      SEND_STRING("qu");
     }
-    return true;
+    break;
+  case AD_MACRO_LG:
+    if (record->event.pressed) {
+      SEND_STRING("lg");
+    }
+    break;
+  case AD_MACRO_ML:
+    if (record->event.pressed) {
+      SEND_STRING("ml");
+    }
+    break;
+  case AD_MACRO_GL:
+    if (record->event.pressed) {
+      SEND_STRING("gl");
+    }
+    break;
+  case AD_MACRO_LK:
+    if (record->event.pressed) {
+      SEND_STRING("lk");
+    }
+    break;
+  case AD_MACRO_SK:
+    if (record->event.pressed) {
+      SEND_STRING("sk");
+    }
+    break;
+  case AD_MACRO_LM:
+    if (record->event.pressed) {
+      SEND_STRING("lm");
+    }
+    break;
+  case AD_MACRO_CK:
+    if (record->event.pressed) {
+      SEND_STRING("ck");
+    }
+    break;
+  case AD_MACRO_NK:
+    if (record->event.pressed) {
+      SEND_STRING("nk");
+    }
+    break;
+  case AD_MACRO_KN:
+    if (record->event.pressed) {
+      SEND_STRING("kn");
+    }
+    break;
+  case AD_MACRO_KC:
+    if (record->event.pressed) {
+      SEND_STRING("kc");
+    }
+    break;
+  case AD_MACRO_KS:
+    if (record->event.pressed) {
+      SEND_STRING("ks");
+    }
+    break;
+  case AD_MACRO_AU:
+    if (record->event.pressed) {
+      SEND_STRING("au");
+    }
+    break;
+  case AD_MACRO_EO:
+    if (record->event.pressed) {
+      SEND_STRING("eo");
+    }
+    break;
+  case AD_MACRO_IJ:
+    if (record->event.pressed) {
+      SEND_STRING("ij");
+    }
+    break;
+  case AD_MACRO_UA:
+    if (record->event.pressed) {
+      SEND_STRING("ua");
+    }
+    break;
+  case AD_MACRO_OE:
+    if (record->event.pressed) {
+      SEND_STRING("oe");
+    }
+    break;
+  case AD_MACRO_YI:
+    if (record->event.pressed) {
+      SEND_STRING("yi");
+    }
+    break;
+  case AD_MACRO_BY:
+    if (record->event.pressed) {
+      SEND_STRING("by");
+    }
+    break;
+  case AD_MACRO_BO:
+    if (record->event.pressed) {
+      SEND_STRING("bo");
+    }
+    break;
+  case AD_MACRO_BI:
+    if (record->event.pressed) {
+      SEND_STRING("bi");
+    }
+    break;
+  case AD_MACRO_JI:
+    if (record->event.pressed) {
+      SEND_STRING("ji");
+    }
+    break;
+  case AD_MACRO_IB:
+    if (record->event.pressed) {
+      SEND_STRING("ib");
+    }
+    break;
+  case AD_MACRO_JO:
+    if (record->event.pressed) {
+      SEND_STRING("jo");
+    }
+    break;
+  case ST_MACRO_WH:
+    if (record->event.pressed) {
+      SEND_STRING("wh");
+    }
+    break;
+  case ST_MACRO_GH:
+    if (record->event.pressed) {
+      SEND_STRING("gh");
+    }
+    break;
+  case ST_MACRO_SH:
+    if (record->event.pressed) {
+      SEND_STRING("sh");
+    }
+    break;
+  case ST_MACRO_CH:
+    if (record->event.pressed) {
+      SEND_STRING("ch");
+    }
+    break;
+  case ST_MACRO_TH:
+    if (record->event.pressed) {
+      SEND_STRING("th");
+    }
+    break;
+  case ST_MACRO_PH:
+    if (record->event.pressed) {
+      SEND_STRING("ph");
+    }
+    break;
+  case ST_MACRO_DIAMOND:
+    if (record->event.pressed) {
+      SEND_STRING("<>");
+    }
+    break;
+  case ST_MACRO_PARENS:
+    if (record->event.pressed) {
+      SEND_STRING("()");
+    }
+    break;
+  case ST_MACRO_SQUARE:
+    if (record->event.pressed) {
+      SEND_STRING("[]");
+    }
+    break;
+  case ST_MACRO_CURLS:
+    if (record->event.pressed) {
+      SEND_STRING("{}");
+    }
+    break;
+  case ST_MACRO_ARROW_BRACE:
+    if (record->event.pressed) {
+      SEND_STRING("=> {");
+    }
+    break;
+  case ST_MACRO_FULL_STOP:
+    if (record->event.pressed) {
+      SEND_STRING(". ");
+    }
+    break;
+  case TD(DANCE_0):
+  case TD(DANCE_1):
+  case TD(DANCE_2):
+  case TD(DANCE_3):
+    action = &tap_dance_actions[TD_INDEX(keycode)];
+    if (!record->event.pressed && action->state.count && !action->state.finished) {
+      tap_dance_tap_hold_t *tap_hold = (tap_dance_tap_hold_t *)action->user_data;
+      tap_code16(tap_hold->tap);
+    }
+    break;
+  case RGB_SLD:
+    if (rawhid_state.rgb_control) {
+      return false;
+    }
+    if (record->event.pressed) {
+      rgblight_mode(1);
+    }
+    return false;
+  }
+  return true;
 }
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case TD(DANCE_0):
-            return g_tapping_term + 75;
-        case MT(MOD_LGUI, KC_LEFT):
-            return g_tapping_term + 25;
-        case MT(MOD_LALT, KC_UP):
-            return g_tapping_term + 25;
-        case MT(MOD_LCTL, KC_DOWN):
-            return g_tapping_term + 25;
-        case TD(DANCE_1):
-            return g_tapping_term + 25;
-        case TD(DANCE_3):
-            return g_tapping_term + 25;
-        default:
-            return g_tapping_term;
-    }
+  switch (keycode) {
+  case TD(DANCE_0):
+    return g_tapping_term + 75;
+  case MT(MOD_LGUI, KC_LEFT):
+    return g_tapping_term + 25;
+  case MT(MOD_LALT, KC_UP):
+    return g_tapping_term + 25;
+  case MT(MOD_LCTL, KC_DOWN):
+    return g_tapping_term + 25;
+  case TD(DANCE_1):
+    return g_tapping_term + 25;
+  case TD(DANCE_3):
+    return g_tapping_term + 25;
+  default:
+    return g_tapping_term;
+  }
 }
 
 extern rgb_config_t rgb_matrix_config;
