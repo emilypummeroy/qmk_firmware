@@ -12,9 +12,7 @@ enum custom_keycodes {
   ST_MACRO_ARROW_BRACE,
   ST_MACRO_FULL_STOP,
 
-  KC_ALNUM_MACRO_FIRST,
-
-  ST_MACRO_QU,
+  ST_MACRO_QU, KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
   ST_MACRO_SH,
@@ -51,9 +49,7 @@ enum custom_keycodes {
   AD_MACRO_OB,
   AD_MACRO_BY,
   AD_MACRO_BI,
-  AD_MACRO_IB,
-
-  KC_ALNUM_MACRO_LAST,
+  AD_MACRO_IB, KC_ALNUM_MACRO_LAST = AD_MACRO_IB,
 };
 
 enum Layers {
@@ -184,7 +180,7 @@ const uint16_t PROGMEM combo44[] = { KC_N, KC_T, KC_K, COMBO_END};
 
 
 enum combo_index {
-  AD_MG_LG,
+  AD_MG_LG, ADAPTIVE_FIRST = AD_MG_LG,
   AD_MT_ML,
   AD_GM_GL,
   AD_GK_LK,
@@ -213,9 +209,8 @@ enum combo_index {
   AD_dB_OB,
   AD_Bq_BY,
   AD_BJ_BI,
-  AD_JB_IB,
+  AD_JB_IB, ADAPTIVE_LAST = AD_JB_IB,
 
-  ADAPTIVE_COUNT,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
 };
@@ -283,9 +278,10 @@ combo_t key_combos[] = {
   [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
   [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
 
-  [ADAPTIVE_COUNT] = COMBO(combo0, KC_Z),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
+
+  COMBO(combo0, KC_Z),
   COMBO(combo1, ST_MACRO_WH),
   COMBO(combo2, ST_MACRO_GH),
   COMBO(combo4, KC_EXLM),
@@ -331,16 +327,24 @@ combo_t key_combos[] = {
   COMBO(combo44, KC_BSPC),
 };
 
+inline bool is_adaptive(uint16_t index) {
+  switch (index) {
+  case ADAPTIVE_FIRST ... ADAPTIVE_LAST: return true;
+  default: return false;
+  }
+}
+
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
-  return index < ADAPTIVE_COUNT ? ADAPTIVE_TERM : COMBO_TERM;
+  return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
 }
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
-  return index < ADAPTIVE_COUNT;
+  return is_adaptive(index);
+
 }
 
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-  return index < ADAPTIVE_COUNT;
+  return is_adaptive(index);
 }
 
 bool get_combo_must_hold(uint16_t index, combo_t *combo) {
@@ -611,8 +615,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       rgblight_mode(1);
     }
     return false;
+
+  default:
+    return true;
   }
-  return true;
 }
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
