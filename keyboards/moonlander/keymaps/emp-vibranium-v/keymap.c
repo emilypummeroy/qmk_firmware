@@ -4,6 +4,16 @@
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
+
+  ST_MACRO_DIAMOND,
+  ST_MACRO_PARENS,
+  ST_MACRO_SQUARE,
+  ST_MACRO_CURLS,
+  ST_MACRO_ARROW_BRACE,
+  ST_MACRO_FULL_STOP,
+
+  KC_ALNUM_MACRO_FIRST,
+
   ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
@@ -11,12 +21,6 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
-  ST_MACRO_DIAMOND,
-  ST_MACRO_PARENS,
-  ST_MACRO_SQUARE,
-  ST_MACRO_CURLS,
-  ST_MACRO_ARROW_BRACE,
-  ST_MACRO_FULL_STOP,
 
   AD_MACRO_LG,
   AD_MACRO_ML,
@@ -48,6 +52,8 @@ enum custom_keycodes {
   AD_MACRO_BY,
   AD_MACRO_BI,
   AD_MACRO_IB,
+
+  KC_ALNUM_MACRO_LAST,
 };
 
 enum Layers {
@@ -339,6 +345,27 @@ bool get_combo_must_tap(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_hold(uint16_t index, combo_t *combo) {
   return false;
+}
+
+bool caps_word_press_user(uint16_t keycode) {
+  switch (keycode) {
+  // Keycodes that continue Caps Word, with shift applied.
+  case KC_A ... KC_Z:
+  case KC_MINS:
+    add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+    return true;
+
+  // Keycodes that continue Caps Word, without shifting.
+  case KC_1 ... KC_0:
+  case KC_BSPC:
+  case KC_DEL:
+  case KC_UNDS:
+  case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
+    return true;
+
+  default:
+    return false;  // Deactivate Caps Word.
+  }
 }
 
 #define SEND_STRINGS(BASE, SHIFTED, CAPS) \
