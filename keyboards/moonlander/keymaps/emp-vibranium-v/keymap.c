@@ -30,18 +30,24 @@ enum custom_keycodes {
   AD_MACRO_KC,
   AD_MACRO_KS,
   AD_MACRO_VS,
+
+  // Vowel SFB adaptives
   AD_MACRO_AU,
   AD_MACRO_EO,
   AD_MACRO_IJ,
   AD_MACRO_UA,
   AD_MACRO_OE,
   AD_MACRO_YI,
-  AD_MACRO_BY,
-  AD_MACRO_BO,
-  AD_MACRO_BI,
   AD_MACRO_JI,
-  AD_MACRO_IB,
+
+  // JB adaptives
   AD_MACRO_JO,
+  AD_MACRO_OJ,
+  AD_MACRO_BO,
+  AD_MACRO_OB,
+  AD_MACRO_BY,
+  AD_MACRO_BI,
+  AD_MACRO_IB,
 };
 
 enum Layers {
@@ -185,18 +191,23 @@ enum combo_index {
   AD_KC_KS,
   AD_VC_VS,
 
-  AD_A__AU,
-  AD_E__EO,
-  AD_I__IJ,
-  AD_U__UA,
-  AU_O__OE,
-  AD_Y__YI,
-  AD_B__BY,
-  AD_B__BO,
+  // Vowel SFB adaptives
+  AD_AH_AU,
+  AD_EH_EO,
+  AD_IH_IJ,
+  AD_UH_UA,
+  AU_OH_OE,
+  AD_YH_YI,
+  AD_JH_JI,
+
+  // JB adaptives
+  AD_Jd_JO,
+  AD_dJ_OJ,
+  AD_Bd_BO,
+  AD_dB_OB,
+  AD_Bq_BY,
   AD_BJ_BI,
-  AD_J__JI,
   AD_JB_IB,
-  AD_JE_JO,
 
   ADAPTIVE_COUNT,
   ST_COMBO_WG_QU,
@@ -215,18 +226,24 @@ const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveKN[] = { KC_K, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveKC[] = { KC_K, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveAparen[] = { KC_A, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveEparen[] = { KC_E, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveIparen[] = { KC_I, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveUparen[] = { KC_U, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveOparen[] = { KC_O, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveYparen[] = { KC_Y, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveBparen[] = { KC_B, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveJparen[] = { KC_J, KC_LPRN, COMBO_END };
-const uint16_t PROGMEM adaptiveBapost[] = { KC_B, KC_QUOTE, COMBO_END };
+
+// Vowel SFB adaptives
+const uint16_t PROGMEM adaptiveAH[] = { KC_A, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveEH[] = { KC_E, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveIH[] = { KC_I, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveUH[] = { KC_U, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveYH[] = { KC_Y, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
+
+// JB adaptives
+const uint16_t PROGMEM adaptiveJd[] = { KC_J, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveBd[] = { KC_B, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptivedB[] = { KC_DOT, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBq[] = { KC_B, KC_QUOTE, COMBO_END };
 const uint16_t PROGMEM adaptiveBJ[] = { KC_B, KC_J, COMBO_END };
 const uint16_t PROGMEM adaptiveJB[] = { KC_J, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveJE[] = { KC_J, KC_E, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
@@ -241,18 +258,24 @@ combo_t key_combos[] = {
   [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
   [AD_KC_KS] = COMBO(adaptiveKC, AD_MACRO_KS),
   [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
-  [AD_A__AU] = COMBO(adaptiveAparen, AD_MACRO_AU),
-  [AD_E__EO] = COMBO(adaptiveEparen, AD_MACRO_EO),
-  [AD_I__IJ] = COMBO(adaptiveIparen, AD_MACRO_IJ),
-  [AD_U__UA] = COMBO(adaptiveUparen, AD_MACRO_UA),
-  [AU_O__OE] = COMBO(adaptiveOparen, AD_MACRO_OE),
-  [AD_Y__YI] = COMBO(adaptiveYparen, AD_MACRO_YI),
-  [AD_B__BY] = COMBO(adaptiveBparen, AD_MACRO_BY),
-  [AD_B__BO] = COMBO(adaptiveBapost, AD_MACRO_BO),
+
+  // Vowel SFB adaptives
+  [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
+  [AD_EH_EO] = COMBO(adaptiveEH, AD_MACRO_EO),
+  [AD_IH_IJ] = COMBO(adaptiveIH, AD_MACRO_IJ),
+  [AD_UH_UA] = COMBO(adaptiveUH, AD_MACRO_UA),
+  [AU_OH_OE] = COMBO(adaptiveOH, AD_MACRO_OE),
+  [AD_YH_YI] = COMBO(adaptiveYH, AD_MACRO_YI),
+  [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
+
+  // JB adaptives
+  [AD_Jd_JO] = COMBO(adaptiveJd, AD_MACRO_JO),
+  [AD_dJ_OJ] = COMBO(adaptivedJ, AD_MACRO_OJ),
+  [AD_Bd_BO] = COMBO(adaptiveBd, AD_MACRO_BO),
+  [AD_dB_OB] = COMBO(adaptivedB, AD_MACRO_OB),
+  [AD_Bq_BY] = COMBO(adaptiveBq, AD_MACRO_BY),
   [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
-  [AD_J__JI] = COMBO(adaptiveJparen, AD_MACRO_JI),
   [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
-  [AD_JE_JO] = COMBO(adaptiveJE, AD_MACRO_JO),
 
   [ADAPTIVE_COUNT] = COMBO(combo0, KC_Z),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
@@ -390,6 +413,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("vs", "Vs", "VS");
     }
     return true;
+
+  // Vowel SFB adaptives
   case AD_MACRO_AU:
     if (record->event.pressed) {
       SEND_STRINGS("au", "Au", "AU");
@@ -420,9 +445,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("yi", "Yi", "YI");
     }
     return true;
-  case AD_MACRO_BY:
+  case AD_MACRO_JI:
     if (record->event.pressed) {
-      SEND_STRINGS("by", "By", "BY");
+      SEND_STRINGS("ji", "Ji", "JI");
+    }
+    return true;
+
+  // JB adaptives
+  case AD_MACRO_JO:
+    if (record->event.pressed) {
+      SEND_STRINGS("jo", "Jo", "JO");
+    }
+    return true;
+  case AD_MACRO_OJ:
+    if (record->event.pressed) {
+      SEND_STRINGS("oj", "oJ", "OJ");
     }
     return true;
   case AD_MACRO_BO:
@@ -430,14 +467,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("bo", "Bo", "BO");
     }
     return true;
+  case AD_MACRO_OB:
+    if (record->event.pressed) {
+      SEND_STRINGS("ob", "oB", "OB");
+    }
+    return true;
+  case AD_MACRO_BY:
+    if (record->event.pressed) {
+      SEND_STRINGS("by", "By", "BY");
+    }
+    return true;
   case AD_MACRO_BI:
     if (record->event.pressed) {
       SEND_STRINGS("bi", "Bi", "BI");
-    }
-    return true;
-  case AD_MACRO_JI:
-    if (record->event.pressed) {
-      SEND_STRINGS("ji", "Ji", "JI");
     }
     return true;
   case AD_MACRO_IB:
@@ -445,11 +487,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("ib", "Ib", "IB");
     }
     return true;
-  case AD_MACRO_JO:
-    if (record->event.pressed) {
-      SEND_STRINGS("jo", "Jo", "JO");
-    }
-    return true;
+
+  // H digraphs
   case ST_MACRO_WH:
     if (record->event.pressed) {
       SEND_STRINGS("wh", "Wh", "WH");
@@ -480,6 +519,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("ph", "Ph", "PH");
     }
     return true;
+
+  // Symbol macros
   case ST_MACRO_DIAMOND:
     if (record->event.pressed) {
       SEND_STRING("<>");
@@ -510,6 +551,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(". ");
     }
     return true;
+
   case LT(0, KC_COMMA):
     if (!record->tap.count && record->event.pressed) {
       tap_code16(KC_SCLN);
