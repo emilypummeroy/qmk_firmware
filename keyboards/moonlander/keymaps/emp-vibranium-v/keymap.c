@@ -72,10 +72,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,
     KC_NO,          KC_X,           KC_W,           KC_M,           KC_G,           KC_DQUO,        KC_NO,                                          KC_NO,          KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_B,           KC_NO,
-    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,          KC_LPRN,        KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
+    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,          KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
     KC_NO,          KC_V,           KC_F,           KC_L,           KC_D,           KC_SLASH,                                                                       KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_P,           KC_NO,
     TO(5),          KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
-    KC_R,          LT(0, KC_COMMA), KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
+    KC_R,           KC_LPRN,        KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
   [_LMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT,
@@ -138,6 +138,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM comboDotQuote[] = { KC_DOT, KC_QUOTE, COMBO_END};
+const uint16_t PROGMEM comboCommaA[] = { KC_COMMA, KC_A, COMBO_END};
 const uint16_t PROGMEM combo0[] = { KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_M, KC_G, COMBO_END};
@@ -155,7 +157,6 @@ const uint16_t PROGMEM combo14[] = { KC_F, KC_L, KC_D, COMBO_END};
 const uint16_t PROGMEM combo15[] = { KC_D, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM combo16[] = { KC_L, KC_D, KC_SLASH, COMBO_END};
 const uint16_t PROGMEM combo17[] = { KC_AT, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo18[] = { KC_DOT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM combo19[] = { KC_QUOTE, KC_J, COMBO_END};
 const uint16_t PROGMEM combo20[] = { KC_AT, KC_DOT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM combo21[] = { KC_DOT, KC_QUOTE, KC_J, COMBO_END};
@@ -224,6 +225,8 @@ enum combo_index {
 
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
+  ST_COMBO_DOT_QUOTE_COLN,
+  ST_COMBO_COMMA_A_SCLN,
 };
 
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
@@ -302,6 +305,8 @@ combo_t key_combos[] = {
 
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
+  [ST_COMBO_DOT_QUOTE_COLN] = COMBO(comboDotQuote, KC_COLN),
+  [ST_COMBO_COMMA_A_SCLN] = COMBO(comboCommaA, KC_SCLN),
 
   COMBO(combo0, KC_Z),
   COMBO(combo1, ST_MACRO_WH),
@@ -320,7 +325,6 @@ combo_t key_combos[] = {
   COMBO(combo15, KC_ASTR),
   COMBO(combo16, KC_BSLS),
   COMBO(combo17, KC_HASH),
-  COMBO(combo18, KC_COLN),
   COMBO(combo19, KC_QUES),
   COMBO(combo20, KC_AMPR),
   COMBO(combo21, KC_PIPE),
@@ -623,12 +627,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 
-  case LT(0, KC_COMMA):
-    if (!record->tap.count && record->event.pressed) {
-      tap_code16(KC_SCLN);
-      return false;
-    }
-    return true;
   case LT(0, KC_DOT):
     if (!record->tap.count && record->event.pressed) {
       tap_code16(KC_COLN);
@@ -663,8 +661,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case LT(0, KC_COMMA):
-    return g_tapping_term + 75;
   case MT(MOD_LGUI, KC_LEFT):
     return g_tapping_term + 25;
   case MT(MOD_LALT, KC_UP):
@@ -693,7 +689,7 @@ void keyboard_post_init_user(void) {
 #define TAP_HOLD_COLOUR {128,242,161}
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
-    [_BASE] = { BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {101,206,157}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, FN_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, NUM_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, TAP_HOLD_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, FN_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR },
+    [_BASE] = { BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {101,206,157}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, FN_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, NUM_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, FN_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR },
 
     [_LMOD] = { {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {67,180,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR },
 
