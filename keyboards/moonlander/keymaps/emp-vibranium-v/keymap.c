@@ -23,20 +23,25 @@ enum custom_keycodes {
   AD_MACRO_LG,
   AD_MACRO_ML,
   AD_MACRO_GL,
+  AD_MACRO_LM,
+  AD_MACRO_VS,
+
+  // K adaptives
   AD_MACRO_LK,
   AD_MACRO_SK,
-  AD_MACRO_LM,
   AD_MACRO_CK,
   AD_MACRO_NK,
   AD_MACRO_KN,
   AD_MACRO_KC,
   AD_MACRO_KS,
-  AD_MACRO_VS,
+  AD_MACRO_LKS,
+  AD_MACRO_CKS,
+  AD_MACRO_NKS,
 
   // Vowel SFB adaptives
   AD_MACRO_AU,
   AD_MACRO_EO,
-  AD_MACRO_IJ,
+  AD_MACRO_PHI,
   AD_MACRO_UA,
   AD_MACRO_OE,
   AD_MACRO_YI,
@@ -183,20 +188,26 @@ enum combo_index {
   AD_MG_LG, ADAPTIVE_FIRST = AD_MG_LG,
   AD_MT_ML,
   AD_GM_GL,
+  AD_CM_LM,
+  AD_VC_VS,
+
+  // K adaptives
   AD_GK_LK,
   AD_CK_SK,
-  AD_CM_LM,
   AD_NK_CK,
   AD_TK_NK,
   AD_KT_KN,
   AD_KN_KC,
   AD_KC_KS,
-  AD_VC_VS,
+
+  AD_GKC_LKS,
+  AD_NKC_CKS,
+  AD_TKC_NKS,
 
   // Vowel SFB adaptives
   AD_AH_AU,
   AD_EH_EO,
-  AD_IH_IJ,
+  AD_IH_PHI,
   AD_UH_UA,
   AU_OH_OE,
   AD_YH_YI,
@@ -218,15 +229,21 @@ enum combo_index {
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
+
+// K adaptives
 const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveCK[] = { KC_C, KC_K, COMBO_END };
-const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveNK[] = { KC_N, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveKN[] = { KC_K, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveKC[] = { KC_K, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
+
+const uint16_t PROGMEM adaptiveGKC[] = { KC_G, KC_K, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveNKC[] = { KC_N, KC_K, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveTKC[] = { KC_T, KC_K, KC_C, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAH[] = { KC_A, KC_H, COMBO_END };
@@ -250,20 +267,25 @@ combo_t key_combos[] = {
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
   [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
+  [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
+  [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
+
+  // K adaptives
   [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
   [AD_CK_SK] = COMBO(adaptiveCK, AD_MACRO_SK),
-  [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
   [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
   [AD_TK_NK] = COMBO(adaptiveTK, AD_MACRO_NK),
   [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
   [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
   [AD_KC_KS] = COMBO(adaptiveKC, AD_MACRO_KS),
-  [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
+  [AD_GKC_LKS] = COMBO(adaptiveGKC, AD_MACRO_LKS),
+  [AD_NKC_CKS] = COMBO(adaptiveNKC, AD_MACRO_CKS),
+  [AD_TKC_NKS] = COMBO(adaptiveTKC, AD_MACRO_NKS),
 
   // Vowel SFB adaptives
   [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
   [AD_EH_EO] = COMBO(adaptiveEH, AD_MACRO_EO),
-  [AD_IH_IJ] = COMBO(adaptiveIH, AD_MACRO_IJ),
+  [AD_IH_PHI] = COMBO(adaptiveIH, AD_MACRO_PHI),
   [AD_UH_UA] = COMBO(adaptiveUH, AD_MACRO_UA),
   [AU_OH_OE] = COMBO(adaptiveOH, AD_MACRO_OE),
   [AD_YH_YI] = COMBO(adaptiveYH, AD_MACRO_YI),
@@ -340,13 +362,14 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   return is_adaptive(index);
-
 }
 
+// Disabled
 bool get_combo_must_tap(uint16_t index, combo_t *combo) {
-  return is_adaptive(index);
+  return false;
 }
 
+// Disabled
 bool get_combo_must_hold(uint16_t index, combo_t *combo) {
   return false;
 }
@@ -399,21 +422,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("gl", "Gl", "GL");
     }
     return true;
-  case AD_MACRO_LK:
-    if (record->event.pressed) {
-      SEND_STRINGS("lk", "Lk", "LK");
-    }
-    return true;
-  case AD_MACRO_SK:
-    if (record->event.pressed) {
-      SEND_STRINGS("sk", "Sk", "SK");
-    }
-    return true;
   case AD_MACRO_LM:
     if (record->event.pressed) {
       SEND_STRINGS("lm", "Lm", "LM");
     }
     return true;
+  case AD_MACRO_VS:
+    if (record->event.pressed) {
+      SEND_STRINGS("vs", "Vs", "VS");
+    }
+    return true;
+
+  // K Adaptives
   case AD_MACRO_CK:
     if (record->event.pressed) {
       SEND_STRINGS("ck", "Ck", "CK");
@@ -439,9 +459,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("ks", "Ks", "KS");
     }
     return true;
-  case AD_MACRO_VS:
+  case AD_MACRO_LK:
     if (record->event.pressed) {
-      SEND_STRINGS("vs", "Vs", "VS");
+      SEND_STRINGS("lk", "Lk", "LK");
+    }
+    return true;
+  case AD_MACRO_SK:
+    if (record->event.pressed) {
+      SEND_STRINGS("sk", "Sk", "SK");
+    }
+    return true;
+  case AD_MACRO_CKS:
+    if (record->event.pressed) {
+      SEND_STRINGS("cks", "Cks", "CKS");
+    }
+    return true;
+  case AD_MACRO_NKS:
+    if (record->event.pressed) {
+      SEND_STRINGS("nks", "Nks", "NKS");
+    }
+    return true;
+  case AD_MACRO_LKS:
+    if (record->event.pressed) {
+      SEND_STRINGS("lks", "Lks", "LKS");
     }
     return true;
 
@@ -456,9 +496,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("eo", "Eo", "EO");
     }
     return true;
-  case AD_MACRO_IJ:
+  case AD_MACRO_PHI:
     if (record->event.pressed) {
-      SEND_STRINGS("ij", "Ij", "IJ");
+      SEND_STRINGS("phi", "Phi", "PHI");
     }
     return true;
   case AD_MACRO_UA:
