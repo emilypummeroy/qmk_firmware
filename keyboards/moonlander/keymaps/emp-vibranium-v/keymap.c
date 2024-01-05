@@ -144,6 +144,7 @@ enum combo_index {
 
   // K adaptives
   AD_GK_LK,
+  AD_DK_LK,
   AD_CK_SK,
   AD_NK_CK,
   AD_TK_NK,
@@ -235,6 +236,7 @@ const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 
 // K adaptives
 const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveDK[] = { KC_D, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveCK[] = { KC_C, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNK[] = { KC_N, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
@@ -273,6 +275,7 @@ combo_t key_combos[] = {
 
   // K adaptives
   [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
+  [AD_DK_LK] = COMBO(adaptiveDK, AD_MACRO_LK),
   [AD_CK_SK] = COMBO(adaptiveCK, AD_MACRO_SK),
   [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
   [AD_TK_NK] = COMBO(adaptiveTK, AD_MACRO_NK),
