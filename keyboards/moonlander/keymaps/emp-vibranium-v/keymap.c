@@ -135,11 +135,54 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+enum combo_index {
+  AD_MG_LG, ADAPTIVE_FIRST = AD_MG_LG,
+  AD_MT_ML,
+  AD_GM_GL,
+  AD_CM_LM,
+  AD_VC_VS,
+
+  // K adaptives
+  AD_GK_LK,
+  AD_CK_SK,
+  AD_NK_CK,
+  AD_TK_NK,
+  AD_KT_KN,
+  AD_KN_KC,
+  AD_KC_KS,
+
+  AD_GKC_LKS,
+  AD_NKC_CKS,
+  AD_TKC_NKS,
+
+  // Vowel SFB adaptives
+  AD_AH_AU,
+  AD_EH_EO,
+  AD_IH_PHI,
+  AD_UH_UA,
+  AU_OH_OE,
+  AD_YH_YI,
+  AD_JH_JI,
+
+  // JB adaptives
+  AD_Jd_JO,
+  AD_dJ_OJ,
+  AD_Bd_BO,
+  AD_dB_OB,
+  AD_Bq_BY,
+  AD_BJ_BI,
+  AD_JB_IB, ADAPTIVE_LAST = AD_JB_IB,
+
+  ST_COMBO_WG_QU,
+  ST_COMBO_WMG_Q,
+  ST_COMBO_DOT_QUOTE_COLN,
+  ST_COMBO_COMMA_DOT_SCLN,
+};
 
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM comboDotQuote[] = { KC_DOT, KC_QUOTE, COMBO_END};
-const uint16_t PROGMEM comboCommaA[] = { KC_COMMA, KC_A, COMBO_END};
+const uint16_t PROGMEM comboCommaDot[] = { KC_COMMA, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo0[] = { KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_M, KC_G, COMBO_END};
@@ -183,51 +226,6 @@ const uint16_t PROGMEM combo41[] = { KC_U, KC_O, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo42[] = { KC_S, KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM combo43[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM combo44[] = { KC_N, KC_T, KC_K, COMBO_END};
-
-
-enum combo_index {
-  AD_MG_LG, ADAPTIVE_FIRST = AD_MG_LG,
-  AD_MT_ML,
-  AD_GM_GL,
-  AD_CM_LM,
-  AD_VC_VS,
-
-  // K adaptives
-  AD_GK_LK,
-  AD_CK_SK,
-  AD_NK_CK,
-  AD_TK_NK,
-  AD_KT_KN,
-  AD_KN_KC,
-  AD_KC_KS,
-
-  AD_GKC_LKS,
-  AD_NKC_CKS,
-  AD_TKC_NKS,
-
-  // Vowel SFB adaptives
-  AD_AH_AU,
-  AD_EH_EO,
-  AD_IH_PHI,
-  AD_UH_UA,
-  AU_OH_OE,
-  AD_YH_YI,
-  AD_JH_JI,
-
-  // JB adaptives
-  AD_Jd_JO,
-  AD_dJ_OJ,
-  AD_Bd_BO,
-  AD_dB_OB,
-  AD_Bq_BY,
-  AD_BJ_BI,
-  AD_JB_IB, ADAPTIVE_LAST = AD_JB_IB,
-
-  ST_COMBO_WG_QU,
-  ST_COMBO_WMG_Q,
-  ST_COMBO_DOT_QUOTE_COLN,
-  ST_COMBO_COMMA_A_SCLN,
-};
 
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
@@ -306,7 +304,7 @@ combo_t key_combos[] = {
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
   [ST_COMBO_DOT_QUOTE_COLN] = COMBO(comboDotQuote, KC_COLN),
-  [ST_COMBO_COMMA_A_SCLN] = COMBO(comboCommaA, KC_SCLN),
+  [ST_COMBO_COMMA_DOT_SCLN] = COMBO(comboCommaDot, KC_SCLN),
 
   COMBO(combo0, KC_Z),
   COMBO(combo1, ST_MACRO_WH),
