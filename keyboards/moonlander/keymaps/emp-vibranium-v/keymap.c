@@ -166,11 +166,11 @@ enum combo_index {
   AD_JH_JI,
 
   // JB adaptives
-  AD_Jd_JO,
-  AD_dJ_OJ,
-  AD_Bd_BO,
-  AD_dB_OB,
-  AD_Bq_BY,
+  AD_Jq_JO,
+  AD_qJ_OJ,
+  AD_Bd_BY,
+  AD_qB_OB,
+  AD_Bq_BO,
   AD_BJ_BI,
   AD_JB_IB, ADAPTIVE_LAST = AD_JB_IB,
 
@@ -258,11 +258,11 @@ const uint16_t PROGMEM adaptiveYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // JB adaptives
-const uint16_t PROGMEM adaptiveJd[] = { KC_J, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
-const uint16_t PROGMEM adaptiveBd[] = { KC_B, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptivedB[] = { KC_DOT, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 const uint16_t PROGMEM adaptiveBq[] = { KC_B, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveqB[] = { KC_QUOTE, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBd[] = { KC_B, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveBJ[] = { KC_B, KC_J, COMBO_END };
 const uint16_t PROGMEM adaptiveJB[] = { KC_J, KC_B, COMBO_END };
 
@@ -296,11 +296,11 @@ combo_t key_combos[] = {
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // JB adaptives
-  [AD_Jd_JO] = COMBO(adaptiveJd, AD_MACRO_JO),
-  [AD_dJ_OJ] = COMBO(adaptivedJ, AD_MACRO_OJ),
-  [AD_Bd_BO] = COMBO(adaptiveBd, AD_MACRO_BO),
-  [AD_dB_OB] = COMBO(adaptivedB, AD_MACRO_OB),
-  [AD_Bq_BY] = COMBO(adaptiveBq, AD_MACRO_BY),
+  [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
+  [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
+  [AD_Bd_BY] = COMBO(adaptiveBd, AD_MACRO_BY),
+  [AD_qB_OB] = COMBO(adaptiveqB, AD_MACRO_OB),
+  [AD_Bq_BO] = COMBO(adaptiveBq, AD_MACRO_BO),
   [AD_BJ_BI] = COMBO(adaptiveBJ, AD_MACRO_BI),
   [AD_JB_IB] = COMBO(adaptiveJB, AD_MACRO_IB),
 
