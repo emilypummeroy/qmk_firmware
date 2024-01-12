@@ -24,6 +24,7 @@ enum custom_keycodes {
   AD_MACRO_ML,
   AD_MACRO_GL,
   AD_MACRO_LM,
+  AD_MACRO_DG,
   AD_MACRO_VS,
 
   // K adaptives
@@ -140,6 +141,7 @@ enum combo_index {
   AD_MT_ML,
   AD_GM_GL,
   AD_CM_LM,
+  AD_DM_DG,
   AD_VC_VS,
 
   // K adaptives
@@ -232,6 +234,7 @@ const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 
 // K adaptives
@@ -271,6 +274,7 @@ combo_t key_combos[] = {
   [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
+  [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
 
   // K adaptives
@@ -430,6 +434,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case AD_MACRO_LM:
     if (record->event.pressed) {
       SEND_STRINGS("lm", "Lm", "LM");
+    }
+    return true;
+  case AD_MACRO_DG:
+    if (record->event.pressed) {
+      SEND_STRINGS("dg", "Dg", "DG");
     }
     return true;
   case AD_MACRO_VS:
