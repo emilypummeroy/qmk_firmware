@@ -419,7 +419,7 @@ bool caps_word_press_user(uint16_t keycode) {
   // Keycodes that continue Caps Word, with shift applied.
   case KC_A ... KC_Z:
   case KC_MINS:
-    add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
+    add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to this key.
     return true;
 
   // Keycodes that continue Caps Word, without shifting.
@@ -435,9 +435,18 @@ bool caps_word_press_user(uint16_t keycode) {
   }
 }
 
+uint8_t current_mods;
+#define SEND_STRING_CLEAR(KEYS) \
+  current_mods = get_mods(); \
+  clear_mods(); \
+  SEND_STRING(KEYS); \
+  register_mods(current_mods);
+
 #define SEND_STRINGS(BASE, SHIFTED, CAPS) \
   if (is_caps_word_on()) SEND_STRING(CAPS); \
-  else if ((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT) SEND_STRING(SHIFTED); \
+  else if ((get_mods() | get_oneshot_mods()) & MOD_MASK_SHIFT) { \
+    SEND_STRING_CLEAR(SHIFTED); \
+  } \
   else SEND_STRING(BASE);
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -664,7 +673,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
   case ST_MACRO_FULL_STOP:
     if (record->event.pressed) {
-      SEND_STRING(". ");
+      SEND_STRING_CLEAR(". ");
     }
     return true;
 
