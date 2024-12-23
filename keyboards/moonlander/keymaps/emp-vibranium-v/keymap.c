@@ -64,6 +64,7 @@ enum Layers {
   _LMOD,
   _RMOD,
   _NUM,
+  _NUMPAD,
   _FN,
   _LEFT,
   _LFN,
@@ -76,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_X,           KC_W,           KC_M,           KC_G,           KC_DQUO,        KC_NO,                                          KC_NO,          KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_B,           KC_NO,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,          KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
     KC_NO,          KC_V,           KC_F,           KC_L,           KC_D,           KC_SLASH,                                                                       KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_P,           KC_NO,
-    TO(5),          KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
+    TO(_LEFT),      KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
     KC_R,           KC_LPRN,        KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
   [_LMOD] = LAYOUT_moonlander(
@@ -97,17 +98,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_NUM] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_LABK,        KC_D,           KC_E,           KC_F,           KC_RABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_7,           KC_8,           KC_9,           LT(0, KC_DLR),  KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_LABK,        KC_D,           KC_E,           KC_F,           KC_RABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_7,           KC_8,           KC_9,           KC_DLR,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_X,           MT(MOD_LGUI, KC_LEFT),MT(MOD_LALT, KC_UP),MT(MOD_LCTL, KC_DOWN),KC_RIGHT,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_HASH,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_LPRN,        KC_A,           KC_B,           KC_C,           KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,          LT(0, KC_SLASH), KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_LPRN,        KC_A,           KC_B,           KC_C,           KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           KC_SLASH,       KC_TRANSPARENT,
     TO(0),          KC_TRANSPARENT, TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_0,           LT(0, KC_DOT),  KC_EQUAL,       KC_TRANSPARENT, TO(0),
-    KC_TRANSPARENT, KC_COMMA,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_KP_ENTER,    KC_TRANSPARENT
+    TO(_NUMPAD),    KC_COMMA,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       KC_TRANSPARENT
+  ),
+  [_NUMPAD] = LAYOUT_moonlander(
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_LABK,        KC_D,           KC_E,           KC_F,           KC_RABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_KP_ASTERISK, KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_NUM,         KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_X,           MT(MOD_LGUI, KC_LEFT),MT(MOD_LALT, KC_UP),MT(MOD_LCTL, KC_DOWN),KC_RIGHT,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_HASH,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_LPRN,        KC_A,           KC_B,           KC_C,           KC_RPRN,                                                                        KC_KP_MINUS,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_SLASH,    KC_TRANSPARENT,
+    TO(0),          KC_TRANSPARENT, TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_KP_0,        KC_KP_DOT,      KC_KP_EQUAL,    KC_TRANSPARENT, TO(0),
+    TO(_NUM),       KC_KP_COMMA,    KC_TRANSPARENT,                 KC_TRANSPARENT, KC_KP_ENTER,    KC_TRANSPARENT
   ),
   [_FN] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_F14,         KC_F10,         KC_F11,         KC_F12,         KC_F15,         KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MEDIA_NEXT_TRACK,KC_MEDIA_PREV_TRACK,KC_MEDIA_PLAY_PAUSE,KC_AUDIO_MUTE,  KC_AUDIO_VOL_UP,
     KC_TRANSPARENT, KC_BRIGHTNESS_UP,MT(MOD_LGUI, KC_F6),MT(MOD_LALT, KC_F5),MT(MOD_LCTL, KC_F4),KC_F22,         KC_TRANSPARENT,                    KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_AUDIO_VOL_DOWN,
-    KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                      KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
+    KC_TRANSPARENT, KC_BRIGHTNESS_DOWN,KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                         KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
     TO(0),          KC_TRANSPARENT, TO(0),          TO(_NUM),       KC_LEFT_SHIFT,                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, TO(0),
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -124,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_DELETE,      KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_U,                                           QK_DYNAMIC_TAPPING_TERM_UP,RGB_MODE_FORWARD,RGB_HUD,        RGB_HUI,        RGB_TOG,        QK_DYNAMIC_TAPPING_TERM_PRINT,KC_SCRL,
     KC_BSPC,        KC_F11,         KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       KC_L,                                           QK_DYNAMIC_TAPPING_TERM_DOWN,RGB_SLD,        RGB_VAD,        RGB_VAI,        TOGGLE_LAYER_COLOR,KC_PAUSE,       KC_PSCR,
     KC_RIGHT_ALT,   KC_F12,         KC_HOME,        KC_PAGE_UP,     KC_PGDN,        KC_END,                                                                         CM_OFF,         CM_ON,          MOON_LED_LEVEL, AU_TOGG,        KC_BSLS,        KC_RIGHT_CTRL,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_GUI,   KC_RIGHT_CTRL,  KC_LEFT_SHIFT,                  KC_ESCAPE,                                      KC_BSPC,                        MO(7),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPS,
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_RIGHT_GUI,   KC_RIGHT_CTRL,  KC_LEFT_SHIFT,                  KC_ESCAPE,                                      KC_BSPC,                        MO(_FIRMWARE),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_CAPS,
     KC_SPACE,       KC_ENTER,       KC_TRANSPARENT,                 KC_TRANSPARENT, TO(0),          KC_TRANSPARENT
   ),
   [_FIRMWARE] = LAYOUT_moonlander(
@@ -734,6 +743,7 @@ void keyboard_post_init_user(void) {
 
 #define BASE_COLOUR {93,255,191}
 #define NUM_COLOUR {36,255,193}
+#define NUMPAD_COLOUR {64,255,193}
 #define FN_COLOUR {203,196,165}
 
 #define TAP_HOLD_COLOUR {128,242,161}
@@ -746,6 +756,8 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [_RMOD] = { BASE_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, BASE_COLOUR, {0,0,0}, {0,0,0}, BASE_COLOUR, TAP_HOLD_COLOUR, BASE_COLOUR, BASE_COLOUR, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {67,180,255}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {86,255,204}, {0,0,0} },
 
     [_NUM] = { NUM_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, {0,0,0}, NUM_COLOUR, TAP_HOLD_COLOUR, NUM_COLOUR, FN_COLOUR, {0,0,0}, NUM_COLOUR, TAP_HOLD_COLOUR, NUM_COLOUR, BASE_COLOUR, {0,0,0}, NUM_COLOUR, TAP_HOLD_COLOUR, NUM_COLOUR, {86,255,204}, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, NUM_COLOUR, NUM_COLOUR, {0,0,0}, NUM_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, TAP_HOLD_COLOUR, NUM_COLOUR, TAP_HOLD_COLOUR, NUM_COLOUR, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, TAP_HOLD_COLOUR, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, {0,0,0}, {0,0,0}, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR, NUM_COLOUR },
+
+    [_NUMPAD] = { NUMPAD_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, NUMPAD_COLOUR, TAP_HOLD_COLOUR, NUMPAD_COLOUR, FN_COLOUR, {0,0,0}, NUMPAD_COLOUR, TAP_HOLD_COLOUR, NUMPAD_COLOUR, BASE_COLOUR, {0,0,0}, NUMPAD_COLOUR, TAP_HOLD_COLOUR, NUMPAD_COLOUR, {86,255,204}, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, NUMPAD_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, {0,0,0}, TAP_HOLD_COLOUR, NUMPAD_COLOUR, TAP_HOLD_COLOUR, NUMPAD_COLOUR, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, TAP_HOLD_COLOUR, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, {0,0,0}, {0,0,0}, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR, NUMPAD_COLOUR },
 
     [_FN] = { FN_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, BASE_COLOUR, FN_COLOUR, FN_COLOUR, {102,255,143}, {102,255,143}, FN_COLOUR, FN_COLOUR, FN_COLOUR, TAP_HOLD_COLOUR, FN_COLOUR, BASE_COLOUR, FN_COLOUR, FN_COLOUR, TAP_HOLD_COLOUR, FN_COLOUR, NUM_COLOUR, FN_COLOUR, FN_COLOUR, TAP_HOLD_COLOUR, FN_COLOUR, {86,255,204}, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, {0,0,0}, {0,0,0}, {0,0,0}, FN_COLOUR, {0,0,0}, FN_COLOUR, {102,255,143}, {102,255,143}, FN_COLOUR, BASE_COLOUR, FN_COLOUR, {102,255,143}, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, {102,255,143}, FN_COLOUR, FN_COLOUR, {86,255,204}, FN_COLOUR, {102,255,143}, FN_COLOUR, FN_COLOUR, {67,180,255}, FN_COLOUR, {102,255,143}, FN_COLOUR, FN_COLOUR, {86,255,204}, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR, FN_COLOUR },
 
