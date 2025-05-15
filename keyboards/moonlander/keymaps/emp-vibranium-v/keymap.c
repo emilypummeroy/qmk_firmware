@@ -43,7 +43,6 @@ enum custom_keycodes {
   // Vowel SFB adaptives
   AD_MACRO_AU,
   AD_MACRO_EO,
-  AD_MACRO_PHI,
   AD_MACRO_UA,
   AD_MACRO_OE,
   AD_MACRO_YI,
@@ -71,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,
     KC_NO,          KC_X,           KC_W,           KC_M,           KC_G,           KC_DQUO,        KC_NO,                                          KC_NO,          KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_SLASH,       KC_NO,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,          KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
-    KC_NO,          KC_V,           KC_F,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_P,           KC_NO,
+    KC_NO,          KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_F,           KC_NO,
     TO(_LEFT),      KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
     KC_R,           KC_LPRN,        KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
@@ -79,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_J,           KC_NO,          KC_TRANSPARENT,
     KC_TAB,         KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                          KC_NO,          KC_U,           KC_O,           KC_Y,           KC_P,           KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                          KC_NO,          KC_U,           KC_O,           KC_Y,           KC_F,           KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT,                                 KC_BSPC,                        OSM(MOD_RSFT),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       ST_MACRO_FULL_STOP
   ),
@@ -87,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_X,           KC_W,           KC_M,           KC_G,           KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_V,           KC_F,           KC_L,           KC_D,           KC_B,                                                                           KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          OSM(MOD_RSFT),                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_R,           KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_NO,          KC_NO
   ),
@@ -166,10 +165,9 @@ enum combo_index {
   // Vowel SFB adaptives
   AD_AH_AU,
   AD_EH_EO,
-  AD_IH_PHI,
+  AD_IH_YI,
   AD_UH_UA,
   AU_OH_OE,
-  AD_YH_YI,
   AD_JH_JI,
 
   // J adaptives
@@ -219,11 +217,11 @@ const uint16_t PROGMEM modboCurls[] = { KC_LPRN, KC_I, KC_E, COMBO_END};
 const uint16_t PROGMEM modboArrowBrace[] = { KC_LPRN, KC_QUOTE, KC_A, COMBO_END};
 
 // Text editing combos
-const uint16_t PROGMEM comboUndo[] = { KC_V, KC_F, COMBO_END};
+const uint16_t PROGMEM comboUndo[] = { KC_V, KC_P, COMBO_END};
 const uint16_t PROGMEM comboSelect[] = { KC_V, KC_L, COMBO_END};
-const uint16_t PROGMEM comboCopy[] = { KC_F, KC_D, COMBO_END};
-const uint16_t PROGMEM comboCut[] = { KC_V, KC_F, KC_L, COMBO_END};
-const uint16_t PROGMEM comboPaste[] = { KC_F, KC_L, KC_D, COMBO_END};
+const uint16_t PROGMEM comboCopy[] = { KC_P, KC_D, COMBO_END};
+const uint16_t PROGMEM comboCut[] = { KC_V, KC_P, KC_L, COMBO_END};
+const uint16_t PROGMEM comboPaste[] = { KC_P, KC_L, KC_D, COMBO_END};
 
 // Top row Symbol combos
 const uint16_t PROGMEM comboBsls[] = { KC_J, KC_SLASH, COMBO_END};
@@ -237,13 +235,13 @@ const uint16_t PROGMEM comboAmpersand[] = { KC_AT, KC_DOT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM comboPipe[] = { KC_DOT, KC_QUOTE, KC_J, COMBO_END};
 const uint16_t PROGMEM comboPercent[] = { KC_QUOTE, KC_J, KC_SLASH, COMBO_END};
 
-// Bigram combos
+// Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboST[] = { KC_S, KC_T, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
-const uint16_t PROGMEM comboPY[] = { KC_P, KC_Y, COMBO_END};
+const uint16_t PROGMEM comboVD[] = { KC_V, KC_D, COMBO_END};
 
 const uint16_t PROGMEM comboZ[] = { KC_X, KC_W, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
@@ -289,7 +287,6 @@ const uint16_t PROGMEM adaptiveEH[] = { KC_E, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveIH[] = { KC_I, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveUH[] = { KC_U, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
@@ -320,10 +317,9 @@ combo_t key_combos[] = {
   // Vowel SFB adaptives
   [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
   [AD_EH_EO] = COMBO(adaptiveEH, AD_MACRO_EO),
-  [AD_IH_PHI] = COMBO(adaptiveIH, AD_MACRO_PHI),
+  [AD_IH_YI] = COMBO(adaptiveIH, AD_MACRO_YI),
   [AD_UH_UA] = COMBO(adaptiveUH, AD_MACRO_UA),
   [AU_OH_OE] = COMBO(adaptiveOH, AD_MACRO_OE),
-  [AD_YH_YI] = COMBO(adaptiveYH, AD_MACRO_YI),
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // J adaptives
@@ -373,7 +369,7 @@ combo_t key_combos[] = {
   COMBO(comboST, ST_MACRO_SH),
   COMBO(comboCN, ST_MACRO_CH),
   COMBO(comboTN, ST_MACRO_TH),
-  COMBO(comboPY, ST_MACRO_PH),
+  COMBO(comboVD, ST_MACRO_PH),
 
   COMBO(comboZ, KC_Z),
 
@@ -560,11 +556,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case AD_MACRO_EO:
     if (record->event.pressed) {
       SEND_STRINGS("eo", "Eo", "EO");
-    }
-    return true;
-  case AD_MACRO_PHI:
-    if (record->event.pressed) {
-      SEND_STRINGS("phi", "Phi", "PHI");
     }
     return true;
   case AD_MACRO_UA:
