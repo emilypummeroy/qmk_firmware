@@ -47,7 +47,7 @@ enum custom_keycodes {
   AD_MACRO_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@T
+  // L@D S@C C@N M@G
   AD_MACRO_MB,
   AD_MACRO_BM,
   AD_MACRO_SB,
@@ -642,7 +642,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 
   // B adaptives
-  // L@D S@C C@N M@T
+  // L@D S@C C@N M@G
   case AD_MACRO_MB:
     if (record->event.pressed) {
       SEND_STRINGS("mb", "Mb", "MB");
