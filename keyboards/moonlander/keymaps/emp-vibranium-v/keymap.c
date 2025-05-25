@@ -56,6 +56,7 @@ enum custom_keycodes {
   AD_MACRO_BL,
   AD_MACRO_CB,
   AD_MACRO_BC, // ribcage
+  AD_MACRO_BT, // SFB, TB is easier, BT is more common
   AD_MACRO_LBS,
   AD_MACRO_MBS,
   AD_MACRO_BTS, // doubts
@@ -195,9 +196,11 @@ enum combo_index {
   AD_BD_BL,
   AD_NB_CB,
   AD_BN_BC, // ribcage
+  AD_TB_BT, // SFB
   AD_DBC_LBS,
   AD_GBC_MBS,
-  AD_GBC_BTC, // doubts
+  AD_TBC_BTS, // doubts, SFB
+  AD_BTC_BTS, // doubts
 
   // Vowel SFB adaptives
   AD_AH_AU,
@@ -332,9 +335,11 @@ const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBD[] = { KC_B, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNB[] = { KC_N, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveDBC[] = { KC_D, KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveGBC[] = { KC_G, KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveTBC[] = { KC_T, KC_B, KC_C, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAH[] = { KC_A, KC_H, COMBO_END };
@@ -383,9 +388,11 @@ combo_t key_combos[] = {
   [AD_BD_BL] = COMBO(adaptiveBD, AD_MACRO_BL),
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
+  [AD_TB_BT] = COMBO(adaptiveTB, AD_MACRO_BT),
   [AD_DBC_LBS] = COMBO(adaptiveDBC, AD_MACRO_LBS),
   [AD_GBC_MBS] = COMBO(adaptiveGBC, AD_MACRO_MBS),
-  [AD_GBC_BTC] = COMBO(adaptiveBTC, AD_MACRO_BTS),
+  [AD_BTC_BTS] = COMBO(adaptiveBTC, AD_MACRO_BTS),
+  [AD_TBC_BTS] = COMBO(adaptiveTBC, AD_MACRO_BTS),
 
   // Vowel SFB adaptives
   [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
@@ -681,6 +688,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case AD_MACRO_BC:
     if (record->event.pressed) {
       SEND_STRINGS("bc", "Bc", "BC");
+    }
+    return true;
+  case AD_MACRO_BT:
+    if (record->event.pressed) {
+      SEND_STRINGS("bt", "Bt", "BT");
     }
     return true;
   case AD_MACRO_LBS:
