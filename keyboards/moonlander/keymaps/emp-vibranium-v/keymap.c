@@ -25,8 +25,10 @@ enum custom_keycodes {
   AD_MACRO_MP,
   AD_MACRO_LG,
   AD_MACRO_ML,
-  AD_MACRO_GL,
   AD_MACRO_LM,
+  AD_MACRO_MN,
+  AD_MACRO_NM,
+  AD_MACRO_GL,
   AD_MACRO_DG,
   AD_MACRO_VS,
   // Maybe Mc would be convenient
@@ -165,9 +167,11 @@ enum combo_index {
   AD_WM_WL, ADAPTIVE_FIRST = AD_WM_WL,
   AD_MW_MP,
   AD_MG_LG,
-  AD_MT_ML,
-  AD_GM_GL,
+  AD_MC_ML,
   AD_CM_LM,
+  AD_MT_MN,
+  AD_TM_NM,
+  AD_GM_GL,
   AD_DM_DG,
   AD_VC_VS,
 
@@ -304,9 +308,11 @@ const uint16_t PROGMEM combo44[] = { KC_N, KC_T, KC_K, COMBO_END};
 const uint16_t PROGMEM adaptiveWM[] = { KC_W, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMW[] = { KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveTM[] = { KC_T, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 
@@ -357,9 +363,11 @@ combo_t key_combos[] = {
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
   [AD_MW_MP] = COMBO(adaptiveMW, AD_MACRO_MP),
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
-  [AD_MT_ML] = COMBO(adaptiveMT, AD_MACRO_ML),
-  [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
+  [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
+  [AD_MT_MN] = COMBO(adaptiveMT, AD_MACRO_MN),
+  [AD_TM_NM] = COMBO(adaptiveTM, AD_MACRO_NM),
+  [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
   [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
 
@@ -564,14 +572,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRINGS("ml", "Ml", "ML");
     }
     return true;
-  case AD_MACRO_GL:
-    if (record->event.pressed) {
-      SEND_STRINGS("gl", "Gl", "GL");
-    }
-    return true;
   case AD_MACRO_LM:
     if (record->event.pressed) {
       SEND_STRINGS("lm", "Lm", "LM");
+    }
+    return true;
+  case AD_MACRO_MN:
+    if (record->event.pressed) {
+      SEND_STRINGS("mn", "Mn", "MN");
+    }
+    return true;
+  case AD_MACRO_NM:
+    if (record->event.pressed) {
+      SEND_STRINGS("nm", "Nm", "NM");
+    }
+    return true;
+  case AD_MACRO_GL:
+    if (record->event.pressed) {
+      SEND_STRINGS("gl", "Gl", "GL");
     }
     return true;
   case AD_MACRO_DG:
