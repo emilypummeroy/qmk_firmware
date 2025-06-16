@@ -49,13 +49,17 @@ enum custom_keycodes {
   AD_MACRO_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@G
+  // L@D S@C C@N M@G P@L V@P
   AD_MACRO_MB,
   AD_MACRO_BM,
   AD_MACRO_SB,
   AD_MACRO_BS,
   AD_MACRO_LB,
   AD_MACRO_BL,
+  AD_MACRO_PB,
+  AD_MACRO_BP,
+  AD_MACRO_VB,
+  AD_MACRO_BV,
   AD_MACRO_CB,
   AD_MACRO_BC, // ribcage
   AD_MACRO_BT, // SFB, TB is easier, BT is more common
@@ -191,13 +195,17 @@ enum combo_index {
   AD_NKG_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@G
+  // L@D S@C C@N M@G P@L V@P
   AD_GB_MB,
   AD_BG_BM,
   AD_CB_SB,
   AD_BC_BS,
   AD_DB_LB,
   AD_BD_BL,
+  AD_LB_PB,
+  AD_BL_BP,
+  AD_PB_VB,
+  AD_BP_BV,
   AD_NB_CB,
   AD_BN_BC, // ribcage
   AD_TB_BT, // SFB
@@ -332,13 +340,17 @@ const uint16_t PROGMEM adaptiveTKC[] = { KC_T, KC_K, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 
 // B adaptives
-// L@D S@C C@N M@G
+// L@D S@C C@N M@G P@L V@P
 const uint16_t PROGMEM adaptiveGB[] = { KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBG[] = { KC_B, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBC[] = { KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBD[] = { KC_B, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveLB[] = { KC_L, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBL[] = { KC_B, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptivePB[] = { KC_P, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNB[] = { KC_N, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
@@ -387,13 +399,17 @@ combo_t key_combos[] = {
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
 
   // B adaptives
-  // L@D S@C C@N M@G
+  // L@D S@C C@N M@G P@L V@P
   [AD_GB_MB] = COMBO(adaptiveGB, AD_MACRO_MB),
   [AD_BG_BM] = COMBO(adaptiveBG, AD_MACRO_BM),
   [AD_CB_SB] = COMBO(adaptiveCB, AD_MACRO_SB),
   [AD_BC_BS] = COMBO(adaptiveBC, AD_MACRO_BS),
   [AD_DB_LB] = COMBO(adaptiveDB, AD_MACRO_LB),
   [AD_BD_BL] = COMBO(adaptiveBD, AD_MACRO_BL),
+  [AD_LB_PB] = COMBO(adaptiveLB, AD_MACRO_PB),
+  [AD_BL_BP] = COMBO(adaptiveBL, AD_MACRO_BP),
+  [AD_PB_VB] = COMBO(adaptivePB, AD_MACRO_VB),
+  [AD_BP_BV] = COMBO(adaptiveBP, AD_MACRO_BV),
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_TB_BT] = COMBO(adaptiveTB, AD_MACRO_BT),
@@ -696,6 +712,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case AD_MACRO_BL:
     if (record->event.pressed) {
       SEND_STRINGS("bl", "Bl", "BL");
+    }
+    return true;
+  case AD_MACRO_PB:
+    if (record->event.pressed) {
+      SEND_STRINGS("pb", "Pb", "PB");
+    }
+    return true;
+  case AD_MACRO_BP:
+    if (record->event.pressed) {
+      SEND_STRINGS("bp", "Bp", "BP");
+    }
+    return true;
+  case AD_MACRO_VB:
+    if (record->event.pressed) {
+      SEND_STRINGS("vb", "Vb", "VB");
+    }
+    return true;
+  case AD_MACRO_BV:
+    if (record->event.pressed) {
+      SEND_STRINGS("bv", "Bv", "BV");
     }
     return true;
   case AD_MACRO_CB:
