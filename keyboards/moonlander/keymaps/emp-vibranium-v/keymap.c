@@ -13,7 +13,8 @@ enum custom_keycodes {
 
   ST_MACRO_FULL_STOP, // Maybe this should shift the next letter
 
-  ST_MACRO_QU, KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
+  ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
+  ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
   ST_MACRO_SH,
@@ -114,7 +115,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_X,           KC_W,           KC_M,           KC_G,           KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          OSM(MOD_RSFT),                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -244,6 +245,7 @@ enum combo_index {
   MB_CURLS,
   MB_ARROW_BRACE, MODBO_LAST = MB_ARROW_BRACE,
 
+  ST_COMBO_XW_ZZ,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
   ST_COMBO_BSLS,
@@ -300,7 +302,7 @@ const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboPN[] = { KC_P, KC_N, COMBO_END};
 
-const uint16_t PROGMEM comboZ[] = { KC_X, KC_W, COMBO_END};
+const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 
@@ -455,6 +457,7 @@ combo_t key_combos[] = {
 
   // !!! UNSORTED !!!
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
+  [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
   [ST_COMBO_BSLS] = COMBO(comboBsls, KC_BSLS),
   [ST_COMBO_DOT_QUOTE_COLN] = COMBO(comboDotQuote, KC_COLN),
@@ -483,8 +486,6 @@ combo_t key_combos[] = {
   COMBO(comboCN, ST_MACRO_CH),
   COMBO(comboTN, ST_MACRO_TH),
   COMBO(comboPN, ST_MACRO_PH),
-
-  COMBO(comboZ, KC_Z),
 
   // Line combos
   COMBO(combo35, KC_PLUS),
@@ -572,6 +573,11 @@ uint8_t current_mods;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
+  case ST_MACRO_ZZ:
+    if (record->event.pressed) {
+      SEND_STRINGS("zz", "Zz", "ZZ");
+    }
+    return true;
   case ST_MACRO_QU:
     if (record->event.pressed) {
       SEND_STRINGS("qu", "Qu", "QU");
@@ -894,8 +900,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   case LT(0, KC_X):
     if (!record->tap.count && record->event.pressed) {
-      tap_code16(KC_Z);
-      return false;
+      SEND_STRINGS("z", "Z", "Z");
+      return true;
     }
     return true;
   case LT(0, KC_DOT):
