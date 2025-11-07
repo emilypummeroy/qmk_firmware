@@ -5,6 +5,7 @@
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 
+  // TODO rework brackets
   MB_MACRO_DIAMOND,
   MB_MACRO_PARENS,
   MB_MACRO_SQUARE,
@@ -33,6 +34,10 @@ enum custom_keycodes {
   AD_MACRO_DG,
   AD_MACRO_VS,
   // Maybe Mc would be convenient
+
+  // TODO F adaptives
+  // L@G N@T S@C C@N W@M X@W
+  // Need FT for after, ooft, etc.
 
   // K adaptives
   // S@C C@N N@T L@G P@L
@@ -99,23 +104,23 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,
-    KC_NO,          LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_DQUO,        KC_NO,                                          KC_NO,          KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_SLASH,       KC_NO,
+    KC_NO,          LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_NO,                                          KC_NO,          KC_AT,          KC_DOT,         KC_QUOTE,       KC_J,           KC_DQUO,        KC_NO,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,          KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
-    KC_NO,          KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_F,           KC_NO,
+    KC_NO,          KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_SLASH,       KC_NO,
     TO(_LEFT),      KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
     KC_R,           KC_LPRN,        KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
   [_LMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_J,           KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_DQUO,        KC_J,           KC_NO,          KC_TRANSPARENT,
     KC_TAB,         KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                          KC_NO,          KC_U,           KC_O,           KC_Y,           KC_F,           KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                          KC_NO,          KC_U,           KC_O,           KC_Y,           KC_QUES,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT,                                 KC_BSPC,                        OSM(MOD_RSFT),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       ST_MACRO_FULL_STOP
   ),
   [_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,          KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          OSM(MOD_RSFT),                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -442,6 +447,7 @@ combo_t key_combos[] = {
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Parentheses modifier combos
+  // TODO rework brackets
   [MB_LABK] = COMBO(modboLabk, KC_LABK),
   [MB_RABK] = COMBO(modboRabk, KC_RABK),
   [MB_DIAMOND] = COMBO(modboDiamond, MB_MACRO_DIAMOND),
@@ -472,6 +478,7 @@ combo_t key_combos[] = {
   [ST_COMBO_PASTE] = COMBO(comboPaste, LCTL(KC_V)),
 
   // Top row symbol combos
+  // TODO redefine top row combos
   COMBO(comboExclam, KC_EXLM),
   COMBO(comboHash, KC_HASH),
   COMBO(comboQuestion, KC_QUES),
