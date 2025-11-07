@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_RPRN,        KC_DLR,         KC_NO,          KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_RPRN,        KC_DLR,         KC_NO,          KC_HASH,        KC_TRANSPARENT,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LPRN,   KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_PIPE,        KC_NO,          KC_NO,          KC_NO,          KC_PERC,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          OSM(MOD_RSFT),                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -250,8 +250,8 @@ enum combo_index {
   AD_JH_JI,
 
   // J adaptives
-  AD_Jq_JO,
-  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
+  AD_Jd_JO,
+  AD_dJ_OJ, ADAPTIVE_LAST = AD_dJ_OJ,
 
   ST_COMBO_XW_ZZ,
   ST_COMBO_WG_QU,
@@ -277,10 +277,6 @@ const uint16_t PROGMEM comboPaste[] = { KC_P, KC_L, KC_D, COMBO_END};
 const uint16_t PROGMEM comboAstr[] = { KC_COMMA, KC_A, COMBO_END};
 const uint16_t PROGMEM comboExclam[] = { KC_DOT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM comboQuestion[] = { KC_QUOTE, KC_J, COMBO_END};
-const uint16_t PROGMEM comboHash[] = { KC_J, KC_AT, COMBO_END};
-const uint16_t PROGMEM comboAmpersand[] = { KC_SCLN, KC_DOT, KC_QUOTE, COMBO_END};
-const uint16_t PROGMEM comboPipe[] = { KC_DOT, KC_QUOTE, KC_J, COMBO_END};
-const uint16_t PROGMEM comboDollar[] = { KC_QUOTE, KC_J, KC_AT, COMBO_END};
 
 // Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
@@ -379,8 +375,8 @@ const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
-const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
-const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveJd[] = { KC_J, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
@@ -453,8 +449,8 @@ combo_t key_combos[] = {
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // J adaptives
-  [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
-  [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
+  [AD_Jd_JO] = COMBO(adaptiveJd, AD_MACRO_JO),
+  [AD_dJ_OJ] = COMBO(adaptivedJ, AD_MACRO_OJ),
 
   // !!! UNSORTED !!!
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
@@ -474,10 +470,6 @@ combo_t key_combos[] = {
   COMBO(comboAstr, KC_ASTR),
   COMBO(comboExclam, KC_EXLM),
   COMBO(comboQuestion, KC_QUES),
-  COMBO(comboHash, KC_HASH),
-  COMBO(comboAmpersand, KC_AMPR),
-  COMBO(comboPipe, KC_PIPE),
-  COMBO(comboDollar, KC_DLR),
 
   // Bigram combos
   COMBO(comboWM, ST_MACRO_WH),
