@@ -35,9 +35,18 @@ enum custom_keycodes {
   AD_MACRO_VS,
   // Maybe Mc would be convenient
 
-  // TODO F adaptives
-  // L@G N@T S@C C@N W@M X@W
+  // F adaptives
+  // L@G N@T S@C W@M
   // Need FT for after, ooft, etc.
+  AD_MACRO_LF,
+  AD_MACRO_FL,
+  AD_MACRO_NF,
+  AD_MACRO_SF,
+  AD_MACRO_FS,
+  AD_MACRO_WF,
+  AD_MACRO_FW,
+  AD_MACRO_LFS,
+  AD_MACRO_NFS,
 
   // K adaptives
   // S@C C@N N@T L@G P@L
@@ -188,6 +197,19 @@ enum combo_index {
   AD_DM_DG,
   AD_VC_VS,
 
+  // F adaptives
+  // L@G N@T S@C W@M
+  AD_GF_LF,
+  AD_FG_FL,
+  AD_TF_NF,
+  // Need FT for after, ooft, etc.
+  AD_CF_SF,
+  AD_FC_FS,
+  AD_MF_WF,
+  AD_FM_FW,
+  AD_GFC_LFS,
+  AD_TFC_NFS,
+
   // K adaptives
   // S@C C@N N@T L@G P@L
   AD_GK_LK,
@@ -336,6 +358,19 @@ const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 
+// F adaptives
+// L@G N@T S@C W@M
+const uint16_t PROGMEM adaptiveGF[] = { KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFG[] = { KC_F, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveTF[] = { KC_T, KC_F, COMBO_END };
+// Need FT for after, ooft, etc.
+const uint16_t PROGMEM adaptiveCF[] = { KC_C, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFC[] = { KC_F, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveMF[] = { KC_M, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFM[] = { KC_F, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGFC[] = { KC_G, KC_F, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveTFC[] = { KC_T, KC_F, KC_C, COMBO_END };
+
 // K adaptives
 // S@C C@N N@T L@G P@L
 const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
@@ -396,6 +431,19 @@ combo_t key_combos[] = {
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
   [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
+
+  // F adaptives
+  // L@G N@T S@C W@M
+  [AD_GF_LF] = COMBO(adaptiveGF, AD_MACRO_LF),
+  [AD_FG_FL] = COMBO(adaptiveFG, AD_MACRO_FL),
+  [AD_TF_NF] = COMBO(adaptiveTF, AD_MACRO_NF),
+  // Need FT for after, ooft, etc.
+  [AD_CF_SF] = COMBO(adaptiveCF, AD_MACRO_SF),
+  [AD_FC_FS] = COMBO(adaptiveFC, AD_MACRO_FS),
+  [AD_MF_WF] = COMBO(adaptiveMF, AD_MACRO_WF),
+  [AD_FM_FW] = COMBO(adaptiveFM, AD_MACRO_FW),
+  [AD_GFC_LFS] = COMBO(adaptiveGFC, AD_MACRO_LFS),
+  [AD_TFC_NFS] = COMBO(adaptiveTFC, AD_MACRO_NFS),
 
   // K adaptives
   // S@C C@N N@T L@G P@L
@@ -599,6 +647,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GL, "gl", "Gl", "GL");
     SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
     SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
+
+  // F adaptives
+  // L@G N@T S@C W@M
+  // Need FT for after, ooft, etc.
+    SEND_CASED_STRINGS(AD_MACRO_LF, "lf", "Lf", "LF");
+    SEND_CASED_STRINGS(AD_MACRO_FL, "fl", "Fl", "FL");
+    SEND_CASED_STRINGS(AD_MACRO_NF, "nf", "Nf", "NF");
+    SEND_CASED_STRINGS(AD_MACRO_SF, "sf", "Sf", "SF");
+    SEND_CASED_STRINGS(AD_MACRO_FS, "fs", "Fs", "FS");
+    SEND_CASED_STRINGS(AD_MACRO_WF, "wf", "Wf", "WF");
+    SEND_CASED_STRINGS(AD_MACRO_FW, "fw", "Fw", "FW");
+    SEND_CASED_STRINGS(AD_MACRO_LFS, "lfs", "Lfs", "LFS");
+    SEND_CASED_STRINGS(AD_MACRO_NFS, "nfs", "Nfs", "NFS");
 
   // K adaptives
   // S@C C@N N@T L@G P@L
