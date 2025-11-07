@@ -302,7 +302,6 @@ const uint16_t PROGMEM combo36[] = { KC_MINUS, KC_O, COMBO_END};
 const uint16_t PROGMEM combo37[] = { KC_A, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM combo38[] = { KC_MINUS, KC_U, KC_O, COMBO_END};
 const uint16_t PROGMEM combo39[] = { KC_MINUS, KC_A, KC_O, COMBO_END};
-const uint16_t PROGMEM combo40[] = { KC_MINUS, KC_E, KC_Y, COMBO_END};
 const uint16_t PROGMEM combo41[] = { KC_U, KC_O, KC_Y, COMBO_END};
 
 // Control combos
