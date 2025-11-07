@@ -571,300 +571,83 @@ uint8_t current_mods;
   } \
   else SEND_STRING(BASE);
 
+#define SEND_CASED_STRINGS(NAME, BASE, SHIFTED, CAPS) \
+   case (NAME): \
+    if (record->event.pressed) { \
+      SEND_STRINGS(BASE, SHIFTED, CAPS); \
+    } \
+    return true; \
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-  case ST_MACRO_ZZ:
-    if (record->event.pressed) {
-      SEND_STRINGS("zz", "Zz", "ZZ");
-    }
-    return true;
-  case ST_MACRO_QU:
-    if (record->event.pressed) {
-      SEND_STRINGS("qu", "Qu", "QU");
-    }
-    return true;
-  case AD_MACRO_WL:
-    if (record->event.pressed) {
-      SEND_STRINGS("wl", "Wl", "WL");
-    }
-    return true;
-  case AD_MACRO_MP:
-    if (record->event.pressed) {
-      SEND_STRINGS("mp", "Mp", "MP");
-    }
-    return true;
-  case AD_MACRO_LG:
-    if (record->event.pressed) {
-      SEND_STRINGS("lg", "Lg", "LG");
-    }
-    return true;
-  case AD_MACRO_ML:
-    if (record->event.pressed) {
-      SEND_STRINGS("ml", "Ml", "ML");
-    }
-    return true;
-  case AD_MACRO_LM:
-    if (record->event.pressed) {
-      SEND_STRINGS("lm", "Lm", "LM");
-    }
-    return true;
-  case AD_MACRO_MN:
-    if (record->event.pressed) {
-      SEND_STRINGS("mn", "Mn", "MN");
-    }
-    return true;
-  case AD_MACRO_NM:
-    if (record->event.pressed) {
-      SEND_STRINGS("nm", "Nm", "NM");
-    }
-    return true;
-  case AD_MACRO_GL:
-    if (record->event.pressed) {
-      SEND_STRINGS("gl", "Gl", "GL");
-    }
-    return true;
-  case AD_MACRO_DG:
-    if (record->event.pressed) {
-      SEND_STRINGS("dg", "Dg", "DG");
-    }
-    return true;
-  case AD_MACRO_VS:
-    if (record->event.pressed) {
-      SEND_STRINGS("vs", "Vs", "VS");
-    }
-    return true;
+    SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
+    SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
+    SEND_CASED_STRINGS(AD_MACRO_WL, "wl", "Wl", "WL");
+    SEND_CASED_STRINGS(AD_MACRO_MP, "mp", "Mp", "MP");
+    SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
+    SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
+    SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
+    SEND_CASED_STRINGS(AD_MACRO_MN, "mn", "Mn", "MN");
+    SEND_CASED_STRINGS(AD_MACRO_NM, "nm", "Nm", "NM");
+    SEND_CASED_STRINGS(AD_MACRO_GL, "gl", "Gl", "GL");
+    SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
+    SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
 
   // K adaptives
   // S@C C@N N@T L@G P@L
-  case AD_MACRO_LK:
-    if (record->event.pressed) {
-      SEND_STRINGS("lk", "Lk", "LK");
-    }
-    return true;
-  case AD_MACRO_KL:
-    if (record->event.pressed) {
-      SEND_STRINGS("kl", "Kl", "KL");
-    }
-    return true;
-  case AD_MACRO_CK:
-    if (record->event.pressed) {
-      SEND_STRINGS("ck", "Ck", "CK");
-    }
-    return true;
-  case AD_MACRO_KC:
-    if (record->event.pressed) {
-      SEND_STRINGS("kc", "Kc", "KC");
-    }
-    return true;
-  case AD_MACRO_SK:
-    if (record->event.pressed) {
-      SEND_STRINGS("sk", "Sk", "SK");
-    }
-    return true;
-  case AD_MACRO_KS:
-    if (record->event.pressed) {
-      SEND_STRINGS("ks", "Ks", "KS");
-    }
-    return true;
-  case AD_MACRO_NK:
-    if (record->event.pressed) {
-      SEND_STRINGS("nk", "Nk", "NK");
-    }
-    return true;
-  case AD_MACRO_KN:
-    if (record->event.pressed) {
-      SEND_STRINGS("kn", "Kn", "KN");
-    }
-    return true;
-  case AD_MACRO_PK:
-    if (record->event.pressed) {
-      SEND_STRINGS("pk", "Pk", "PK");
-    }
-    return true;
-  case AD_MACRO_KP:
-    if (record->event.pressed) {
-      SEND_STRINGS("kp", "Kp", "KP");
-    }
-    return true;
-  case AD_MACRO_LKS:
-    if (record->event.pressed) {
-      SEND_STRINGS("lks", "Lks", "LKS");
-    }
-    return true;
-  case AD_MACRO_CKS:
-    if (record->event.pressed) {
-      SEND_STRINGS("cks", "Cks", "CKS");
-    }
-    return true;
-  case AD_MACRO_NKS:
-    if (record->event.pressed) {
-      SEND_STRINGS("nks", "Nks", "NKS");
-    }
-    return true;
-  case AD_MACRO_CKL: // cackle
-    if (record->event.pressed) {
-      SEND_STRINGS("ckl", "Ckl", "CKL");
-    }
-    return true;
+    SEND_CASED_STRINGS(AD_MACRO_LK, "lk", "Lk", "LK");
+    SEND_CASED_STRINGS(AD_MACRO_KL, "kl", "Kl", "KL");
+    SEND_CASED_STRINGS(AD_MACRO_CK, "ck", "Ck", "CK");
+    SEND_CASED_STRINGS(AD_MACRO_KC, "kc", "Kc", "KC");
+    SEND_CASED_STRINGS(AD_MACRO_SK, "sk", "Sk", "SK");
+    SEND_CASED_STRINGS(AD_MACRO_KS, "ks", "Ks", "KS");
+    SEND_CASED_STRINGS(AD_MACRO_NK, "nk", "Nk", "NK");
+    SEND_CASED_STRINGS(AD_MACRO_KN, "kn", "Kn", "KN");
+    SEND_CASED_STRINGS(AD_MACRO_PK, "pk", "Pk", "PK");
+    SEND_CASED_STRINGS(AD_MACRO_KP, "kp", "Kp", "KP");
+    SEND_CASED_STRINGS(AD_MACRO_LKS, "lks", "Lks", "LKS");
+    SEND_CASED_STRINGS(AD_MACRO_CKS, "cks", "Cks", "CKS");
+    SEND_CASED_STRINGS(AD_MACRO_NKS, "nks", "Nks", "NKS");
+    SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
 
   // B adaptives
   // L@D S@C C@N M@G
-  case AD_MACRO_MB:
-    if (record->event.pressed) {
-      SEND_STRINGS("mb", "Mb", "MB");
-    }
-    return true;
-  case AD_MACRO_BM:
-    if (record->event.pressed) {
-      SEND_STRINGS("bm", "Bm", "BM");
-    }
-    return true;
-  case AD_MACRO_SB:
-    if (record->event.pressed) {
-      SEND_STRINGS("sb", "Sb", "SB");
-    }
-    return true;
-  case AD_MACRO_BS:
-    if (record->event.pressed) {
-      SEND_STRINGS("bs", "Bs", "BS");
-    }
-    return true;
-  case AD_MACRO_LB:
-    if (record->event.pressed) {
-      SEND_STRINGS("lb", "Lb", "LB");
-    }
-    return true;
-  case AD_MACRO_BL:
-    if (record->event.pressed) {
-      SEND_STRINGS("bl", "Bl", "BL");
-    }
-    return true;
-  case AD_MACRO_PB:
-    if (record->event.pressed) {
-      SEND_STRINGS("pb", "Pb", "PB");
-    }
-    return true;
-  case AD_MACRO_BP:
-    if (record->event.pressed) {
-      SEND_STRINGS("bp", "Bp", "BP");
-    }
-    return true;
-  case AD_MACRO_VB:
-    if (record->event.pressed) {
-      SEND_STRINGS("vb", "Vb", "VB");
-    }
-    return true;
-  case AD_MACRO_BV:
-    if (record->event.pressed) {
-      SEND_STRINGS("bv", "Bv", "BV");
-    }
-    return true;
-  case AD_MACRO_CB:
-    if (record->event.pressed) {
-      SEND_STRINGS("cb", "Cb", "CB");
-    }
-    return true;
-  case AD_MACRO_BC:
-    if (record->event.pressed) {
-      SEND_STRINGS("bc", "Bc", "BC");
-    }
-    return true;
-  case AD_MACRO_BT:
-    if (record->event.pressed) {
-      SEND_STRINGS("bt", "Bt", "BT");
-    }
-    return true;
-  case AD_MACRO_LBS:
-    if (record->event.pressed) {
-      SEND_STRINGS("lbs", "Lbs", "LBS");
-    }
-    return true;
-  case AD_MACRO_MBS:
-    if (record->event.pressed) {
-      SEND_STRINGS("mbs", "Mbs", "MBS");
-    }
-    return true;
-  case AD_MACRO_BTS:
-    if (record->event.pressed) {
-      SEND_STRINGS("bts", "Bts", "BTS");
-    }
-    return true;
+    SEND_CASED_STRINGS(AD_MACRO_MB, "mb", "Mb", "MB");
+    SEND_CASED_STRINGS(AD_MACRO_BM, "bm", "Bm", "BM");
+    SEND_CASED_STRINGS(AD_MACRO_SB, "sb", "Sb", "SB");
+    SEND_CASED_STRINGS(AD_MACRO_BS, "bs", "Bs", "BS");
+    SEND_CASED_STRINGS(AD_MACRO_LB, "lb", "Lb", "LB");
+    SEND_CASED_STRINGS(AD_MACRO_BL, "bl", "Bl", "BL");
+    SEND_CASED_STRINGS(AD_MACRO_PB, "pb", "Pb", "PB");
+    SEND_CASED_STRINGS(AD_MACRO_BP, "bp", "Bp", "BP");
+    SEND_CASED_STRINGS(AD_MACRO_VB, "vb", "Vb", "VB");
+    SEND_CASED_STRINGS(AD_MACRO_BV, "bv", "Bv", "BV");
+    SEND_CASED_STRINGS(AD_MACRO_CB, "cb", "Cb", "CB");
+    SEND_CASED_STRINGS(AD_MACRO_BC, "bc", "Bc", "BC");
+    SEND_CASED_STRINGS(AD_MACRO_BT, "bt", "Bt", "BT");
+    SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
+    SEND_CASED_STRINGS(AD_MACRO_MBS, "mbs", "Mbs", "MBS");
+    SEND_CASED_STRINGS(AD_MACRO_BTS, "bts", "Bts", "BTS");
 
   // Vowel SFB adaptives
-  case AD_MACRO_AU:
-    if (record->event.pressed) {
-      SEND_STRINGS("au", "Au", "AU");
-    }
-    return true;
-  case AD_MACRO_EO:
-    if (record->event.pressed) {
-      SEND_STRINGS("eo", "Eo", "EO");
-    }
-    return true;
-  case AD_MACRO_UA:
-    if (record->event.pressed) {
-      SEND_STRINGS("ua", "Ua", "UA");
-    }
-    return true;
-  case AD_MACRO_OE:
-    if (record->event.pressed) {
-      SEND_STRINGS("oe", "Oe", "OE");
-    }
-    return true;
-  case AD_MACRO_YI:
-    if (record->event.pressed) {
-      SEND_STRINGS("yi", "Yi", "YI");
-    }
-    return true;
-  case AD_MACRO_JI:
-    if (record->event.pressed) {
-      SEND_STRINGS("ji", "Ji", "JI");
-    }
-    return true;
+    SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
+    SEND_CASED_STRINGS(AD_MACRO_EO, "eo", "Eo", "EO");
+    SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
+    SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
+    SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
+    SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
 
   // J adaptives
-  case AD_MACRO_JO:
-    if (record->event.pressed) {
-      SEND_STRINGS("jo", "Jo", "JO");
-    }
-    return true;
-  case AD_MACRO_OJ:
-    if (record->event.pressed) {
-      SEND_STRINGS("oj", "oJ", "OJ");
-    }
-    return true;
+    SEND_CASED_STRINGS(AD_MACRO_JO, "jo", "Jo", "JO");
+    SEND_CASED_STRINGS(AD_MACRO_OJ, "oj", "oJ", "OJ");
 
   // H digraphs
-  case ST_MACRO_WH:
-    if (record->event.pressed) {
-      SEND_STRINGS("wh", "Wh", "WH");
-    }
-    return true;
-  case ST_MACRO_GH:
-    if (record->event.pressed) {
-      SEND_STRINGS("gh", "Gh", "GH");
-    }
-    return true;
-  case ST_MACRO_SH:
-    if (record->event.pressed) {
-      SEND_STRINGS("sh", "Sh", "SH");
-    }
-    return true;
-  case ST_MACRO_CH:
-    if (record->event.pressed) {
-      SEND_STRINGS("ch", "Ch", "CH");
-    }
-    return true;
-  case ST_MACRO_TH:
-    if (record->event.pressed) {
-      SEND_STRINGS("th", "Th", "TH");
-    }
-    return true;
-  case ST_MACRO_PH:
-    if (record->event.pressed) {
-      SEND_STRINGS("ph", "Ph", "PH");
-    }
-    return true;
+    SEND_CASED_STRINGS(ST_MACRO_WH, "wh", "Wh", "WH");
+    SEND_CASED_STRINGS(ST_MACRO_GH, "gh", "Gh", "GH");
+    SEND_CASED_STRINGS(ST_MACRO_SH, "sh", "Sh", "SH");
+    SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
+    SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
+    SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
 
   // Symbol macros
   case MB_MACRO_DIAMOND:
