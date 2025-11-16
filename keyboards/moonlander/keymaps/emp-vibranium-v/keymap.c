@@ -18,7 +18,7 @@ enum custom_keycodes {
   ST_MACRO_PH,
 
   AD_MACRO_WL,
-  AD_MACRO_MP,
+  AD_MACRO_LW,
   AD_MACRO_LG,
   AD_MACRO_ML,
   AD_MACRO_LM,
@@ -181,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 enum combo_index {
   AD_WM_WL, ADAPTIVE_FIRST = AD_WM_WL,
-  AD_MW_MP,
+  AD_MW_LW,
   AD_MG_LG,
   AD_MC_ML,
   AD_CM_LM,
@@ -380,7 +380,7 @@ const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
-  [AD_MW_MP] = COMBO(adaptiveMW, AD_MACRO_MP),
+  [AD_MW_LW] = COMBO(adaptiveMW, AD_MACRO_LW),
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
   [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
@@ -558,14 +558,14 @@ uint8_t current_mods;
     if (record->event.pressed) { \
       SEND_STRINGS(BASE, SHIFTED, CAPS); \
     } \
-    return true; \
+    return true;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_WL, "wl", "Wl", "WL");
-    SEND_CASED_STRINGS(AD_MACRO_MP, "mp", "Mp", "MP");
+    SEND_CASED_STRINGS(AD_MACRO_LW, "lw", "Lw", "LW");
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
     SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
