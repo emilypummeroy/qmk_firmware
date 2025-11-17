@@ -388,8 +388,8 @@ const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
-const uint16_t PROGMEM adaptiveJd[] = { KC_J, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveJd[] = { KC_J, LT(0, KC_DOT), COMBO_END };
+const uint16_t PROGMEM adaptivedJ[] = { LT(0, KC_DOT), KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
