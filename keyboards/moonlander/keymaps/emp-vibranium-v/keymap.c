@@ -280,7 +280,7 @@ const uint16_t PROGMEM comboCut[] = { KC_V, KC_P, KC_L, COMBO_END};
 const uint16_t PROGMEM comboPaste[] = { KC_P, KC_L, KC_D, COMBO_END};
 
 // Top row Symbol combos
-const uint16_t PROGMEM comboAstr[] = { KC_COMMA, KC_A, COMBO_END};
+const uint16_t PROGMEM comboAstr[] = { LT(0, KC_SCLN), KC_A, COMBO_END};
 const uint16_t PROGMEM comboExclam[] = { KC_DOT, KC_QUOTE, COMBO_END};
 const uint16_t PROGMEM comboQuestion[] = { KC_QUOTE, KC_J, COMBO_END};
 
@@ -299,10 +299,10 @@ const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM comboBLbrc[] = { KC_B, LT(0, KC_LBRC), COMBO_END };
 
 // Line combos
-const uint16_t PROGMEM combo35[] = { KC_MINUS, KC_U, COMBO_END};
-const uint16_t PROGMEM combo36[] = { KC_MINUS, KC_O, COMBO_END};
-const uint16_t PROGMEM combo38[] = { KC_MINUS, KC_U, KC_O, COMBO_END};
-const uint16_t PROGMEM combo39[] = { KC_MINUS, KC_A, KC_O, COMBO_END};
+const uint16_t PROGMEM combo35[] = { LT(0, KC_MINUS), KC_U, COMBO_END};
+const uint16_t PROGMEM combo36[] = { LT(0, KC_MINUS), KC_O, COMBO_END};
+const uint16_t PROGMEM combo38[] = { LT(0, KC_MINUS), KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM combo39[] = { LT(0, KC_MINUS), KC_A, KC_O, COMBO_END};
 const uint16_t PROGMEM combo41[] = { KC_U, KC_O, KC_Y, COMBO_END};
 
 // Control combos
