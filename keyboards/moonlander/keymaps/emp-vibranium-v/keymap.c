@@ -473,17 +473,17 @@ combo_t key_combos[] = {
   [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
 
+  // Symbol combos
+  [ST_COMBO_BLBRC_SQUARE] = COMBO(comboBLbrc, ST_MACRO_SQUARE),
+  [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
+  [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
+
   // Text editing combos
   [ST_COMBO_UNDO] = COMBO(comboUndo, LCTL(KC_Z)),
   [ST_COMBO_SELECT] = COMBO(comboSelect, LCTL(KC_A)),
   [ST_COMBO_COPY] = COMBO(comboCopy, LCTL(KC_C)),
   [ST_COMBO_CUT] = COMBO(comboCut, LCTL(KC_X)),
   [ST_COMBO_PASTE] = COMBO(comboPaste, LCTL(KC_V)),
-
-  // Symbol combos
-  [ST_COMBO_BLBRC_SQUARE] = COMBO(comboBLbrc, ST_MACRO_SQUARE),
-  [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
-  [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
 
   // Bigram combos
   COMBO(comboWM, ST_MACRO_WH),
