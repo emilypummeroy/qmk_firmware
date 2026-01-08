@@ -5,9 +5,8 @@
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 
-  ST_MACRO_FULL_STOP, // Maybe this should shift the next letter
-  ST_MACRO_SQUARE,
   ST_MACRO_CODE_BLOCK,
+  ST_MACRO_FORCE_EQUAL,
 
   ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
   ST_MACRO_QU,
@@ -111,36 +110,36 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,
-    KC_NO,          LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_NO,                                          KC_NO,         LT(0, KC_COMMA), LT(0, KC_DOT), LT(0, KC_QUOTE), KC_J,           KC_AT,          KC_NO,
-    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_NO,         LT(0, KC_SCLN),  KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
+    KC_NO,          LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_NO,                                          KC_NO,         LT(0, KC_GRAVE), LT(0, KC_DOT), LT(0, KC_QUOTE), KC_J,           KC_AT,          KC_NO,
+    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_NO,                                          KC_SCLN,       LT(0, KC_COMMA), KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
     KC_NO,          KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                          LT(0, KC_MINUS), KC_U,           KC_O,           KC_Y,          LT(0, KC_SLASH), KC_NO,
     TO(_LEFT),      KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
-    KC_R,           LT(0, KC_LBRC), KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
+    KC_R,           KC_SCLN,        KC_NO,                          KC_NO,          KC_ENTER,       KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LABK,        KC_RABK,        LT(0, KC_DQUO), KC_J,           KC_HASH,        KC_TRANSPARENT,
-    KC_TAB,         KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_COLN,        KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                                                          KC_UNDS,        KC_U,           KC_O,           KC_Y,           KC_QUES,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                KC_TRANSPARENT,  KC_TILDE,       KC_RABK,        LT(0, KC_DQUO), KC_J,           KC_HASH,        KC_TRANSPARENT,
+    KC_TAB,         KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, LT(0, KC_LABK), KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_NO,   ST_MACRO_FORCE_EQUAL,  KC_LCBR,        KC_RCBR,        KC_NO,                                                                          KC_UNDS,        KC_U,           KC_O,           KC_Y,           KC_QUES,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT,                                 KC_BSPC,                        OSM(MOD_RSFT),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       ST_MACRO_FULL_STOP
+    KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       KC_TRANSPARENT
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LPRN,        KC_RPRN,        LT(0, KC_DQUO), KC_NO,          KC_HASH,        KC_TRANSPARENT,
-    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,   KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
+    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_RPRN,        LT(0, KC_DQUO), KC_NO,          KC_HASH,        KC_TRANSPARENT,
+    KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LPRN,        KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_PIPE,        KC_NO,          KC_NO,          KC_NO,          KC_PERC,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_SPACE,                       KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_R,           LT(0, KC_LCBR), KC_TRANSPARENT,                 KC_TRANSPARENT, KC_NO,          KC_NO
+    KC_R,           KC_COLON,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_NO,          KC_NO
   ),
 
   [_NUM] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
     KC_TRANSPARENT, KC_LABK,        KC_D,           KC_E,           KC_F,           KC_RABK,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_ASTR,        KC_7,           KC_8,           KC_9,           KC_DLR,         KC_TRANSPARENT,
     KC_TRANSPARENT, KC_COMMA,       MT(MOD_LGUI, KC_LEFT),MT(MOD_LALT, KC_UP),MT(MOD_LCTL, KC_DOWN),KC_RIGHT,       KC_TRANSPARENT,                 KC_TRANSPARENT, KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_HASH,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_LPRN,        KC_A,           KC_B,           KC_C,           KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,          LT(0, KC_SLASH), KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,          LT(0, KC_SLASH), KC_TRANSPARENT,
     TO(0),          KC_TRANSPARENT, TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  KC_TRANSPARENT,                                 KC_BSPC,                        KC_0,           LT(0, KC_DOT),  KC_EQUAL,       KC_TRANSPARENT, TO(0),
     TO(_NUMPAD),    KC_X,           KC_TRANSPARENT,                 KC_TRANSPARENT, KC_ENTER,       KC_TRANSPARENT
   ),
@@ -272,7 +271,6 @@ enum combo_index {
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
 
-  ST_COMBO_BLBRC_SQUARE,
   ST_COMBO_CODE_BLOCK,
   ST_COMBO_ASTERISK,
 
@@ -305,10 +303,10 @@ const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 
 // Symbol combos
 const uint16_t PROGMEM comboBLbrc[] = { KC_B, LT(0, KC_LBRC), COMBO_END };
-const uint16_t PROGMEM comboAstr[] = { LT(0, KC_SCLN), KC_A, COMBO_END};
-const uint16_t PROGMEM comboCodeBlock[] = { LT(0, KC_COMMA), LT(0, KC_DOT), LT(0, KC_QUOT), COMBO_END };
+const uint16_t PROGMEM comboAstr[] = { LT(0, KC_COMMA), KC_A, COMBO_END};
+const uint16_t PROGMEM comboCodeBlock[] = { LT(0, KC_GRAVE), LT(0, KC_DOT), LT(0, KC_QUOT), COMBO_END };
 const uint16_t PROGMEM comboPlus[] = { LT(0, KC_MINUS), KC_U, COMBO_END};
-const uint16_t PROGMEM comboEqual[] = { KC_A, KC_E, KC_I, COMBO_END};
+// TODO DELETE const uint16_t PROGMEM comboEqual[] = { KC_A, KC_E, KC_I, COMBO_END};
 
 // Control combos
 const uint16_t PROGMEM combo42[] = { KC_S, KC_C, KC_N, COMBO_END};
@@ -474,7 +472,6 @@ combo_t key_combos[] = {
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
 
   // Symbol combos
-  [ST_COMBO_BLBRC_SQUARE] = COMBO(comboBLbrc, ST_MACRO_SQUARE),
   [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
   [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
 
@@ -494,8 +491,7 @@ combo_t key_combos[] = {
   COMBO(comboPN, ST_MACRO_PH),
 
   // Line combos
-  COMBO(comboPlus, KC_PLUS),
-  COMBO(comboEqual, KC_EQUAL),
+  COMBO(comboPlus, KC_PLUS), // TODO MOVE UP
 
   // Control combos
   COMBO(combo42, KC_ESCAPE),
@@ -658,21 +654,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
 
   // Symbol macros
-  case ST_MACRO_FULL_STOP:
-    if (record->event.pressed) {
-      SEND_STRING_CLEAR(". ");
-    }
-    return true;
-
-  case ST_MACRO_SQUARE:
-    if (record->event.pressed) {
-      SEND_STRINGS("[]", "{}", "[]");
-    }
-    return true;
-
   case ST_MACRO_CODE_BLOCK:
     if (record->event.pressed) {
       SEND_STRINGS("```", "```", "```");
+    }
+    return true;
+
+  case ST_MACRO_FORCE_EQUAL:
+    if (record->event.pressed) {
+      SEND_STRING_CLEAR("=");
     }
     return true;
 
@@ -702,7 +692,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
   case LT(0, KC_COMMA):
     if (!record->tap.count && record->event.pressed) {
-      tap_code16(KC_GRV);
+      tap_code16(KC_SCLN);
       return false;
     }
     return true;
