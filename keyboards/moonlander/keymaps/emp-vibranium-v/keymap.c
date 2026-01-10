@@ -9,7 +9,6 @@ enum custom_keycodes {
   ST_MACRO_FORCE_EQUAL,
 
   ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
-  ST_MACRO_ZZL,
   ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
@@ -271,7 +270,6 @@ enum combo_index {
 
   // Weird letters
   ST_COMBO_XW_ZZ,
-  ST_COMBO_XWM_ZZL,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
 
@@ -294,8 +292,7 @@ enum combo_index {
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
-  ST_COMBO_NGF,
-  ST_COMBO_MGF,
+  ST_COMBO_CGF,
 };
 
 // Text editing combos
@@ -312,11 +309,10 @@ const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
 
 // Weird letters
 const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
-const uint16_t PROGMEM comboXWM[] = { LT(0, KC_X), KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 
@@ -479,7 +475,6 @@ combo_t key_combos[] = {
 
   // Weird letters
   [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
-  [ST_COMBO_XWM_ZZL] = COMBO(comboXWM, ST_MACRO_ZZL),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
 
@@ -502,7 +497,7 @@ combo_t key_combos[] = {
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
+  [ST_COMBO_CGF] = COMBO(comboCGF, ST_MACRO_SPH), // Sphere
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -591,7 +586,6 @@ uint8_t current_mods;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
-    SEND_CASED_STRINGS(ST_MACRO_ZZL, "zzl", "Zzl", "ZZL");
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_WL, "wl", "Wl", "WL");
     SEND_CASED_STRINGS(AD_MACRO_LW, "lw", "Lw", "LW");
