@@ -9,6 +9,7 @@ enum custom_keycodes {
   ST_MACRO_FORCE_EQUAL,
 
   ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
+  ST_MACRO_ZZL,
   ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
@@ -16,6 +17,7 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
+  ST_MACRO_SPH, // Sphere
 
   AD_MACRO_WL,
   AD_MACRO_LW,
@@ -29,7 +31,7 @@ enum custom_keycodes {
   AD_MACRO_GL,
   AD_MACRO_DG,
   AD_MACRO_GD,
-  AD_MACRO_VS,
+  AD_MACRO_SP,
   // Maybe Mc would be convenient
 
   // F adaptives
@@ -203,13 +205,13 @@ enum combo_index {
   AD_GM_GL,
   AD_DM_DG,
   AD_MD_GD,
-  AD_VC_VS,
+  AD_VC_SP,
 
   // F adaptives
   // L@G N@D S@C W@M
   AD_GF_LF,
   AD_FG_FL,
-  AD_DF_NF,
+  AD_TF_NF,
   // Need FT for after, ooft, etc.
   AD_CF_SF,
   AD_FC_FS,
@@ -264,22 +266,36 @@ enum combo_index {
   AD_JH_JI,
 
   // J adaptives
-  AD_Jd_JO,
-  AD_dJ_OJ, ADAPTIVE_LAST = AD_dJ_OJ,
+  AD_Jq_JO,
+  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
+  // Weird letters
   ST_COMBO_XW_ZZ,
+  ST_COMBO_XWM_ZZL,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
 
+  // Symbol combos
   ST_COMBO_CODE_BLOCK,
   ST_COMBO_ASTERISK,
   ST_COMBO_PLUS,
 
+  // Text editing combos
   ST_COMBO_UNDO,
   ST_COMBO_SELECT,
   ST_COMBO_COPY,
   ST_COMBO_CUT,
   ST_COMBO_PASTE,
+
+  // H Bigram combos
+  ST_COMBO_WM,
+  ST_COMBO_GM,
+  ST_COMBO_DL,
+  ST_COMBO_CN,
+  ST_COMBO_TN,
+  ST_COMBO_GF,
+  ST_COMBO_NGF,
+  ST_COMBO_MGF,
 };
 
 // Text editing combos
@@ -289,16 +305,18 @@ const uint16_t PROGMEM comboCopy[] = { KC_P, KC_D, COMBO_END};
 const uint16_t PROGMEM comboCut[] = { KC_V, KC_P, KC_L, COMBO_END};
 const uint16_t PROGMEM comboPaste[] = { KC_P, KC_L, KC_D, COMBO_END};
 
-
 // Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM comboST[] = { KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
-const uint16_t PROGMEM comboPN[] = { KC_P, KC_N, COMBO_END};
+const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
+// Weird letters
 const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
+const uint16_t PROGMEM comboXWM[] = { LT(0, KC_X), KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 
@@ -325,7 +343,7 @@ const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 // L@G N@T S@C W@M
 const uint16_t PROGMEM adaptiveGF[] = { KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFG[] = { KC_F, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveDF[] = { KC_D, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveTF[] = { KC_T, KC_F, COMBO_END };
 // Need FT for after, ooft, etc.
 const uint16_t PROGMEM adaptiveCF[] = { KC_C, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFC[] = { KC_F, KC_C, COMBO_END };
@@ -380,8 +398,8 @@ const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
-const uint16_t PROGMEM adaptiveJd[] = { KC_J, LT(0, KC_DOT), COMBO_END };
-const uint16_t PROGMEM adaptivedJ[] = { LT(0, KC_DOT), KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveJq[] = { KC_J, LT(0, KC_QUOTE), COMBO_END };
+const uint16_t PROGMEM adaptiveqJ[] = { LT(0, KC_QUOTE), KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
@@ -396,13 +414,13 @@ combo_t key_combos[] = {
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
   [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
-  [AD_VC_VS] = COMBO(adaptiveVC, AD_MACRO_VS),
+  [AD_VC_SP] = COMBO(adaptiveVC, AD_MACRO_SP),
 
   // F adaptives
   // L@G N@T S@C W@M
   [AD_GF_LF] = COMBO(adaptiveGF, AD_MACRO_LF),
   [AD_FG_FL] = COMBO(adaptiveFG, AD_MACRO_FL),
-  [AD_DF_NF] = COMBO(adaptiveDF, AD_MACRO_NF),
+  [AD_TF_NF] = COMBO(adaptiveTF, AD_MACRO_NF),
   // Need FT for after, ooft, etc.
   [AD_CF_SF] = COMBO(adaptiveCF, AD_MACRO_SF),
   [AD_FC_FS] = COMBO(adaptiveFC, AD_MACRO_FS),
@@ -442,7 +460,6 @@ combo_t key_combos[] = {
   [AD_BP_BV] = COMBO(adaptiveBP, AD_MACRO_BV),
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
-  [AD_TB_BT] = COMBO(adaptiveTB, AD_MACRO_BT),
   [AD_DBC_LBS] = COMBO(adaptiveDBC, AD_MACRO_LBS),
   [AD_GBC_MBS] = COMBO(adaptiveGBC, AD_MACRO_MBS),
   [AD_BTC_BTS] = COMBO(adaptiveBTC, AD_MACRO_BTS),
@@ -457,12 +474,13 @@ combo_t key_combos[] = {
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // J adaptives
-  [AD_Jd_JO] = COMBO(adaptiveJd, AD_MACRO_JO),
-  [AD_dJ_OJ] = COMBO(adaptivedJ, AD_MACRO_OJ),
+  [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
+  [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
-  // !!! UNSORTED !!!
-  [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
+  // Weird letters
   [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
+  [ST_COMBO_XWM_ZZL] = COMBO(comboXWM, ST_MACRO_ZZL),
+  [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
 
   // Symbol combos
@@ -477,13 +495,14 @@ combo_t key_combos[] = {
   [ST_COMBO_CUT] = COMBO(comboCut, LCTL(KC_X)),
   [ST_COMBO_PASTE] = COMBO(comboPaste, LCTL(KC_V)),
 
-  // Bigram combos
-  COMBO(comboWM, ST_MACRO_WH),
-  COMBO(comboGM, ST_MACRO_GH),
-  COMBO(comboST, ST_MACRO_SH),
-  COMBO(comboCN, ST_MACRO_CH),
-  COMBO(comboTN, ST_MACRO_TH),
-  COMBO(comboPN, ST_MACRO_PH),
+  // H Bigram combos
+  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_WH),
+  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_GH),
+  [ST_COMBO_DL] = COMBO(comboDL, ST_MACRO_SH), // Maybe this should be ordered?
+  [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
+  [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
+  [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
+  [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -572,6 +591,7 @@ uint8_t current_mods;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
+    SEND_CASED_STRINGS(ST_MACRO_ZZL, "zzl", "Zzl", "ZZL");
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_WL, "wl", "Wl", "WL");
     SEND_CASED_STRINGS(AD_MACRO_LW, "lw", "Lw", "LW");
@@ -585,7 +605,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GL, "gl", "Gl", "GL");
     SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
-    SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
+    SEND_CASED_STRINGS(AD_MACRO_SP, "sp", "Sp", "SP");
 
   // F adaptives
   // L@G N@T S@C W@M
@@ -655,6 +675,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
+    SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
 
   // Symbol macros
   case ST_MACRO_CODE_BLOCK:
