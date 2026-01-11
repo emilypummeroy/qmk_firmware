@@ -244,11 +244,11 @@ enum combo_index {
   AD_BTC_BTS, // doubts
 
   // Vowel SFB adaptives
-  AD_AH_AU,
-  AD_EH_EO,
-  AD_IH_YI,
-  AD_UH_UA,
-  AU_OH_OE,
+  AD_As_AU,
+  AD_Es_EO,
+  AD_Is_YI,
+  AD_Us_UA,
+  AD_Os_OE,
   AD_JH_JI,
 
   // J adaptives
@@ -366,11 +366,11 @@ const uint16_t PROGMEM adaptiveTBC[] = { KC_T, KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 
 // Vowel SFB adaptives
-const uint16_t PROGMEM adaptiveAH[] = { KC_A, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveEH[] = { KC_E, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveIH[] = { KC_I, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveUH[] = { KC_U, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveOH[] = { KC_O, KC_H, COMBO_END };
+const uint16_t PROGMEM adaptiveAs[] = { KC_A, LT(0, KC_SLASH), COMBO_END };
+const uint16_t PROGMEM adaptiveEs[] = { KC_E, LT(0, KC_SLASH), COMBO_END };
+const uint16_t PROGMEM adaptiveIs[] = { KC_I, LT(0, KC_SLASH), COMBO_END };
+const uint16_t PROGMEM adaptiveUs[] = { KC_U, LT(0, KC_SLASH), COMBO_END };
+const uint16_t PROGMEM adaptiveOs[] = { KC_O, LT(0, KC_SLASH), COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
@@ -436,11 +436,11 @@ combo_t key_combos[] = {
   [AD_BTC_BTS] = COMBO(adaptiveBTC, AD_MACRO_BTS),
 
   // Vowel SFB adaptives
-  [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
-  [AD_EH_EO] = COMBO(adaptiveEH, AD_MACRO_EO),
-  [AD_IH_YI] = COMBO(adaptiveIH, AD_MACRO_YI),
-  [AD_UH_UA] = COMBO(adaptiveUH, AD_MACRO_UA),
-  [AU_OH_OE] = COMBO(adaptiveOH, AD_MACRO_OE),
+  [AD_As_AU] = COMBO(adaptiveAs, AD_MACRO_AU),
+  [AD_Es_EO] = COMBO(adaptiveEs, AD_MACRO_EO),
+  [AD_Is_YI] = COMBO(adaptiveIs, AD_MACRO_YI),
+  [AD_Us_UA] = COMBO(adaptiveUs, AD_MACRO_UA),
+  [AD_Os_OE] = COMBO(adaptiveOs, AD_MACRO_OE),
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // J adaptives
