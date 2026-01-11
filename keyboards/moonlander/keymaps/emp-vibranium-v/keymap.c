@@ -265,13 +265,6 @@ enum combo_index {
   ST_COMBO_ASTERISK,
   ST_COMBO_PLUS,
 
-  // Text editing combos
-  ST_COMBO_UNDO,
-  ST_COMBO_SELECT,
-  ST_COMBO_COPY,
-  ST_COMBO_CUT,
-  ST_COMBO_PASTE,
-
   // H Bigram combos
   ST_COMBO_WM,
   ST_COMBO_GM,
@@ -281,13 +274,6 @@ enum combo_index {
   ST_COMBO_GF,
   ST_COMBO_NGF,
 };
-
-// Text editing combos
-const uint16_t PROGMEM comboUndo[] = { KC_V, KC_P, COMBO_END};
-const uint16_t PROGMEM comboSelect[] = { KC_V, KC_L, COMBO_END};
-const uint16_t PROGMEM comboCopy[] = { KC_P, KC_D, COMBO_END};
-const uint16_t PROGMEM comboCut[] = { KC_V, KC_P, KC_L, COMBO_END};
-const uint16_t PROGMEM comboPaste[] = { KC_P, KC_L, KC_D, COMBO_END};
 
 // Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
@@ -456,13 +442,6 @@ combo_t key_combos[] = {
   [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
   [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
   [ST_COMBO_PLUS] = COMBO(comboPlus, KC_PLUS),
-
-  // Text editing combos
-  [ST_COMBO_UNDO] = COMBO(comboUndo, LCTL(KC_Z)),
-  [ST_COMBO_SELECT] = COMBO(comboSelect, LCTL(KC_A)),
-  [ST_COMBO_COPY] = COMBO(comboCopy, LCTL(KC_C)),
-  [ST_COMBO_CUT] = COMBO(comboCut, LCTL(KC_X)),
-  [ST_COMBO_PASTE] = COMBO(comboPaste, LCTL(KC_V)),
 
   // H Bigram combos
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_WH),
