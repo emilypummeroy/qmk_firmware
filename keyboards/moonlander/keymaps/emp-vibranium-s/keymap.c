@@ -10,6 +10,8 @@ enum custom_keycodes {
 
   ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
   ST_MACRO_QU,
+  ST_MACRO_SS,
+
   ST_MACRO_WH,
   ST_MACRO_GH,
   ST_MACRO_SH,
@@ -255,10 +257,11 @@ enum combo_index {
   AD_Jq_JO,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
-  // Weird letters
+  // Miscellaneous consonants
   ST_COMBO_XW_ZZ,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
+  ST_COMBO_SD_SS,
 
   // Symbol combos
   ST_COMBO_CODE_BLOCK,
@@ -288,6 +291,7 @@ const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM comboSD[] = { KC_S, KC_D, COMBO_END };
 
 // Symbol combos
 const uint16_t PROGMEM comboAstr[] = { LT(0, KC_COMMA), KC_A, COMBO_END};
@@ -433,10 +437,11 @@ combo_t key_combos[] = {
   [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
-  // Weird letters
+  // Miscellaneous consonants
   [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
+  [ST_COMBO_SD_SS] = COMBO(comboSD, ST_MACRO_SS),
 
   // Symbol combos
   [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
@@ -540,6 +545,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
+    SEND_CASED_STRINGS(ST_MACRO_SS, "ss", "Su", "SS");
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
     SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
