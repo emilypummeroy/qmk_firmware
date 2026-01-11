@@ -268,7 +268,7 @@ enum combo_index {
   // H Bigram combos
   ST_COMBO_WM,
   ST_COMBO_GM,
-  ST_COMBO_DL,
+  ST_COMBO_DB,
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
@@ -278,7 +278,7 @@ enum combo_index {
 // Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
+const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
@@ -446,7 +446,7 @@ combo_t key_combos[] = {
   // H Bigram combos
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_WH),
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_GH),
-  [ST_COMBO_DL] = COMBO(comboDL, ST_MACRO_SH), // Maybe this should be ordered?
+  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
