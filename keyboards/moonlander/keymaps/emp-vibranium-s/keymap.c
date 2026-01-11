@@ -258,7 +258,7 @@ enum combo_index {
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // Miscellaneous consonants
-  ST_COMBO_XW_ZZ,
+  ST_COMBO_XG_ZZ,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
   ST_COMBO_SD_SS,
@@ -288,7 +288,7 @@ const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Weird letters
-const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
+const uint16_t PROGMEM comboXG[] = { LT(0, KC_X), KC_G, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM comboSD[] = { KC_S, KC_D, COMBO_END };
@@ -438,7 +438,7 @@ combo_t key_combos[] = {
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Miscellaneous consonants
-  [ST_COMBO_XW_ZZ] = COMBO(comboXW, ST_MACRO_ZZ),
+  [ST_COMBO_XG_ZZ] = COMBO(comboXG, ST_MACRO_ZZ),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
   [ST_COMBO_SD_SS] = COMBO(comboSD, ST_MACRO_SS),
