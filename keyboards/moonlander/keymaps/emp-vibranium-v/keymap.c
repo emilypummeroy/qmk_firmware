@@ -9,11 +9,9 @@
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 
-  ST_MACRO_CODE_BLOCK,
   ST_MACRO_FORCE_EQUAL,
 
-  ST_MACRO_ZZ, KC_ALNUM_MACRO_FIRST = ST_MACRO_ZZ,
-  ST_MACRO_QU,
+  ST_MACRO_QU, KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
   ST_MACRO_WH,
   ST_MACRO_GH,
   ST_MACRO_SH,
@@ -22,6 +20,8 @@ enum custom_keycodes {
   ST_MACRO_PH,
   ST_MACRO_SPH, // Sphere
 
+  AD_MACRO_XP,
+  AD_MACRO_ZZ,
   AD_MACRO_LG,
   AD_MACRO_ML,
   AD_MACRO_LM,
@@ -109,7 +109,7 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     KC_NO,          KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           KC_NO,                                          KC_NO,          KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           KC_NO,
-    KC_NO,          LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,    LT(0, KC_SCLN),   LT(0,KC_QUOTE),  LT(0,KC_DOT),  KC_J,           KC_AT,          KC_NO,
+    KC_GRAVE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,     LT(0,KC_QUOTE),   LT(0,KC_DOT),    KC_J,           KC_AT,          KC_NO,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,    LT(0, KC_COMMA),  KC_A,           KC_E,           KC_I,           KC_H,           KC_NO,
     KC_NO,          KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                         LT(0, KC_MINUS),  KC_U,           KC_O,           KC_Y,           LT(0,KC_SLASH), KC_NO,
     TO(_LEFT),      KC_NO,          MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        KC_NO,          KC_NO,
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_CIRC,        KC_AT,          KC_RPRN,        KC_DLR,         KC_ASTR,        KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                KC_TRANSPARENT, LT(0, KC_COLON), LT(0,KC_DQUO),  KC_RABK,        KC_J,           KC_HASH,        KC_TRANSPARENT,
+    KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_COLON,    LT(0,KC_DQUO),     KC_RABK,        KC_J,           KC_HASH,        KC_TRANSPARENT,
     KC_TAB,         KC_NO,          KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_NO,          KC_TRANSPARENT,                                 KC_TRANSPARENT, LT(0, KC_LABK), KC_A,           KC_E,           KC_I,           KC_H,           KC_TRANSPARENT,
     KC_TRANSPARENT, KC_NO,   ST_MACRO_FORCE_EQUAL,  KC_LCBR,        KC_RCBR,        KC_NO,                                                                          KC_UNDS,        KC_U,           KC_O,           KC_Y,           KC_QUES,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_TRANSPARENT,                 KC_TRANSPARENT,                                 KC_BSPC,                        OSM(MOD_RSFT),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RMOD] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_AMPR,        KC_HASH,        KC_EXLM,        KC_PERC,        KC_LPRN,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        LT(0,KC_DQUO),  KC_RPRN,        KC_NO,          KC_HASH,        KC_TRANSPARENT,
+    KC_TILDE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        LT(0,KC_DQUO),  KC_RPRN,        KC_NO,          KC_HASH,        KC_TRANSPARENT,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_LPRN,        KC_RIGHT_CTRL,  KC_LEFT_ALT,    KC_RIGHT_GUI,   KC_NO,          KC_TRANSPARENT,
     KC_TRANSPARENT, KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_PIPE,        KC_NO,          KC_NO,          KC_NO,          KC_PERC,        KC_TRANSPARENT,
     KC_NO,          KC_TRANSPARENT, KC_NO,          KC_NO,          KC_SPACE,                       KC_TRANSPARENT,                                 KC_BSPC,                        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -190,7 +190,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 enum combo_index {
-  AD_MG_LG, ADAPTIVE_FIRST = AD_MG_LG,
+  AD_XW_XP, ADAPTIVE_FIRST = AD_XW_XP,
+  AD_XG_ZZ,
+  AD_MG_LG,
   AD_MC_ML,
   AD_CM_LM,
   AD_PN_LN,
@@ -260,12 +262,10 @@ enum combo_index {
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // Weird letters
-  ST_COMBO_XG_ZZ,
   ST_COMBO_WG_QU,
   ST_COMBO_WMG_Q,
 
   // Symbol combos
-  ST_COMBO_CODE_BLOCK,
   ST_COMBO_ASTERISK,
   ST_COMBO_PLUS,
 
@@ -289,7 +289,6 @@ const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Weird letters
-const uint16_t PROGMEM comboXG[] = { LT(0, KC_X), KC_G, COMBO_END};
 const uint16_t PROGMEM comboWG[] = { KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 
@@ -298,6 +297,8 @@ const uint16_t PROGMEM comboAstr[] = { LT(0, KC_COMMA), KC_A, COMBO_END};
 const uint16_t PROGMEM comboCodeBlock[] = { LT(0, KC_SCLN), LT(0, KC_DOT), LT(0, KC_QUOT), COMBO_END };
 const uint16_t PROGMEM comboPlus[] = { LT(0, KC_MINUS), KC_U, COMBO_END};
 
+const uint16_t PROGMEM adaptiveXW[] = { LT(0, KC_X), KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveXG[] = { KC_X, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
@@ -368,6 +369,8 @@ const uint16_t PROGMEM adaptiveJq[] = { KC_J, LT(0, KC_QUOTE), COMBO_END };
 const uint16_t PROGMEM adaptiveqJ[] = { LT(0, KC_QUOTE), KC_J, COMBO_END };
 
 combo_t key_combos[] = {
+  [AD_XW_XP] = COMBO(adaptiveXW, AD_MACRO_XP),
+  [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ),
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
   [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
@@ -438,12 +441,10 @@ combo_t key_combos[] = {
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Weird letters
-  [ST_COMBO_XG_ZZ] = COMBO(comboXG, ST_MACRO_ZZ),
   [ST_COMBO_WG_QU] = COMBO(comboWG, ST_MACRO_QU),
   [ST_COMBO_WMG_Q] = COMBO(comboWMG, KC_Q),
 
   // Symbol combos
-  [ST_COMBO_CODE_BLOCK] = COMBO(comboCodeBlock, ST_MACRO_CODE_BLOCK),
   [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
   [ST_COMBO_PLUS] = COMBO(comboPlus, KC_PLUS),
 
@@ -542,8 +543,10 @@ uint8_t current_mods;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    SEND_CASED_STRINGS(ST_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
+
+    SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
+    SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
     SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
@@ -623,12 +626,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
 
   // Symbol macros
-  case ST_MACRO_CODE_BLOCK:
-    if (record->event.pressed) {
-      SEND_STRINGS("```", "~~~", "```");
-    }
-    return true;
-
   case ST_MACRO_FORCE_EQUAL:
     if (record->event.pressed) {
       SEND_STRING_CLEAR("=");
@@ -636,13 +633,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 
   // Tap-hold keys
-  TAPHOLD_CASED(LT(0, KC_X), "z", "Z", "Z");
-  TAPHOLD_CODE16(LT(0, KC_QUOT), KC_EXLM);
-  TAPHOLD_CODE16(LT(0, KC_DOT), KC_CIRC);
-  TAPHOLD_CODE16(LT(0, KC_COMMA), KC_DLR);
-  TAPHOLD_CODE16(LT(0, KC_SCLN), KC_GRAVE);
-  TAPHOLD_CODE16(LT(0, KC_MINUS), KC_QUES);
-  TAPHOLD_CODE16(LT(0, KC_SLASH), KC_BSLS);
+    TAPHOLD_CASED(LT(0, KC_X), "z", "Z", "Z");
+    TAPHOLD_CODE16(LT(0, KC_QUOT), KC_EXLM);
+    TAPHOLD_CODE16(LT(0, KC_DOT), KC_CIRC);
+    TAPHOLD_CODE16(LT(0, KC_COMMA), KC_DLR);
+    TAPHOLD_CODE16(LT(0, KC_SCLN), KC_GRAVE);
+    TAPHOLD_CODE16(LT(0, KC_MINUS), KC_QUES);
+    TAPHOLD_CODE16(LT(0, KC_SLASH), KC_BSLS);
 
   case RGB_SLD:
     if (rawhid_state.rgb_control) {
