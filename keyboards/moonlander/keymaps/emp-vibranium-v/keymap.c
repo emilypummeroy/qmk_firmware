@@ -65,7 +65,6 @@ enum custom_keycodes {
   // B adaptives
   // L@D S@C C@N M@G P@L V@P
   AD_MACRO_MB,
-  AD_MACRO_BM,
   AD_MACRO_SB,
   AD_MACRO_BS,
   AD_MACRO_LB,
@@ -76,7 +75,6 @@ enum custom_keycodes {
   AD_MACRO_BV,
   AD_MACRO_CB,
   AD_MACRO_BC, // ribcage
-  AD_MACRO_BT, // SFB, TB is easier, BT is more common
   AD_MACRO_LBS,
   AD_MACRO_MBS,
   AD_MACRO_BTS, // doubts
@@ -233,9 +231,8 @@ enum combo_index {
   AD_NKG_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@G P@L V@P
-  AD_GB_MB,
-  AD_BG_BM,
+  // L@D S@C C@N M@T P@L V@P
+  AD_TB_MB,
   AD_CB_SB,
   AD_BC_BS,
   AD_DB_LB,
@@ -246,10 +243,8 @@ enum combo_index {
   AD_BP_BV,
   AD_NB_CB,
   AD_BN_BC, // ribcage
-  AD_TB_BT, // SFB
   AD_DBC_LBS,
-  AD_GBC_MBS,
-  AD_TBC_BTS, // doubts, SFB
+  AD_TBC_MBS,
   AD_BTC_BTS, // doubts
 
   // Vowel SFB adaptives
@@ -361,8 +356,7 @@ const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 
 // B adaptives
 // L@D S@C C@N M@G P@L V@P
-const uint16_t PROGMEM adaptiveGB[] = { KC_G, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveBG[] = { KC_B, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBC[] = { KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
@@ -373,11 +367,9 @@ const uint16_t PROGMEM adaptivePB[] = { KC_P, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNB[] = { KC_N, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveDBC[] = { KC_D, KC_B, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveGBC[] = { KC_G, KC_B, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveTBC[] = { KC_T, KC_B, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAH[] = { KC_A, KC_H, COMBO_END };
@@ -435,9 +427,8 @@ combo_t key_combos[] = {
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
 
   // B adaptives
-  // L@D S@C C@N M@G P@L V@P
-  [AD_GB_MB] = COMBO(adaptiveGB, AD_MACRO_MB),
-  [AD_BG_BM] = COMBO(adaptiveBG, AD_MACRO_BM),
+  // L@D S@C C@N M@T P@L V@P
+  [AD_TB_MB] = COMBO(adaptiveTB, AD_MACRO_MB),
   [AD_CB_SB] = COMBO(adaptiveCB, AD_MACRO_SB),
   [AD_BC_BS] = COMBO(adaptiveBC, AD_MACRO_BS),
   [AD_DB_LB] = COMBO(adaptiveDB, AD_MACRO_LB),
@@ -449,9 +440,8 @@ combo_t key_combos[] = {
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_DBC_LBS] = COMBO(adaptiveDBC, AD_MACRO_LBS),
-  [AD_GBC_MBS] = COMBO(adaptiveGBC, AD_MACRO_MBS),
+  [AD_TBC_MBS] = COMBO(adaptiveTBC, AD_MACRO_MBS),
   [AD_BTC_BTS] = COMBO(adaptiveBTC, AD_MACRO_BTS),
-  [AD_TBC_BTS] = COMBO(adaptiveTBC, AD_MACRO_BTS),
 
   // Vowel SFB adaptives
   [AD_AH_AU] = COMBO(adaptiveAH, AD_MACRO_AU),
@@ -622,9 +612,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
 
   // B adaptives
-  // L@D S@C C@N M@G
+  // L@D S@C C@N M@T
     SEND_CASED_STRINGS(AD_MACRO_MB, "mb", "Mb", "MB");
-    SEND_CASED_STRINGS(AD_MACRO_BM, "bm", "Bm", "BM");
     SEND_CASED_STRINGS(AD_MACRO_SB, "sb", "Sb", "SB");
     SEND_CASED_STRINGS(AD_MACRO_BS, "bs", "Bs", "BS");
     SEND_CASED_STRINGS(AD_MACRO_LB, "lb", "Lb", "LB");
@@ -635,7 +624,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_BV, "bv", "Bv", "BV");
     SEND_CASED_STRINGS(AD_MACRO_CB, "cb", "Cb", "CB");
     SEND_CASED_STRINGS(AD_MACRO_BC, "bc", "Bc", "BC");
-    SEND_CASED_STRINGS(AD_MACRO_BT, "bt", "Bt", "BT");
     SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
     SEND_CASED_STRINGS(AD_MACRO_MBS, "mbs", "Mbs", "MBS");
     SEND_CASED_STRINGS(AD_MACRO_BTS, "bts", "Bts", "BTS");
