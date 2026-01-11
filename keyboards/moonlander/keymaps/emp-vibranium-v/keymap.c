@@ -279,7 +279,7 @@ enum combo_index {
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
-  ST_COMBO_CGF,
+  ST_COMBO_NGF,
 };
 
 // Text editing combos
@@ -296,7 +296,7 @@ const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Weird letters
 const uint16_t PROGMEM comboXW[] = { LT(0, KC_X), KC_W, COMBO_END};
@@ -471,7 +471,7 @@ combo_t key_combos[] = {
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_CGF] = COMBO(comboCGF, ST_MACRO_SPH), // Sphere
+  [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
 };
 
 inline bool is_adaptive(uint16_t index) {
