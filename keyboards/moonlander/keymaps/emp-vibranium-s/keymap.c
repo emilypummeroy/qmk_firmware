@@ -2,10 +2,6 @@
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
 
-///////
-// See also ../emp-vibranium-s
-///////
-
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
 
