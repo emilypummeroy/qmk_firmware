@@ -87,6 +87,7 @@ enum custom_keycodes {
   AD_MACRO_UA,
   AD_MACRO_OE,
   AD_MACRO_YI,
+  AD_MACRO_HY,
   AD_MACRO_JI,
 
   // J adaptives
@@ -255,6 +256,7 @@ enum combo_index {
   AD_Is_YI,
   AD_Us_UA,
   AD_Os_OE,
+  AD_Ys_HY,
   AD_JH_JI,
 
   // J adaptives
@@ -362,6 +364,7 @@ const uint16_t PROGMEM adaptiveEs[] = { KC_E, LT(0, KC_SLASH), COMBO_END };
 const uint16_t PROGMEM adaptiveIs[] = { KC_I, LT(0, KC_SLASH), COMBO_END };
 const uint16_t PROGMEM adaptiveUs[] = { KC_U, LT(0, KC_SLASH), COMBO_END };
 const uint16_t PROGMEM adaptiveOs[] = { KC_O, LT(0, KC_SLASH), COMBO_END };
+const uint16_t PROGMEM adaptiveYs[] = { KC_Y, LT(0, KC_SLASH), COMBO_END };
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
 
 // J adaptives
@@ -434,6 +437,7 @@ combo_t key_combos[] = {
   [AD_Is_YI] = COMBO(adaptiveIs, AD_MACRO_YI),
   [AD_Us_UA] = COMBO(adaptiveUs, AD_MACRO_UA),
   [AD_Os_OE] = COMBO(adaptiveOs, AD_MACRO_OE),
+  [AD_Ys_HY] = COMBO(adaptiveYs, AD_MACRO_HY),
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
 
   // J adaptives
@@ -610,6 +614,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
+    SEND_CASED_STRINGS(AD_MACRO_HY, "hy", "Hy", "HY");
     SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
 
   // J adaptives
