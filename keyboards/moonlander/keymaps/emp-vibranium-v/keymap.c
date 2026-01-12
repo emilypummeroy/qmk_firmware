@@ -459,8 +459,8 @@ combo_t key_combos[] = {
   [ST_COMBO_PLUS] = COMBO(comboPlus, KC_PLUS),
 
   // H Bigram combos
-  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_WH),
-  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_GH),
+  [ST_COMBO_WM] = COMBO(comboGM, ST_MACRO_WH),
+  [ST_COMBO_GM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
