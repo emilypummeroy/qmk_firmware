@@ -81,6 +81,12 @@ enum custom_keycodes {
   AD_MACRO_MBS,
   AD_MACRO_BTS, // doubts
 
+  // H digraph adaptives
+  AD_MACRO_LCH,
+  AD_MACRO_CHL,
+  AD_MACRO_LTH,
+  AD_MACRO_THL,
+
   // Vowel SFB adaptives
   AD_MACRO_AU,
   AD_MACRO_EO,
@@ -251,6 +257,12 @@ enum combo_index {
   AD_TBP_MBS,
   AD_BTP_BTS, // doubts
 
+  // H digraph adaptives
+  AD_DCN_LCH,
+  AD_CND_CHL,
+  AD_PTN_LTH,
+  AD_TNP_THL,
+
   // Vowel SFB adaptives
   AD_As_AU,
   AD_Es_EO,
@@ -364,6 +376,12 @@ const uint16_t PROGMEM adaptiveDBP[] = { KC_D, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTBP[] = { KC_T, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
 
+// H digraph adaptives
+const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
+
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAs[] = { KC_A, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveEs[] = { KC_E, KC_SLASH, COMBO_END };
@@ -439,6 +457,12 @@ combo_t key_combos[] = {
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
   [AD_TBP_MBS] = COMBO(adaptiveTBP, AD_MACRO_MBS),
   [AD_BTP_BTS] = COMBO(adaptiveBTP, AD_MACRO_BTS),
+
+  // H digraph adaptives
+  [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
+  [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
+  [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
+  [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL),
 
   // Vowel SFB adaptives
   [AD_As_AU] = COMBO(adaptiveAs, AD_MACRO_AU),
@@ -620,6 +644,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
     SEND_CASED_STRINGS(AD_MACRO_MBS, "mbs", "Mbs", "MBS");
     SEND_CASED_STRINGS(AD_MACRO_BTS, "bts", "Bts", "BTS");
+
+  // H digraph adaptives
+    SEND_CASED_STRINGS(AD_MACRO_LCH, "lch", "Lch", "LCH");
+    SEND_CASED_STRINGS(AD_MACRO_CHL, "chl", "Chl", "CHL");
+    SEND_CASED_STRINGS(AD_MACRO_LTH, "lth", "Lth", "LTH");
+    SEND_CASED_STRINGS(AD_MACRO_THL, "thl", "Thl", "THL");
 
   // Vowel SFB adaptives
     SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
