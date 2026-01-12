@@ -16,6 +16,7 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
+  ST_MACRO_TCH, // Witch
   ST_MACRO_SPH, // Sphere
 
   AD_MACRO_XP,
@@ -280,6 +281,7 @@ enum combo_index {
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
+  ST_COMBO_CNT,
   ST_COMBO_NGF,
 };
 
@@ -290,6 +292,7 @@ const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboCNT[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Weird letters
@@ -467,6 +470,7 @@ combo_t key_combos[] = {
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
+  [ST_COMBO_CNT] = COMBO(comboCNT, ST_MACRO_TCH), // Witch
   [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
 };
 
@@ -637,6 +641,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
+    SEND_CASED_STRINGS(ST_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
 
   // Symbol macros
