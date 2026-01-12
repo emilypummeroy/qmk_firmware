@@ -36,6 +36,7 @@ enum custom_keycodes {
   AD_MACRO_DG,
   AD_MACRO_GD,
   AD_MACRO_SP,
+  AD_MACRO_ZZL,
   // Maybe Mc would be convenient
 
   // F adaptives
@@ -218,6 +219,7 @@ enum combo_index {
   AD_DM_DG,
   AD_MD_GD,
   AD_VC_SP,
+  AD_XMG_ZZL, // Rizzler
 
   // F adaptives
   // L@T S@C W@M
@@ -340,6 +342,7 @@ const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveXMG[] = { LT(0, KC_X), KC_M, KC_G, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M
@@ -426,6 +429,7 @@ combo_t key_combos[] = {
   [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
   [AD_VC_SP] = COMBO(adaptiveVC, AD_MACRO_SP),
+  [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
 
   // F adaptives
   // L@T S@C W@M
@@ -615,6 +619,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
     SEND_CASED_STRINGS(AD_MACRO_SP, "sp", "Sp", "SP");
+    SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
 
   // F adaptives
   // L@T S@C W@M
