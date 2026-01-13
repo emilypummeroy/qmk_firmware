@@ -21,6 +21,7 @@ enum custom_keycodes {
   AD_MACRO_XP,
   AD_MACRO_ZZ,
   AD_MACRO_QU,
+  AD_MACRO_WQ,
   AD_MACRO_SS,
   AD_MACRO_LG,
   AD_MACRO_ML,
@@ -205,6 +206,7 @@ enum combo_index {
   AD_XW_XP, ADAPTIVE_FIRST = AD_XW_XP,
   AD_XG_ZZ,
   AD_KM_QU,
+  AD_MTK_WQ,
   AD_SD_SS,
   AD_MG_LG,
   AD_MC_ML,
@@ -330,6 +332,7 @@ const uint16_t PROGMEM comboPlus[] = { LT(0, KC_MINUS), KC_U, COMBO_END};
 const uint16_t PROGMEM adaptiveXW[] = { LT(0, KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0, KC_X), KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMTK[] = { KC_M, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveSD[] = { KC_S, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
@@ -418,6 +421,7 @@ combo_t key_combos[] = {
   [AD_XW_XP] = COMBO(adaptiveXW, AD_MACRO_XP),
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ),
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
+  [AD_MTK_WQ] = COMBO(adaptiveMTK, AD_MACRO_WQ),
   [AD_SD_SS] = COMBO(adaptiveSD, AD_MACRO_SS),
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
   [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
@@ -609,6 +613,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
     SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(AD_MACRO_QU, "qu", "Qu", "QU");
+    SEND_CASED_STRINGS(AD_MACRO_WQ, "wq", "Wq", "WQ");
     SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Su", "SS");
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
