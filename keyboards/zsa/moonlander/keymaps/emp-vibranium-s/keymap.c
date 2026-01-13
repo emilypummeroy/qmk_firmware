@@ -16,7 +16,6 @@ enum custom_keycodes {
   ST_MACRO_PH,
   ST_MACRO_TCH, // Witch
   ST_MACRO_SPH, // Sphere
-  ST_MACRO_GHN, // Toughness
 
   AD_MACRO_XP,
   AD_MACRO_ZZ,
@@ -92,6 +91,8 @@ enum custom_keycodes {
   AD_MACRO_NSH,
   AD_MACRO_LSH,
   AD_MACRO_SHL,
+  AD_MACRO_GHN, // Toughness
+  AD_MACRO_GHT, // Thought
 
   // Vowel SFB adaptives
   AD_MACRO_AU,
@@ -275,6 +276,8 @@ enum combo_index {
   AD_CLD_NSH,
   AD_PLD_LSH,
   AD_DLP_SHL,
+  AD_WMG_GHN,
+  AD_WMT_GHT,
 
   // Vowel SFB adaptives
   AD_As_AU,
@@ -283,6 +286,7 @@ enum combo_index {
   AD_Us_UA,
   AD_Os_OE,
   AD_Ys_HY,
+  AD_sY_HY,
 
   // J adaptives
   AD_JH_JI,
@@ -307,7 +311,6 @@ enum combo_index {
   ST_COMBO_GF,
   ST_COMBO_CNT,
   ST_COMBO_NGF,
-  ST_COMBO_WMG,
 };
 
 // Bigram combo
@@ -319,7 +322,6 @@ const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboCNT[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 
 // Miscellaneous consonants
 const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
@@ -401,6 +403,8 @@ const uint16_t PROGMEM adaptiveDLC[] = { KC_D, KC_L, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCLD[] = { KC_C, KC_L, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptivePLD[] = { KC_P, KC_L, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveDLP[] = { KC_D, KC_L, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
+const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAs[] = { KC_A, KC_SLASH, COMBO_END };
@@ -409,6 +413,7 @@ const uint16_t PROGMEM adaptiveIs[] = { KC_I, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveUs[] = { KC_U, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveOs[] = { KC_O, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveYs[] = { KC_Y, KC_SLASH, COMBO_END };
+const uint16_t PROGMEM adaptivesY[] = { KC_SLASH, KC_Y, COMBO_END };
 
 // J adaptives
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
@@ -490,6 +495,8 @@ combo_t key_combos[] = {
   [AD_CLD_NSH] = COMBO(adaptiveCLD, AD_MACRO_NSH),
   [AD_PLD_LSH] = COMBO(adaptivePLD, AD_MACRO_LSH),
   [AD_DLP_SHL] = COMBO(adaptiveDLP, AD_MACRO_SHL),
+  [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
+  [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
 
   // Vowel SFB adaptives
   [AD_As_AU] = COMBO(adaptiveAs, AD_MACRO_AU),
@@ -498,6 +505,7 @@ combo_t key_combos[] = {
   [AD_Us_UA] = COMBO(adaptiveUs, AD_MACRO_UA),
   [AD_Os_OE] = COMBO(adaptiveOs, AD_MACRO_OE),
   [AD_Ys_HY] = COMBO(adaptiveYs, AD_MACRO_HY),
+  [AD_sY_HY] = COMBO(adaptivesY, AD_MACRO_HY),
 
   // J adaptives
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
@@ -522,7 +530,6 @@ combo_t key_combos[] = {
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
   [ST_COMBO_CNT] = COMBO(comboCNT, ST_MACRO_TCH), // Witch
   [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
-  [ST_COMBO_WMG] = COMBO(comboWMG, ST_MACRO_GHN), // Toughness
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -682,6 +689,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NSH, "nsh", "Nsh", "NSH");
     SEND_CASED_STRINGS(AD_MACRO_LSH, "lsh", "Lsh", "LSH");
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
+    SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
+    SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
 
   // Vowel SFB adaptives
     SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
@@ -705,7 +714,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
     SEND_CASED_STRINGS(ST_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
-    SEND_CASED_STRINGS(ST_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
 
   // Symbol macros
   case ST_FORCE_EQUAL:
