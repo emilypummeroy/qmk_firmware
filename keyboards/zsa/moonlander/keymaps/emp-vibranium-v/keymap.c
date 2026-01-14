@@ -300,10 +300,6 @@ enum combo_index {
   // Miscellaneous consonants
   ST_COMBO_NTK_Q,
 
-  // Symbol combos
-  ST_COMBO_ASTERISK,
-  ST_COMBO_PLUS,
-
   // H Bigram combos
   ST_COMBO_WM,
   ST_COMBO_GM,
@@ -327,10 +323,6 @@ const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Miscellaneous consonants
 const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
-
-// Symbol combos
-const uint16_t PROGMEM comboAstr[] = { KC_COMMA, KC_A, COMBO_END};
-const uint16_t PROGMEM comboPlus[] = { KC_MINUS, KC_U, COMBO_END};
 
 const uint16_t PROGMEM adaptiveXW[] = { LT(0, KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0, KC_X), KC_G, COMBO_END };
@@ -515,10 +507,6 @@ combo_t key_combos[] = {
 
   // Miscellaneous consonants
   [ST_COMBO_NTK_Q] = COMBO(comboNTK, KC_Q),
-
-  // Symbol combos
-  [ST_COMBO_ASTERISK] = COMBO(comboAstr, KC_ASTR),
-  [ST_COMBO_PLUS] = COMBO(comboPlus, KC_PLUS),
 
   // H Bigram combos
   [ST_COMBO_WM] = COMBO(comboGM, ST_MACRO_WH),
@@ -740,8 +728,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LALT, KC_UP):
     return g_tapping_term + 25;
   case MT(MOD_LCTL, KC_DOWN):
-    return g_tapping_term + 25;
-  case LT(0, KC_DOT):
     return g_tapping_term + 25;
   default:
     return g_tapping_term;
