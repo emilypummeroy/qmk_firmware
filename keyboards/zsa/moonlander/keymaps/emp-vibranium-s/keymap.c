@@ -7,6 +7,7 @@ enum custom_keycodes {
 
   ST_FORCE_EQUAL,
   ST_FORCE_BSLS,
+  ST_FORCE_S,
 
   ST_MACRO_WH, KC_ALNUM_MACRO_FIRST = ST_MACRO_WH,
   ST_MACRO_GH,
@@ -138,7 +139,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        ST_FORCE_BSLS,  KC_AT,          KC_CIRC,        KC_DLR,         KC_PERC,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_HASH,        _______,
     _______,        XXXXXXX,        KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        XXXXXXX,        ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        ST_FORCE_S,     ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
@@ -737,6 +738,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case ST_FORCE_BSLS:
     if (record->event.pressed) {
       SEND_STRING_CLEAR("\\");
+    }
+    return true;
+  case ST_FORCE_S:
+    if (record->event.pressed) {
+      SEND_STRING_CLEAR("s");
     }
     return true;
 
