@@ -287,12 +287,11 @@ enum combo_index {
   AD_WMT_GHT,
 
   // Vowel SFB adaptives
-  AD_As_AU,
-  AD_Es_EO,
-  AD_Is_YI,
-  AD_Us_UA,
-  AD_Os_OE,
-  AD_Ys_HY,
+  AD_Am_AU,
+  AD_Ac_EO,
+  AD_Oc_YI,
+  AD_Uc_UA,
+  AD_Um_OE,
   AD_sY_HY,
   AD_Ed_Eq,
   AD_HEd_HEq,
@@ -300,7 +299,7 @@ enum combo_index {
   AD_YEd_YEq,
 
   // J adaptives
-  AD_JH_JI,
+  AD_qI_JI,
   AD_Jq_JO,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
@@ -406,12 +405,11 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
 
 // Vowel SFB adaptives
-const uint16_t PROGMEM adaptiveAs[] = { KC_A, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptiveEs[] = { KC_E, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptiveIs[] = { KC_I, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptiveUs[] = { KC_U, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptiveOs[] = { KC_O, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptiveYs[] = { KC_Y, KC_SLASH, COMBO_END };
+const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
+const uint16_t PROGMEM adaptiveAc[] = { KC_A, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM adaptiveOc[] = { KC_O, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptivesY[] = { KC_SLASH, KC_Y, COMBO_END };
 const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
@@ -419,9 +417,9 @@ const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
 
 // J adaptives
-const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOT, COMBO_END };
-const uint16_t PROGMEM adaptiveqJ[] = { KC_DOT, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveqI[] = { KC_QUOTE, KC_I, COMBO_END };
+const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_XW_XP] = COMBO(adaptiveXW, AD_MACRO_XP),
@@ -499,12 +497,11 @@ combo_t key_combos[] = {
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
 
   // Vowel SFB adaptives
-  [AD_As_AU] = COMBO(adaptiveAs, AD_MACRO_AU),
-  [AD_Es_EO] = COMBO(adaptiveEs, AD_MACRO_EO),
-  [AD_Is_YI] = COMBO(adaptiveIs, AD_MACRO_YI),
-  [AD_Us_UA] = COMBO(adaptiveUs, AD_MACRO_UA),
-  [AD_Os_OE] = COMBO(adaptiveOs, AD_MACRO_OE),
-  [AD_Ys_HY] = COMBO(adaptiveYs, AD_MACRO_HY),
+  [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
+  [AD_Ac_EO] = COMBO(adaptiveAc, AD_MACRO_EO),
+  [AD_Oc_YI] = COMBO(adaptiveOc, AD_MACRO_YI),
+  [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
+  [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
   [AD_sY_HY] = COMBO(adaptivesY, AD_MACRO_HY),
   [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
   [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
@@ -512,7 +509,7 @@ combo_t key_combos[] = {
   [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
 
   // J adaptives
-  [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
+  [AD_qI_JI] = COMBO(adaptiveqI, AD_MACRO_JI),
   [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
