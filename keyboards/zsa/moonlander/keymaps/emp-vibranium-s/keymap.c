@@ -130,7 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRAVE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_BSLS,        XXXXXXX,
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           XXXXXXX,
     XXXXXXX,        KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_SLASH,       XXXXXXX,
-    TO(_LEFT),      XXXXXXX,        MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
+    TO(_LEFT),      XXXXXXX,        MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
     KC_R,           KC_ENTER,         XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
@@ -571,6 +571,11 @@ bool caps_word_press_user(uint16_t keycode) {
   // Keycodes that continue Caps Word, without shifting.
   case KC_1 ... KC_0:
   case KC_BSPC:
+  case RCTL(KC_BSPC):
+  case LM(_LMOD,MOD_LSFT):
+  case LM(_RMOD,MOD_RSFT):
+  case KC_LSFT:
+  case KC_RSFT:
   case KC_DEL:
   case KC_UNDS:
   case KC_QUOTE:
