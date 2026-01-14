@@ -104,6 +104,10 @@ enum custom_keycodes {
   AD_MACRO_OE,
   AD_MACRO_YI,
   AD_MACRO_HY,
+  AD_MACRO_Eq,
+  AD_MACRO_HEq,
+  AD_MACRO_IEq,
+  AD_MACRO_YEq,
 
   // J adaptives
   AD_MACRO_JI,
@@ -126,7 +130,7 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_QUOTE,      KC_DOT,          KC_J,           KC_AT,          XXXXXXX,
+    KC_GRAVE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_AT,          XXXXXXX,
     KC_TAB,         KC_S,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           XXXXXXX,
     XXXXXXX,        KC_V,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_SLASH,       XXXXXXX,
     TO(_LEFT),      XXXXXXX,        MO(_FN),        MO(_NUM),       LM(_LMOD, MOD_LSFT),            KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD, MOD_LSFT), MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
@@ -144,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PIPE,        KC_AMPR,        KC_RPRN,        KC_EXLM,        KC_HASH,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PIPE,        KC_RPRN,        KC_AMPR,        KC_EXLM,        KC_HASH,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_LPRN,        KC_RCTL,        KC_RALT,        KC_RGUI,        ST_FORCE_EQUAL, _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        _______,        _______,        _______,
@@ -289,6 +293,10 @@ enum combo_index {
   AD_Os_OE,
   AD_Ys_HY,
   AD_sY_HY,
+  AD_Ed_Eq,
+  AD_HEd_HEq,
+  AD_IEd_IEq,
+  AD_YEd_YEq,
 
   // J adaptives
   AD_JH_JI,
@@ -406,6 +414,10 @@ const uint16_t PROGMEM adaptiveUs[] = { KC_U, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveOs[] = { KC_O, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptiveYs[] = { KC_Y, KC_SLASH, COMBO_END };
 const uint16_t PROGMEM adaptivesY[] = { KC_SLASH, KC_Y, COMBO_END };
+const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
 
 // J adaptives
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
@@ -497,6 +509,10 @@ combo_t key_combos[] = {
   [AD_Os_OE] = COMBO(adaptiveOs, AD_MACRO_OE),
   [AD_Ys_HY] = COMBO(adaptiveYs, AD_MACRO_HY),
   [AD_sY_HY] = COMBO(adaptivesY, AD_MACRO_HY),
+  [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
+  [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
+  [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
+  [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
 
   // J adaptives
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
@@ -557,6 +573,7 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_BSPC:
   case KC_DEL:
   case KC_UNDS:
+  case KC_QUOTE:
   case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
     return true;
 
@@ -685,6 +702,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
     SEND_CASED_STRINGS(AD_MACRO_HY, "hy", "Hy", "HY");
+    SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
+    SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
+    SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
+    SEND_CASED_STRINGS(AD_MACRO_YEq, "ye'", "Ye'", "YE'");
 
   // J adaptives
     SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
