@@ -301,10 +301,8 @@ enum combo_index {
 
   // J adaptives
   AD_JH_JI,
-  AD_Jd_JO,
-  AD_Ja_JO,
-  AD_dJ_OJ,
-  AD_aJ_OJ, ADAPTIVE_LAST = AD_aJ_OJ,
+  AD_Jq_JO,
+  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // Miscellaneous consonants
   ST_COMBO_NTK_Q,
@@ -422,10 +420,8 @@ const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
 
 // J adaptives
 const uint16_t PROGMEM adaptiveJH[] = { KC_J, KC_H, COMBO_END };
-const uint16_t PROGMEM adaptiveJd[] = { KC_J, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveJa[] = { KC_J, KC_RABK, COMBO_END };
-const uint16_t PROGMEM adaptivedJ[] = { KC_DOT, KC_J, COMBO_END };
-const uint16_t PROGMEM adaptiveaJ[] = { KC_RABK, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOT, COMBO_END };
+const uint16_t PROGMEM adaptiveqJ[] = { KC_DOT, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_XW_XP] = COMBO(adaptiveXW, AD_MACRO_XP),
@@ -517,10 +513,8 @@ combo_t key_combos[] = {
 
   // J adaptives
   [AD_JH_JI] = COMBO(adaptiveJH, AD_MACRO_JI),
-  [AD_Jd_JO] = COMBO(adaptiveJd, AD_MACRO_JO),
-  [AD_Ja_JO] = COMBO(adaptiveJa, AD_MACRO_JO),
-  [AD_dJ_OJ] = COMBO(adaptivedJ, AD_MACRO_OJ),
-  [AD_aJ_OJ] = COMBO(adaptiveaJ, AD_MACRO_OJ),
+  [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
+  [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Miscellaneous consonants
   [ST_COMBO_NTK_Q] = COMBO(comboNTK, KC_Q),
