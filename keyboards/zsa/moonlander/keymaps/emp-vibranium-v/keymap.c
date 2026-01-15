@@ -19,7 +19,6 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
-  ST_MACRO_TCH, // Wretch
   ST_MACRO_SPH, // Sphere
 
   AD_MACRO_XP,
@@ -89,6 +88,8 @@ enum custom_keycodes {
   // H digraph adaptives
   AD_MACRO_LCH,
   AD_MACRO_CHL,
+  AD_MACRO_NCH, // Wrench
+  AD_MACRO_TCH, // Wretch
   AD_MACRO_LTH,
   AD_MACRO_THL,
   AD_MACRO_SHN,
@@ -277,6 +278,8 @@ enum combo_index {
   // H digraph adaptives
   AD_DCN_LCH,
   AD_CND_CHL,
+  AD_VCN_NCH, // Winch
+  AD_TNC_TCH, // Witch
   AD_PTN_LTH,
   AD_TNP_THL,
   AD_DLC_SHN,
@@ -313,7 +316,6 @@ enum combo_index {
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
-  ST_COMBO_CNT,
   ST_COMBO_NGF,
 };
 
@@ -324,7 +326,6 @@ const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboCNT[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Miscellaneous consonants
@@ -395,6 +396,8 @@ const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 // H digraph adaptives
 const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END};
+const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveDLC[] = { KC_D, KC_L, KC_C, COMBO_END };
@@ -487,6 +490,8 @@ combo_t key_combos[] = {
   // H digraph adaptives
   [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
   [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
+  [AD_VCN_NCH] = COMBO(adaptiveVCN, AD_MACRO_NCH), // Winch
+  [AD_TNC_TCH] = COMBO(adaptiveCNT, AD_MACRO_TCH), // Witch
   [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
   [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL),
   [AD_DLC_SHN] = COMBO(adaptiveDLC, AD_MACRO_SHN),
@@ -523,7 +528,6 @@ combo_t key_combos[] = {
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_CNT] = COMBO(comboCNT, ST_MACRO_TCH), // Witch
   [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
 };
 
@@ -683,6 +687,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // H digraph adaptives
     SEND_CASED_STRINGS(AD_MACRO_LCH, "lch", "Lch", "LCH");
     SEND_CASED_STRINGS(AD_MACRO_CHL, "chl", "Chl", "CHL");
+    SEND_CASED_STRINGS(AD_MACRO_NCH, "nch", "Nch", "NCH"); // Winch
+    SEND_CASED_STRINGS(AD_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(AD_MACRO_LTH, "lth", "Lth", "LTH");
     SEND_CASED_STRINGS(AD_MACRO_THL, "thl", "Thl", "THL");
     SEND_CASED_STRINGS(AD_MACRO_SHN, "shn", "Shn", "SHN");
@@ -716,7 +722,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
-    SEND_CASED_STRINGS(ST_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
 
   // Symbol macros
