@@ -101,7 +101,6 @@ enum custom_keycodes {
   AD_MACRO_UA,
   AD_MACRO_OE,
   AD_MACRO_YI,
-  AD_MACRO_HY,
   AD_MACRO_Eq,
   AD_MACRO_HEq,
   AD_MACRO_IEq,
@@ -129,8 +128,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
     KC_GRAVE,       LT(0, KC_X),    KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_BSLS,        XXXXXXX,
-    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_H,           XXXXXXX,
-    XXXXXXX,        KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_SLASH,       XXXXXXX,
+    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_SLASH,       XXXXXXX,
+    XXXXXXX,        KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_H,           XXXXXXX,
     TO(_LEFT),      XXXXXXX,        MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
     KC_R,           KC_ENTER,         XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
@@ -147,8 +146,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PIPE,        KC_RPRN,        KC_AMPR,        KC_EXLM,        KC_HASH,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_LPRN,        KC_RCTL,        KC_RALT,        KC_RGUI,        ST_FORCE_EQUAL, _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_LPRN,        KC_RCTL,        KC_RALT,        KC_RGUI,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        ST_FORCE_EQUAL, _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        _______,        _______,        _______,
     KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
   ),
@@ -156,8 +155,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUM] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_EXLM,        KC_AT,          KC_CIRC,        KC_DLR,         KC_PERC,        _______,                                        TO(_NUMPAD),    KC_ASTR,        KC_7,           KC_8,           KC_9,           KC_HASH,        _______,
-    _______, KC_COMMA, MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,    _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_EQUAL,       _______,
-    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           _______,        _______,
+    _______, KC_COMMA, MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,    _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           _______,        _______,
+    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           KC_EQUAL,       _______,
     TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_DOT,         KC_0,           KC_EQUAL,       _______,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
   ),
@@ -165,8 +164,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUMPAD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_NUM,         KC_KP_ASTERISK, KC_KP_7,        KC_KP_8,        KC_KP_9,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_EQUAL,    _______,
-    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_KP_MINUS,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_SLASH,    _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        KC_KP_SLASH,    _______,
+    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_KP_MINUS,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_EQUAL,    _______,
     TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_KP_DOT,      KC_KP_0,        KC_KP_EQUAL,    _______,        TO(0),
     TO(_NUM),       KC_KP_COMMA,    _______,                        _______,        KC_KP_ENTER,    _______
   ),
@@ -290,7 +289,6 @@ enum combo_index {
   AD_Oc_YI,
   AD_Uc_UA,
   AD_Um_OE,
-  AD_sY_HY,
   AD_Ed_Eq,
   AD_HEd_HEq,
   AD_IEd_IEq,
@@ -409,7 +407,6 @@ const uint16_t PROGMEM adaptiveAc[] = { KC_A, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveOc[] = { KC_O, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
-const uint16_t PROGMEM adaptivesY[] = { KC_SLASH, KC_Y, COMBO_END };
 const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
@@ -502,7 +499,6 @@ combo_t key_combos[] = {
   [AD_Oc_YI] = COMBO(adaptiveOc, AD_MACRO_YI),
   [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
-  [AD_sY_HY] = COMBO(adaptivesY, AD_MACRO_HY),
   [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
   [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
   [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
@@ -699,7 +695,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
-    SEND_CASED_STRINGS(AD_MACRO_HY, "hy", "Hy", "HY");
     SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
     SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
     SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
