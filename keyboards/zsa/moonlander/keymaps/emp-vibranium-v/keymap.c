@@ -18,7 +18,6 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
-  ST_MACRO_SPH, // Sphere
 
   AD_MACRO_XP,
   AD_MACRO_ZZ,
@@ -98,6 +97,8 @@ enum custom_keycodes {
   AD_MACRO_SHL,
   AD_MACRO_GHN, // Toughness
   AD_MACRO_GHT, // Thought
+  AD_MACRO_SPH, // Sphere
+  AD_MACRO_MPH, // Emphasis
 
   // Vowel SFB adaptives
   AD_MACRO_AU,
@@ -289,6 +290,8 @@ enum combo_index {
   AD_DLP_SHL,
   AD_WMG_GHN,
   AD_WMT_GHT,
+  AD_NGF_SPH,
+  AD_MGF_MPH,
 
   // Vowel SFB adaptives
   AD_Am_AU,
@@ -317,7 +320,6 @@ enum combo_index {
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
-  ST_COMBO_NGF,
 };
 
 // Bigram combo
@@ -327,7 +329,6 @@ const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
 
 // Miscellaneous consonants
 const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
@@ -408,6 +409,8 @@ const uint16_t PROGMEM adaptivePLD[] = { KC_P, KC_L, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveDLP[] = { KC_D, KC_L, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
+const uint16_t PROGMEM adaptiveNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END};
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -503,6 +506,8 @@ combo_t key_combos[] = {
   [AD_DLP_SHL] = COMBO(adaptiveDLP, AD_MACRO_SHL),
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
+  [AD_NGF_SPH] = COMBO(adaptiveNGF, AD_MACRO_SPH), // Sphere
+  [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
@@ -531,7 +536,6 @@ combo_t key_combos[] = {
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_NGF] = COMBO(comboNGF, ST_MACRO_SPH), // Sphere
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -701,6 +705,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
+    SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
+    SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH"); // Emphasis
 
   // Vowel SFB adaptives
     SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
@@ -726,7 +732,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
-    SEND_CASED_STRINGS(ST_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
 
   // Symbol macros
   case ST_FORCE_EQUAL:
