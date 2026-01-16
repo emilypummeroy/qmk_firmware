@@ -258,7 +258,7 @@ enum combo_index {
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P
-  AD_TB_MB,
+  AD_GB_MB,
   AD_CB_VB,
   AD_BC_BV,
   AD_DB_LB,
@@ -270,7 +270,7 @@ enum combo_index {
   AD_NB_CB,
   AD_BN_BC, // ribcage
   AD_DBP_LBS,
-  AD_TBP_MBS,
+  AD_GBP_MBS,
   AD_BTP_BTS, // doubts
 
   // H digraph adaptives
@@ -377,7 +377,7 @@ const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 
 // B adaptives
 // L@D S@P C@N M@G P@L V@C
-const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveGB[] = { KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBC[] = { KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
@@ -389,7 +389,7 @@ const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNB[] = { KC_N, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveDBP[] = { KC_D, KC_B, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveTBP[] = { KC_T, KC_B, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveGBP[] = { KC_G, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
 
 // H digraph adaptives
@@ -474,7 +474,7 @@ combo_t key_combos[] = {
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P
-  [AD_TB_MB] = COMBO(adaptiveTB, AD_MACRO_MB),
+  [AD_GB_MB] = COMBO(adaptiveGB, AD_MACRO_MB),
   [AD_CB_VB] = COMBO(adaptiveCB, AD_MACRO_VB),
   [AD_BC_BV] = COMBO(adaptiveBC, AD_MACRO_BV),
   [AD_DB_LB] = COMBO(adaptiveDB, AD_MACRO_LB),
@@ -486,7 +486,7 @@ combo_t key_combos[] = {
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
-  [AD_TBP_MBS] = COMBO(adaptiveTBP, AD_MACRO_MBS),
+  [AD_GBP_MBS] = COMBO(adaptiveGBP, AD_MACRO_MBS),
   [AD_BTP_BTS] = COMBO(adaptiveBTP, AD_MACRO_BTS),
 
   // H digraph adaptives

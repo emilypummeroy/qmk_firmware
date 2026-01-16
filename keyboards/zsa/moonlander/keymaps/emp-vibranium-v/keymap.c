@@ -260,8 +260,8 @@ enum combo_index {
   AD_NKG_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@T P@L V@P
-  AD_TB_MB,
+  // L@D S@C C@N M@G P@L V@P
+  AD_GB_MB,
   AD_CB_SB,
   AD_BC_BS,
   AD_DB_LB,
@@ -273,7 +273,7 @@ enum combo_index {
   AD_NB_CB,
   AD_BN_BC, // ribcage
   AD_DBC_LBS,
-  AD_TBC_MBS,
+  AD_GBC_MBS,
   AD_BTC_BTS, // doubts
 
   // H digraph adaptives
@@ -380,7 +380,7 @@ const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 
 // B adaptives
 // L@D S@C C@N M@G P@L V@P
-const uint16_t PROGMEM adaptiveTB[] = { KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveGB[] = { KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBC[] = { KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
@@ -392,7 +392,7 @@ const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNB[] = { KC_N, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveDBC[] = { KC_D, KC_B, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveTBC[] = { KC_T, KC_B, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveGBC[] = { KC_G, KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 
 // H digraph adaptives
@@ -477,7 +477,7 @@ combo_t key_combos[] = {
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P
-  [AD_TB_MB] = COMBO(adaptiveTB, AD_MACRO_MB),
+  [AD_GB_MB] = COMBO(adaptiveGB, AD_MACRO_MB),
   [AD_CB_SB] = COMBO(adaptiveCB, AD_MACRO_SB),
   [AD_BC_BS] = COMBO(adaptiveBC, AD_MACRO_BS),
   [AD_DB_LB] = COMBO(adaptiveDB, AD_MACRO_LB),
@@ -489,7 +489,7 @@ combo_t key_combos[] = {
   [AD_NB_CB] = COMBO(adaptiveNB, AD_MACRO_CB),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_DBC_LBS] = COMBO(adaptiveDBC, AD_MACRO_LBS),
-  [AD_TBC_MBS] = COMBO(adaptiveTBC, AD_MACRO_MBS),
+  [AD_GBC_MBS] = COMBO(adaptiveGBC, AD_MACRO_MBS),
   [AD_BTC_BTS] = COMBO(adaptiveBTC, AD_MACRO_BTS),
 
   // H digraph adaptives
