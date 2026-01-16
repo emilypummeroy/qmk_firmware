@@ -35,7 +35,7 @@ enum custom_keycodes {
   // Maybe Mc would be convenient
 
   // F adaptives
-  // L@T S@C W@M
+  // L@G S@C W@M
   AD_MACRO_LF,
   AD_MACRO_FL,
   AD_MACRO_SF,
@@ -229,9 +229,9 @@ enum combo_index {
   AD_XMG_ZZL, // Rizzler
 
   // F adaptives
-  // L@T S@C W@M
-  AD_TF_LF,
-  AD_FT_FL,
+  // L@G S@C W@M
+  AD_GF_LF,
+  AD_FG_FL,
   AD_CF_SF,
   AD_FC_FS,
   AD_MF_WF,
@@ -349,8 +349,8 @@ const uint16_t PROGMEM adaptiveXMG[] = { LT(0, KC_X), KC_M, KC_G, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M
-const uint16_t PROGMEM adaptiveTF[] = { KC_T, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveFT[] = { KC_F, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveGF[] = { KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFG[] = { KC_F, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveCF[] = { KC_C, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFC[] = { KC_F, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveMF[] = { KC_M, KC_F, COMBO_END };
@@ -445,9 +445,9 @@ combo_t key_combos[] = {
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
 
   // F adaptives
-  // L@T S@C W@M
-  [AD_TF_LF] = COMBO(adaptiveTF, AD_MACRO_LF),
-  [AD_FT_FL] = COMBO(adaptiveFT, AD_MACRO_FL),
+  // L@G S@C W@M
+  [AD_GF_LF] = COMBO(adaptiveGF, AD_MACRO_LF),
+  [AD_FG_FL] = COMBO(adaptiveFG, AD_MACRO_FL),
   [AD_CF_SF] = COMBO(adaptiveCF, AD_MACRO_SF),
   [AD_FC_FS] = COMBO(adaptiveFC, AD_MACRO_FS),
   [AD_MF_WF] = COMBO(adaptiveMF, AD_MACRO_WF),
@@ -644,7 +644,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
 
   // F adaptives
-  // L@T S@C W@M
+  // L@G S@C W@M
     SEND_CASED_STRINGS(AD_MACRO_LF, "lf", "Lf", "LF");
     SEND_CASED_STRINGS(AD_MACRO_FL, "fl", "Fl", "FL");
     SEND_CASED_STRINGS(AD_MACRO_SF, "sf", "Sf", "SF");
