@@ -281,10 +281,10 @@ enum combo_index {
   AD_CNT_NTH, // Tenth
   AD_PTN_LTH,
   AD_TNP_THL,
-  AD_DLC_SHN,
-  AD_CLD_NSH,
-  AD_PLD_LSH,
-  AD_DLP_SHL,
+  AD_BDN_SHN,
+  AD_NDB_NSH,
+  AD_LDB_LSH,
+  AD_BDL_SHL,
   AD_WMG_GHN,
   AD_WMT_GHT,
   AD_CGF_SPH,
@@ -312,7 +312,7 @@ enum combo_index {
   // H Bigram combos
   ST_COMBO_WM,
   ST_COMBO_GM,
-  ST_COMBO_DL,
+  ST_COMBO_DB,
   ST_COMBO_CN,
   ST_COMBO_TN,
   ST_COMBO_GF,
@@ -321,7 +321,7 @@ enum combo_index {
 // Bigram combo
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM comboDL[] = { KC_D, KC_L, COMBO_END};
+const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
@@ -400,10 +400,10 @@ const uint16_t PROGMEM adaptiveTNC[] = { KC_T, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveDLC[] = { KC_D, KC_L, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveCLD[] = { KC_C, KC_L, KC_D, COMBO_END };
-const uint16_t PROGMEM adaptivePLD[] = { KC_P, KC_L, KC_D, COMBO_END };
-const uint16_t PROGMEM adaptiveDLP[] = { KC_D, KC_L, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
 const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
@@ -497,10 +497,10 @@ combo_t key_combos[] = {
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
   [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL),
-  [AD_DLC_SHN] = COMBO(adaptiveDLC, AD_MACRO_SHN),
-  [AD_CLD_NSH] = COMBO(adaptiveCLD, AD_MACRO_NSH),
-  [AD_PLD_LSH] = COMBO(adaptivePLD, AD_MACRO_LSH),
-  [AD_DLP_SHL] = COMBO(adaptiveDLP, AD_MACRO_SHL),
+  [AD_BDN_SHN] = COMBO(adaptiveBDN, AD_MACRO_SHN),
+  [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
+  [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
+  [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
@@ -528,7 +528,7 @@ combo_t key_combos[] = {
   // H Bigram combos
   [ST_COMBO_WM] = COMBO(comboGM, ST_MACRO_WH),
   [ST_COMBO_GM] = COMBO(comboWM, ST_MACRO_GH),
-  [ST_COMBO_DL] = COMBO(comboDL, ST_MACRO_SH), // Maybe this should be ordered?
+  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
