@@ -290,7 +290,7 @@ enum combo_index {
   AD_DLP_SHL,
   AD_WMG_GHN,
   AD_WMT_GHT,
-  AD_NGF_SPH,
+  AD_CGF_SPH,
   AD_MGF_MPH,
 
   // Vowel SFB adaptives
@@ -409,7 +409,7 @@ const uint16_t PROGMEM adaptivePLD[] = { KC_P, KC_L, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveDLP[] = { KC_D, KC_L, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
-const uint16_t PROGMEM adaptiveNGF[] = { KC_N, KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END};
 
 // Vowel SFB adaptives
@@ -506,7 +506,7 @@ combo_t key_combos[] = {
   [AD_DLP_SHL] = COMBO(adaptiveDLP, AD_MACRO_SHL),
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
-  [AD_NGF_SPH] = COMBO(adaptiveNGF, AD_MACRO_SPH), // Sphere
+  [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
 
   // Vowel SFB adaptives
