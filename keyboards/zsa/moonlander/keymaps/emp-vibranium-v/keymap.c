@@ -35,6 +35,9 @@ enum custom_keycodes {
   AD_MACRO_GD,
   AD_MACRO_SP,
   AD_MACRO_ZZL,
+  AD_MACRO_SQU,
+  AD_MACRO_NQU,
+  AD_MACRO_XQU,
   // Maybe Mc would be convenient
 
   // F adaptives
@@ -97,6 +100,7 @@ enum custom_keycodes {
   AD_MACRO_SHL,
   AD_MACRO_GHN, // Toughness
   AD_MACRO_GHT, // Thought
+  AD_MACRO_GHB, // Neighbour
   AD_MACRO_SPH, // Sphere
   AD_MACRO_MPH, // Emphasis
 
@@ -230,6 +234,9 @@ enum combo_index {
   AD_MD_GD,
   AD_VC_SP,
   AD_XMG_ZZL, // Rizzler
+  AD_CKM_SQU,
+  AD_TKM_NQU,
+  AD_WKM_XQU,
 
   // F adaptives
   // L@G S@C W@M
@@ -290,6 +297,7 @@ enum combo_index {
   AD_BDL_SHL,
   AD_WMG_GHN,
   AD_WMT_GHT,
+  AD_MGB_GHB,
   AD_CGF_SPH,
   AD_MGF_MPH,
 
@@ -349,6 +357,9 @@ const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0, KC_X), KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M
@@ -409,6 +420,7 @@ const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
+const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END};
 const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END};
 
@@ -446,6 +458,9 @@ combo_t key_combos[] = {
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
   [AD_VC_SP] = COMBO(adaptiveVC, AD_MACRO_SP),
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
+  [AD_CKM_SQU] = COMBO(adaptiveCKM, AD_MACRO_SQU),
+  [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
+  [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
 
   // F adaptives
   // L@G S@C W@M
@@ -506,6 +521,7 @@ combo_t key_combos[] = {
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
+  [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
   [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
 
@@ -645,6 +661,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
     SEND_CASED_STRINGS(AD_MACRO_SP, "sp", "Sp", "SP");
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
+    SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
+    SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
+    SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
 
   // F adaptives
   // L@G S@C W@M
@@ -705,6 +724,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
+    SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB"); // Neighbour
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH"); // Emphasis
 
