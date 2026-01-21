@@ -247,7 +247,7 @@ enum combo_index {
   AD_NFC_NFS,
 
   // K adaptives
-  // S@C C@N N@T L@G P@L
+  // S@P C@N N@T L@G P@L
   AD_GK_LK,
   AD_KG_KL,
   AD_NK_CK,
@@ -258,13 +258,13 @@ enum combo_index {
   AD_KT_KN,
   AD_LK_PK,
   AD_KL_KP,
-  AD_GKC_LKS,
+  AD_GKP_LKS,
   AD_NKP_CKS,
   AD_TKP_NKS,
   AD_NKG_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@T P@L V@P
+  // L@D S@P C@N M@T P@L V@P
   AD_GB_MB,
   AD_CB_VB,
   AD_BC_BV,
@@ -381,7 +381,7 @@ const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveLK[] = { KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKL[] = { KC_K, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveGKC[] = { KC_G, KC_K, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveGKP[] = { KC_G, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
@@ -471,7 +471,7 @@ combo_t key_combos[] = {
   [AD_NFC_NFS] = COMBO(adaptiveNFC, AD_MACRO_NFS),
 
   // K adaptives
-  // S@P/C C@N N@T L@G P@L
+  // S@PC C@N N@T L@G P@L
   [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
   [AD_KG_KL] = COMBO(adaptiveKG, AD_MACRO_KL),
   [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
@@ -482,7 +482,7 @@ combo_t key_combos[] = {
   [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
   [AD_LK_PK] = COMBO(adaptiveLK, AD_MACRO_PK),
   [AD_KL_KP] = COMBO(adaptiveKL, AD_MACRO_KP),
-  [AD_GKC_LKS] = COMBO(adaptiveGKC, AD_MACRO_LKS),
+  [AD_GKP_LKS] = COMBO(adaptiveGKP, AD_MACRO_LKS),
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
