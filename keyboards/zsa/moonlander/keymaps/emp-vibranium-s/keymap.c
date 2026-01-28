@@ -35,6 +35,7 @@ enum custom_keycodes {
   AD_MACRO_SQU,
   AD_MACRO_NQU,
   AD_MACRO_XQU,
+  AD_MACRO_XPL,
   // Maybe Mc would be convenient
 
   // F adaptives
@@ -235,6 +236,7 @@ enum combo_index {
   AD_PKM_SQU,
   AD_TKM_NQU,
   AD_WKM_XQU,
+  AD_XWM_XPL,
 
   // F adaptives
   // L@G S@C W@M
@@ -359,6 +361,7 @@ const uint16_t PROGMEM adaptiveXMG[] = { LT(0, KC_X), KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptivePKM[] = { KC_P, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M
@@ -461,6 +464,7 @@ combo_t key_combos[] = {
   [AD_PKM_SQU] = COMBO(adaptivePKM, AD_MACRO_SQU),
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
+  [AD_XWM_XPL] = COMBO(adaptiveXWM, AD_MACRO_XPL),
 
   // F adaptives
   // L@G S@C W@M
@@ -665,6 +669,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
+    SEND_CASED_STRINGS(AD_MACRO_XPL, "xpl", "Xpl", "XPL");
 
   // F adaptives
   // L@G S@C W@M
