@@ -89,6 +89,7 @@ enum custom_keycodes {
   AD_MACRO_CHL,
   AD_MACRO_NCH, // Winch
   AD_MACRO_TCH, // Witch
+  AD_MACRO_SCH, // Schedule
   AD_MACRO_NTH, // Tenth
   AD_MACRO_LTH,
   AD_MACRO_THL,
@@ -288,6 +289,7 @@ enum combo_index {
   AD_CND_CHL,
   AD_VCN_NCH, // Winch
   AD_TNC_TCH, // Witch
+  AD_SCN_SCH, // Schedule
   AD_CNT_NTH, // Tenth
   AD_PTN_LTH,
   AD_TNP_THL,
@@ -413,6 +415,7 @@ const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTNC[] = { KC_T, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
@@ -516,6 +519,7 @@ combo_t key_combos[] = {
   [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
   [AD_VCN_NCH] = COMBO(adaptiveVCN, AD_MACRO_NCH), // Winch
   [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
+  [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
   [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL),
@@ -721,6 +725,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CHL, "chl", "Chl", "CHL");
     SEND_CASED_STRINGS(AD_MACRO_NCH, "nch", "Nch", "NCH"); // Winch
     SEND_CASED_STRINGS(AD_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
+    SEND_CASED_STRINGS(AD_MACRO_SCH, "sch", "Sch", "SCH"); // Schedule
     SEND_CASED_STRINGS(AD_MACRO_NTH, "nth", "Nth", "NTH"); // Tenth
     SEND_CASED_STRINGS(AD_MACRO_LTH, "lth", "Lth", "LTH");
     SEND_CASED_STRINGS(AD_MACRO_THL, "thl", "Thl", "THL");
