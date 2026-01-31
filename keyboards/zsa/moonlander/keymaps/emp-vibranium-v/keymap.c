@@ -312,7 +312,7 @@ enum combo_index {
   // Vowel SFB adaptives
   AD_Am_AU,
   AD_Ac_EO,
-  AD_Oc_YI,
+  AD_Yq_YI,
   AD_Uc_UA,
   AD_Um_OE,
   AD_sY_HY,
@@ -439,7 +439,7 @@ const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END};
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptiveAc[] = { KC_A, KC_COMMA, COMBO_END };
-const uint16_t PROGMEM adaptiveOc[] = { KC_O, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM adaptiveYq[] = { KC_Y, KC_QUOTE, COMBO_END };
 const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptivesY[] = { KC_SLASH, KC_Y, COMBO_END };
@@ -544,7 +544,7 @@ combo_t key_combos[] = {
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
   [AD_Ac_EO] = COMBO(adaptiveAc, AD_MACRO_EO),
-  [AD_Oc_YI] = COMBO(adaptiveOc, AD_MACRO_YI),
+  [AD_Yq_YI] = COMBO(adaptiveYq, AD_MACRO_YI),
   [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
   [AD_sY_HY] = COMBO(adaptivesY, AD_MACRO_HY),
