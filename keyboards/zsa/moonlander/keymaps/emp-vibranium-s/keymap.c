@@ -101,6 +101,7 @@ enum custom_keycodes {
   AD_MACRO_NSH,
   AD_MACRO_LSH,
   AD_MACRO_SHL,
+  AD_MACRO_NWH, // Meanwhile
   AD_MACRO_GHN, // Toughness
   AD_MACRO_GHT, // Thought
   AD_MACRO_GHB, // Neighbour
@@ -305,6 +306,7 @@ enum combo_index {
   AD_NDB_NSH,
   AD_LDB_LSH,
   AD_BDL_SHL,
+  AD_CMG_NWH, // Meanwhile
   AD_WMG_GHN,
   AD_WMT_GHT,
   AD_MGB_GHB,
@@ -435,12 +437,13 @@ const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END};
-const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END};
-const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -543,6 +546,7 @@ combo_t key_combos[] = {
   [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
   [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
+  [AD_CMG_NWH] = COMBO(adaptiveCMG, AD_MACRO_NWH), // Meanwhile
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
@@ -753,6 +757,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NSH, "nsh", "Nsh", "NSH");
     SEND_CASED_STRINGS(AD_MACRO_LSH, "lsh", "Lsh", "LSH");
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
+    SEND_CASED_STRINGS(AD_MACRO_NWH, "nwh", "Nwh", "NWH"); // Meanwhile
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
     SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB"); // Neighbour
