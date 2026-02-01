@@ -37,6 +37,8 @@ enum custom_keycodes {
   AD_MACRO_XP,
   AD_MACRO_XC,
   AD_MACRO_ZZ,
+  AD_MACRO_XT,
+  AD_MACRO_TZ,
   AD_MACRO_ZZL,
   AD_MACRO_XCL,
   AD_MACRO_XQU,
@@ -256,6 +258,8 @@ enum combo_index {
   AD_XC_XC,
   AD_XW_XC,
   AD_XG_ZZ,
+  AD_XT_XT,
+  AD_TX_TZ,
   AD_XMG_ZZL, // Rizzler
   AD_XWN_XCL, // Exclude
   AD_XCL_XCL, // Exclude
@@ -402,6 +406,8 @@ const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveTX[] = { KC_T, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveXWN[] = { LT(0,KC_X), KC_W, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
@@ -526,6 +532,8 @@ combo_t key_combos[] = {
   [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
   [AD_XW_XC] = COMBO(adaptiveXW, AD_MACRO_XC), // Maybe remove if used to moving hand left
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ),
+  [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
+  [AD_TX_TZ] = COMBO(adaptiveTX, AD_MACRO_TZ),
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
   [AD_XWN_XCL] = COMBO(adaptiveXWN, AD_MACRO_XCL),
   [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL),
@@ -758,6 +766,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
     SEND_CASED_STRINGS(AD_MACRO_XC, "xc", "Xc", "XC");
     SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
+    SEND_CASED_STRINGS(AD_MACRO_XT, "xt", "Xt", "XT");
+    SEND_CASED_STRINGS(AD_MACRO_TZ, "tz", "Tz", "TZ");
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
     SEND_CASED_STRINGS(AD_MACRO_XCL, "xcl", "Xcl", "XCL");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
