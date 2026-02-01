@@ -878,11 +878,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
   case MT(MOD_LGUI, KC_LEFT):
-    return g_tapping_term + 25;
   case MT(MOD_LALT, KC_UP):
-    return g_tapping_term + 25;
   case MT(MOD_LCTL, KC_DOWN):
-    return g_tapping_term + 25;
+    return g_tapping_term + 50;
   default:
     return g_tapping_term;
   }
