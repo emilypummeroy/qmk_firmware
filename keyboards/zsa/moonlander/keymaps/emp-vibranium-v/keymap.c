@@ -74,8 +74,11 @@ enum custom_keycodes {
   // nothing for backpack because C and P same finger
 
   // B adaptives
-  // L@D S@C C@N M@G P@L V@P
+  // L@D S@C C@N M@G P@L V@P W@M
+  AD_MACRO_WB,
+  AD_MACRO_BW,
   AD_MACRO_MB,
+  AD_MACRO_BM,
   AD_MACRO_SB,
   AD_MACRO_BS,
   AD_MACRO_LB,
@@ -287,8 +290,11 @@ enum combo_index {
   AD_NKG_CKL, // cackle
 
   // B adaptives
-  // L@D S@C C@N M@G P@L V@P
+  // L@D S@C C@N M@G P@L V@P W@M
+  AD_MB_WB,
+  AD_BM_BW,
   AD_GB_MB,
+  AD_BG_BM,
   AD_CB_SB,
   AD_BC_BS,
   AD_DB_LB,
@@ -426,8 +432,11 @@ const uint16_t PROGMEM adaptiveTKC[] = { KC_T, KC_K, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 
 // B adaptives
-// L@D S@C C@N M@G P@L V@P
+// L@D S@C C@N M@G P@L V@P W@M
+const uint16_t PROGMEM adaptiveMB[] = { KC_M, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBM[] = { KC_B, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGB[] = { KC_G, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBG[] = { KC_B, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBC[] = { KC_B, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDB[] = { KC_D, KC_B, COMBO_END };
@@ -543,8 +552,11 @@ combo_t key_combos[] = {
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
 
   // B adaptives
-  // L@D S@C C@N M@T P@L V@P
+  // L@D S@C C@N M@T P@L V@P W@M
+  [AD_MB_WB] = COMBO(adaptiveMB, AD_MACRO_WB),
+  [AD_BM_BW] = COMBO(adaptiveBM, AD_MACRO_BW),
   [AD_GB_MB] = COMBO(adaptiveGB, AD_MACRO_MB),
+  [AD_BG_BM] = COMBO(adaptiveBG, AD_MACRO_BM),
   [AD_CB_SB] = COMBO(adaptiveCB, AD_MACRO_SB),
   [AD_BC_BS] = COMBO(adaptiveBC, AD_MACRO_BS),
   [AD_DB_LB] = COMBO(adaptiveDB, AD_MACRO_LB),
@@ -769,8 +781,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
 
   // B adaptives
-  // L@D S@C C@N M@T
+  // L@D S@C C@N M@T W@M
+    SEND_CASED_STRINGS(AD_MACRO_WB, "wb", "Wb", "WB");
+    SEND_CASED_STRINGS(AD_MACRO_BW, "bw", "Bw", "BW");
     SEND_CASED_STRINGS(AD_MACRO_MB, "mb", "Mb", "MB");
+    SEND_CASED_STRINGS(AD_MACRO_BM, "bm", "Bm", "BM");
     SEND_CASED_STRINGS(AD_MACRO_SB, "sb", "Sb", "SB");
     SEND_CASED_STRINGS(AD_MACRO_BS, "bs", "Bs", "BS");
     SEND_CASED_STRINGS(AD_MACRO_LB, "lb", "Lb", "LB");
