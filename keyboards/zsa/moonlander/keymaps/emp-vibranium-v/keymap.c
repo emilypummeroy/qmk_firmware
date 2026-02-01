@@ -614,7 +614,10 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 }
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
-  return is_adaptive(index);
+  switch (index) {
+      case ST_MACRO_SH: return true;
+      default: return is_adaptive(index);
+  }
 }
 
 // Disabled
