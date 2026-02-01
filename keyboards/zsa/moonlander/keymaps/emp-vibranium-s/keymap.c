@@ -52,6 +52,7 @@ enum custom_keycodes {
 
   // K adaptives
   // S@P C@N N@T L@G P@L
+  AD_MACRO_WK,
   AD_MACRO_LK,
   AD_MACRO_KL,
   AD_MACRO_CK,
@@ -62,6 +63,7 @@ enum custom_keycodes {
   AD_MACRO_KN,
   AD_MACRO_PK,
   AD_MACRO_KP,
+  AD_MACRO_WKS,
   AD_MACRO_LKS,
   AD_MACRO_CKS,
   AD_MACRO_NKS,
@@ -264,6 +266,7 @@ enum combo_index {
 
   // K adaptives
   // S@P C@N N@T L@G P@L
+  AD_MK_WK,
   AD_GK_LK,
   AD_KG_KL,
   AD_NK_CK,
@@ -274,6 +277,7 @@ enum combo_index {
   AD_KT_KN,
   AD_LK_PK,
   AD_KL_KP,
+  AD_MKP_WKS,
   AD_GKP_LKS,
   AD_NKP_CKS,
   AD_TKP_NKS,
@@ -400,7 +404,8 @@ const uint16_t PROGMEM adaptiveGFM[] = { KC_G, KC_F, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveNFC[] = { KC_N, KC_F, KC_C, COMBO_END };
 
 // K adaptives
-// S@C/P C@N N@T L@G P@L
+// S@C/P C@N N@T L@G P@L W@M
+const uint16_t PROGMEM adaptiveMK[] = { KC_M, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKG[] = { KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveNK[] = { KC_N, KC_K, COMBO_END };
@@ -411,6 +416,7 @@ const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveLK[] = { KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKL[] = { KC_K, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveMKP[] = { KC_M, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGKP[] = { KC_G, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
@@ -515,7 +521,8 @@ combo_t key_combos[] = {
   [AD_NFC_NFS] = COMBO(adaptiveNFC, AD_MACRO_NFS),
 
   // K adaptives
-  // S@PC C@N N@T L@G P@L
+  // S@PC C@N N@T L@G P@L W@M
+  [AD_MK_WK] = COMBO(adaptiveMK, AD_MACRO_WK),
   [AD_GK_LK] = COMBO(adaptiveGK, AD_MACRO_LK),
   [AD_KG_KL] = COMBO(adaptiveKG, AD_MACRO_KL),
   [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
@@ -526,6 +533,7 @@ combo_t key_combos[] = {
   [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
   [AD_LK_PK] = COMBO(adaptiveLK, AD_MACRO_PK),
   [AD_KL_KP] = COMBO(adaptiveKL, AD_MACRO_KP),
+  [AD_MKP_WKS] = COMBO(adaptiveMKP, AD_MACRO_WKS),
   [AD_GKP_LKS] = COMBO(adaptiveGKP, AD_MACRO_LKS),
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
@@ -739,7 +747,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NFS, "nfs", "Nfs", "NFS");
 
   // K adaptives
-  // S@C C@N N@T L@G P@L
+  // S@C C@N N@T L@G P@L W@M
+    SEND_CASED_STRINGS(AD_MACRO_WK, "wk", "Wk", "WK");
     SEND_CASED_STRINGS(AD_MACRO_LK, "lk", "Lk", "LK");
     SEND_CASED_STRINGS(AD_MACRO_KL, "kl", "Kl", "KL");
     SEND_CASED_STRINGS(AD_MACRO_CK, "ck", "Ck", "CK");
@@ -750,6 +759,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_KN, "kn", "Kn", "KN");
     SEND_CASED_STRINGS(AD_MACRO_PK, "pk", "Pk", "PK");
     SEND_CASED_STRINGS(AD_MACRO_KP, "kp", "Kp", "KP");
+    SEND_CASED_STRINGS(AD_MACRO_WKS, "wks", "Wks", "WKS");
     SEND_CASED_STRINGS(AD_MACRO_LKS, "lks", "Lks", "LKS");
     SEND_CASED_STRINGS(AD_MACRO_CKS, "cks", "Cks", "CKS");
     SEND_CASED_STRINGS(AD_MACRO_NKS, "nks", "Nks", "NKS");
