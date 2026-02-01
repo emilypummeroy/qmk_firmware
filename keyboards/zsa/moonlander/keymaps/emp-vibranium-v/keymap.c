@@ -36,6 +36,7 @@ enum custom_keycodes {
   AD_MACRO_GD,
   AD_MACRO_VS,
   AD_MACRO_ZZL,
+  AD_MACRO_XCL,
   AD_MACRO_SQU,
   AD_MACRO_NQU,
   AD_MACRO_XQU,
@@ -238,7 +239,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 enum combo_index {
   AD_VP_XP, ADAPTIVE_FIRST = AD_VP_XP,
-  AD_VC_XC,
+  AD_XC_XC,
+  AD_XW_XC,
   AD_XG_ZZ,
   AD_KM_QU,
   AD_MTK_WQ,
@@ -254,6 +256,7 @@ enum combo_index {
   AD_MD_GD,
   AD_VW_VS,
   AD_XMG_ZZL, // Rizzler
+  AD_XWN_XCL, // Exclude
   AD_CKM_SQU,
   AD_TKM_NQU,
   AD_WKM_XQU,
@@ -313,6 +316,7 @@ enum combo_index {
   AD_DCN_LCH,
   AD_CND_CHL,
   AD_XWM_XCH, // Exchange
+  AD_XCN_XCH, // Exchange
   AD_VCN_NCH, // Winch
   AD_TNC_TCH, // Witch
   AD_SCN_SCH, // Schedule
@@ -380,6 +384,8 @@ const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 
 const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveVC[] = { KC_V, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
@@ -396,6 +402,7 @@ const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveXWN[] = { LT(0,KC_X), KC_W, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
@@ -455,6 +462,7 @@ const uint16_t PROGMEM adaptiveBTC[] = { KC_B, KC_T, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveXCN[] = { LT(0,KC_X), KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTNC[] = { KC_T, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
@@ -500,7 +508,8 @@ const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
-  [AD_VC_XC] = COMBO(adaptiveVC, AD_MACRO_XC),
+  [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
+  [AD_XW_XC] = COMBO(adaptiveXW, AD_MACRO_XC), // Maybe remove if used to moving hand left
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ),
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
   [AD_MTK_WQ] = COMBO(adaptiveMTK, AD_MACRO_WQ),
@@ -516,6 +525,7 @@ combo_t key_combos[] = {
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
+  [AD_XWN_XCL] = COMBO(adaptiveXWN, AD_MACRO_XCL),
   [AD_CKM_SQU] = COMBO(adaptiveCKM, AD_MACRO_SQU),
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
@@ -574,7 +584,8 @@ combo_t key_combos[] = {
   // H digraph adaptives
   [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
   [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
-  [AD_XWM_XCH] = COMBO(adaptiveXWM, AD_MACRO_XCH), // Exchange
+  [AD_XWM_XCH] = COMBO(adaptiveXWM, AD_MACRO_XCH), // Exchange - maybe remove
+  [AD_XCN_XCH] = COMBO(adaptiveXCN, AD_MACRO_XCH), // Exchange
   [AD_VCN_NCH] = COMBO(adaptiveVCN, AD_MACRO_NCH), // Winch
   [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
   [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
@@ -745,6 +756,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
     SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
+    SEND_CASED_STRINGS(AD_MACRO_XCL, "xcl", "Xcl", "XCL");
     SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
