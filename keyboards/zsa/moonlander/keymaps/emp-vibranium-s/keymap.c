@@ -190,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_FN] = LAYOUT_moonlander(
     _______,        KC_F14,         KC_F12,         KC_F11,         KC_F10,         KC_F15,         _______,                                        _______,        KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,         _______,
     _______,        KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MNXT,        KC_MPRV,        KC_MPLY,        KC_MUTE,        KC_VOLU,
-    _______,        KC_BRIU,    MT(MOD_LGUI, KC_F6),MT(MOD_LALT, KC_F5),MT(MOD_LCTL, KC_F4),KC_F22, _______,                                        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_VOLD,
+    _______,      KC_BRIU, MT(MOD_LGUI,KC_F6), MT(MOD_LALT,KC_F5), MT(MOD_LCTL,KC_F4), KC_F22,      _______,                                        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_VOLD,
     _______,        KC_BRID,        KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                         KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
     TO(0),          _______,        TO(0),          TO(_NUM),       KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          _______,        _______,        TO(0),
     _______,        _______,        _______,                        _______,        _______,        _______
@@ -631,10 +631,14 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_1 ... KC_0:
   case KC_BSPC:
   case RCTL(KC_BSPC):
-  case LM(_LMOD,MOD_LSFT):
-  case LM(_RMOD,MOD_RSFT):
-  case KC_LSFT:
-  case KC_RSFT:
+  case KC_LEFT:
+  case KC_DOWN:
+  case KC_UP:
+  case KC_RIGHT:
+  case KC_HOME:
+  case KC_END:
+  case KC_PGUP:
+  case KC_PGDN:
   case KC_DEL:
   case KC_UNDS:
   case KC_QUOTE:
