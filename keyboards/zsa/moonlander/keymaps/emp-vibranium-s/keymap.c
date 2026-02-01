@@ -254,6 +254,7 @@ enum combo_index {
   AD_VW_VS,
   AD_XMG_ZZL, // Rizzler
   AD_XWN_XCL, // Exclude
+  AD_XCL_XCL, // Exclude
   AD_PKM_SQU,
   AD_TKM_NQU,
   AD_WKM_XQU,
@@ -399,6 +400,7 @@ const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveXWN[] = { LT(0,KC_X), KC_W, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptivePKM[] = { KC_P, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
@@ -522,6 +524,7 @@ combo_t key_combos[] = {
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL),
   [AD_XWN_XCL] = COMBO(adaptiveXWN, AD_MACRO_XCL),
+  [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL),
   [AD_PKM_SQU] = COMBO(adaptivePKM, AD_MACRO_SQU),
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
