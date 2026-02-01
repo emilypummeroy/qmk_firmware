@@ -107,6 +107,7 @@ enum custom_keycodes {
   AD_MACRO_SHL,
   AD_MACRO_NWH, // Meanwhile
   AD_MACRO_GHN, // Toughness
+  AD_MACRO_NGH, // Shanghai
   AD_MACRO_GHT, // Thought
   AD_MACRO_GHB, // Neighbour
   AD_MACRO_SPH, // Sphere
@@ -315,6 +316,7 @@ enum combo_index {
   AD_BDL_SHL,
   AD_CMG_NWH, // Meanwhile
   AD_WMG_GHN,
+  AD_GMW_NGH, // Shanghai
   AD_WMT_GHT,
   AD_MGB_GHB,
   AD_CGF_SPH,
@@ -449,6 +451,7 @@ const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END };
@@ -561,6 +564,7 @@ combo_t key_combos[] = {
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
   [AD_CMG_NWH] = COMBO(adaptiveCMG, AD_MACRO_NWH), // Meanwhile
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
+  [AD_GMW_NGH] = COMBO(adaptiveGMW, AD_MACRO_NGH), // Shanghai
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
   [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
@@ -779,6 +783,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
     SEND_CASED_STRINGS(AD_MACRO_NWH, "nwh", "Nwh", "NWH"); // Meanwhile
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
+    SEND_CASED_STRINGS(AD_MACRO_NGH, "ngh", "Ngh", "NGH"); // Shanghai
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
     SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB"); // Neighbour
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
