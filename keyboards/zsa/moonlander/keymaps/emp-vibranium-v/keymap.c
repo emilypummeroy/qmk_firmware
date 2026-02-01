@@ -120,8 +120,6 @@ enum custom_keycodes {
   AD_MACRO_SPH, // Sphere
   AD_MACRO_MPH, // Emphasis
   AD_MACRO_PPH, // Sapphire
-  AD_MACRO_NGTH, // Strength
-  AD_MACRO_PHTH, // Diphthong
 
   // Vowel SFB adaptives
   AD_MACRO_AU,
@@ -340,8 +338,6 @@ enum combo_index {
   AD_CGF_SPH,
   AD_MGF_MPH,
   AD_PGF_PPH, // Sapphire
-  AD_SCNT_NGTH, // Length
-  AD_WMGF_PHTH, // Diphthong
 
   // Vowel SFB adaptives
   AD_Am_AU,
@@ -487,8 +483,6 @@ const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveSCNT[] = { KC_S, KC_C, KC_N, KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveWMGF[] = { KC_W, KC_M, KC_G, KC_F, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -611,8 +605,6 @@ combo_t key_combos[] = {
   [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
   [AD_PGF_PPH] = COMBO(adaptivePGF, AD_MACRO_PPH), // Sapphire
-  [AD_SCNT_NGTH] = COMBO(adaptiveSCNT, AD_MACRO_NGTH), // Strength
-  [AD_WMGF_PHTH] = COMBO(adaptiveWMGF, AD_MACRO_PHTH), // Diphthong
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
@@ -841,8 +833,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH"); // Emphasis
     SEND_CASED_STRINGS(AD_MACRO_PPH, "pph", "Pph", "PPH"); // Sapphire
-    SEND_CASED_STRINGS(AD_MACRO_NGTH, "ngth", "Ngth", "NGTH"); // Strength
-    SEND_CASED_STRINGS(AD_MACRO_PHTH, "phth", "Phth", "PHTH"); // Diphthong
 
   // Vowel SFB adaptives
     SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
