@@ -121,6 +121,7 @@ enum custom_keycodes {
   AD_MACRO_OE,
   AD_MACRO_YI,
   AD_MACRO_Eq,
+  AD_MACRO_Iq,
   AD_MACRO_HEq,
   AD_MACRO_IEq,
   AD_MACRO_YEq,
@@ -331,6 +332,7 @@ enum combo_index {
   AD_Uc_UA,
   AD_Um_OE,
   AD_Ed_Eq,
+  AD_Iq_Iq,
   AD_HEd_HEq,
   AD_IEd_IEq,
   AD_YEd_YEq,
@@ -467,6 +469,7 @@ const uint16_t PROGMEM adaptiveYq[] = { KC_Y, KC_QUOTE, COMBO_END };
 const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveIq[] = { KC_I, KC_QUOTE, COMBO_END };
 const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
@@ -581,6 +584,7 @@ combo_t key_combos[] = {
   [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
   [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
+  [AD_Iq_Iq] = COMBO(adaptiveIq, AD_MACRO_Iq),
   [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
   [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
   [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
@@ -804,6 +808,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
     SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
+    SEND_CASED_STRINGS(AD_MACRO_Iq, "i'", "I'", "I'");
     SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
     SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
     SEND_CASED_STRINGS(AD_MACRO_YEq, "ye'", "Ye'", "YE'");
