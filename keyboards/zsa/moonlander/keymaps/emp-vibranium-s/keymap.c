@@ -106,8 +106,8 @@ enum custom_keycodes {
   AD_MACRO_CHN, // Techno
   AD_MACRO_TCH, // Witch
   AD_MACRO_SCH, // Schedule
-  AD_MACRO_WCH, // Flowchart
-  AD_MACRO_CHW, // Schwartz
+  AD_MACRO_MCH, // Armchair
+  AD_MACRO_CHM, // Attachment
   AD_MACRO_NTH, // Tenth
   AD_MACRO_WTH, // Growth
   AD_MACRO_THW, // Southwest
@@ -333,8 +333,8 @@ enum combo_index {
   AD_NCV_CHN, // Techno
   AD_TNC_TCH, // Witch
   AD_SCN_SCH, // Schedule
-  AD_GNC_WCH, // Flowchart
-  AD_CNG_CHW, // Schwartz
+  AD_GNC_MCH, // Armchair
+  AD_CNG_CHM, // Attachment
   AD_CNT_NTH, // Tenth
   AD_WNT_WTH, // Growth
   AD_TNW_THW, // Southwest
@@ -617,8 +617,8 @@ combo_t key_combos[] = {
   [AD_NCV_CHN] = COMBO(adaptiveNCV, AD_MACRO_CHN), // Techno
   [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
   [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
-  [AD_GNC_WCH] = COMBO(adaptiveGNC, AD_MACRO_WCH), // Flowchart
-  [AD_CNG_CHW] = COMBO(adaptiveCNG, AD_MACRO_CHW), // Schwartz
+  [AD_GNC_MCH] = COMBO(adaptiveGNC, AD_MACRO_MCH), // Armchair
+  [AD_CNG_CHM] = COMBO(adaptiveCNG, AD_MACRO_CHM), // Attachment
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_WNT_WTH] = COMBO(adaptiveWNT, AD_MACRO_WTH), // Growth
   [AD_TNW_THW] = COMBO(adaptiveTNW, AD_MACRO_THW), // Southwest
@@ -854,8 +854,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CHN, "chn", "Chn", "CHN"); // Techno
     SEND_CASED_STRINGS(AD_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(AD_MACRO_SCH, "sch", "Sch", "SCH"); // Schedule
-    SEND_CASED_STRINGS(AD_MACRO_WCH, "wch", "Wch", "WCH"); // Flowchart
-    SEND_CASED_STRINGS(AD_MACRO_CHW, "chw", "Chw", "CHW"); // Schwartz
+    SEND_CASED_STRINGS(AD_MACRO_MCH, "mch", "Mch", "MCH"); // Armchair
+    SEND_CASED_STRINGS(AD_MACRO_CHM, "chm", "Chm", "CHM"); // Attachment
     SEND_CASED_STRINGS(AD_MACRO_NTH, "nth", "Nth", "NTH"); // Tenth
     SEND_CASED_STRINGS(AD_MACRO_WTH, "wth", "Wth", "WTH"); // Growth
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW"); // Southwest
