@@ -144,6 +144,7 @@ enum custom_keycodes {
   // J adaptives
   AD_MACRO_JI,
   AD_MACRO_JO,
+  AD_MACRO_JOE,
   AD_MACRO_OJ, KC_ALNUM_MACRO_LAST = AD_MACRO_OJ,
 };
 
@@ -373,14 +374,15 @@ enum combo_index {
   // J adaptives
   AD_qI_JI,
   AD_Jq_JO,
+  AD_Jqd_JOE,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // Miscellaneous consonants
   ST_COMBO_NTK_Q,
 
   // H Bigram combos
-  ST_COMBO_WM,
   ST_COMBO_GM,
+  ST_COMBO_WM,
   ST_COMBO_DB,
   ST_COMBO_CN,
   ST_COMBO_TN,
@@ -388,8 +390,8 @@ enum combo_index {
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
+const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
@@ -528,6 +530,7 @@ const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
 // J adaptives
 const uint16_t PROGMEM adaptiveqI[] = { KC_QUOTE, KC_I, COMBO_END };
 const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveJqd[] = { KC_J, KC_QUOTE, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
@@ -661,14 +664,15 @@ combo_t key_combos[] = {
   // J adaptives
   [AD_qI_JI] = COMBO(adaptiveqI, AD_MACRO_JI),
   [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
+  [AD_Jqd_JOE] = COMBO(adaptiveJqd, AD_MACRO_JOE),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Miscellaneous consonants
   [ST_COMBO_NTK_Q] = COMBO(comboNTK, KC_Q),
 
   // H Bigram combos
-  [ST_COMBO_WM] = COMBO(comboGM, ST_MACRO_WH),
-  [ST_COMBO_GM] = COMBO(comboWM, ST_MACRO_GH),
+  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
+  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
@@ -900,6 +904,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // J adaptives
     SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
     SEND_CASED_STRINGS(AD_MACRO_JO, "jo", "Jo", "JO");
+    SEND_CASED_STRINGS(AD_MACRO_JOE, "joe", "Joe", "JOE");
     SEND_CASED_STRINGS(AD_MACRO_OJ, "oj", "Oj", "OJ");
 
   // H digraphs
