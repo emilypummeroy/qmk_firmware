@@ -129,6 +129,7 @@ enum custom_keycodes {
   AD_MACRO_GHT, // Thought
   AD_MACRO_GHB, // Neighbour
   AD_MACRO_SPH, // Sphere
+  AD_MACRO_PHS, // Graphs
   AD_MACRO_MPH, // Emphasis
   AD_MACRO_PPH, // Sapphire
 
@@ -358,7 +359,8 @@ enum combo_index {
   AD_GMW_NGH, // Shanghai
   AD_WMT_GHT,
   AD_MGB_GHB,
-  AD_CGF_SPH,
+  AD_CGF_SPH, // Sphere
+  AD_FGC_PHS, // Graphs
   AD_MGF_MPH,
   AD_PGF_PPH, // Sapphire
 
@@ -515,6 +517,7 @@ const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFGC[] = { KC_F, KC_G, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
 
@@ -649,6 +652,7 @@ combo_t key_combos[] = {
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
   [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
+  [AD_FGC_PHS] = COMBO(adaptiveFGC, AD_MACRO_PHS), // Graphs
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
   [AD_PGF_PPH] = COMBO(adaptivePGF, AD_MACRO_PPH), // Sapphire
 
@@ -889,6 +893,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
     SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB"); // Neighbour
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
+    SEND_CASED_STRINGS(AD_MACRO_PHS, "phs", "Phs", "PHS"); // Graphs
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH"); // Emphasis
     SEND_CASED_STRINGS(AD_MACRO_PPH, "pph", "Pph", "PPH"); // Sapphire
 
