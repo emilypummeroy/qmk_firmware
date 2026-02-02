@@ -106,6 +106,7 @@ enum custom_keycodes {
   AD_MACRO_CHL,
   AD_MACRO_XCH, // Exchange
   AD_MACRO_NCH, // Wrench
+  AD_MACRO_CHN, // Techno
   AD_MACRO_TCH, // Wretch
   AD_MACRO_SCH, // Schedule
   AD_MACRO_WCH, // Flowchart
@@ -331,6 +332,7 @@ enum combo_index {
   AD_XWM_XCH, // Exchange
   AD_XCN_XCH, // Exchange
   AD_VCN_NCH, // Winch
+  AD_NCV_CHN, // Techno
   AD_TNC_TCH, // Witch
   AD_SCN_SCH, // Schedule
   AD_GNC_WCH, // Flowchart
@@ -482,6 +484,7 @@ const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveXCN[] = { LT(0,KC_X), KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveNCV[] = { KC_N, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveTNC[] = { KC_T, KC_N, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveGNC[] = { KC_G, KC_N, KC_C, COMBO_END };
@@ -611,6 +614,7 @@ combo_t key_combos[] = {
   [AD_XWM_XCH] = COMBO(adaptiveXWM, AD_MACRO_XCH), // Exchange - maybe remove
   [AD_XCN_XCH] = COMBO(adaptiveXCN, AD_MACRO_XCH), // Exchange
   [AD_VCN_NCH] = COMBO(adaptiveVCN, AD_MACRO_NCH), // Winch
+  [AD_NCV_CHN] = COMBO(adaptiveNCV, AD_MACRO_CHN), // Techno
   [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
   [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
   [AD_GNC_WCH] = COMBO(adaptiveGNC, AD_MACRO_WCH), // Flowchart
@@ -846,6 +850,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CHL, "chl", "Chl", "CHL");
     SEND_CASED_STRINGS(AD_MACRO_XCH, "xch", "Xch", "XCH"); // Exchange
     SEND_CASED_STRINGS(AD_MACRO_NCH, "nch", "Nch", "NCH"); // Winch
+    SEND_CASED_STRINGS(AD_MACRO_CHN, "chn", "Chn", "CHN"); // Techno
     SEND_CASED_STRINGS(AD_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(AD_MACRO_SCH, "sch", "Sch", "SCH"); // Schedule
     SEND_CASED_STRINGS(AD_MACRO_WCH, "wch", "Wch", "WCH"); // Flowchart
