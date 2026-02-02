@@ -114,6 +114,7 @@ enum custom_keycodes {
   AD_MACRO_NTH, // Tenth
   AD_MACRO_WTH, // Growth
   AD_MACRO_THW, // Southwest
+  AD_MACRO_THM, // Rhythm
   AD_MACRO_LTH,
   AD_MACRO_THL,
   AD_MACRO_THS,
@@ -341,6 +342,7 @@ enum combo_index {
   AD_CNT_NTH, // Tenth
   AD_WNT_WTH, // Growth
   AD_TNW_THW, // Southwest
+  AD_TMC_THM, // Rhythm
   AD_PTN_LTH,
   AD_TNP_THL,
   AD_TNS_THS,
@@ -494,6 +496,7 @@ const uint16_t PROGMEM adaptiveCNG[] = { KC_C, KC_N, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveWNT[] = { KC_W, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNW[] = { KC_T, KC_N, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveTMC[] = { KC_T, KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTNS[] = { KC_T, KC_N, KC_S, COMBO_END };
@@ -625,6 +628,7 @@ combo_t key_combos[] = {
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_WNT_WTH] = COMBO(adaptiveWNT, AD_MACRO_WTH), // Growth
   [AD_TNW_THW] = COMBO(adaptiveTNW, AD_MACRO_THW), // Southwest
+  [AD_TMC_THM] = COMBO(adaptiveTMC, AD_MACRO_THM), // Rhythm
   [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
   [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL),
   [AD_TNS_THS] = COMBO(adaptiveTNS, AD_MACRO_THS),
@@ -862,6 +866,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NTH, "nth", "Nth", "NTH"); // Tenth
     SEND_CASED_STRINGS(AD_MACRO_WTH, "wth", "Wth", "WTH"); // Growth
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW"); // Southwest
+    SEND_CASED_STRINGS(AD_MACRO_THM, "thm", "Thm", "THM"); // Rhythm
     SEND_CASED_STRINGS(AD_MACRO_LTH, "lth", "Lth", "LTH");
     SEND_CASED_STRINGS(AD_MACRO_THL, "thl", "Thl", "THL");
     SEND_CASED_STRINGS(AD_MACRO_THS, "ths", "Ths", "THS");
