@@ -395,6 +395,9 @@ enum combo_index {
   AD_Jqd_JOq,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
+  // Miscellaneous consonants
+  ST_COMBO_NTK_Q,
+
   // H Bigram combos
   ST_COMBO_GM,
   ST_COMBO_WM,
@@ -411,6 +414,9 @@ const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
+
+// Miscellaneous consonants
+const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptivexQ[] = { KC_EXLM, ST_FORCE_Q, COMBO_END };
@@ -698,6 +704,9 @@ combo_t key_combos[] = {
   [AD_qds_JOE] = COMBO(adaptiveqds, AD_MACRO_JOE),
   [AD_Jqd_JOq] = COMBO(adaptiveJqd, AD_MACRO_JOq),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
+
+  // Miscellaneous consonants
+  [ST_COMBO_NTK_Q] = COMBO(comboNTK, KC_Q),
 
   // H Bigram combos
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
