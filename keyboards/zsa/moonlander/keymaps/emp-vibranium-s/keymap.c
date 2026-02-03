@@ -7,6 +7,7 @@ enum custom_keycodes {
 
   ST_FORCE_EQUAL,
   ST_FORCE_S,
+  ST_FORCE_Q,
 
   ST_MACRO_WH, KC_ALNUM_MACRO_FIRST = ST_MACRO_WH,
   ST_MACRO_GH,
@@ -177,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        KC_CIRC,        KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        _______,        _______,        _______,        _______,        _______,        KC_DLR,         _______,
-    _______,        XXXXXXX,        KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        XXXXXXX,        KC_LGUI,        KC_LALT,        KC_LCTL,        ST_FORCE_Q,     _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        ST_FORCE_S,     ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
@@ -249,7 +250,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 enum combo_index {
   AD_KM_QU, ADAPTIVE_FIRST = AD_KM_QU,
-  AD_MTK_WQ,
+  AD_xQ_WQ,
   AD_SD_SS,
   AD_MW_LW,
   AD_WM_WL,
@@ -388,9 +389,6 @@ enum combo_index {
   AD_Jqd_JOE,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
-  // Miscellaneous consonants
-  ST_COMBO_NTK_Q,
-
   // H Bigram combos
   ST_COMBO_GM,
   ST_COMBO_WM,
@@ -408,11 +406,8 @@ const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 
-// Miscellaneous consonants
-const uint16_t PROGMEM comboNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
-
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveMTK[] = { KC_M, KC_T, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptivexQ[] = { KC_EXLM, ST_FORCE_Q, COMBO_END };
 const uint16_t PROGMEM adaptiveSD[] = { KC_S, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveMW[] = { KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWM[] = { KC_W, KC_M, COMBO_END };
@@ -553,7 +548,7 @@ const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
-  [AD_MTK_WQ] = COMBO(adaptiveMTK, AD_MACRO_WQ),
+  [AD_xQ_WQ] = COMBO(adaptivexQ, AD_MACRO_WQ),
   [AD_SD_SS] = COMBO(adaptiveSD, AD_MACRO_SS),
   [AD_MW_LW] = COMBO(adaptiveMW, AD_MACRO_LW),
   [AD_WM_WL] = COMBO(adaptiveWM, AD_MACRO_WL),
@@ -692,9 +687,6 @@ combo_t key_combos[] = {
   [AD_Jqd_JOE] = COMBO(adaptiveJqd, AD_MACRO_JOE),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
-  // Miscellaneous consonants
-  [ST_COMBO_NTK_Q] = COMBO(comboNTK, KC_Q),
-
   // H Bigram combos
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
@@ -736,6 +728,7 @@ bool caps_word_press_user(uint16_t keycode) {
   switch (keycode) {
   // Keycodes that continue Caps Word, with shift applied.
   case KC_A ... KC_Z:
+  case ST_FORCE_Q:
   case KC_MINS:
     add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to this key.
     return true;
@@ -803,7 +796,7 @@ uint8_t current_mods;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(AD_MACRO_QU, "qu", "Qu", "QU");
-    SEND_CASED_STRINGS(AD_MACRO_WQ, "wq", "Wq", "WQ");
+    SEND_CASED_STRINGS(AD_MACRO_WQ, "wq", "wq", "WQ"); // vim :wq
     SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Su", "SS");
     SEND_CASED_STRINGS(AD_MACRO_LW, "lw", "Lw", "LW");
     SEND_CASED_STRINGS(AD_MACRO_WL, "wl", "Wl", "WL");
@@ -955,6 +948,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING_CLEAR("s");
     }
     return true;
+
+    SEND_CASED_STRINGS(ST_FORCE_Q, "q", "q", "Q");
 
   // Tap-hold keys
     TAPHOLD_CASED(LT(0, KC_X), "z", "Z", "Z");
