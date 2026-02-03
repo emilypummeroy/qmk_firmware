@@ -81,6 +81,8 @@ enum custom_keycodes {
   AD_MACRO_NKS,
   AD_MACRO_MPK, // Pumpkin
   AD_MACRO_CKL, // cackle
+  AD_MACRO_CKP, // Backpack
+  AD_MACRO_CKB, // Blackerry
   // nothing for backpack because C and P same finger
 
   // B adaptives
@@ -318,6 +320,8 @@ enum combo_index {
   AD_TKP_NKS,
   AD_GLK_MPK, // Pumpkin
   AD_NKG_CKL, // cackle
+  AD_KTL_CKP, // Backpack
+  AD_NTB_CKB, // Blackberry
 
   // B adaptives
   // L@D S@P C@N M@T P@L V@P W@M
@@ -484,6 +488,8 @@ const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveKTL[] = { KC_K, KC_T, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveNTB[] = { KC_N, KC_T, KC_B, COMBO_END };
 
 // B adaptives
 // L@D S@P C@N M@G P@L V@C
@@ -628,6 +634,8 @@ combo_t key_combos[] = {
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_GLK_MPK] = COMBO(adaptiveGLK, AD_MACRO_MPK), // Pumpkin
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
+  [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP),
+  [AD_NTB_CKB] = COMBO(adaptiveNTB, AD_MACRO_CKB), // Blackberry
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P W@M
@@ -880,6 +888,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NKS, "nks", "Nks", "NKS");
     SEND_CASED_STRINGS(AD_MACRO_MPK, "mpk", "Mpk", "MPK"); // Pumpkin
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
+    SEND_CASED_STRINGS(AD_MACRO_CKP, "ckp", "Ckp", "CKP"); // Backpack
+    SEND_CASED_STRINGS(AD_MACRO_CKB, "ckb", "Ckb", "CKB"); // Blackberry
 
   // B adaptives
   // L@D S@C C@N M@T W@M
