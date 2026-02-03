@@ -409,10 +409,10 @@ if [ $$error_occurred -gt 0 ]; then $(HANDLE_ERROR); fi;
 endef
 
 .PHONY: emp
-emp: zsa/moonlander\:emp-vibranium-v\:build zsa/moonlander\:emp-vibranium-s\:build
+emp: zsa/moonlander\:emp-vibranium-s
 
 .PHONY: emp\:flash
-emp\:flash: zsa/moonlander\:emp-vibranium-v\:build zsa/moonlander\:emp-vibranium-s\:flash
+emp\:flash: zsa/moonlander\:emp-vibranium-s\:flash
 
 # Catch everything and parse the command line ourselves.
 .PHONY: %
