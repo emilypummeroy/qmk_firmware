@@ -83,6 +83,7 @@ enum custom_keycodes {
   AD_MACRO_WKS,
   AD_MACRO_LKS,
   AD_MACRO_CKS,
+  AD_MACRO_CKN,
   AD_MACRO_NKS,
   AD_MACRO_MPK, // Pumpkin
   AD_MACRO_CKL, // cackle
@@ -329,6 +330,7 @@ enum combo_index {
   AD_MKP_WKS,
   AD_GKP_LKS,
   AD_NKP_CKS,
+  AD_NTK_CKN,
   AD_TKP_NKS,
   AD_GLK_MPK, // Pumpkin
   AD_NKG_CKL, // cackle
@@ -503,6 +505,7 @@ const uint16_t PROGMEM adaptiveKL[] = { KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveMKP[] = { KC_M, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGKP[] = { KC_G, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
@@ -611,6 +614,8 @@ combo_t key_combos[] = {
   [AD_CKM_CQU] = COMBO(adaptiveCKM, AD_MACRO_CQU), // Acquire
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
   [AD_WMS_WLS] = COMBO(adaptiveWMS, AD_MACRO_WLS), // Bowls
+  [AD_VWL_WLS] = COMBO(adaptiveVWL, AD_MACRO_WLS), // Bowls - Remove two
+  [AD_WLV_WLS] = COMBO(adaptiveWLV, AD_MACRO_WLS), // Bowls - Remove two
 
   // X/Z adaptives
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
@@ -655,11 +660,12 @@ combo_t key_combos[] = {
   [AD_MKP_WKS] = COMBO(adaptiveMKP, AD_MACRO_WKS),
   [AD_GKP_LKS] = COMBO(adaptiveGKP, AD_MACRO_LKS),
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
+  [AD_NTK_CKN] = COMBO(adaptiveNTK, AD_MACRO_CKN), // Acknowledge
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_GLK_MPK] = COMBO(adaptiveGLK, AD_MACRO_MPK), // Pumpkin
-  [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL),
-  [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP),
-  [AD_NTB_CKB] = COMBO(adaptiveNTB, AD_MACRO_CKB), // Blackberry
+  [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL), // cackle
+  [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP), // Backpack
+  [AD_NTB_CKB] = COMBO(adaptiveNTB, AD_MACRO_CKB), // Blackerry
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P W@M
@@ -917,6 +923,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WKS, "wks", "Wks", "WKS");
     SEND_CASED_STRINGS(AD_MACRO_LKS, "lks", "Lks", "LKS");
     SEND_CASED_STRINGS(AD_MACRO_CKS, "cks", "Cks", "CKS");
+    SEND_CASED_STRINGS(AD_MACRO_CKN, "ckn", "Ckn", "CKN");
     SEND_CASED_STRINGS(AD_MACRO_NKS, "nks", "Nks", "NKS");
     SEND_CASED_STRINGS(AD_MACRO_MPK, "mpk", "Mpk", "MPK"); // Pumpkin
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
