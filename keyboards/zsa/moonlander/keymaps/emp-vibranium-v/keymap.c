@@ -38,6 +38,7 @@ enum custom_keycodes {
   AD_MACRO_SQU,
   AD_MACRO_NQU,
   AD_MACRO_WNL, // Download
+  AD_MACRO_WLS, // Bowls
   // Maybe Mc would be convenient
 
   // X/Z adaptives
@@ -270,6 +271,7 @@ enum combo_index {
   AD_CKM_SQU,
   AD_TKM_NQU,
   AD_WND_WNL, // Download
+  AD_WMS_WLS, // Bowls
 
   // X/Z adaptives
   AD_VP_XP,
@@ -429,6 +431,7 @@ const uint16_t PROGMEM adaptiveMPT[] = { KC_M, KC_P, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveWMS[] = { KC_W, KC_M, KC_S, COMBO_END };
 
 // X/Z adaptives
 const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
@@ -566,6 +569,7 @@ combo_t key_combos[] = {
   [AD_CKM_SQU] = COMBO(adaptiveCKM, AD_MACRO_SQU),
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
+  [AD_WMS_WLS] = COMBO(adaptiveWMS, AD_MACRO_WLS), // Bowls
 
   // X/Z adaptives
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
@@ -812,6 +816,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_WNL, "wnl", "Wnl", "WNL");
+    SEND_CASED_STRINGS(AD_MACRO_WLS, "wls", "Wls", "WLS");
 
   // X/Z adaptives
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
