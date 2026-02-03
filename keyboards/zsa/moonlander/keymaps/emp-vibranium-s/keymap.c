@@ -142,6 +142,7 @@ enum custom_keycodes {
   AD_MACRO_YI,
   AD_MACRO_Eq,
   AD_MACRO_Iq,
+  AD_MACRO_Oq,
   AD_MACRO_HEq,
   AD_MACRO_IEq,
   AD_MACRO_YEq,
@@ -150,6 +151,7 @@ enum custom_keycodes {
   AD_MACRO_JI,
   AD_MACRO_JO,
   AD_MACRO_JOE,
+  AD_MACRO_JOq,
   AD_MACRO_OJ, KC_ALNUM_MACRO_LAST = AD_MACRO_OJ,
 };
 
@@ -379,6 +381,7 @@ enum combo_index {
   AD_Um_OE,
   AD_Ed_Eq,
   AD_Iq_Iq,
+  AD_Od_Oq,
   AD_HEd_HEq,
   AD_IEd_IEq,
   AD_YEd_YEq,
@@ -386,7 +389,8 @@ enum combo_index {
   // J adaptives
   AD_qI_JI,
   AD_Jq_JO,
-  AD_Jqd_JOE,
+  AD_qds_JOE,
+  AD_Jqd_JOq,
   AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // H Bigram combos
@@ -536,6 +540,7 @@ const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIq[] = { KC_I, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveOd[] = { KC_O, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
@@ -543,6 +548,7 @@ const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
 // J adaptives
 const uint16_t PROGMEM adaptiveqI[] = { KC_QUOTE, KC_I, COMBO_END };
 const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveqds[] = { KC_QUOTE, KC_DOT, KC_SCLN, COMBO_END };
 const uint16_t PROGMEM adaptiveJqd[] = { KC_J, KC_QUOTE, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
@@ -677,6 +683,7 @@ combo_t key_combos[] = {
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
   [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
   [AD_Iq_Iq] = COMBO(adaptiveIq, AD_MACRO_Iq),
+  [AD_Od_Oq] = COMBO(adaptiveOd, AD_MACRO_Oq),
   [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
   [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
   [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
@@ -684,7 +691,8 @@ combo_t key_combos[] = {
   // J adaptives
   [AD_qI_JI] = COMBO(adaptiveqI, AD_MACRO_JI),
   [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
-  [AD_Jqd_JOE] = COMBO(adaptiveJqd, AD_MACRO_JOE),
+  [AD_qds_JOE] = COMBO(adaptiveqds, AD_MACRO_JOE),
+  [AD_Jqd_JOq] = COMBO(adaptiveJqd, AD_MACRO_JOq),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // H Bigram combos
@@ -919,6 +927,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
     SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
     SEND_CASED_STRINGS(AD_MACRO_Iq, "i'", "I'", "I'");
+    SEND_CASED_STRINGS(AD_MACRO_Oq, "o'", "O'", "O'");
     SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
     SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
     SEND_CASED_STRINGS(AD_MACRO_YEq, "ye'", "Ye'", "YE'");
@@ -927,6 +936,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
     SEND_CASED_STRINGS(AD_MACRO_JO, "jo", "Jo", "JO");
     SEND_CASED_STRINGS(AD_MACRO_JOE, "joe", "Joe", "JOE");
+    SEND_CASED_STRINGS(AD_MACRO_JOq, "jo'", "Jo'", "JO'");
     SEND_CASED_STRINGS(AD_MACRO_OJ, "oj", "Oj", "OJ");
 
   // H digraphs
