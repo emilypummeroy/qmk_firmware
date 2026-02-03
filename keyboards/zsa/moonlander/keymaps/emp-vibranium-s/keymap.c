@@ -69,6 +69,7 @@ enum custom_keycodes {
   AD_MACRO_LFS,
   AD_MACRO_LFW,
   AD_MACRO_NFS,
+  AD_MACRO_FTS,
 
   // K adaptives
   // S@P C@N N@T L@G P@L W@M
@@ -93,6 +94,8 @@ enum custom_keycodes {
   AD_MACRO_CKL, // cackle
   AD_MACRO_CKP, // Backpack
   AD_MACRO_CKB, // Blackerry
+  AD_MACRO_SKS,
+  AD_MACRO_SSK,
   // nothing for backpack because C and P same finger
 
   // B adaptives
@@ -320,6 +323,7 @@ enum combo_index {
   AD_GFC_LFS,
   AD_GFM_LFW,
   AD_NFC_NFS,
+  AD_FTC_FTS,
 
   // K adaptives
   // S@P C@N N@T L@G P@L
@@ -344,6 +348,10 @@ enum combo_index {
   AD_NKG_CKL, // cackle
   AD_KTL_CKP, // Backpack
   AD_NTB_CKB, // Blackberry
+  AD_KDP_SKS,
+  AD_DKP_SKS,
+  AD_PKD_SKS,
+  AD_PDK_SSK,
 
   // B adaptives
   // L@D S@P C@N M@T P@L V@P W@M
@@ -499,6 +507,7 @@ const uint16_t PROGMEM adaptiveFM[] = { KC_F, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGFC[] = { KC_G, KC_F, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveGFM[] = { KC_G, KC_F, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveNFC[] = { KC_N, KC_F, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveFTC[] = { KC_F, KC_T, KC_C, COMBO_END };
 
 // K adaptives
 // S@C/P C@N N@T L@G P@L W@M
@@ -523,6 +532,10 @@ const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveKTL[] = { KC_K, KC_T, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveNTB[] = { KC_N, KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveKDP[] = { KC_K, KC_D, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveDKP[] = { KC_D, KC_K, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptivePKD[] = { KC_P, KC_K, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptivePDK[] = { KC_P, KC_D, KC_K, COMBO_END };
 
 // B adaptives
 // L@D S@P C@N M@G P@L V@C
@@ -656,6 +669,7 @@ combo_t key_combos[] = {
   [AD_GFC_LFS] = COMBO(adaptiveGFC, AD_MACRO_LFS),
   [AD_GFM_LFW] = COMBO(adaptiveGFM, AD_MACRO_LFW),
   [AD_NFC_NFS] = COMBO(adaptiveNFC, AD_MACRO_NFS),
+  [AD_FTC_FTS] = COMBO(adaptiveFTC, AD_MACRO_FTS),
 
   // K adaptives
   // S@PC C@N N@T L@G P@L W@M
@@ -680,6 +694,10 @@ combo_t key_combos[] = {
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL), // cackle
   [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP), // Backpack
   [AD_NTB_CKB] = COMBO(adaptiveNTB, AD_MACRO_CKB), // Blackerry
+  [AD_KDP_SKS] = COMBO(adaptiveKDP, AD_MACRO_SKS), // Tasks
+  [AD_DKP_SKS] = COMBO(adaptiveDKP, AD_MACRO_SKS), // Tasks -- Remove two of these?
+  [AD_PKD_SKS] = COMBO(adaptivePKD, AD_MACRO_SKS), // Tasks -- Remove two of these?
+  [AD_PDK_SSK] = COMBO(adaptivePDK, AD_MACRO_SSK), // Passkey
 
   // B adaptives
   // L@D S@C C@N M@T P@L V@P W@M
@@ -921,6 +939,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_LFS, "lfs", "Lfs", "LFS");
     SEND_CASED_STRINGS(AD_MACRO_LFW, "lfw", "Lfw", "LFW");
     SEND_CASED_STRINGS(AD_MACRO_NFS, "nfs", "Nfs", "NFS");
+    SEND_CASED_STRINGS(AD_MACRO_FTS, "fts", "Fts", "FTS");
 
   // K adaptives
   // S@C C@N N@T L@G P@L W@M
@@ -945,6 +964,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
     SEND_CASED_STRINGS(AD_MACRO_CKP, "ckp", "Ckp", "CKP"); // Backpack
     SEND_CASED_STRINGS(AD_MACRO_CKB, "ckb", "Ckb", "CKB"); // Blackberry
+    SEND_CASED_STRINGS(AD_MACRO_SKS, "sks", "Sks", "SKS"); // Tasks
+    SEND_CASED_STRINGS(AD_MACRO_SSK, "ssk", "Ssk", "SSK"); // Passkey
 
   // B adaptives
   // L@D S@C C@N M@T W@M
