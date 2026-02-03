@@ -125,6 +125,10 @@ enum custom_keycodes {
   AD_MACRO_THS,
   AD_MACRO_SHN,
   AD_MACRO_NSH,
+  AD_MACRO_MSH, // Gumshoe
+  AD_MACRO_SHM, // Establishment
+  AD_MACRO_WSH, // Fellowship
+  AD_MACRO_SHW, // Bushwalk
   AD_MACRO_LSH,
   AD_MACRO_SHL,
   AD_MACRO_NWH, // Meanwhile
@@ -364,6 +368,10 @@ enum combo_index {
   AD_TNS_THS,
   AD_BDN_SHN,
   AD_NDB_NSH,
+  AD_MTK_MSH, // Gumshoe
+  AD_KTM_SHM, // Establishment
+  AD_MTB_WSH, // Fellowship
+  AD_BTM_SHW, // Bushwalk
   AD_LDB_LSH,
   AD_BDL_SHL,
   AD_CMG_NWH, // Meanwhile
@@ -532,6 +540,10 @@ const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTNS[] = { KC_T, KC_N, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveMTK[] = { KC_M, KC_T, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveKTM[] = { KC_K, KC_T, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMTB[] = { KC_M, KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveBTM[] = { KC_B, KC_T, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
@@ -678,6 +690,10 @@ combo_t key_combos[] = {
   [AD_TNS_THS] = COMBO(adaptiveTNS, AD_MACRO_THS),
   [AD_BDN_SHN] = COMBO(adaptiveBDN, AD_MACRO_SHN),
   [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
+  [AD_MTK_MSH] = COMBO(adaptiveMTK, AD_MACRO_MSH), // Gumshoe
+  [AD_KTM_SHM] = COMBO(adaptiveKTM, AD_MACRO_SHM), // Establishment
+  [AD_MTB_WSH] = COMBO(adaptiveMTB, AD_MACRO_WSH), // Fellowship
+  [AD_BTM_SHW] = COMBO(adaptiveBTM, AD_MACRO_SHW), // Bushwalk
   [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
   [AD_CMG_NWH] = COMBO(adaptiveCMG, AD_MACRO_NWH), // Meanwhile
@@ -931,6 +947,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_THS, "ths", "Ths", "THS");
     SEND_CASED_STRINGS(AD_MACRO_SHN, "shn", "Shn", "SHN");
     SEND_CASED_STRINGS(AD_MACRO_NSH, "nsh", "Nsh", "NSH");
+    SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH"); // Gumshoe
+    SEND_CASED_STRINGS(AD_MACRO_SHM, "shm", "Shm", "SHM"); // Establishment
+    SEND_CASED_STRINGS(AD_MACRO_WSH, "wsh", "Wsh", "WSH"); // Fellowship
+    SEND_CASED_STRINGS(AD_MACRO_SHW, "shw", "Shw", "SHW"); // Bushwalk
     SEND_CASED_STRINGS(AD_MACRO_LSH, "lsh", "Lsh", "LSH");
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
     SEND_CASED_STRINGS(AD_MACRO_NWH, "nwh", "Nwh", "NWH"); // Meanwhile
