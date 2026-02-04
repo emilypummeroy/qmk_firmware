@@ -45,12 +45,14 @@ enum custom_keycodes {
 
   // X/Z adaptives
   AD_MACRO_XP,
+  AD_MACRO_XB,
   AD_MACRO_XC,
   AD_MACRO_ZW,
   AD_MACRO_ZZ,
   AD_MACRO_GZ,
   AD_MACRO_XT,
   AD_MACRO_TZ,
+  AD_MACRO_XF,
   AD_MACRO_ZZL,
   AD_MACRO_ZZW,
   AD_MACRO_GZW,
@@ -295,6 +297,7 @@ enum combo_index {
 
   // X/Z adaptives
   AD_VP_XP,
+  AD_CB_XB,
   AD_XC_XC,
   AD_XW_ZW,
   AD_XG_ZZ,
@@ -302,6 +305,7 @@ enum combo_index {
   AD_XT_XT,
   AD_XN_XT,
   AD_TX_TZ,
+  AD_WF_XF,
   AD_XMG_ZZL, // Rizzler
   AD_XWG_ZZW, // Buzzword
   AD_GWX_GZW, // Zugzwang
@@ -476,6 +480,7 @@ const uint16_t PROGMEM adaptiveSCD[] = { KC_S, KC_C, KC_D, COMBO_END };
 
 // X/Z adaptives
 const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
@@ -483,6 +488,7 @@ const uint16_t PROGMEM adaptiveGX[] = { KC_G, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveXN[] = { LT(0,KC_X), KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTX[] = { KC_T, LT(0,KC_X), COMBO_END };
+const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveXWG[] = { LT(0,KC_X), KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGWX[] = { KC_G, KC_W, LT(0,KC_X), COMBO_END };
@@ -635,6 +641,7 @@ combo_t key_combos[] = {
 
   // X/Z adaptives
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
+  [AD_CB_XB] = COMBO(adaptiveCB, AD_MACRO_XB),
   [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
   [AD_XW_ZW] = COMBO(adaptiveXW, AD_MACRO_ZW), // Zwitter
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ), // Fizz
@@ -642,6 +649,7 @@ combo_t key_combos[] = {
   [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
   [AD_XN_XT] = COMBO(adaptiveXN, AD_MACRO_XT),
   [AD_TX_TZ] = COMBO(adaptiveTX, AD_MACRO_TZ),
+  [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL), // Rizzler
   [AD_XWG_ZZW] = COMBO(adaptiveXWG, AD_MACRO_ZZW), // Buzzword
   [AD_GWX_GZW] = COMBO(adaptiveGWX, AD_MACRO_GZW), // Zugzwang
@@ -904,12 +912,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   // X/Z adaptives
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
+    SEND_CASED_STRINGS(AD_MACRO_XB, "xb", "Xb", "XB");
     SEND_CASED_STRINGS(AD_MACRO_XC, "xc", "Xc", "XC");
     SEND_CASED_STRINGS(AD_MACRO_ZW, "zw", "Zw", "ZW");
     SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(AD_MACRO_GZ, "gz", "Gz", "GZ");
     SEND_CASED_STRINGS(AD_MACRO_XT, "xt", "Xt", "XT");
     SEND_CASED_STRINGS(AD_MACRO_TZ, "tz", "Tz", "TZ");
+    SEND_CASED_STRINGS(AD_MACRO_XF, "xf", "Xf", "XF");
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
     SEND_CASED_STRINGS(AD_MACRO_ZZW, "zzw", "Zzw", "ZZW");
     SEND_CASED_STRINGS(AD_MACRO_GZW, "gzw", "Gzw", "GZW");
