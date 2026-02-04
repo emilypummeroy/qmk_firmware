@@ -38,6 +38,7 @@ enum custom_keycodes {
   AD_MACRO_NQU,
   AD_MACRO_CQU,
   AD_MACRO_WNL, // Download
+  AD_MACRO_NGL,
   AD_MACRO_WLS, // Bowls
   AD_MACRO_SPS,
   AD_MACRO_SCS,
@@ -86,6 +87,7 @@ enum custom_keycodes {
   AD_MACRO_KN,
   AD_MACRO_PK,
   AD_MACRO_KP,
+  AD_MACRO_WKW,
   AD_MACRO_WKS,
   AD_MACRO_LKS,
   AD_MACRO_CKS,
@@ -289,6 +291,7 @@ enum combo_index {
   AD_TKM_NQU,
   AD_CKM_CQU, // Acquire
   AD_WND_WNL, // Download
+  AD_NGK_NGL,
   AD_WMS_WLS, // Bowls
   AD_VWL_WLS, // Bowls
   AD_WLV_WLS, // Bowls
@@ -339,6 +342,7 @@ enum combo_index {
   AD_KT_KN,
   AD_LK_PK,
   AD_KL_KP,
+  AD_MKG_WKW,
   AD_MKP_WKS,
   AD_GKP_LKS,
   AD_NKP_CKS,
@@ -472,6 +476,7 @@ const uint16_t PROGMEM adaptivePKM[] = { KC_P, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveNGK[] = { KC_N, KC_G, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveWMS[] = { KC_W, KC_M, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveVWL[] = { KC_V, KC_W, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWLV[] = { KC_W, KC_L, KC_V, COMBO_END };
@@ -522,6 +527,7 @@ const uint16_t PROGMEM adaptiveTK[] = { KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKT[] = { KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveLK[] = { KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKL[] = { KC_K, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveMKG[] = { KC_M, KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMKP[] = { KC_M, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGKP[] = { KC_G, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
@@ -633,6 +639,7 @@ combo_t key_combos[] = {
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_CKM_CQU] = COMBO(adaptiveCKM, AD_MACRO_CQU), // Acquire
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
+  [AD_NGK_NGL] = COMBO(adaptiveNGK, AD_MACRO_NGL), // Angle
   [AD_WMS_WLS] = COMBO(adaptiveWMS, AD_MACRO_WLS), // Bowls
   [AD_VWL_WLS] = COMBO(adaptiveVWL, AD_MACRO_WLS), // Bowls - Remove two
   [AD_WLV_WLS] = COMBO(adaptiveWLV, AD_MACRO_WLS), // Bowls - Remove two
@@ -683,6 +690,7 @@ combo_t key_combos[] = {
   [AD_KT_KN] = COMBO(adaptiveKT, AD_MACRO_KN),
   [AD_LK_PK] = COMBO(adaptiveLK, AD_MACRO_PK),
   [AD_KL_KP] = COMBO(adaptiveKL, AD_MACRO_KP),
+  [AD_MKG_WKW] = COMBO(adaptiveMKG, AD_MACRO_WKW), // Awkward
   [AD_MKP_WKS] = COMBO(adaptiveMKP, AD_MACRO_WKS),
   [AD_GKP_LKS] = COMBO(adaptiveGKP, AD_MACRO_LKS),
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
@@ -906,6 +914,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_CQU, "cqu", "Cqu", "CQU");
     SEND_CASED_STRINGS(AD_MACRO_WNL, "wnl", "Wnl", "WNL");
+    SEND_CASED_STRINGS(AD_MACRO_NGL, "ngl", "Ngl", "NGL");
     SEND_CASED_STRINGS(AD_MACRO_WLS, "wls", "Wls", "WLS");
     SEND_CASED_STRINGS(AD_MACRO_SPS, "sps", "Sps", "SPS");
     SEND_CASED_STRINGS(AD_MACRO_SCS, "scs", "Scs", "SCS");
@@ -953,6 +962,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_KN, "kn", "Kn", "KN");
     SEND_CASED_STRINGS(AD_MACRO_PK, "pk", "Pk", "PK");
     SEND_CASED_STRINGS(AD_MACRO_KP, "kp", "Kp", "KP");
+    SEND_CASED_STRINGS(AD_MACRO_WKW, "wkw", "Wkw", "WKW");
     SEND_CASED_STRINGS(AD_MACRO_WKS, "wks", "Wks", "WKS");
     SEND_CASED_STRINGS(AD_MACRO_LKS, "lks", "Lks", "LKS");
     SEND_CASED_STRINGS(AD_MACRO_CKS, "cks", "Cks", "CKS");
