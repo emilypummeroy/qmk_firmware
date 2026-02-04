@@ -404,10 +404,7 @@ enum combo_index {
   AD_GMW_NGH, // Shanghai
   AD_WMT_GHT,
   AD_MGB_GHB,
-  AD_CGF_SPH, // Sphere
   AD_WGF_SPH, // Sphere
-  AD_FGC_PHS, // Graphs
-  AD_FGN_PHS, // Graphs
   AD_FGW_PHS, // Graphs
   AD_MGF_MPH,
   AD_PGF_PPH, // Sapphire
@@ -590,10 +587,7 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveCGF[] = { KC_C, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveWGF[] = { KC_W, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveFGC[] = { KC_F, KC_G, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveFGN[] = { KC_F, KC_G, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveFGW[] = { KC_F, KC_G, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
@@ -754,11 +748,8 @@ combo_t key_combos[] = {
   [AD_GMW_NGH] = COMBO(adaptiveGMW, AD_MACRO_NGH), // Shanghai
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
-  [AD_CGF_SPH] = COMBO(adaptiveCGF, AD_MACRO_SPH), // Sphere
-  [AD_WGF_SPH] = COMBO(adaptiveWGF, AD_MACRO_SPH), // Delete if first one works
-  [AD_FGC_PHS] = COMBO(adaptiveFGC, AD_MACRO_PHS), // Graphs
-  [AD_FGN_PHS] = COMBO(adaptiveFGN, AD_MACRO_PHS), // Delete if first one works
-  [AD_FGW_PHS] = COMBO(adaptiveFGW, AD_MACRO_PHS), // Delete if first one works
+  [AD_WGF_SPH] = COMBO(adaptiveWGF, AD_MACRO_SPH), // Sphere
+  [AD_FGW_PHS] = COMBO(adaptiveFGW, AD_MACRO_PHS), // Graphs
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
   [AD_PGF_PPH] = COMBO(adaptivePGF, AD_MACRO_PPH), // Sapphire
   [AD_LGF_LPH] = COMBO(adaptiveLGF, AD_MACRO_LPH), // Alpha
