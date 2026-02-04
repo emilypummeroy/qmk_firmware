@@ -25,10 +25,6 @@ enum custom_keycodes {
   AD_MACRO_LG,
   AD_MACRO_ML,
   AD_MACRO_LM,
-  AD_MACRO_LN,
-  AD_MACRO_NL,
-  AD_MACRO_MN,
-  AD_MACRO_NM,
   AD_MACRO_GL,
   AD_MACRO_DG,
   AD_MACRO_GD,
@@ -279,10 +275,6 @@ enum combo_index {
   AD_MG_LG,
   AD_MC_ML,
   AD_CM_LM,
-  AD_PN_LN,
-  AD_NP_NL,
-  AD_MT_MN,
-  AD_TM_NM,
   AD_GM_GL,
   AD_DM_DG,
   AD_MD_GD,
@@ -437,8 +429,10 @@ enum combo_index {
   ST_COMBO_GM,
   ST_COMBO_WM,
   ST_COMBO_DB,
-  ST_COMBO_CN,
+  ST_COMBO_CN, ORDERED_BIGRAM_FIRST = ST_COMBO_CN,
+  ST_COMBO_NC,
   ST_COMBO_TN,
+  ST_COMBO_NT, ORDERED_BIGRAM_LAST = ST_COMBO_NT,
   ST_COMBO_GF,
 };
 
@@ -447,7 +441,9 @@ const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
-const uint16_t PROGMEM comboTN[] = { KC_N, KC_T, COMBO_END};
+const uint16_t PROGMEM comboNC[] = { KC_N, KC_C, COMBO_END};
+const uint16_t PROGMEM comboTN[] = { KC_T, KC_N, COMBO_END};
+const uint16_t PROGMEM comboNT[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 
 // Miscellaneous consonants
@@ -462,10 +458,6 @@ const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptivePN[] = { KC_P, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveNP[] = { KC_N, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveMT[] = { KC_M, KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveTM[] = { KC_T, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
@@ -623,10 +615,6 @@ combo_t key_combos[] = {
   [AD_MG_LG] = COMBO(adaptiveMG, AD_MACRO_LG),
   [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
-  [AD_NP_NL] = COMBO(adaptiveNP, AD_MACRO_NL),
-  [AD_PN_LN] = COMBO(adaptivePN, AD_MACRO_LN),
-  [AD_MT_MN] = COMBO(adaptiveMT, AD_MACRO_MN),
-  [AD_TM_NM] = COMBO(adaptiveTM, AD_MACRO_NM),
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
   [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
@@ -782,7 +770,9 @@ combo_t key_combos[] = {
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
+  [ST_COMBO_NC] = COMBO(comboNC, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
+  [ST_COMBO_NT] = COMBO(comboNT, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
 };
 
@@ -798,6 +788,9 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_GF:
     case ST_COMBO_DB:
         return COMBO_TERM - 10;
+    case ST_COMBO_NC:
+    case ST_COMBO_NT:
+        return COMBO_TERM - 15;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
     }
@@ -805,6 +798,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
+      case ORDERED_BIGRAM_FIRST ... ORDERED_BIGRAM_LAST:
+          return true;
       default: return is_adaptive(index);
   }
 }
@@ -899,10 +894,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
     SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
-    SEND_CASED_STRINGS(AD_MACRO_LN, "ln", "Ln", "LN");
-    SEND_CASED_STRINGS(AD_MACRO_NL, "nl", "Nl", "NL");
-    SEND_CASED_STRINGS(AD_MACRO_MN, "mn", "Mn", "MN");
-    SEND_CASED_STRINGS(AD_MACRO_NM, "nm", "Nm", "NM");
     SEND_CASED_STRINGS(AD_MACRO_GL, "gl", "Gl", "GL");
     SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
