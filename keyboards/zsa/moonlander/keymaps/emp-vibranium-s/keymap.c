@@ -307,7 +307,6 @@ enum combo_index {
   AD_XG_ZZ,
   AD_GX_GZ,
   AD_XT_XT,
-  AD_XN_XT,
   AD_TX_TZ,
   AD_WF_XF,
   AD_XMG_ZZL, // Rizzler
@@ -493,7 +492,6 @@ const uint16_t PROGMEM adaptiveXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGX[] = { KC_G, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveXN[] = { LT(0,KC_X), KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTX[] = { KC_T, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
@@ -657,7 +655,6 @@ combo_t key_combos[] = {
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ), // Fizz
   [AD_GX_GZ] = COMBO(adaptiveGX, AD_MACRO_GZ), // Zigzag
   [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
-  [AD_XN_XT] = COMBO(adaptiveXN, AD_MACRO_XT),
   [AD_TX_TZ] = COMBO(adaptiveTX, AD_MACRO_TZ),
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
   [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL), // Rizzler
@@ -789,7 +786,7 @@ combo_t key_combos[] = {
   // H Bigram combos
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
-  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH),
+  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
@@ -808,9 +805,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
-      case ST_COMBO_DB:
-      case ST_COMBO_GF:
-          return true;
+      case ST_MACRO_SH: return true;
       default: return is_adaptive(index);
   }
 }
