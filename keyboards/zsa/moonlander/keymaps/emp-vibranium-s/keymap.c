@@ -6,6 +6,7 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 
   ST_FORCE_EQUAL,
+  ST_FORCE_MINUS,
   ST_FORCE_S,
   ST_FORCE_Q,
 
@@ -194,17 +195,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        KC_CIRC,        KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        _______,        _______,        _______,        _______,        _______,        KC_DLR,         _______,
-    _______,        XXXXXXX,        KC_LGUI,        KC_LALT,        KC_LCTL,        ST_FORCE_Q,     _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        ST_FORCE_S,     ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        ST_FORCE_Q,     _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        XXXXXXX,        ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_HASH,        KC_RPRN,        KC_AMPR,        KC_PIPE,        KC_DLR,         _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_LPRN,        KC_RCTL,        KC_RALT,        KC_RGUI,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        XXXXXXX,        XXXXXXX,        XXXXXXX,        ST_FORCE_EQUAL, _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_ASTR,        KC_HASH,        KC_AMPR,        KC_PIPE,        KC_DLR,         _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PLUS,        KC_RCTL,        KC_RALT,        KC_RGUI,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_MINUS, KC_LPRN,        KC_RPRN,        ST_FORCE_EQUAL, ST_FORCE_EQUAL, _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        _______,        _______,        _______,
     KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
   ),
@@ -859,6 +860,13 @@ uint8_t current_mods;
     } \
     return true;
 
+#define SEND_FORCED_STRING(NAME, RESULT) \
+   case (NAME): \
+    if (record->event.pressed) { \
+      SEND_STRING_CLEAR(RESULT); \
+    } \
+    return true;
+
 #define TAPHOLD_CODE16(NAME, RESULT) \
     case (NAME): \
     if (!record->tap.count && record->event.pressed) { \
@@ -1035,18 +1043,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
 
-  // Symbol macros
-  case ST_FORCE_EQUAL:
-    if (record->event.pressed) {
-      SEND_STRING_CLEAR("=");
-    }
-    return true;
-  case ST_FORCE_S:
-    if (record->event.pressed) {
-      SEND_STRING_CLEAR("s");
-    }
-    return true;
-
+  // Forced characters
+    SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
+    SEND_FORCED_STRING(ST_FORCE_MINUS, "-");
+    SEND_FORCED_STRING(ST_FORCE_S, "s");
     SEND_CASED_STRINGS(ST_FORCE_Q, "q", "q", "Q");
 
   // Tap-hold keys
