@@ -139,6 +139,8 @@ enum custom_keycodes {
   AD_MACRO_GHN, // Toughness
   AD_MACRO_NGH, // Shanghai
   AD_MACRO_GHT, // Thought
+  AD_MACRO_GHS,
+  AD_MACRO_GHL,
   AD_MACRO_GHB, // Neighbour
   AD_MACRO_SPH, // Sphere
   AD_MACRO_PHS, // Graphs
@@ -388,6 +390,8 @@ enum combo_index {
   AD_WMG_GHN,
   AD_GMW_NGH, // Shanghai
   AD_WMT_GHT,
+  AD_MWV_GHS,
+  AD_WMD_GHL,
   AD_MGB_GHB,
   AD_WGF_SPH, // Sphere
   AD_FGW_PHS, // Graphs
@@ -567,6 +571,8 @@ const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveWMD[] = { KC_W, KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveWGF[] = { KC_W, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGW[] = { KC_F, KC_G, KC_W, COMBO_END };
@@ -720,6 +726,8 @@ combo_t key_combos[] = {
   [AD_WMG_GHN] = COMBO(adaptiveWMG, AD_MACRO_GHN), // Toughness
   [AD_GMW_NGH] = COMBO(adaptiveGMW, AD_MACRO_NGH), // Shanghai
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
+  [AD_MWV_GHS] = COMBO(adaptiveMWV, AD_MACRO_GHS), // Breakthroughs
+  [AD_WMD_GHL] = COMBO(adaptiveWMD, AD_MACRO_GHL), // Highlight
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
   [AD_WGF_SPH] = COMBO(adaptiveWGF, AD_MACRO_SPH), // Sphere
   [AD_FGW_PHS] = COMBO(adaptiveFGW, AD_MACRO_PHS), // Graphs
@@ -994,6 +1002,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN"); // Toughness
     SEND_CASED_STRINGS(AD_MACRO_NGH, "ngh", "Ngh", "NGH"); // Shanghai
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT"); // Thought
+    SEND_CASED_STRINGS(AD_MACRO_GHS, "ghs", "Ghs", "GHS");
+    SEND_CASED_STRINGS(AD_MACRO_GHL, "ghl", "Ghl", "GHL");
     SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB"); // Neighbour
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
     SEND_CASED_STRINGS(AD_MACRO_PHS, "phs", "Phs", "PHS"); // Graphs
