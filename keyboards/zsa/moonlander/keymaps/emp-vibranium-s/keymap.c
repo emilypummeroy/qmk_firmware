@@ -690,6 +690,7 @@ combo_t key_combos[] = {
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
   [AD_BTP_BTS] = COMBO(adaptiveBTP, AD_MACRO_BTS),
+  // No MBL because it would be more twisty than typing with M+BL
 
   // H digraph adaptives
   [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
