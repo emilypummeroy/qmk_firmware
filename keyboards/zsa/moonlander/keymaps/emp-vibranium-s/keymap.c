@@ -24,7 +24,6 @@ enum custom_keycodes {
   AD_MACRO_ML,
   AD_MACRO_LM,
   AD_MACRO_GL,
-  AD_MACRO_DG,
   AD_MACRO_GD,
   AD_MACRO_VS,
   AD_MACRO_MPT, // Empty
@@ -274,7 +273,6 @@ enum combo_index {
   AD_MC_ML,
   AD_CM_LM,
   AD_GM_GL,
-  AD_DM_DG,
   AD_MD_GD,
   AD_VW_VS,
   AD_MPT_MPT, // Empty
@@ -455,7 +453,6 @@ const uint16_t PROGMEM adaptiveMG[] = { KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveCM[] = { KC_C, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGM[] = { KC_G, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveDM[] = { KC_D, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveMPT[] = { KC_M, KC_P, KC_T, COMBO_END };
@@ -610,8 +607,7 @@ combo_t key_combos[] = {
   [AD_MC_ML] = COMBO(adaptiveMC, AD_MACRO_ML),
   [AD_CM_LM] = COMBO(adaptiveCM, AD_MACRO_LM),
   [AD_GM_GL] = COMBO(adaptiveGM, AD_MACRO_GL),
-  [AD_DM_DG] = COMBO(adaptiveDM, AD_MACRO_DG),
-  [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD),
+  [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD), // No DG because it's typable and DM is common
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
   [AD_MPT_MPT] = COMBO(adaptiveMPT, AD_MACRO_MPT), // Empty
   [AD_PKM_SQU] = COMBO(adaptivePKM, AD_MACRO_SQU),
@@ -888,7 +884,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
     SEND_CASED_STRINGS(AD_MACRO_LM, "lm", "Lm", "LM");
     SEND_CASED_STRINGS(AD_MACRO_GL, "gl", "Gl", "GL");
-    SEND_CASED_STRINGS(AD_MACRO_DG, "dg", "Dg", "DG");
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
     SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
     SEND_CASED_STRINGS(AD_MACRO_MPT, "mpt", "Mpt", "MPT");
