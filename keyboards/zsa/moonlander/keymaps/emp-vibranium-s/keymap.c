@@ -307,7 +307,7 @@ enum combo_index {
   AD_GWX_GZW, // Zugzwang
   AD_XWM_ZSH, // Oh my zsh!
   AD_XCL_XCL, // Exclude
-  AD_WKM_XQU,
+  AD_WMK_XQU,
 
   // F adaptives
   // L@G S@C W@M
@@ -490,7 +490,7 @@ const uint16_t PROGMEM adaptiveXWG[] = { LT(0,KC_X), KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGWX[] = { KC_G, KC_W, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveWMK[] = { KC_W, KC_M, KC_K, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M
@@ -647,7 +647,7 @@ combo_t key_combos[] = {
   [AD_GWX_GZW] = COMBO(adaptiveGWX, AD_MACRO_GZW), // Zugzwang
   [AD_XWM_ZSH] = COMBO(adaptiveXWM, AD_MACRO_ZSH), // Oh my zsh!
   [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL), // Exclude
-  [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
+  [AD_WMK_XQU] = COMBO(adaptiveWMK, AD_MACRO_XQU),
 
   // F adaptives
   // L@G S@C W@M
