@@ -35,6 +35,7 @@ enum custom_keycodes {
   AD_MACRO_NGL,
   AD_MACRO_SPS,
   AD_MACRO_SCS,
+  AD_MACRO_SSL,
   // Maybe Mc would be convenient
 
   // X/Z adaptives
@@ -286,6 +287,7 @@ enum combo_index {
   AD_NGK_NGL,
   AD_SPD_SPS, // Wasps
   AD_SCD_SCS, // Discs
+  AD_SLD_SSL,
 
   // X/Z adaptives
   AD_VP_XP,
@@ -468,6 +470,7 @@ const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNGK[] = { KC_N, KC_G, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveSPD[] = { KC_S, KC_P, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveSCD[] = { KC_S, KC_C, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveSLD[] = { KC_S, KC_L, KC_D, COMBO_END };
 
 // X/Z adaptives
 const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
@@ -624,6 +627,7 @@ combo_t key_combos[] = {
   [AD_NGK_NGL] = COMBO(adaptiveNGK, AD_MACRO_NGL), // Angle
   [AD_SPD_SPS] = COMBO(adaptiveSPD, AD_MACRO_SPS), // Wasps
   [AD_SCD_SCS] = COMBO(adaptiveSCD, AD_MACRO_SCS), // Discs
+  [AD_SLD_SSL] = COMBO(adaptiveSLD, AD_MACRO_SSL), // Expressly
 
   // X/Z adaptives
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
@@ -896,7 +900,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(AD_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_WQ, "wq", "wq", "WQ"); // vim :wq
-    SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Su", "SS");
+    SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Ss", "SS");
     SEND_CASED_STRINGS(AD_MACRO_WS, "ws", "Ws", "WS");
     SEND_CASED_STRINGS(AD_MACRO_LG, "lg", "Lg", "LG");
     SEND_CASED_STRINGS(AD_MACRO_ML, "ml", "Ml", "ML");
@@ -912,6 +916,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NGL, "ngl", "Ngl", "NGL");
     SEND_CASED_STRINGS(AD_MACRO_SPS, "sps", "Sps", "SPS");
     SEND_CASED_STRINGS(AD_MACRO_SCS, "scs", "Scs", "SCS");
+    SEND_CASED_STRINGS(AD_MACRO_SSL, "ssl", "Ssl", "SSL");
 
   // X/Z adaptives
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
