@@ -341,6 +341,7 @@ enum combo_index {
   AD_NTK_CKN,
   AD_TKP_NKS,
   AD_LKG_NKL,
+  AD_TKL_NKL,
   AD_GLK_MPK, // Pumpkin
   AD_NKG_CKL, // cackle
   AD_KTL_CKP, // Backpack
@@ -524,6 +525,7 @@ const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveLKG[] = { KC_L, KC_K, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveTKL[] = { KC_T, KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveKTL[] = { KC_K, KC_T, KC_L, COMBO_END };
@@ -681,6 +683,7 @@ combo_t key_combos[] = {
   [AD_NTK_CKN] = COMBO(adaptiveNTK, AD_MACRO_CKN), // Acknowledge
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_LKG_NKL] = COMBO(adaptiveLKG, AD_MACRO_NKL), // Ankle
+  [AD_TKL_NKL] = COMBO(adaptiveTKL, AD_MACRO_NKL), // Ankle
   [AD_GLK_MPK] = COMBO(adaptiveGLK, AD_MACRO_MPK), // Pumpkin
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL), // cackle
   [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP), // Backpack
