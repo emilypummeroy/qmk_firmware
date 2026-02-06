@@ -66,6 +66,7 @@ enum custom_keycodes {
   AD_MACRO_LFW,
   AD_MACRO_NFS,
   AD_MACRO_FTS,
+  AD_MACRO_FTW,
 
   // K adaptives
   // S@P C@N N@T L@G P@L W@M
@@ -316,6 +317,7 @@ enum combo_index {
   AD_GFM_LFW,
   AD_NFC_NFS,
   AD_FTC_FTS,
+  AD_FTM_FTW,
 
   // K adaptives
   // S@P C@N N@T L@G P@L
@@ -497,6 +499,7 @@ const uint16_t PROGMEM adaptiveGFC[] = { KC_G, KC_F, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveGFM[] = { KC_G, KC_F, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveNFC[] = { KC_N, KC_F, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveFTC[] = { KC_F, KC_T, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveFTM[] = { KC_F, KC_T, KC_M, COMBO_END };
 
 // K adaptives
 // S@C/P C@N N@T L@G P@L W@M
@@ -652,6 +655,7 @@ combo_t key_combos[] = {
   [AD_GFM_LFW] = COMBO(adaptiveGFM, AD_MACRO_LFW),
   [AD_NFC_NFS] = COMBO(adaptiveNFC, AD_MACRO_NFS),
   [AD_FTC_FTS] = COMBO(adaptiveFTC, AD_MACRO_FTS),
+  [AD_FTM_FTW] = COMBO(adaptiveFTM, AD_MACRO_FTW),
 
   // K adaptives
   // S@PC C@N N@T L@G P@L W@M
@@ -938,6 +942,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_LFW, "lfw", "Lfw", "LFW");
     SEND_CASED_STRINGS(AD_MACRO_NFS, "nfs", "Nfs", "NFS");
     SEND_CASED_STRINGS(AD_MACRO_FTS, "fts", "Fts", "FTS");
+    SEND_CASED_STRINGS(AD_MACRO_FTW, "ftw", "Ftw", "FTW");
 
   // K adaptives
   // S@C C@N N@T L@G P@L W@M
