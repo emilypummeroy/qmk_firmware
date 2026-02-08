@@ -384,8 +384,8 @@ enum combo_index {
   AD_CNT_NTH, // Tenth
   AD_WNT_WTH, // Growth
   AD_TNW_THW, // Southwest
-  AD_TMC_THM, // Rhythm
-  AD_CMT_MTH, // Warmth
+  AD_CTM_THM, // Rhythm
+  AD_MTC_MTH, // Warmth
   AD_DMW_DTH, // Width
   AD_PTN_LTH,
   AD_KTN_KTH,
@@ -570,8 +570,8 @@ const uint16_t PROGMEM adaptiveCNG[] = { KC_C, KC_N, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveWNT[] = { KC_W, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNW[] = { KC_T, KC_N, KC_W, COMBO_END };
-const uint16_t PROGMEM adaptiveTMC[] = { KC_T, KC_M, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveCMT[] = { KC_C, KC_M, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveCTM[] = { KC_C, KC_T, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMTC[] = { KC_M, KC_T, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveDMW[] = { KC_D, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveKTN[] = { KC_K, KC_T, KC_N, COMBO_END };
@@ -731,8 +731,8 @@ combo_t key_combos[] = {
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_WNT_WTH] = COMBO(adaptiveWNT, AD_MACRO_WTH), // Growth
   [AD_TNW_THW] = COMBO(adaptiveTNW, AD_MACRO_THW), // Southwest
-  [AD_TMC_THM] = COMBO(adaptiveTMC, AD_MACRO_THM), // Rhythm
-  [AD_CMT_MTH] = COMBO(adaptiveCMT, AD_MACRO_MTH), // Warmth
+  [AD_CTM_THM] = COMBO(adaptiveCTM, AD_MACRO_THM), // Rhythm
+  [AD_MTC_MTH] = COMBO(adaptiveMTC, AD_MACRO_MTH), // Warmth
   [AD_DMW_DTH] = COMBO(adaptiveDMW, AD_MACRO_DTH), // Width
   [AD_PTN_LTH] = COMBO(adaptivePNT, AD_MACRO_LTH),
   [AD_KTN_KTH] = COMBO(adaptiveKTN, AD_MACRO_KTH),
