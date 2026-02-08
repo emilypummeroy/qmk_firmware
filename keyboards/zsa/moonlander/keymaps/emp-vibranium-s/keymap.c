@@ -442,6 +442,8 @@ enum combo_index {
   ST_COMBO_DB,
   ST_COMBO_CN, ORDERED_BIGRAM_FIRST = ST_COMBO_CN,
   ST_COMBO_NC,
+  ST_COMBO_CV,
+  ST_COMBO_VC,
   ST_COMBO_TN,
   ST_COMBO_NT, ORDERED_BIGRAM_LAST = ST_COMBO_NT,
   ST_COMBO_GF,
@@ -453,6 +455,8 @@ const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
 const uint16_t PROGMEM comboNC[] = { KC_N, KC_C, COMBO_END};
+const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM comboVC[] = { KC_V, KC_C, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM comboNT[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
@@ -789,6 +793,8 @@ combo_t key_combos[] = {
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
   [ST_COMBO_NC] = COMBO(comboNC, ST_MACRO_CH),
+  [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
+  [ST_COMBO_VC] = COMBO(comboVC, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_NT] = COMBO(comboNT, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
