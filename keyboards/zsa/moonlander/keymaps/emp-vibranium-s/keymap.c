@@ -123,6 +123,7 @@ enum custom_keycodes {
   AD_MACRO_CHN, // Techno
   AD_MACRO_TCH, // Witch
   AD_MACRO_SCH, // Schedule
+  AD_MACRO_CHS,
   AD_MACRO_MCH, // Armchair
   AD_MACRO_CHM, // Attachment
   AD_MACRO_NTH, // Tenth
@@ -373,14 +374,20 @@ enum combo_index {
 
   // H digraph adaptives
   AD_DCN_LCH,
+  AD_LCV_LCH,
   AD_CND_CHL,
+  AD_VCL_CHL,
   AD_XCN_XCH, // Exchange
-  AD_VCN_NCH, // Winch
-  AD_NCV_CHN, // Techno
+  AD_NCV_NCH, // Winch
+  AD_VCN_CHN, // Techno
   AD_TNC_TCH, // Witch
+  AD_TCV_TCH,
   AD_SCN_SCH, // Schedule
+  AD_NCS_CHS,
   AD_GNC_MCH, // Armchair
+  AD_MCV_MCH,
   AD_CNG_CHM, // Attachment
+  AD_VCM_CHM,
   AD_CNT_NTH, // Tenth
   AD_WNT_WTH, // Growth
   AD_TNW_THW, // Southwest
@@ -563,14 +570,20 @@ const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
 
 // H digraph adaptives
 const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveLCV[] = { KC_L, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveVCL[] = { KC_V, KC_C, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveXCN[] = { LT(0,KC_X), KC_C, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNCV[] = { KC_N, KC_C, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTNC[] = { KC_T, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveTCV[] = { KC_T, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveNCS[] = { KC_N, KC_C, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveGNC[] = { KC_G, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveMCV[] = { KC_M, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveCNG[] = { KC_C, KC_N, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveVCM[] = { KC_V, KC_C, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveWNT[] = { KC_W, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNW[] = { KC_T, KC_N, KC_W, COMBO_END };
@@ -724,14 +737,20 @@ combo_t key_combos[] = {
 
   // H digraph adaptives
   [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
+  [AD_LCV_LCH] = COMBO(adaptiveLCV, AD_MACRO_LCH), // Gulch
   [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
+  [AD_VCL_CHL] = COMBO(adaptiveVCL, AD_MACRO_CHL), // Chlorine
   [AD_XCN_XCH] = COMBO(adaptiveXCN, AD_MACRO_XCH), // Exchange
-  [AD_VCN_NCH] = COMBO(adaptiveVCN, AD_MACRO_NCH), // Winch
-  [AD_NCV_CHN] = COMBO(adaptiveNCV, AD_MACRO_CHN), // Techno
+  [AD_NCV_NCH] = COMBO(adaptiveNCV, AD_MACRO_NCH), // Winch
+  [AD_VCN_CHN] = COMBO(adaptiveVCN, AD_MACRO_CHN), // Techno
   [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
+  [AD_TCV_TCH] = COMBO(adaptiveTCV, AD_MACRO_TCH), // Witch
   [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
+  [AD_NCS_CHS] = COMBO(adaptiveNCS, AD_MACRO_CHS), // Epochs
   [AD_GNC_MCH] = COMBO(adaptiveGNC, AD_MACRO_MCH), // Armchair
+  [AD_MCV_MCH] = COMBO(adaptiveMCV, AD_MACRO_MCH), // Armchair
   [AD_CNG_CHM] = COMBO(adaptiveCNG, AD_MACRO_CHM), // Attachment
+  [AD_VCM_CHM] = COMBO(adaptiveVCM, AD_MACRO_CHM), // Attachment
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_WNT_WTH] = COMBO(adaptiveWNT, AD_MACRO_WTH), // Growth
   [AD_TNW_THW] = COMBO(adaptiveTNW, AD_MACRO_THW), // Southwest
@@ -1022,6 +1041,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CHN, "chn", "Chn", "CHN"); // Techno
     SEND_CASED_STRINGS(AD_MACRO_TCH, "tch", "Tch", "TCH"); // Witch
     SEND_CASED_STRINGS(AD_MACRO_SCH, "sch", "Sch", "SCH"); // Schedule
+    SEND_CASED_STRINGS(AD_MACRO_CHS, "chs", "Chs", "CHS");
     SEND_CASED_STRINGS(AD_MACRO_MCH, "mch", "Mch", "MCH"); // Armchair
     SEND_CASED_STRINGS(AD_MACRO_CHM, "chm", "Chm", "CHM"); // Attachment
     SEND_CASED_STRINGS(AD_MACRO_NTH, "nth", "Nth", "NTH"); // Tenth
