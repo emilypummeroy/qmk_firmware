@@ -16,6 +16,7 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
+  ST_MACRO_XH,
 
   AD_MACRO_QU,
   AD_MACRO_WQ,
@@ -43,7 +44,6 @@ enum custom_keycodes {
   AD_MACRO_XP,
   AD_MACRO_XB,
   AD_MACRO_XC,
-  AD_MACRO_ZW,
   AD_MACRO_ZZ,
   AD_MACRO_GZ,
   AD_MACRO_XT,
@@ -305,7 +305,6 @@ enum combo_index {
   AD_VP_XP,
   AD_CB_XB,
   AD_XC_XC,
-  AD_XW_ZW,
   AD_XG_ZZ,
   AD_GX_GZ,
   AD_XT_XT,
@@ -461,6 +460,7 @@ enum combo_index {
   ST_COMBO_TN,
   ST_COMBO_NT,
   ST_COMBO_GF,
+  ST_COMBO_XW,
 };
 
 // Bigram combo
@@ -472,6 +472,7 @@ const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM comboNT[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 
 // Miscellaneous consonants
 const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
@@ -502,7 +503,6 @@ const uint16_t PROGMEM adaptiveSLD[] = { KC_S, KC_L, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveCB[] = { KC_C, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGX[] = { KC_G, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
@@ -673,7 +673,6 @@ combo_t key_combos[] = {
   [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
   [AD_CB_XB] = COMBO(adaptiveCB, AD_MACRO_XB),
   [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
-  [AD_XW_ZW] = COMBO(adaptiveXW, AD_MACRO_ZW), // Zwitter
   [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ), // Fizz
   [AD_GX_GZ] = COMBO(adaptiveGX, AD_MACRO_GZ), // Zigzag
   [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
@@ -825,6 +824,7 @@ combo_t key_combos[] = {
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_NT] = COMBO(comboNT, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
+  [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_XH),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -843,6 +843,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_NT:
         return COMBO_TERM - 10;
     case ST_COMBO_CV:
+    case ST_COMBO_XW:
         return COMBO_TERM + 10;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
@@ -976,7 +977,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
     SEND_CASED_STRINGS(AD_MACRO_XB, "xb", "Xb", "XB");
     SEND_CASED_STRINGS(AD_MACRO_XC, "xc", "Xc", "XC");
-    SEND_CASED_STRINGS(AD_MACRO_ZW, "zw", "Zw", "ZW");
     SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(AD_MACRO_GZ, "gz", "Gz", "GZ");
     SEND_CASED_STRINGS(AD_MACRO_XT, "xt", "Xt", "XT");
@@ -1121,6 +1121,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
+    SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
