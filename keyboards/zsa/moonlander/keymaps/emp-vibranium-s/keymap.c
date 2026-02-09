@@ -444,16 +444,18 @@ enum combo_index {
 
   // H Bigram combos
   ST_COMBO_GM,
+  ST_COMBO_MG,
   ST_COMBO_WM,
   ST_COMBO_DB,
   ST_COMBO_CV,
-  ST_COMBO_TN, ORDERED_BIGRAM_FIRST = ST_COMBO_TN,
-  ST_COMBO_NT, ORDERED_BIGRAM_LAST = ST_COMBO_NT,
+  ST_COMBO_TN,
+  ST_COMBO_NT,
   ST_COMBO_GF,
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
+const uint16_t PROGMEM comboGM[] = { KC_G, KC_M, COMBO_END};
+const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
@@ -796,6 +798,7 @@ combo_t key_combos[] = {
 
   // H Bigram combos
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
+  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_WH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
@@ -814,6 +817,7 @@ inline bool is_adaptive(uint16_t index) {
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
     case ST_COMBO_GF:
+    case ST_COMBO_GM:
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
     case ST_COMBO_NT:
@@ -827,7 +831,10 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
-      case ORDERED_BIGRAM_FIRST ... ORDERED_BIGRAM_LAST:
+      case ST_COMBO_TN:
+      case ST_COMBO_NT:
+      case ST_COMBO_MG:
+      case ST_COMBO_GM:
           return true;
       case AD_MGFW_MPHS:
           return false;
