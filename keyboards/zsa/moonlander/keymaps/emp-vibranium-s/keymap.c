@@ -27,7 +27,9 @@ enum custom_keycodes {
   AD_MACRO_MC,
   AD_MACRO_GD,
   AD_MACRO_VS,
-  AD_MACRO_MPT, // Empty
+  AD_MACRO_MPG,
+  AD_MACRO_MPT,
+  AD_MACRO_MPD,
   AD_MACRO_SQU,
   AD_MACRO_NQU,
   AD_MACRO_CQU,
@@ -67,6 +69,7 @@ enum custom_keycodes {
   AD_MACRO_NFS,
   AD_MACRO_FTS,
   AD_MACRO_FTW,
+  AD_MACRO_MPF,
 
   // K adaptives
   // S@P C@N N@T L@G P@L M@G W@M
@@ -114,6 +117,7 @@ enum custom_keycodes {
   AD_MACRO_LBS,
   AD_MACRO_PBS,
   AD_MACRO_BTS, // doubts
+  AD_MACRO_MPB,
 
   // H digraph adaptives
   AD_MACRO_LCH,
@@ -285,7 +289,9 @@ enum combo_index {
   AD_MC_MC,
   AD_MD_GD,
   AD_VW_VS,
-  AD_MPT_MPT, // Empty
+  AD_MPG_MPG,
+  AD_MPT_MPT,
+  AD_MPD_MPD,
   AD_PKM_SQU,
   AD_TKM_NQU,
   AD_CKM_CQU, // Acquire
@@ -326,6 +332,7 @@ enum combo_index {
   AD_NFC_NFS,
   AD_FTC_FTS,
   AD_FTM_FTW,
+  AD_GLF_MPF,
 
   // K adaptives
   // S@P C@N N@T L@D P@L
@@ -372,6 +379,7 @@ enum combo_index {
   AD_DBP_LBS,
   AD_LBP_PBS,
   AD_BTP_BTS, // doubts
+  AD_GLB_MPB,
 
   // H digraph adaptives
   AD_DCN_LCH,
@@ -478,7 +486,9 @@ const uint16_t PROGMEM adaptiveGL[] = { KC_G, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveMD[] = { KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveMPG[] = { KC_M, KC_P, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMPT[] = { KC_M, KC_P, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveMPD[] = { KC_M, KC_P, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptivePKM[] = { KC_P, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
@@ -519,6 +529,7 @@ const uint16_t PROGMEM adaptiveGFM[] = { KC_G, KC_F, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveNFC[] = { KC_N, KC_F, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveFTC[] = { KC_F, KC_T, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveFTM[] = { KC_F, KC_T, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGLF[] = { KC_G, KC_L, KC_F, COMBO_END };
 
 // K adaptives
 // S@C/P C@N N@T L@D P@L W@M
@@ -565,6 +576,7 @@ const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveDBP[] = { KC_D, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveLBP[] = { KC_L, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveGLB[] = { KC_G, KC_L, KC_B, COMBO_END };
 
 // H digraph adaptives
 const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
@@ -645,7 +657,9 @@ combo_t key_combos[] = {
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC),
   [AD_MD_GD] = COMBO(adaptiveMD, AD_MACRO_GD), // No DG because it's typable and DM is common
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
+  [AD_MPG_MPG] = COMBO(adaptiveMPG, AD_MACRO_MPG), // Campground
   [AD_MPT_MPT] = COMBO(adaptiveMPT, AD_MACRO_MPT), // Empty
+  [AD_MPD_MPD] = COMBO(adaptiveMPD, AD_MACRO_MPD), // Clampdown
   [AD_PKM_SQU] = COMBO(adaptivePKM, AD_MACRO_SQU),
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU),
   [AD_CKM_CQU] = COMBO(adaptiveCKM, AD_MACRO_CQU), // Acquire
@@ -686,6 +700,7 @@ combo_t key_combos[] = {
   [AD_NFC_NFS] = COMBO(adaptiveNFC, AD_MACRO_NFS),
   [AD_FTC_FTS] = COMBO(adaptiveFTC, AD_MACRO_FTS),
   [AD_FTM_FTW] = COMBO(adaptiveFTM, AD_MACRO_FTW),
+  [AD_GLF_MPF] = COMBO(adaptiveGLF, AD_MACRO_MPF), // Campfire
 
   // K adaptives
   // S@P C@N N@T L@D P@L W@M
@@ -732,6 +747,7 @@ combo_t key_combos[] = {
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
   [AD_LBP_PBS] = COMBO(adaptiveLBP, AD_MACRO_PBS), // Acronym
   [AD_BTP_BTS] = COMBO(adaptiveBTP, AD_MACRO_BTS),
+  [AD_GLB_MPB] = COMBO(adaptiveGLB, AD_MACRO_MPB), // Humpback
   // No MBL because it would be more twisty than typing with M+BL
 
   // H digraph adaptives
@@ -944,7 +960,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
     SEND_CASED_STRINGS(AD_MACRO_GD, "gd", "Gd", "GD");
     SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
+    SEND_CASED_STRINGS(AD_MACRO_MPG, "mpg", "Mpg", "MPG");
     SEND_CASED_STRINGS(AD_MACRO_MPT, "mpt", "Mpt", "MPT");
+    SEND_CASED_STRINGS(AD_MACRO_MPD, "mpd", "Mpd", "MPD");
     SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_CQU, "cqu", "Cqu", "CQU");
@@ -984,6 +1002,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NFS, "nfs", "Nfs", "NFS");
     SEND_CASED_STRINGS(AD_MACRO_FTS, "fts", "Fts", "FTS");
     SEND_CASED_STRINGS(AD_MACRO_FTW, "ftw", "Ftw", "FTW");
+    SEND_CASED_STRINGS(AD_MACRO_MPF, "mpf", "Mpf", "MPF");
 
   // K adaptives
   // S@C C@N N@T L@G P@L W@M
@@ -1030,6 +1049,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
     SEND_CASED_STRINGS(AD_MACRO_PBS, "pbs", "Pbs", "PBS");
     SEND_CASED_STRINGS(AD_MACRO_BTS, "bts", "Bts", "BTS");
+    SEND_CASED_STRINGS(AD_MACRO_MPB, "mpb", "Mpb", "MPB");
 
   // H digraph adaptives
     SEND_CASED_STRINGS(AD_MACRO_LCH, "lch", "Lch", "LCH");
