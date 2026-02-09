@@ -447,11 +447,8 @@ enum combo_index {
   ST_COMBO_GM,
   ST_COMBO_WM,
   ST_COMBO_DB,
-  ST_COMBO_CN, ORDERED_BIGRAM_FIRST = ST_COMBO_CN,
-  ST_COMBO_NC,
   ST_COMBO_CV,
-  ST_COMBO_VC,
-  ST_COMBO_TN,
+  ST_COMBO_TN, ORDERED_BIGRAM_FIRST = ST_COMBO_TN,
   ST_COMBO_NT, ORDERED_BIGRAM_LAST = ST_COMBO_NT,
   ST_COMBO_GF,
 };
@@ -460,10 +457,7 @@ enum combo_index {
 const uint16_t PROGMEM comboGM[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
-const uint16_t PROGMEM comboCN[] = { KC_C, KC_N, COMBO_END};
-const uint16_t PROGMEM comboNC[] = { KC_N, KC_C, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM comboVC[] = { KC_V, KC_C, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM comboNT[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
@@ -736,20 +730,15 @@ combo_t key_combos[] = {
   // No MBL because it would be more twisty than typing with M+BL
 
   // H digraph adaptives
-  [AD_DCN_LCH] = COMBO(adaptiveDNC, AD_MACRO_LCH),
   [AD_LCV_LCH] = COMBO(adaptiveLCV, AD_MACRO_LCH), // Gulch
-  [AD_CND_CHL] = COMBO(adaptiveCND, AD_MACRO_CHL),
   [AD_VCL_CHL] = COMBO(adaptiveVCL, AD_MACRO_CHL), // Chlorine
   [AD_XCN_XCH] = COMBO(adaptiveXCN, AD_MACRO_XCH), // Exchange
   [AD_NCV_NCH] = COMBO(adaptiveNCV, AD_MACRO_NCH), // Winch
   [AD_VCN_CHN] = COMBO(adaptiveVCN, AD_MACRO_CHN), // Techno
-  [AD_TNC_TCH] = COMBO(adaptiveTNC, AD_MACRO_TCH), // Witch
   [AD_TCV_TCH] = COMBO(adaptiveTCV, AD_MACRO_TCH), // Witch
   [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
   [AD_NCS_CHS] = COMBO(adaptiveNCS, AD_MACRO_CHS), // Epochs
-  [AD_GNC_MCH] = COMBO(adaptiveGNC, AD_MACRO_MCH), // Armchair
   [AD_MCV_MCH] = COMBO(adaptiveMCV, AD_MACRO_MCH), // Armchair
-  [AD_CNG_CHM] = COMBO(adaptiveCNG, AD_MACRO_CHM), // Attachment
   [AD_VCM_CHM] = COMBO(adaptiveVCM, AD_MACRO_CHM), // Attachment
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
   [AD_WNT_WTH] = COMBO(adaptiveWNT, AD_MACRO_WTH), // Growth
@@ -810,10 +799,7 @@ combo_t key_combos[] = {
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
-  [ST_COMBO_CN] = COMBO(comboCN, ST_MACRO_CH),
-  [ST_COMBO_NC] = COMBO(comboNC, ST_MACRO_CH),
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
-  [ST_COMBO_VC] = COMBO(comboVC, ST_MACRO_CH),
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_NT] = COMBO(comboNT, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
@@ -831,9 +817,10 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_GF:
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
-    case ST_COMBO_NC:
     case ST_COMBO_NT:
         return COMBO_TERM - 10;
+    case ST_COMBO_CV:
+        return COMBO_TERM + 10;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
     }
