@@ -111,6 +111,7 @@ enum custom_keycodes {
   AD_MACRO_BS,
   AD_MACRO_BC, // ribcage
   AD_MACRO_LBS,
+  AD_MACRO_PBS,
   AD_MACRO_BTS, // doubts
 
   // H digraph adaptives
@@ -367,6 +368,7 @@ enum combo_index {
   AD_BP_BS,
   AD_BN_BC, // Ribcage -- many NB but few CB
   AD_DBP_LBS,
+  AD_LBP_PBS,
   AD_BTP_BTS, // doubts
 
   // H digraph adaptives
@@ -556,6 +558,7 @@ const uint16_t PROGMEM adaptivePB[] = { KC_P, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveDBP[] = { KC_D, KC_B, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveLBP[] = { KC_L, KC_B, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
 
 // H digraph adaptives
@@ -721,6 +724,7 @@ combo_t key_combos[] = {
   [AD_BP_BS] = COMBO(adaptiveBP, AD_MACRO_BS),
   [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC),
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
+  [AD_LBP_PBS] = COMBO(adaptiveLBP, AD_MACRO_PBS), // Acronym
   [AD_BTP_BTS] = COMBO(adaptiveBTP, AD_MACRO_BTS),
   // No MBL because it would be more twisty than typing with M+BL
 
@@ -1012,6 +1016,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_BS, "bs", "Bs", "BS");
     SEND_CASED_STRINGS(AD_MACRO_BC, "bc", "Bc", "BC");
     SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
+    SEND_CASED_STRINGS(AD_MACRO_PBS, "pbs", "Pbs", "PBS");
     SEND_CASED_STRINGS(AD_MACRO_BTS, "bts", "Bts", "BTS");
 
   // H digraph adaptives
