@@ -167,6 +167,7 @@ enum custom_keycodes {
   AD_MACRO_MPH,
   AD_MACRO_PPH,
   AD_MACRO_LPH,
+  AD_MACRO_PHL,
   AD_MACRO_MPHS,
 
   // Vowel SFB adaptives
@@ -315,7 +316,7 @@ enum combo_index {
   AD_XGM_ZZL, // Rizzler
   AD_XWG_ZZW, // Buzzword
   AD_GWX_GZW, // Zugzwang
-  AD_XWM_ZSH, // Oh my zsh!
+  AD_gXW_ZSH, // Oh my zsh!
   AD_XCL_XCL, // Exclude
   AD_WKM_XQU,
 
@@ -431,21 +432,21 @@ enum combo_index {
   // AD_CMG_NWH,
 
   AD_GMW_GHW,
-  AD_GMC_GHN,
-  AD_CMG_NGH,
-  AD_MGK_GHT,
-  AD_GMS_GHS,
-  AD_GMP_GHL,
+  AD_MWX_GHN,
+  AD_XWM_NGH,
+  AD_WMT_GHT,
+  AD_MWV_GHS,
+  AD_WMD_GHL,
   AD_MGB_GHB,
-  AD_MGKP_GHTS,
+  AD_WMTV_GHTS,
 
-  AD_VWM_SPH,
-  AD_MWV_PHS,
-  AD_TMW_MPH,
+  AD_VMG_SPH,
+  AD_GMV_PHS,
+  AD_WMG_MPH,
   AD_PMG_PPH,
-  AD_DMW_LPH,
-  AD_DWM_LPH,
-  AD_TMWV_MPHS,
+  AD_CMG_LPH,
+  AD_GMC_PHL,
+  AD_WMGV_MPHS,
 
   // Vowel SFB adaptives
   AD_Am_AU,
@@ -523,7 +524,7 @@ const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveXGM[] = { LT(0,KC_X), KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveXWG[] = { LT(0,KC_X), KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGWX[] = { KC_G, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptivegXW[] = { KC_GRV, LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
 
@@ -632,21 +633,19 @@ const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
-const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveMGK[] = { KC_M, KC_G, KC_K, COMBO_END };
-const uint16_t PROGMEM adaptiveGMS[] = { KC_G, KC_M, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveMGKP[] = { KC_M, KC_G, KC_K, KC_P, COMBO_END };
-
-const uint16_t PROGMEM adaptiveVWM[] = { KC_V, KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMWX[] = { KC_M, KC_W, LT(0,KC_X), COMBO_END };
+const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
-const uint16_t PROGMEM adaptiveTMW[] = { KC_T, KC_M, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveWMD[] = { KC_W, KC_M, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
+
+const uint16_t PROGMEM adaptiveVMG[] = { KC_V, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMV[] = { KC_G, KC_M, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveDMW[] = { KC_D, KC_M, KC_W, COMBO_END };
-const uint16_t PROGMEM adaptiveDWM[] = { KC_D, KC_W, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveTMWV[] = { KC_T, KC_M, KC_W, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -698,7 +697,7 @@ combo_t key_combos[] = {
   [AD_XGM_ZZL] = COMBO(adaptiveXGM, AD_MACRO_ZZL), // Rizzler
   [AD_XWG_ZZW] = COMBO(adaptiveXWG, AD_MACRO_ZZW), // Buzzword
   [AD_GWX_GZW] = COMBO(adaptiveGWX, AD_MACRO_GZW), // Zugzwang
-  [AD_XWM_ZSH] = COMBO(adaptiveXWM, AD_MACRO_ZSH), // Oh my zsh!
+  [AD_gXW_ZSH] = COMBO(adaptivegXW, AD_MACRO_ZSH), // Oh my zsh!
   [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL), // Exclude
   [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
 
@@ -807,23 +806,22 @@ combo_t key_combos[] = {
   [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
 
-
   [AD_GMW_GHW] = COMBO(adaptiveGMW, AD_MACRO_GHW), // Highway
-  [AD_GMC_GHN] = COMBO(adaptiveGMC, AD_MACRO_GHN), // Toughness
-  [AD_CMG_NGH] = COMBO(adaptiveCMG, AD_MACRO_NGH), // Shanghai
-  [AD_MGK_GHT] = COMBO(adaptiveMGK, AD_MACRO_GHT), // Thought
-  [AD_GMS_GHS] = COMBO(adaptiveGMS, AD_MACRO_GHS), // Breakthroughs
-  [AD_GMP_GHL] = COMBO(adaptiveGMP, AD_MACRO_GHL), // Highlight
+  [AD_MWX_GHN] = COMBO(adaptiveMWX, AD_MACRO_GHN), // Toughness
+  [AD_XWM_NGH] = COMBO(adaptiveXWM, AD_MACRO_NGH), // Shanghai
+  [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
+  [AD_MWV_GHS] = COMBO(adaptiveMWV, AD_MACRO_GHS), // Breakthroughs
+  [AD_WMD_GHL] = COMBO(adaptiveWMD, AD_MACRO_GHL), // Highlight
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
-  [AD_MGKP_GHTS] = COMBO(adaptiveMGKP, AD_MACRO_GHTS), // Thoughts
+  [AD_WMTV_GHTS] = COMBO(adaptiveWMTV, AD_MACRO_GHTS), // Thoughts
 
-  [AD_VWM_SPH] = COMBO(adaptiveVWM, AD_MACRO_SPH), // Sphere
-  [AD_MWV_PHS] = COMBO(adaptiveMWV, AD_MACRO_PHS), // Graphs
-  [AD_TMW_MPH] = COMBO(adaptiveTMW, AD_MACRO_MPH), // Emphasis
+  [AD_VMG_SPH] = COMBO(adaptiveVMG, AD_MACRO_SPH), // Sphere
+  [AD_GMV_PHS] = COMBO(adaptiveGMV, AD_MACRO_PHS), // Graphs
+  [AD_WMG_MPH] = COMBO(adaptiveWMG, AD_MACRO_MPH), // Emphasis
   [AD_PMG_PPH] = COMBO(adaptivePMG, AD_MACRO_PPH), // Sapphire
-  [AD_DMW_LPH] = COMBO(adaptiveDMW, AD_MACRO_LPH), // Alpha
-  [AD_DWM_LPH] = COMBO(adaptiveDWM, AD_MACRO_LPH), // Alpha
-  [AD_TMWV_MPHS] = COMBO(adaptiveTMWV, AD_MACRO_MPHS), // Triumphs
+  [AD_CMG_LPH] = COMBO(adaptiveCMG, AD_MACRO_LPH), // Alpha
+  [AD_GMC_PHL] = COMBO(adaptiveGMC, AD_MACRO_PHL), // Phlebotomy
+  [AD_WMGV_MPHS] = COMBO(adaptiveWMGV, AD_MACRO_MPHS), // Triumphs
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
@@ -850,9 +848,9 @@ combo_t key_combos[] = {
 
   // H Bigram combos
   [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_WH),
-  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_GH),
-  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_GH),
-  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_PH),
+  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_PH),
+  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_PH),
+  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_TH),
@@ -1122,11 +1120,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_GHB, "ghb", "Ghb", "GHB");
     SEND_CASED_STRINGS(AD_MACRO_GHTS, "ghts", "Ghts", "GHTS");
 
-    SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH"); // Sphere
-    SEND_CASED_STRINGS(AD_MACRO_PHS, "phs", "Phs", "PHS"); // Graphs
-    SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH"); // Emphasis
-    SEND_CASED_STRINGS(AD_MACRO_PPH, "pph", "Pph", "PPH"); // Sapphire
+    SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH");
+    SEND_CASED_STRINGS(AD_MACRO_PHS, "phs", "Phs", "PHS");
+    SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH");
+    SEND_CASED_STRINGS(AD_MACRO_PPH, "pph", "Pph", "PPH");
     SEND_CASED_STRINGS(AD_MACRO_LPH, "lph", "Lph", "LPH");
+    SEND_CASED_STRINGS(AD_MACRO_PHL, "phl", "Phl", "PHL");
     SEND_CASED_STRINGS(AD_MACRO_MPHS, "mphs", "Mphs", "MPHS");
 
   // Vowel SFB adaptives
