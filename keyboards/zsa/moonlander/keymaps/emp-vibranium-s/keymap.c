@@ -16,7 +16,6 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
-  ST_MACRO_XH,
 
   AD_MACRO_QU,
   AD_MACRO_WQ,
@@ -456,6 +455,7 @@ enum combo_index {
   ST_COMBO_gX_Q,
 
   // H Bigram combos
+  ST_COMBO_XW,
   ST_COMBO_GM,
   ST_COMBO_MG,
   ST_COMBO_WM,
@@ -464,10 +464,10 @@ enum combo_index {
   ST_COMBO_TN,
   ST_COMBO_NT,
   ST_COMBO_GF,
-  ST_COMBO_XW,
 };
 
 // Bigram combo
+const uint16_t PROGMEM comboXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM comboGM[] = { KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
@@ -476,7 +476,6 @@ const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboTN[] = { KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM comboNT[] = { KC_N, KC_T, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboXW[] = { LT(0,KC_X), KC_W, COMBO_END };
 
 // Miscellaneous consonants
 const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
@@ -824,6 +823,7 @@ combo_t key_combos[] = {
   [ST_COMBO_gX_Q] = COMBO(combogX, KC_Q),
 
   // H Bigram combos
+  [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_WH),
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_WH),
   [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_WH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
@@ -832,7 +832,6 @@ combo_t key_combos[] = {
   [ST_COMBO_TN] = COMBO(comboTN, ST_MACRO_TH),
   [ST_COMBO_NT] = COMBO(comboNT, ST_MACRO_TH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_XH),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -1131,7 +1130,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
-    SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
