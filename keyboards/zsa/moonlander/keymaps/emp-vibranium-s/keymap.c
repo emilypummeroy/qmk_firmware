@@ -27,6 +27,8 @@ enum custom_keycodes {
   AD_MACRO_MPT,
   AD_MACRO_MPD,
   AD_MACRO_SQU,
+  AD_MACRO_LQU,
+  AD_MACRO_DQU,
   AD_MACRO_NQU,
   AD_MACRO_MQU,
   AD_MACRO_CQU,
@@ -302,6 +304,8 @@ enum combo_index {
   AD_MPT_MPT,
   AD_MPD_MPD,
   AD_PKM_SQU,
+  AD_DKM_LQU,
+  AD_BKM_DQU,
   AD_TKM_NQU,
   AD_GKM_MQU,
 
@@ -517,6 +521,8 @@ const uint16_t PROGMEM adaptiveMPG[] = { KC_M, KC_P, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMPT[] = { KC_M, KC_P, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMPD[] = { KC_M, KC_P, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptivePKM[] = { KC_P, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveDKM[] = { KC_D, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveBKM[] = { KC_B, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveTKM[] = { KC_T, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGKM[] = { KC_G, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
@@ -698,6 +704,8 @@ combo_t key_combos[] = {
   [AD_MPT_MPT] = COMBO(adaptiveMPT, AD_MACRO_MPT), // Empty
   [AD_MPD_MPD] = COMBO(adaptiveMPD, AD_MACRO_MPD), // Clampdown
   [AD_PKM_SQU] = COMBO(adaptivePKM, AD_MACRO_SQU), // Squire
+  [AD_DKM_LQU] = COMBO(adaptiveDKM, AD_MACRO_LQU), // Calque
+  [AD_BKM_DQU] = COMBO(adaptiveBKM, AD_MACRO_DQU), // Headquarter
   [AD_TKM_NQU] = COMBO(adaptiveTKM, AD_MACRO_NQU), // Enquire
   [AD_GKM_MQU] = COMBO(adaptiveGKM, AD_MACRO_MQU), // Cumquat
   [AD_CKM_CQU] = COMBO(adaptiveCKM, AD_MACRO_CQU), // Acquire
@@ -1015,6 +1023,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_MPT, "mpt", "Mpt", "MPT");
     SEND_CASED_STRINGS(AD_MACRO_MPD, "mpd", "Mpd", "MPD");
     SEND_CASED_STRINGS(AD_MACRO_SQU, "squ", "Squ", "SQU");
+    SEND_CASED_STRINGS(AD_MACRO_LQU, "lqu", "Lqu", "LQU");
+    SEND_CASED_STRINGS(AD_MACRO_DQU, "dqu", "Dqu", "DQU");
     SEND_CASED_STRINGS(AD_MACRO_NQU, "nqu", "Nqu", "NQU");
     SEND_CASED_STRINGS(AD_MACRO_MQU, "mqu", "Mqu", "MQU");
     SEND_CASED_STRINGS(AD_MACRO_CQU, "cqu", "Cqu", "CQU");
