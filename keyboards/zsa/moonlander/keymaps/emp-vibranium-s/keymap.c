@@ -221,8 +221,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        KC_CIRC,        KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        _______,        _______,        _______,        _______,        _______,        KC_DLR,         _______,
-    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        ST_FORCE_Q,     _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+    XXXXXXX,        ST_FORCE_Q,     KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        _______,        _______,        _______,        _______,        _______,        KC_DLR,         _______,
+    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        KC_CIRC,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        XXXXXXX,        ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
@@ -294,7 +294,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 enum combo_index {
   AD_KM_QU, ADAPTIVE_FIRST = AD_KM_QU,
-  AD_xQ_WQ,
+  AD_qQ_WQ,
   AD_WV_WS,
   AD_MC_MC,
   AD_VW_VS,
@@ -320,12 +320,12 @@ enum combo_index {
   AD_TX_TZ,
   AD_LX_LZ,
   AD_WF_XF,
-  AD_XMG_ZZL, // Rizzler
-  AD_XGM_ZZL, // Rizzler
-  AD_XWG_ZZW, // Buzzword
-  AD_GWX_GZW, // Zugzwang
-  AD_gXW_ZSH, // Oh my zsh!
-  AD_XCL_XCL, // Exclude
+  AD_XMG_ZZL,
+  AD_XGM_ZZL,
+  AD_XWG_ZZW,
+  AD_GWX_GZW,
+  AD_gXW_ZSH,
+  AD_XCL_XCL,
   AD_WKM_XQU,
 
   // F adaptives
@@ -444,8 +444,6 @@ enum combo_index {
   AD_LDB_LSH,
   AD_BDL_SHL,
 
-  // AD_CMG_NWH,
-
   AD_GMW_GHW,
   AD_MWX_GHN,
   AD_XWM_NGH,
@@ -479,9 +477,10 @@ enum combo_index {
   AD_Jq_JO,
   AD_qds_JOE,
   AD_Jqd_JOq,
-  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
+  AD_qJ_OJ,
 
   // Miscellaneous consonants
+  AD_WXg_WQ, ADAPTIVE_LAST = AD_WXg_WQ,
   ST_COMBO_gX_Q,
 
   // H Bigram combos
@@ -507,9 +506,10 @@ const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 
 // Miscellaneous consonants
 const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
+const uint16_t PROGMEM adaptiveWXg[] = { KC_W, LT(0,KC_X), KC_GRAVE, COMBO_END };
 
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptivexQ[] = { KC_EXLM, ST_FORCE_Q, COMBO_END };
+const uint16_t PROGMEM adaptiveqQ[] = { KC_QUES, ST_FORCE_Q, COMBO_END };
 const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
@@ -690,7 +690,7 @@ const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
-  [AD_xQ_WQ] = COMBO(adaptivexQ, AD_MACRO_WQ),
+  [AD_qQ_WQ] = COMBO(adaptiveqQ, AD_MACRO_WQ),
   [AD_WV_WS] = COMBO(adaptiveWV, AD_MACRO_WS),
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC),
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
@@ -871,6 +871,7 @@ combo_t key_combos[] = {
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // Miscellaneous consonants
+  [AD_WXg_WQ] = COMBO(adaptiveWXg, AD_MACRO_WQ), // :wq for vim
   [ST_COMBO_gX_Q] = COMBO(combogX, KC_Q),
 
   // H Bigram combos
