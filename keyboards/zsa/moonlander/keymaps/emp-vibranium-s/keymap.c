@@ -7,6 +7,7 @@ enum custom_keycodes {
 
   ST_FORCE_EQUAL,
   ST_FORCE_MINUS,
+
   ST_FORCE_S,
   ST_FORCE_Q,
 
@@ -186,13 +187,14 @@ enum custom_keycodes {
   AD_MACRO_EO,
   AD_MACRO_UA,
   AD_MACRO_OE,
-  AD_MACRO_YI,
   AD_MACRO_Eq,
   AD_MACRO_Iq,
+  AD_MACRO_YI,
   AD_MACRO_Oq,
   AD_MACRO_HEq,
   AD_MACRO_IEq,
   AD_MACRO_YEq,
+  AD_MACRO_YIq,
 
   // J adaptives
   AD_MACRO_JI,
@@ -377,13 +379,17 @@ enum combo_index {
   AD_PKD_SKL,
   AD_NKP_CKS,
   AD_NTK_CKN,
+  AD_NKT_CKN,
   AD_TKP_NKS,
   AD_TKL_NKL,
   AD_LKT_LKN,
-  AD_GLK_MPK, // Pumpkin
-  AD_NKG_CKL, // cackle
-  AD_KTL_CKP, // Backpack
-  AD_NTB_CKB, // Blackberry
+  AD_GLK_MPK,
+  AD_NKG_CKL,
+  AD_NKD_CKL,
+  AD_NDK_CKL,
+  AD_KTL_CKP,
+  AD_NKB_CKB,
+  AD_NBK_CKB,
 
   // B adaptives
   // L@D S@P C@N P@L V@P
@@ -477,15 +483,17 @@ enum combo_index {
   // Vowel SFB adaptives
   AD_Am_AU,
   AD_Ac_EO,
-  AD_Yq_YI,
   AD_Uc_UA,
   AD_Um_OE,
   AD_Ed_Eq,
   AD_Iq_Iq,
+  AD_Is_YI,
+  AD_sI_YI,
   AD_Od_Oq,
   AD_HEd_HEq,
   AD_IEd_IEq,
   AD_YEd_YEq,
+  AD_sIq_YIq,
 
   // J adaptives
   AD_qI_JI,
@@ -494,7 +502,7 @@ enum combo_index {
   AD_Jqd_JOq,
   AD_qJ_OJ,
 
-  // Miscellaneous consonants
+  // Miscellaneous letters
   AD_WXg_WQ, ADAPTIVE_LAST = AD_WXg_WQ,
   ST_COMBO_gX_Q,
 
@@ -519,7 +527,7 @@ const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 
-// Miscellaneous consonants
+// Miscellaneous letters
 const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveWXg[] = { KC_W, LT(0,KC_X), KC_GRAVE, COMBO_END };
 
@@ -601,13 +609,17 @@ const uint16_t PROGMEM adaptiveDKP[] = { KC_D, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptivePKD[] = { KC_P, KC_K, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveNKT[] = { KC_N, KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKL[] = { KC_T, KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveLKT[] = { KC_L, KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveNKD[] = { KC_N, KC_K, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveNDK[] = { KC_N, KC_D, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKTL[] = { KC_K, KC_T, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveNTB[] = { KC_N, KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveNKB[] = { KC_N, KC_K, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveNBK[] = { KC_N, KC_B, KC_K, COMBO_END };
 
 // B adaptives
 // L@D S@P C@N P@L V@C
@@ -696,15 +708,17 @@ const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptiveAc[] = { KC_A, KC_COMMA, COMBO_END };
-const uint16_t PROGMEM adaptiveYq[] = { KC_Y, KC_QUOTE, COMBO_END };
 const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIq[] = { KC_I, KC_QUOTE, COMBO_END };
+const uint16_t PROGMEM adaptiveIs[] = { KC_I, KC_SLASH, COMBO_END };
+const uint16_t PROGMEM adaptivesI[] = { KC_SLASH, KC_I, COMBO_END };
 const uint16_t PROGMEM adaptiveOd[] = { KC_O, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
 const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptivesIq[] = { KC_SLASH, KC_I, KC_QUOTE, COMBO_END };
 
 // J adaptives
 const uint16_t PROGMEM adaptiveqI[] = { KC_QUOTE, KC_I, COMBO_END };
@@ -792,13 +806,17 @@ combo_t key_combos[] = {
   [AD_PKD_SKL] = COMBO(adaptivePKD, AD_MACRO_SKL), // Maskless
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
   [AD_NTK_CKN] = COMBO(adaptiveNTK, AD_MACRO_CKN), // Acknowledge
+  [AD_NKT_CKN] = COMBO(adaptiveNKT, AD_MACRO_CKN), // Acknowledge
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_TKL_NKL] = COMBO(adaptiveTKL, AD_MACRO_NKL), // Ankle
   [AD_LKT_LKN] = COMBO(adaptiveLKT, AD_MACRO_LKN), // Falkner
   [AD_GLK_MPK] = COMBO(adaptiveGLK, AD_MACRO_MPK), // Pumpkin
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL), // cackle
+  [AD_NKD_CKL] = COMBO(adaptiveNKD, AD_MACRO_CKL), // cackle
+  [AD_NDK_CKL] = COMBO(adaptiveNDK, AD_MACRO_CKL), // cackle
   [AD_KTL_CKP] = COMBO(adaptiveKTL, AD_MACRO_CKP), // Backpack
-  [AD_NTB_CKB] = COMBO(adaptiveNTB, AD_MACRO_CKB), // Blackerry
+  [AD_NKB_CKB] = COMBO(adaptiveNKB, AD_MACRO_CKB), // Blackberry
+  [AD_NBK_CKB] = COMBO(adaptiveNBK, AD_MACRO_CKB), // Blackberry
 
   // B adaptives
   // L@D S@P C@N P@L V@P W@M M@G G@F
@@ -888,15 +906,17 @@ combo_t key_combos[] = {
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
   [AD_Ac_EO] = COMBO(adaptiveAc, AD_MACRO_EO),
-  [AD_Yq_YI] = COMBO(adaptiveYq, AD_MACRO_YI),
   [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
   [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
   [AD_Iq_Iq] = COMBO(adaptiveIq, AD_MACRO_Iq),
+  [AD_Is_YI] = COMBO(adaptiveIs, AD_MACRO_YI),
+  [AD_sI_YI] = COMBO(adaptivesI, AD_MACRO_YI),
   [AD_Od_Oq] = COMBO(adaptiveOd, AD_MACRO_Oq),
   [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
   [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
   [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
+  [AD_sIq_YIq] = COMBO(adaptivesIq, AD_MACRO_YIq),
 
   // J adaptives
   [AD_qI_JI] = COMBO(adaptiveqI, AD_MACRO_JI),
@@ -905,7 +925,7 @@ combo_t key_combos[] = {
   [AD_Jqd_JOq] = COMBO(adaptiveJqd, AD_MACRO_JOq),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
-  // Miscellaneous consonants
+  // Miscellaneous combos
   [AD_WXg_WQ] = COMBO(adaptiveWXg, AD_MACRO_WQ), // :wq for vim
   [ST_COMBO_gX_Q] = COMBO(combogX, KC_Q),
 
@@ -966,6 +986,7 @@ bool caps_word_press_user(uint16_t keycode) {
   switch (keycode) {
   // Keycodes that continue Caps Word, with shift applied.
   case KC_A ... KC_Z:
+  case ST_FORCE_S:
   case ST_FORCE_Q:
   case KC_MINS:
     add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to this key.
@@ -1206,13 +1227,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_EO, "eo", "Eo", "EO");
     SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
-    SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
     SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
     SEND_CASED_STRINGS(AD_MACRO_Iq, "i'", "I'", "I'");
+    SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
     SEND_CASED_STRINGS(AD_MACRO_Oq, "o'", "O'", "O'");
     SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
     SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
     SEND_CASED_STRINGS(AD_MACRO_YEq, "ye'", "Ye'", "YE'");
+    SEND_CASED_STRINGS(AD_MACRO_YIq, "yi'", "Yi'", "YI'");
 
   // J adaptives
     SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
