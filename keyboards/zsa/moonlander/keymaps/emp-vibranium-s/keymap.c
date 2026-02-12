@@ -144,6 +144,7 @@ enum custom_keycodes {
   AD_MACRO_WTH,
   AD_MACRO_THW,
   AD_MACRO_DTH,
+  AD_MACRO_THD,
   AD_MACRO_LTH,
   AD_MACRO_THL,
   AD_MACRO_FTH,
@@ -431,6 +432,8 @@ enum combo_index {
   AD_FGM_THW,
   AD_BGF_DTH,
   AD_BFG_DTH,
+  AD_GFB_THD,
+  AD_FGB_THD,
   AD_LGF_LTH,
   AD_FGL_THL,
   AD_FTN_FTH,
@@ -648,6 +651,8 @@ const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGM[] = { KC_F, KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveBGF[] = { KC_B, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveBFG[] = { KC_B, KC_F, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGFB[] = { KC_G, KC_F, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveFGB[] = { KC_F, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveLGF[] = { KC_L, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveFTN[] = { KC_F, KC_T, KC_N, COMBO_END };
@@ -838,6 +843,8 @@ combo_t key_combos[] = {
   [AD_FGM_THW] = COMBO(adaptiveFGM, AD_MACRO_THW), // Southwest
   [AD_BGF_DTH] = COMBO(adaptiveBGF, AD_MACRO_DTH), // Width
   [AD_BFG_DTH] = COMBO(adaptiveBFG, AD_MACRO_DTH), // Width
+  [AD_GFB_THD] = COMBO(adaptiveGFB, AD_MACRO_THD), // Withdraw
+  [AD_FGB_THD] = COMBO(adaptiveFGB, AD_MACRO_THD), // Withdraw
   [AD_LGF_LTH] = COMBO(adaptiveLGF, AD_MACRO_LTH), // Health
   [AD_FGL_THL] = COMBO(adaptiveFGL, AD_MACRO_THL), // Athlete
   [AD_FTN_FTH] = COMBO(adaptiveFTN, AD_MACRO_FTH), // Fifth
@@ -922,7 +929,6 @@ inline bool is_adaptive(uint16_t index) {
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-    case ST_COMBO_GF:
     case ST_COMBO_GM:
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
@@ -1159,6 +1165,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WTH, "wth", "Wth", "WTH");
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW");
     SEND_CASED_STRINGS(AD_MACRO_DTH, "dth", "Dth", "DTH");
+    SEND_CASED_STRINGS(AD_MACRO_THD, "thd", "Thd", "THD");
     SEND_CASED_STRINGS(AD_MACRO_LTH, "lth", "Lth", "LTH");
     SEND_CASED_STRINGS(AD_MACRO_FTH, "fth", "Fth", "FTH");
     SEND_CASED_STRINGS(AD_MACRO_THF, "thf", "Thf", "THF");
