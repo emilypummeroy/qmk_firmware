@@ -18,6 +18,7 @@ enum custom_keycodes {
   ST_MACRO_TH,
   ST_MACRO_PH,
   ST_MACRO_HY,
+  ST_MACRO_HI,
 
   AD_MACRO_QU,
   AD_MACRO_WQ,
@@ -462,12 +463,13 @@ enum combo_index {
   AD_LDB_LSH,
   AD_BDL_SHL,
 
-  AD_GMW_GHW,
+  AD_MWX_GHW,
   AD_WMN_GHN,
   AD_XWM_NGH,
   AD_WMT_GHT,
   AD_MWS_GHS,
-  AD_WMD_GHL,
+  AD_WML_GHL,
+  AD_MWL_GHL,
   AD_MGB_GHB,
 
   AD_SMG_SPH,
@@ -513,6 +515,7 @@ enum combo_index {
   ST_COMBO_CV,
   ST_COMBO_GF,
   ST_COMBO_YH,
+  ST_COMBO_IH,
 };
 
 // Bigram combo
@@ -524,6 +527,7 @@ const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
+const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
@@ -687,12 +691,13 @@ const uint16_t PROGMEM adaptiveBTM[] = { KC_B, KC_T, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 
-const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveMWX[] = { KC_M, KC_W, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveWMN[] = { KC_W, KC_M, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMWS[] = { KC_M, KC_W, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveWMD[] = { KC_W, KC_M, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveWML[] = { KC_W, KC_M, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveMWL[] = { KC_M, KC_W, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 
 const uint16_t PROGMEM adaptiveSMG[] = { KC_S, KC_M, KC_G, COMBO_END };
@@ -885,12 +890,13 @@ combo_t key_combos[] = {
   [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
 
-  [AD_GMW_GHW] = COMBO(adaptiveGMW, AD_MACRO_GHW), // Highway
+  [AD_MWX_GHW] = COMBO(adaptiveMWX, AD_MACRO_GHW), // Highway
   [AD_WMN_GHN] = COMBO(adaptiveWMN, AD_MACRO_GHN), // Toughness
   [AD_XWM_NGH] = COMBO(adaptiveXWM, AD_MACRO_NGH), // Shanghai
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MWS_GHS] = COMBO(adaptiveMWS, AD_MACRO_GHS), // Breakthroughs
-  [AD_WMD_GHL] = COMBO(adaptiveWMD, AD_MACRO_GHL), // Highlight
+  [AD_WML_GHL] = COMBO(adaptiveWML, AD_MACRO_GHL), // Highlight
+  [AD_MWL_GHL] = COMBO(adaptiveMWL, AD_MACRO_GHL), // Highlight
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
 
   [AD_SMG_SPH] = COMBO(adaptiveSMG, AD_MACRO_SPH), // Sphere
@@ -936,6 +942,7 @@ combo_t key_combos[] = {
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_TH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
+  [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -1248,6 +1255,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
     SEND_CASED_STRINGS(ST_MACRO_HY, "hy", "Hy", "HY");
+    SEND_CASED_STRINGS(ST_MACRO_HI, "hi", "Hi", "HI");
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
