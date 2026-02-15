@@ -41,18 +41,32 @@ enum custom_keycodes {
   AD_MACRO_XB,
   AD_MACRO_BZ,
   AD_MACRO_XC,
-  AD_MACRO_ZZ,
   AD_MACRO_GZ,
   AD_MACRO_XT,
   AD_MACRO_TZ,
   AD_MACRO_LZ,
   AD_MACRO_XF,
-  AD_MACRO_ZZL,
-  AD_MACRO_ZZW,
   AD_MACRO_GZW,
   AD_MACRO_ZSH,
   AD_MACRO_XCL,
   AD_MACRO_XQU,
+
+  // ZZ, VV, SS adaptives
+  AD_MACRO_ZZ,
+  AD_MACRO_VV,
+  AD_MACRO_SS,
+  AD_MACRO_ZZL,
+  AD_MACRO_ZZW,
+  AD_MACRO_SSW,
+  AD_MACRO_SMS,
+  AD_MACRO_SSM,
+  AD_MACRO_SCS,
+  AD_MACRO_SSC,
+  AD_MACRO_STS,
+  AD_MACRO_SSN,
+  AD_MACRO_SPS,
+  AD_MACRO_SSP,
+  AD_MACRO_SSL,
 
   // F adaptives
   // L@G S@C W@M S@P P@L L@D D@B
@@ -327,20 +341,37 @@ enum combo_index {
   AD_WB_XB,
   AD_BW_BZ,
   AD_XC_XC,
-  AD_XG_ZZ,
   AD_GX_GZ,
   AD_XT_XT,
   AD_XN_XT,
   AD_TX_TZ,
   AD_LX_LZ,
   AD_WF_XF,
-  AD_XMG_ZZL,
-  AD_XGM_ZZL,
-  AD_XWG_ZZW,
   AD_GXW_GZW,
   AD_gXW_ZSH,
   AD_XCL_XCL,
   AD_WKM_XQU,
+
+  // ZZ, VV, SS adaptives
+  AD_XF_ZZ,
+  AD_VK_VV,
+  AD_SB_SS,
+  AD_XGF_ZZL,
+  AD_XFG_ZZL,
+  AD_XWF_ZZW,
+  AD_XFW_ZZW,
+  AD_SWB_SSW,
+  AD_SBW_SSW,
+  AD_SGB_SSM,
+  AD_SBG_SSM,
+  AD_SCB_SSC,
+  AD_SBC_SSC,
+  AD_STB_SSN,
+  AD_SBT_SSN,
+  AD_SPB_SSP,
+  AD_SBP_SSP,
+  AD_SDB_SSL,
+  AD_SBD_SSL,
 
   // F adaptives
   // L@G W@M M@G S@P P@L L@D D@B
@@ -568,20 +599,37 @@ const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveWB[] = { KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBW[] = { KC_B, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveXG[] = { LT(0,KC_X), KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGX[] = { KC_G, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveXN[] = { LT(0,KC_X), KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTX[] = { KC_T, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveLX[] = { KC_L, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveXMG[] = { LT(0,KC_X), KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveXGM[] = { LT(0,KC_X), KC_G, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveXWG[] = { LT(0,KC_X), KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGXW[] = { KC_G, LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptivegXW[] = { KC_GRV, LT(0,KC_X), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
+
+// ZZ, VV, SS adaptives
+const uint16_t PROGMEM adaptiveXF[] = { LT(0,KC_X), KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveVK[] = { KC_V, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveSB[] = { KC_S, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveXGF[] = { LT(0,KC_X), KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveXFG[] = { LT(0,KC_X), KC_F, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveXWF[] = { LT(0,KC_X), KC_W, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveXFW[] = { LT(0,KC_X), KC_F, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveSWB[] = { KC_S, KC_W, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBW[] = { KC_S, KC_B, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveSGB[] = { KC_S, KC_G, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBG[] = { KC_S, KC_B, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveSCB[] = { KC_S, KC_C, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBC[] = { KC_S, KC_B, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveSTB[] = { KC_S, KC_T, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBT[] = { KC_S, KC_B, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveSPB[] = { KC_S, KC_P, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBP[] = { KC_S, KC_B, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveSDB[] = { KC_S, KC_D, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveSBD[] = { KC_S, KC_B, KC_D, COMBO_END };
 
 // F adaptives
 // L@G S@C W@M S@P P@L L@D D@B
@@ -774,20 +822,37 @@ combo_t key_combos[] = {
   [AD_WB_XB] = COMBO(adaptiveWB, AD_MACRO_XB), // Xbox
   [AD_BW_BZ] = COMBO(adaptiveBW, AD_MACRO_BZ), // Subzero
   [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
-  [AD_XG_ZZ] = COMBO(adaptiveXG, AD_MACRO_ZZ), // Fizz
   [AD_GX_GZ] = COMBO(adaptiveGX, AD_MACRO_GZ), // Zigzag
   [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
   [AD_XN_XT] = COMBO(adaptiveXN, AD_MACRO_XT),
   [AD_TX_TZ] = COMBO(adaptiveTX, AD_MACRO_TZ),
   [AD_LX_LZ] = COMBO(adaptiveLX, AD_MACRO_LZ), // Calzone
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
-  [AD_XMG_ZZL] = COMBO(adaptiveXMG, AD_MACRO_ZZL), // Rizzler
-  [AD_XGM_ZZL] = COMBO(adaptiveXGM, AD_MACRO_ZZL), // Rizzler
-  [AD_XWG_ZZW] = COMBO(adaptiveXWG, AD_MACRO_ZZW), // Buzzword
   [AD_GXW_GZW] = COMBO(adaptiveGXW, AD_MACRO_GZW), // Zugzwang
   [AD_gXW_ZSH] = COMBO(adaptivegXW, AD_MACRO_ZSH), // Oh my zsh!
   [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL), // Exclude
   [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
+
+  // ZZ, VV, SS adaptives
+  [AD_XF_ZZ] = COMBO(adaptiveXF, AD_MACRO_ZZ), // Fizz
+  [AD_VK_VV] = COMBO(adaptiveVK, AD_MACRO_VV), // Savvy
+  [AD_SB_SS] = COMBO(adaptiveSB, AD_MACRO_SS), // Miss
+  [AD_XGF_ZZL] = COMBO(adaptiveXGF, AD_MACRO_ZZL), // Rizzler
+  [AD_XFG_ZZL] = COMBO(adaptiveXFG, AD_MACRO_ZZL), // Rizzler
+  [AD_XWF_ZZW] = COMBO(adaptiveXWF, AD_MACRO_ZZW), // Buzzword
+  [AD_XFW_ZZW] = COMBO(adaptiveXFW, AD_MACRO_ZZW), // Buzzword
+  [AD_SWB_SSW] = COMBO(adaptiveSWB, AD_MACRO_SSW), // Congresswoman
+  [AD_SBW_SSW] = COMBO(adaptiveSBW, AD_MACRO_SSW), // Congresswoman
+  [AD_SGB_SSM] = COMBO(adaptiveSGB, AD_MACRO_SSM), // Congressman
+  [AD_SBG_SSM] = COMBO(adaptiveSBG, AD_MACRO_SMS), // Truisms
+  [AD_SCB_SSC] = COMBO(adaptiveSCB, AD_MACRO_SCS), // Discs
+  [AD_SBC_SSC] = COMBO(adaptiveSBC, AD_MACRO_SSC), // Crosscut
+  [AD_STB_SSN] = COMBO(adaptiveSTB, AD_MACRO_STS), // Mists
+  [AD_SBT_SSN] = COMBO(adaptiveSBT, AD_MACRO_SSN), // Hopelessness
+  [AD_SPB_SSP] = COMBO(adaptiveSPB, AD_MACRO_SPS), // Wasps
+  [AD_SBP_SSP] = COMBO(adaptiveSBP, AD_MACRO_SSP), // Misspell
+  [AD_SDB_SSL] = COMBO(adaptiveSDB, AD_MACRO_SSL), // Lossless
+  [AD_SBD_SSL] = COMBO(adaptiveSBD, AD_MACRO_SSL), // Lossless
 
   // F adaptives
   // L@G W@M M@G S@P P@L L@D D@B
@@ -1117,18 +1182,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_XB, "xb", "Xb", "XB");
     SEND_CASED_STRINGS(AD_MACRO_BZ, "bz", "Bz", "BZ");
     SEND_CASED_STRINGS(AD_MACRO_XC, "xc", "Xc", "XC");
-    SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
     SEND_CASED_STRINGS(AD_MACRO_GZ, "gz", "Gz", "GZ");
     SEND_CASED_STRINGS(AD_MACRO_XT, "xt", "Xt", "XT");
     SEND_CASED_STRINGS(AD_MACRO_TZ, "tz", "Tz", "TZ");
     SEND_CASED_STRINGS(AD_MACRO_LZ, "lz", "Lz", "LZ");
     SEND_CASED_STRINGS(AD_MACRO_XF, "xf", "Xf", "XF");
-    SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
-    SEND_CASED_STRINGS(AD_MACRO_ZZW, "zzw", "Zzw", "ZZW");
     SEND_CASED_STRINGS(AD_MACRO_GZW, "gzw", "Gzw", "GZW");
     SEND_CASED_STRINGS(AD_MACRO_ZSH, "zsh", "Zsh", "ZSH");
     SEND_CASED_STRINGS(AD_MACRO_XCL, "xcl", "Xcl", "XCL");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
+
+  // ZZ, VV, SS adaptives
+    SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
+    SEND_CASED_STRINGS(AD_MACRO_VV, "vv", "Vv", "VV");
+    SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Ss", "SS");
+    SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
+    SEND_CASED_STRINGS(AD_MACRO_ZZW, "zzw", "Zzw", "ZZW");
+    SEND_CASED_STRINGS(AD_MACRO_SSW, "ssw", "Ssw", "SSW");
+    SEND_CASED_STRINGS(AD_MACRO_SMS, "sms", "Sms", "SMS");
+    SEND_CASED_STRINGS(AD_MACRO_SSM, "ssm", "Ssm", "SSM");
+    SEND_CASED_STRINGS(AD_MACRO_SCS, "scs", "Scs", "SCS");
+    SEND_CASED_STRINGS(AD_MACRO_SSC, "ssc", "Ssc", "SSC");
+    SEND_CASED_STRINGS(AD_MACRO_STS, "sts", "Sts", "STS");
+    SEND_CASED_STRINGS(AD_MACRO_SSN, "ssn", "Ssn", "SSN");
+    SEND_CASED_STRINGS(AD_MACRO_SPS, "sps", "Sps", "SPS");
+    SEND_CASED_STRINGS(AD_MACRO_SSP, "ssp", "Ssp", "SSP");
+    SEND_CASED_STRINGS(AD_MACRO_SSL, "ssl", "Ssl", "SSL");
 
   // F adaptives
   // L@G S@C W@M S@P P@L L@D D@B
