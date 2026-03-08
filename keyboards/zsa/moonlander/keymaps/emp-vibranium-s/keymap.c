@@ -188,7 +188,6 @@ enum custom_keycodes {
 
   AD_MACRO_GHN,
   AD_MACRO_NGH,
-  AD_MACRO_GHW,
   AD_MACRO_GHT,
   AD_MACRO_GHS,
   AD_MACRO_GHL,
@@ -197,7 +196,6 @@ enum custom_keycodes {
   AD_MACRO_SPH,
   AD_MACRO_PHS,
   AD_MACRO_MPH,
-  AD_MACRO_PPH,
   AD_MACRO_LPH,
   AD_MACRO_PHL,
 
@@ -468,28 +466,22 @@ enum combo_index {
   AD_CNG_CHM, // Attachment
   AD_VCM_CHM,
 
-  AD_NGF_NTH,
-  AD_FGN_THN,
-  AD_MGF_WTH,
-  AD_FGM_THW,
-  AD_BGF_DTH,
-  AD_BFG_DTH,
-  AD_GFB_THD,
-  AD_FGB_THD,
-  AD_LGF_LTH,
-  AD_FGL_THL,
-  AD_GFK_THF,
-  AD_KGF_FTH,
-  AD_KFG_FTH,
-  AD_FGP_THS,
-  AD_GFP_THS,
-  AD_GFR_THR,
-  AD_MGFP_WTHS,
-  AD_MFGP_WTHS,
-  AD_BGFP_DTHS,
-  AD_BFGP_DTHS,
-  AD_NGFP_NTHS,
-  AD_NFGP_NTHS,
+  AD_CMG_NTH,
+  AD_GMC_THN,
+  AD_WMG_WTH,
+  AD_GMW_THW,
+  AD_PMG_LTH,
+  AD_GMP_THL,
+  AD_MGT_THF,
+  AD_TMG_FTH,
+  AD_TGM_FTH,
+  AD_GMS_THS,
+  AD_MGS_THS,
+  AD_MGR_THR,
+  AD_WMGS_WTHS,
+  AD_GMWS_WTHS,
+  AD_CMGS_NTHS,
+  AD_CGMS_NTHS,
 
   AD_BDN_SHN,
   AD_NDB_NSH,
@@ -508,7 +500,6 @@ enum combo_index {
 
   AD_XWM_GHN,
   AD_MWX_NGH,
-  AD_GMW_GHW,
   AD_WMT_GHT,
   AD_MWV_GHS,
   AD_MWS_GHS,
@@ -517,13 +508,13 @@ enum combo_index {
   AD_WMD_GHL,
   AD_MGB_GHB,
 
-  AD_SMG_SPH,
-  AD_GMS_PHS,
-  AD_MGS_PHS,
-  AD_WMG_MPH,
-  AD_PMG_PPH,
-  AD_CMG_LPH,
-  AD_GMC_PHL,
+  AD_PGF_SPH,
+  AD_FGP_PHS,
+  AD_GFP_PHS,
+  AD_MGF_MPH,
+  AD_LGF_LPH,
+  AD_FGL_PHL,
+  AD_GFL_PHL,
 
   // Vowel SFB adaptives
   AD_Am_AU,
@@ -721,28 +712,22 @@ const uint16_t PROGMEM adaptiveNCS[] = { KC_N, KC_C, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMCV[] = { KC_M, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveVCM[] = { KC_V, KC_C, KC_M, COMBO_END };
 
-const uint16_t PROGMEM adaptiveNGF[] = { KC_N, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveFGN[] = { KC_F, KC_G, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveFGM[] = { KC_F, KC_G, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveBGF[] = { KC_B, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveBFG[] = { KC_B, KC_F, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveGFB[] = { KC_G, KC_F, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveFGB[] = { KC_F, KC_G, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveLGF[] = { KC_L, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveGFK[] = { KC_G, KC_F, KC_K, COMBO_END };
-const uint16_t PROGMEM adaptiveKGF[] = { KC_K, KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveKFG[] = { KC_K, KC_F, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveFGP[] = { KC_F, KC_G, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveGFP[] = { KC_G, KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveGFR[] = { KC_G, KC_F, KC_R, COMBO_END };
-const uint16_t PROGMEM adaptiveMGFP[] = { KC_M, KC_G, KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveMFGP[] = { KC_M, KC_F, KC_G, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveBGFP[] = { KC_B, KC_G, KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveBFGP[] = { KC_B, KC_F, KC_G, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveNGFP[] = { KC_N, KC_G, KC_F, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveNFGP[] = { KC_N, KC_F, KC_G, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveMGT[] = { KC_M, KC_G, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveTMG[] = { KC_T, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveTGM[] = { KC_T, KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGMS[] = { KC_G, KC_M, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveMGS[] = { KC_M, KC_G, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveMGR[] = { KC_M, KC_G, KC_R, COMBO_END };
+const uint16_t PROGMEM adaptiveWMGS[] = { KC_W, KC_M, KC_G, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveGMWS[] = { KC_G, KC_M, KC_W, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveCMGS[] = { KC_C, KC_M, KC_G, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveCGMS[] = { KC_C, KC_G, KC_M, KC_S, COMBO_END };
 
 const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
@@ -761,7 +746,6 @@ const uint16_t PROGMEM adaptiveRWX[] = { KC_R, KC_W, LT(0,KC_X), COMBO_END };
 
 const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMWX[] = { KC_M, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMWS[] = { KC_M, KC_W, KC_S, COMBO_END };
@@ -770,13 +754,13 @@ const uint16_t PROGMEM adaptiveMWL[] = { KC_M, KC_W, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWMD[] = { KC_W, KC_M, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
 
-const uint16_t PROGMEM adaptiveSMG[] = { KC_S, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveGMS[] = { KC_G, KC_M, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveMGS[] = { KC_M, KC_G, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFGP[] = { KC_F, KC_G, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveGFP[] = { KC_G, KC_F, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveLGF[] = { KC_L, KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveGFL[] = { KC_G, KC_F, KC_L, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -945,28 +929,22 @@ combo_t key_combos[] = {
   [AD_MCV_MCH] = COMBO(adaptiveMCV, AD_MACRO_MCH), // Armchair
   [AD_VCM_CHM] = COMBO(adaptiveVCM, AD_MACRO_CHM), // Attachment
 
-  [AD_NGF_NTH] = COMBO(adaptiveNGF, AD_MACRO_NTH), // Tenth
-  [AD_FGN_THN] = COMBO(adaptiveFGN, AD_MACRO_THN), // Ethnic
-  [AD_MGF_WTH] = COMBO(adaptiveMGF, AD_MACRO_WTH), // Growth
-  [AD_FGM_THW] = COMBO(adaptiveFGM, AD_MACRO_THW), // Southwest
-  [AD_BGF_DTH] = COMBO(adaptiveBGF, AD_MACRO_DTH), // Width
-  [AD_BFG_DTH] = COMBO(adaptiveBFG, AD_MACRO_DTH), // Width
-  [AD_GFB_THD] = COMBO(adaptiveGFB, AD_MACRO_THD), // Withdraw
-  [AD_FGB_THD] = COMBO(adaptiveFGB, AD_MACRO_THD), // Withdraw
-  [AD_LGF_LTH] = COMBO(adaptiveLGF, AD_MACRO_LTH), // Health
-  [AD_FGL_THL] = COMBO(adaptiveFGL, AD_MACRO_THL), // Athlete
-  [AD_GFK_THF] = COMBO(adaptiveGFK, AD_MACRO_THF), // Faithful
-  [AD_KGF_FTH] = COMBO(adaptiveKGF, AD_MACRO_FTH), // Fifth
-  [AD_KFG_FTH] = COMBO(adaptiveKFG, AD_MACRO_FTH), // Fifth
-  [AD_FGP_THS] = COMBO(adaptiveFGP, AD_MACRO_THS), // Maths
-  [AD_GFP_THS] = COMBO(adaptiveGFP, AD_MACRO_THS), // Maths
-  [AD_GFR_THR] = COMBO(adaptiveGFR, AD_MACRO_THR), // Threat
-  [AD_MGFP_WTHS] = COMBO(adaptiveMGFP, AD_MACRO_WTHS), // Growths
-  [AD_MFGP_WTHS] = COMBO(adaptiveMFGP, AD_MACRO_WTHS), // Growths
-  [AD_BGFP_DTHS] = COMBO(adaptiveBGFP, AD_MACRO_DTHS), // Widths
-  [AD_BFGP_DTHS] = COMBO(adaptiveBFGP, AD_MACRO_DTHS), // Widths
-  [AD_NGFP_NTHS] = COMBO(adaptiveNGFP, AD_MACRO_NTHS), // Tenths
-  [AD_NFGP_NTHS] = COMBO(adaptiveNFGP, AD_MACRO_NTHS), // Tenths
+  [AD_CMG_NTH] = COMBO(adaptiveCMG, AD_MACRO_NTH), // Tenth
+  [AD_GMC_THN] = COMBO(adaptiveGMC, AD_MACRO_THN), // Ethnic
+  [AD_WMG_WTH] = COMBO(adaptiveWMG, AD_MACRO_WTH), // Growth
+  [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
+  [AD_PMG_LTH] = COMBO(adaptivePMG, AD_MACRO_LTH), // Health
+  [AD_GMP_THL] = COMBO(adaptiveGMP, AD_MACRO_THL), // Athlete
+  [AD_MGT_THF] = COMBO(adaptiveMGT, AD_MACRO_THF), // Faithful
+  [AD_TMG_FTH] = COMBO(adaptiveTMG, AD_MACRO_FTH), // Fifth
+  [AD_TGM_FTH] = COMBO(adaptiveTGM, AD_MACRO_FTH), // Fifth
+  [AD_GMS_THS] = COMBO(adaptiveGMS, AD_MACRO_THS), // Maths
+  [AD_MGS_THS] = COMBO(adaptiveMGS, AD_MACRO_THS), // Maths
+  [AD_MGR_THR] = COMBO(adaptiveMGR, AD_MACRO_THR), // Threat
+  [AD_WMGS_WTHS] = COMBO(adaptiveWMGS, AD_MACRO_WTHS), // Growths
+  [AD_GMWS_WTHS] = COMBO(adaptiveGMWS, AD_MACRO_WTHS), // Growths
+  [AD_CMGS_NTHS] = COMBO(adaptiveCMGS, AD_MACRO_NTHS), // Tenths
+  [AD_CGMS_NTHS] = COMBO(adaptiveCGMS, AD_MACRO_NTHS), // Tenths
 
   [AD_BDN_SHN] = COMBO(adaptiveBDN, AD_MACRO_SHN),
   [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
@@ -985,7 +963,6 @@ combo_t key_combos[] = {
 
   [AD_XWM_GHN] = COMBO(adaptiveXWM, AD_MACRO_GHN), // Toughness
   [AD_MWX_NGH] = COMBO(adaptiveMWX, AD_MACRO_NGH), // Shanghai
-  [AD_GMW_GHW] = COMBO(adaptiveGMW, AD_MACRO_GHW), // Highway
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MWV_GHS] = COMBO(adaptiveMWV, AD_MACRO_GHS), // Breakthroughs
   [AD_MWS_GHS] = COMBO(adaptiveMWS, AD_MACRO_GHS), // Breakthroughs
@@ -994,13 +971,13 @@ combo_t key_combos[] = {
   [AD_WMD_GHL] = COMBO(adaptiveWMD, AD_MACRO_GHL), // Highlight
   [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
 
-  [AD_SMG_SPH] = COMBO(adaptiveSMG, AD_MACRO_SPH), // Sphere
-  [AD_GMS_PHS] = COMBO(adaptiveGMS, AD_MACRO_PHS), // Graphs
-  [AD_MGS_PHS] = COMBO(adaptiveMGS, AD_MACRO_PHS), // Graphs
-  [AD_WMG_MPH] = COMBO(adaptiveWMG, AD_MACRO_MPH), // Emphasis
-  [AD_PMG_PPH] = COMBO(adaptivePMG, AD_MACRO_PPH), // Sapphire
-  [AD_CMG_LPH] = COMBO(adaptiveCMG, AD_MACRO_LPH), // Alpha
-  [AD_GMC_PHL] = COMBO(adaptiveGMC, AD_MACRO_PHL), // Phlebotomy
+  [AD_PGF_SPH] = COMBO(adaptivePGF, AD_MACRO_SPH), // Sphere
+  [AD_FGP_PHS] = COMBO(adaptiveFGP, AD_MACRO_PHS), // Graphs
+  [AD_GFP_PHS] = COMBO(adaptiveGFP, AD_MACRO_PHS), // Graphs
+  [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
+  [AD_LGF_LPH] = COMBO(adaptiveLGF, AD_MACRO_LPH), // Alpha
+  [AD_FGL_PHL] = COMBO(adaptiveFGL, AD_MACRO_PHL), // Phlebotomy
+  [AD_GFL_PHL] = COMBO(adaptiveGFL, AD_MACRO_PHL), // Phlebotomy
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
@@ -1030,12 +1007,12 @@ combo_t key_combos[] = {
 
   // H Bigram combos
   [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_WH),
-  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_PH),
-  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_PH),
+  [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_TH),
+  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_TH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_SH), // Maybe this should be ordered?
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
-  [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_TH),
+  [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
   [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
 };
@@ -1328,7 +1305,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN");
     SEND_CASED_STRINGS(AD_MACRO_NGH, "ngh", "Ngh", "NGH");
-    SEND_CASED_STRINGS(AD_MACRO_GHW, "ghw", "Ghw", "GHW");
     SEND_CASED_STRINGS(AD_MACRO_GHT, "ght", "Ght", "GHT");
     SEND_CASED_STRINGS(AD_MACRO_GHS, "ghs", "Ghs", "GHS");
     SEND_CASED_STRINGS(AD_MACRO_GHL, "ghl", "Ghl", "GHL");
@@ -1337,7 +1313,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SPH, "sph", "Sph", "SPH");
     SEND_CASED_STRINGS(AD_MACRO_PHS, "phs", "Phs", "PHS");
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH");
-    SEND_CASED_STRINGS(AD_MACRO_PPH, "pph", "Pph", "PPH");
     SEND_CASED_STRINGS(AD_MACRO_LPH, "lph", "Lph", "LPH");
     SEND_CASED_STRINGS(AD_MACRO_PHL, "phl", "Phl", "PHL");
 
