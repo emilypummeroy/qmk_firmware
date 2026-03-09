@@ -170,6 +170,7 @@ enum custom_keycodes {
   AD_MACRO_WTHS,
   AD_MACRO_DTHS,
   AD_MACRO_NTHS,
+  AD_MACRO_FTHS,
 
   AD_MACRO_SHN,
   AD_MACRO_NSH,
@@ -198,6 +199,7 @@ enum custom_keycodes {
   AD_MACRO_MPH,
   AD_MACRO_LPH,
   AD_MACRO_PHL,
+  AD_MACRO_MPHS,
 
   // Vowel SFB adaptives
   AD_MACRO_AU,
@@ -472,9 +474,8 @@ enum combo_index {
   AD_GMW_THW,
   AD_PMG_LTH,
   AD_GMP_THL,
-  AD_MGT_THF,
-  AD_TMG_FTH,
-  AD_TGM_FTH,
+  AD_MGK_THF,
+  AD_FGM_FTH,
   AD_GMS_THS,
   AD_MGS_THS,
   AD_MGR_THR,
@@ -482,6 +483,7 @@ enum combo_index {
   AD_GMWS_WTHS,
   AD_CMGS_NTHS,
   AD_CGMS_NTHS,
+  AD_FGMP_FTHS,
 
   AD_BDN_SHN,
   AD_NDB_NSH,
@@ -515,6 +517,8 @@ enum combo_index {
   AD_LGF_LPH,
   AD_FGL_PHL,
   AD_GFL_PHL,
+  AD_MGFP_MPHS,
+  AD_MGPF_MPHS,
 
   // Vowel SFB adaptives
   AD_Am_AU,
@@ -718,9 +722,8 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveMGT[] = { KC_M, KC_G, KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveTMG[] = { KC_T, KC_M, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveTGM[] = { KC_T, KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMGK[] = { KC_M, KC_G, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveFGM[] = { KC_F, KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveGMS[] = { KC_G, KC_M, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMGS[] = { KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMGR[] = { KC_M, KC_G, KC_R, COMBO_END };
@@ -728,6 +731,7 @@ const uint16_t PROGMEM adaptiveWMGS[] = { KC_W, KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveGMWS[] = { KC_G, KC_M, KC_W, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveCMGS[] = { KC_C, KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveCGMS[] = { KC_C, KC_G, KC_M, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveFGMP[] = { KC_F, KC_G, KC_M, KC_P, COMBO_END };
 
 const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
@@ -761,6 +765,8 @@ const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveLGF[] = { KC_L, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveGFL[] = { KC_G, KC_F, KC_L, COMBO_END };
+const uint16_t PROGMEM adaptiveMGFP[] = { KC_M, KC_G, KC_F, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveMGPF[] = { KC_M, KC_G, KC_G, KC_F, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
@@ -935,9 +941,8 @@ combo_t key_combos[] = {
   [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
   [AD_PMG_LTH] = COMBO(adaptivePMG, AD_MACRO_LTH), // Health
   [AD_GMP_THL] = COMBO(adaptiveGMP, AD_MACRO_THL), // Athlete
-  [AD_MGT_THF] = COMBO(adaptiveMGT, AD_MACRO_THF), // Faithful
-  [AD_TMG_FTH] = COMBO(adaptiveTMG, AD_MACRO_FTH), // Fifth
-  [AD_TGM_FTH] = COMBO(adaptiveTGM, AD_MACRO_FTH), // Fifth
+  [AD_MGK_THF] = COMBO(adaptiveMGK, AD_MACRO_THF), // Faithful
+  [AD_FGM_FTH] = COMBO(adaptiveFGM, AD_MACRO_FTH), // Fifth
   [AD_GMS_THS] = COMBO(adaptiveGMS, AD_MACRO_THS), // Maths
   [AD_MGS_THS] = COMBO(adaptiveMGS, AD_MACRO_THS), // Maths
   [AD_MGR_THR] = COMBO(adaptiveMGR, AD_MACRO_THR), // Threat
@@ -945,6 +950,7 @@ combo_t key_combos[] = {
   [AD_GMWS_WTHS] = COMBO(adaptiveGMWS, AD_MACRO_WTHS), // Growths
   [AD_CMGS_NTHS] = COMBO(adaptiveCMGS, AD_MACRO_NTHS), // Tenths
   [AD_CGMS_NTHS] = COMBO(adaptiveCGMS, AD_MACRO_NTHS), // Tenths
+  [AD_FGMP_FTHS] = COMBO(adaptiveFGMP, AD_MACRO_FTHS), // Fifths
 
   [AD_BDN_SHN] = COMBO(adaptiveBDN, AD_MACRO_SHN),
   [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
@@ -978,6 +984,8 @@ combo_t key_combos[] = {
   [AD_LGF_LPH] = COMBO(adaptiveLGF, AD_MACRO_LPH), // Alpha
   [AD_FGL_PHL] = COMBO(adaptiveFGL, AD_MACRO_PHL), // Phlebotomy
   [AD_GFL_PHL] = COMBO(adaptiveGFL, AD_MACRO_PHL), // Phlebotomy
+  [AD_MGFP_MPHS] = COMBO(adaptiveMGFP, AD_MACRO_MPHS), // Triumphs
+  [AD_MGPF_MPHS] = COMBO(adaptiveMGPF, AD_MACRO_MPHS), // Triumphs
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
@@ -1032,6 +1040,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_CV:
     case ST_COMBO_XW:
     case ST_COMBO_YH:
+    case ST_COMBO_MG:
         return COMBO_TERM + 10;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
@@ -1287,6 +1296,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WTHS, "wths", "Wths", "WTHS");
     SEND_CASED_STRINGS(AD_MACRO_DTHS, "dths", "Dths", "DTHS");
     SEND_CASED_STRINGS(AD_MACRO_NTHS, "nths", "Nths", "NTHS");
+    SEND_CASED_STRINGS(AD_MACRO_FTHS, "fths", "Fths", "FTHS");
 
     SEND_CASED_STRINGS(AD_MACRO_SHN, "shn", "Shn", "SHN");
     SEND_CASED_STRINGS(AD_MACRO_NSH, "nsh", "Nsh", "NSH");
@@ -1315,6 +1325,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH");
     SEND_CASED_STRINGS(AD_MACRO_LPH, "lph", "Lph", "LPH");
     SEND_CASED_STRINGS(AD_MACRO_PHL, "phl", "Phl", "PHL");
+    SEND_CASED_STRINGS(AD_MACRO_MPHS, "mphs", "Mphs", "MPHS");
 
   // Vowel SFB adaptives
     SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
