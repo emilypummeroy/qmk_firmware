@@ -415,7 +415,6 @@ enum combo_index {
   AD_DKP_LKS,
   AD_PKD_SKL,
   AD_NKP_CKS,
-  AD_NTK_CKN,
   AD_NKT_CKN,
   AD_TKN_NKN,
   AD_TKP_NKS,
@@ -476,8 +475,8 @@ enum combo_index {
   AD_GMW_THW,
   AD_PMG_LTH,
   AD_GMP_THL,
-  AD_MGK_THF,
-  AD_FGM_FTH,
+  AD_NTK_THF,
+  AD_KTN_FTH,
   AD_GMS_THS,
   AD_MGS_THS,
   AD_MGR_THR,
@@ -485,7 +484,7 @@ enum combo_index {
   AD_GMWS_WTHS,
   AD_CMGS_NTHS,
   AD_CGMS_NTHS,
-  AD_FGMP_FTHS,
+  AD_KTNP_FTHS,
 
   AD_BDN_SHN,
   AD_NDB_NSH,
@@ -669,7 +668,6 @@ const uint16_t PROGMEM adaptiveLKG[] = { KC_L, KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveDKP[] = { KC_D, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptivePKD[] = { KC_P, KC_K, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKT[] = { KC_N, KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTKN[] = { KC_T, KC_K, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
@@ -725,8 +723,8 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveMGK[] = { KC_M, KC_G, KC_K, COMBO_END };
-const uint16_t PROGMEM adaptiveFGM[] = { KC_F, KC_G, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveKTN[] = { KC_K, KC_T, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveGMS[] = { KC_G, KC_M, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMGS[] = { KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMGR[] = { KC_M, KC_G, KC_R, COMBO_END };
@@ -734,7 +732,7 @@ const uint16_t PROGMEM adaptiveWMGS[] = { KC_W, KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveGMWS[] = { KC_G, KC_M, KC_W, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveCMGS[] = { KC_C, KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveCGMS[] = { KC_C, KC_G, KC_M, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveFGMP[] = { KC_F, KC_G, KC_M, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveKTNP[] = { KC_K, KC_T, KC_N, KC_P, COMBO_END };
 
 const uint16_t PROGMEM adaptiveBDN[] = { KC_B, KC_D, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
@@ -888,7 +886,6 @@ combo_t key_combos[] = {
   [AD_DKP_LKS] = COMBO(adaptiveDKP, AD_MACRO_LKS), // Talks
   [AD_PKD_SKL] = COMBO(adaptivePKD, AD_MACRO_SKL), // Maskless
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
-  [AD_NTK_CKN] = COMBO(adaptiveNTK, AD_MACRO_CKN), // Acknowledge
   [AD_NKT_CKN] = COMBO(adaptiveNKT, AD_MACRO_CKN), // Acknowledge
   [AD_TKN_NKN] = COMBO(adaptiveTKN, AD_MACRO_NKN), // Unknown
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
@@ -945,8 +942,8 @@ combo_t key_combos[] = {
   [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
   [AD_PMG_LTH] = COMBO(adaptivePMG, AD_MACRO_LTH), // Health
   [AD_GMP_THL] = COMBO(adaptiveGMP, AD_MACRO_THL), // Athlete
-  [AD_MGK_THF] = COMBO(adaptiveMGK, AD_MACRO_THF), // Faithful
-  [AD_FGM_FTH] = COMBO(adaptiveFGM, AD_MACRO_FTH), // Fifth
+  [AD_NTK_THF] = COMBO(adaptiveNTK, AD_MACRO_THF), // Faithful
+  [AD_KTN_FTH] = COMBO(adaptiveKTN, AD_MACRO_FTH), // Fifth -- Avoid high index finger
   [AD_GMS_THS] = COMBO(adaptiveGMS, AD_MACRO_THS), // Maths
   [AD_MGS_THS] = COMBO(adaptiveMGS, AD_MACRO_THS), // Maths
   [AD_MGR_THR] = COMBO(adaptiveMGR, AD_MACRO_THR), // Threat
@@ -954,7 +951,7 @@ combo_t key_combos[] = {
   [AD_GMWS_WTHS] = COMBO(adaptiveGMWS, AD_MACRO_WTHS), // Growths
   [AD_CMGS_NTHS] = COMBO(adaptiveCMGS, AD_MACRO_NTHS), // Tenths
   [AD_CGMS_NTHS] = COMBO(adaptiveCGMS, AD_MACRO_NTHS), // Tenths
-  [AD_FGMP_FTHS] = COMBO(adaptiveFGMP, AD_MACRO_FTHS), // Fifths
+  [AD_KTNP_FTHS] = COMBO(adaptiveKTNP, AD_MACRO_FTHS), // Fifths -- None for fifthly
 
   [AD_BDN_SHN] = COMBO(adaptiveBDN, AD_MACRO_SHN),
   [AD_NDB_NSH] = COMBO(adaptiveNDB, AD_MACRO_NSH),
