@@ -508,7 +508,7 @@ enum combo_index {
   AD_WML_GHL,
   AD_MWL_GHL,
   AD_WMD_GHL,
-  AD_MGB_GHB,
+  AD_WMB_GHB,
 
   AD_PGF_SPH,
   AD_FGP_PHS,
@@ -756,7 +756,7 @@ const uint16_t PROGMEM adaptiveMWS[] = { KC_M, KC_W, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveWML[] = { KC_W, KC_M, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveMWL[] = { KC_M, KC_W, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveWMD[] = { KC_W, KC_M, KC_D, COMBO_END };
-const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
+const uint16_t PROGMEM adaptiveWMB[] = { KC_W, KC_M, KC_B, COMBO_END };
 
 const uint16_t PROGMEM adaptivePGF[] = { KC_P, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGP[] = { KC_F, KC_G, KC_P, COMBO_END };
@@ -975,7 +975,7 @@ combo_t key_combos[] = {
   [AD_WML_GHL] = COMBO(adaptiveWML, AD_MACRO_GHL), // Highlight
   [AD_MWL_GHL] = COMBO(adaptiveMWL, AD_MACRO_GHL), // Highlight
   [AD_WMD_GHL] = COMBO(adaptiveWMD, AD_MACRO_GHL), // Highlight
-  [AD_MGB_GHB] = COMBO(adaptiveMGB, AD_MACRO_GHB), // Neighbour
+  [AD_WMB_GHB] = COMBO(adaptiveWMB, AD_MACRO_GHB), // Neighbour
 
   [AD_PGF_SPH] = COMBO(adaptivePGF, AD_MACRO_SPH), // Sphere
   [AD_FGP_PHS] = COMBO(adaptiveFGP, AD_MACRO_PHS), // Graphs
