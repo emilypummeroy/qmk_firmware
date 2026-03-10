@@ -110,6 +110,7 @@ enum custom_keycodes {
   AD_MACRO_SKL,
   AD_MACRO_CKS,
   AD_MACRO_CKN,
+  AD_MACRO_NKN,
   AD_MACRO_NKS,
   AD_MACRO_NKL,
   AD_MACRO_LKN,
@@ -416,6 +417,7 @@ enum combo_index {
   AD_NKP_CKS,
   AD_NTK_CKN,
   AD_NKT_CKN,
+  AD_TKN_NKN,
   AD_TKP_NKS,
   AD_TKL_NKL,
   AD_LKT_LKN,
@@ -669,6 +671,7 @@ const uint16_t PROGMEM adaptivePKD[] = { KC_P, KC_K, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNKP[] = { KC_N, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveNKT[] = { KC_N, KC_K, KC_T, COMBO_END };
+const uint16_t PROGMEM adaptiveTKN[] = { KC_T, KC_K, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKL[] = { KC_T, KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveLKT[] = { KC_L, KC_K, KC_T, COMBO_END };
@@ -887,6 +890,7 @@ combo_t key_combos[] = {
   [AD_NKP_CKS] = COMBO(adaptiveNKP, AD_MACRO_CKS),
   [AD_NTK_CKN] = COMBO(adaptiveNTK, AD_MACRO_CKN), // Acknowledge
   [AD_NKT_CKN] = COMBO(adaptiveNKT, AD_MACRO_CKN), // Acknowledge
+  [AD_TKN_NKN] = COMBO(adaptiveTKN, AD_MACRO_NKN), // Unknown
   [AD_TKP_NKS] = COMBO(adaptiveTKP, AD_MACRO_NKS),
   [AD_TKL_NKL] = COMBO(adaptiveTKL, AD_MACRO_NKL), // Ankle
   [AD_LKT_LKN] = COMBO(adaptiveLKT, AD_MACRO_LKN), // Falkner
@@ -1239,6 +1243,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_SKL, "kls", "Skl", "SKL");
     SEND_CASED_STRINGS(AD_MACRO_CKS, "cks", "Cks", "CKS");
     SEND_CASED_STRINGS(AD_MACRO_CKN, "ckn", "Ckn", "CKN");
+    SEND_CASED_STRINGS(AD_MACRO_NKN, "nkn", "Nkn", "NKN");
     SEND_CASED_STRINGS(AD_MACRO_NKS, "nks", "Nks", "NKS");
     SEND_CASED_STRINGS(AD_MACRO_NKL, "nkl", "Nkl", "NKL");
     SEND_CASED_STRINGS(AD_MACRO_LKN, "lkn", "Lkn", "LKN");
