@@ -37,18 +37,11 @@ enum custom_keycodes {
   AD_MACRO_WNL,
 
   // X/Z adaptives
-  AD_MACRO_XP,
-  AD_MACRO_XB,
+  AD_MACRO_ZB,
   AD_MACRO_BZ,
-  AD_MACRO_XC,
-  AD_MACRO_GZ,
-  AD_MACRO_XT,
-  AD_MACRO_TZ,
-  AD_MACRO_LZ,
   AD_MACRO_XF,
   AD_MACRO_GZW,
   AD_MACRO_ZSH,
-  AD_MACRO_XCL,
   AD_MACRO_XQU,
 
   // ZZ, VV, SS adaptives
@@ -243,10 +236,10 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_X),     KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_BSLS,        XXXXXXX,
+    KC_GRAVE,       LT(0,KC_Z),           KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_BSLS,        XXXXXXX,
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_SLASH,       XXXXXXX,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_H,           XXXXXXX,
-    TO(_LEFT),      XXXXXXX,        MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
+    TO(_LEFT),      KC_X,           MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        CW_TOGG,        XXXXXXX,        XXXXXXX,
     KC_R,           KC_ENTER,         XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
@@ -342,20 +335,12 @@ enum combo_index {
   AD_WND_WNL,
 
   // X/Z adaptives
-  AD_VP_XP,
-  AD_WB_XB,
+  AD_WB_ZB,
   AD_BW_BZ,
-  AD_XC_XC,
-  AD_GX_GZ,
-  AD_XT_XT,
-  AD_XN_XT,
-  AD_TX_TZ,
-  AD_LX_LZ,
   AD_WF_XF,
-  AD_GXW_GZW,
-  AD_gXW_ZSH,
-  AD_XCL_XCL,
-  AD_WKM_XQU,
+  AD_GZW_GZW,
+  AD_gZW_ZSH,
+  AD_XDC_XQU,
 
   // ZZ, VV, SS adaptives
   AD_XF_ZZ,
@@ -363,7 +348,7 @@ enum combo_index {
   AD_SB_SS,
   AD_XGF_ZZL,
   AD_XFG_ZZL,
-  AD_XWF_ZZW,
+  AD_ZWF_ZZW,
   AD_XFW_ZZW,
   AD_SWB_SSW,
   AD_SBW_SSW,
@@ -503,14 +488,14 @@ enum combo_index {
   AD_LDB_LSH,
   AD_BDL_SHL,
 
-  AD_GWX_GWH,
-  AD_NWX_NWH,
-  AD_TWX_TWH,
-  AD_LWX_LWH,
-  AD_RWX_RWH,
+  AD_GWZ_GWH,
+  AD_NWZ_NWH,
+  AD_TWZ_TWH,
+  AD_LWZ_LWH,
+  AD_RWZ_RWH,
 
-  AD_XWM_GHN,
-  AD_MWX_NGH,
+  AD_ZWM_GHN,
+  AD_MWZ_NGH,
   AD_WMT_GHT,
   AD_MWV_GHS,
   AD_MWS_GHS,
@@ -549,14 +534,10 @@ enum combo_index {
   AD_Jq_JO,
   AD_qds_JOE,
   AD_Jqd_JOq,
-  AD_qJ_OJ,
-
-  // Miscellaneous letters
-  AD_WXg_WQ, ADAPTIVE_LAST = AD_WXg_WQ,
-  ST_COMBO_gX_Q,
+  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
 
   // H Bigram combos
-  ST_COMBO_XW,
+  ST_COMBO_ZW,
   ST_COMBO_GM,
   ST_COMBO_MG,
   ST_COMBO_WM,
@@ -568,7 +549,7 @@ enum combo_index {
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboXW[] = { LT(0,KC_X), KC_W, COMBO_END };
+const uint16_t PROGMEM comboZW[] = { LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM comboGM[] = { KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
@@ -579,9 +560,6 @@ const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
 
 // Miscellaneous letters
-const uint16_t PROGMEM combogX[] = { KC_GRAVE, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveWXg[] = { KC_W, LT(0,KC_X), KC_GRAVE, COMBO_END };
-
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveqQ[] = { KC_QUES, ST_FORCE_Q, COMBO_END };
 const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
@@ -599,29 +577,21 @@ const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
 
 // X/Z adaptives
-const uint16_t PROGMEM adaptiveVP[] = { KC_V, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveWB[] = { KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBW[] = { KC_B, KC_W, COMBO_END };
-const uint16_t PROGMEM adaptiveXC[] = { LT(0,KC_X), KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveGX[] = { KC_G, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveXT[] = { LT(0,KC_X), KC_T, COMBO_END };
-const uint16_t PROGMEM adaptiveXN[] = { LT(0,KC_X), KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveTX[] = { KC_T, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveLX[] = { KC_L, LT(0,KC_X), COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveGXW[] = { KC_G, LT(0,KC_X), KC_W, COMBO_END };
-const uint16_t PROGMEM adaptivegXW[] = { KC_GRV, LT(0,KC_X), KC_W, COMBO_END };
-const uint16_t PROGMEM adaptiveXCL[] = { LT(0,KC_X), KC_C, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveWKM[] = { KC_W, KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGZW[] = { KC_G, LT(0,KC_Z), KC_W, COMBO_END };
+const uint16_t PROGMEM adaptivegZW[] = { KC_GRV, LT(0,KC_Z), KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveXDC[] = { KC_X, KC_D, KC_C, COMBO_END };
 
 // ZZ, VV, SS adaptives
-const uint16_t PROGMEM adaptiveXF[] = { LT(0,KC_X), KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveXF[] = { LT(0,KC_Z), KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveVK[] = { KC_V, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveSB[] = { KC_S, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveXGF[] = { LT(0,KC_X), KC_G, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveXFG[] = { LT(0,KC_X), KC_F, KC_G, COMBO_END };
-const uint16_t PROGMEM adaptiveXWF[] = { LT(0,KC_X), KC_W, KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveXFW[] = { LT(0,KC_X), KC_F, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveXGF[] = { LT(0,KC_Z), KC_G, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveXFG[] = { LT(0,KC_Z), KC_F, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveZWF[] = { LT(0,KC_Z), KC_W, KC_F, COMBO_END };
+const uint16_t PROGMEM adaptiveXFW[] = { LT(0,KC_Z), KC_F, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveSWB[] = { KC_S, KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveSBW[] = { KC_S, KC_B, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveSGB[] = { KC_S, KC_G, KC_B, COMBO_END };
@@ -716,7 +686,7 @@ const uint16_t PROGMEM adaptiveGBP[] = { KC_G, KC_B, KC_P, COMBO_END };
 // H digraph adaptives
 const uint16_t PROGMEM adaptiveLCV[] = { KC_L, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveVCL[] = { KC_V, KC_C, KC_L, COMBO_END };
-const uint16_t PROGMEM adaptiveXCN[] = { LT(0,KC_X), KC_C, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveXCN[] = { KC_X, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNCV[] = { KC_N, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveVCN[] = { KC_V, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveTCV[] = { KC_T, KC_C, KC_V, COMBO_END };
@@ -755,14 +725,14 @@ const uint16_t PROGMEM adaptiveBTM[] = { KC_B, KC_T, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBDL[] = { KC_B, KC_D, KC_L, COMBO_END };
 
-const uint16_t PROGMEM adaptiveGWX[] = { KC_W, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveNWX[] = { KC_N, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveTWX[] = { KC_T, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveLWX[] = { KC_L, KC_W, LT(0,KC_X), COMBO_END };
-const uint16_t PROGMEM adaptiveRWX[] = { KC_R, KC_W, LT(0,KC_X), COMBO_END };
+const uint16_t PROGMEM adaptiveGWZ[] = { KC_W, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveNWZ[] = { KC_N, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveTWZ[] = { KC_T, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveLWZ[] = { KC_L, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveRWZ[] = { KC_R, KC_W, LT(0,KC_Z), COMBO_END };
 
-const uint16_t PROGMEM adaptiveXWM[] = { LT(0,KC_X), KC_W, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveMWX[] = { KC_M, KC_W, LT(0,KC_X), COMBO_END };
+const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveWMT[] = { KC_W, KC_M, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMWS[] = { KC_M, KC_W, KC_S, COMBO_END };
@@ -821,20 +791,12 @@ combo_t key_combos[] = {
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
 
   // X/Z adaptives
-  [AD_VP_XP] = COMBO(adaptiveVP, AD_MACRO_XP),
-  [AD_WB_XB] = COMBO(adaptiveWB, AD_MACRO_XB), // Xbox
+  [AD_WB_ZB] = COMBO(adaptiveWB, AD_MACRO_ZB), // Whizbang
   [AD_BW_BZ] = COMBO(adaptiveBW, AD_MACRO_BZ), // Subzero
-  [AD_XC_XC] = COMBO(adaptiveXC, AD_MACRO_XC),
-  [AD_GX_GZ] = COMBO(adaptiveGX, AD_MACRO_GZ), // Zigzag
-  [AD_XT_XT] = COMBO(adaptiveXT, AD_MACRO_XT),
-  [AD_XN_XT] = COMBO(adaptiveXN, AD_MACRO_XT),
-  [AD_TX_TZ] = COMBO(adaptiveTX, AD_MACRO_TZ),
-  [AD_LX_LZ] = COMBO(adaptiveLX, AD_MACRO_LZ), // Calzone
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
-  [AD_GXW_GZW] = COMBO(adaptiveGXW, AD_MACRO_GZW), // Zugzwang
-  [AD_gXW_ZSH] = COMBO(adaptivegXW, AD_MACRO_ZSH), // Oh my zsh!
-  [AD_XCL_XCL] = COMBO(adaptiveXCL, AD_MACRO_XCL), // Exclude
-  [AD_WKM_XQU] = COMBO(adaptiveWKM, AD_MACRO_XQU),
+  [AD_GZW_GZW] = COMBO(adaptiveGZW, AD_MACRO_GZW), // Zugzwang
+  [AD_gZW_ZSH] = COMBO(adaptivegZW, AD_MACRO_ZSH), // Oh my zsh!
+  [AD_XDC_XQU] = COMBO(adaptiveXDC, AD_MACRO_XQU),
 
   // ZZ, VV, SS adaptives
   [AD_XF_ZZ] = COMBO(adaptiveXF, AD_MACRO_ZZ), // Fizz
@@ -842,7 +804,7 @@ combo_t key_combos[] = {
   [AD_SB_SS] = COMBO(adaptiveSB, AD_MACRO_SS), // Miss
   [AD_XGF_ZZL] = COMBO(adaptiveXGF, AD_MACRO_ZZL), // Rizzler
   [AD_XFG_ZZL] = COMBO(adaptiveXFG, AD_MACRO_ZZL), // Rizzler
-  [AD_XWF_ZZW] = COMBO(adaptiveXWF, AD_MACRO_ZZW), // Buzzword
+  [AD_ZWF_ZZW] = COMBO(adaptiveZWF, AD_MACRO_ZZW), // Buzzword
   [AD_XFW_ZZW] = COMBO(adaptiveXFW, AD_MACRO_ZZW), // Buzzword
   [AD_SWB_SSW] = COMBO(adaptiveSWB, AD_MACRO_SSW), // Congresswoman
   [AD_SBW_SSW] = COMBO(adaptiveSBW, AD_MACRO_SSW), // Congresswoman
@@ -978,14 +940,14 @@ combo_t key_combos[] = {
   [AD_LDB_LSH] = COMBO(adaptiveLDB, AD_MACRO_LSH),
   [AD_BDL_SHL] = COMBO(adaptiveBDL, AD_MACRO_SHL),
 
-  [AD_GWX_GWH] = COMBO(adaptiveGWX, AD_MACRO_GWH), // Cogwheel
-  [AD_NWX_NWH] = COMBO(adaptiveNWX, AD_MACRO_NWH), // Meanwhile
-  [AD_TWX_TWH] = COMBO(adaptiveTWX, AD_MACRO_TWH), // Erstwhile
-  [AD_LWX_LWH] = COMBO(adaptiveLWX, AD_MACRO_LWH), // Coolwhip
-  [AD_RWX_RWH] = COMBO(adaptiveRWX, AD_MACRO_RWH), // Overwhelm
+  [AD_GWZ_GWH] = COMBO(adaptiveGWZ, AD_MACRO_GWH), // Cogwheel
+  [AD_NWZ_NWH] = COMBO(adaptiveNWZ, AD_MACRO_NWH), // Meanwhile
+  [AD_TWZ_TWH] = COMBO(adaptiveTWZ, AD_MACRO_TWH), // Erstwhile
+  [AD_LWZ_LWH] = COMBO(adaptiveLWZ, AD_MACRO_LWH), // Coolwhip
+  [AD_RWZ_RWH] = COMBO(adaptiveRWZ, AD_MACRO_RWH), // Overwhelm
 
-  [AD_XWM_GHN] = COMBO(adaptiveXWM, AD_MACRO_GHN), // Toughness
-  [AD_MWX_NGH] = COMBO(adaptiveMWX, AD_MACRO_NGH), // Shanghai
+  [AD_ZWM_GHN] = COMBO(adaptiveZWM, AD_MACRO_GHN), // Toughness
+  [AD_MWZ_NGH] = COMBO(adaptiveMWZ, AD_MACRO_NGH), // Shanghai
   [AD_WMT_GHT] = COMBO(adaptiveWMT, AD_MACRO_GHT), // Thought
   [AD_MWV_GHS] = COMBO(adaptiveMWV, AD_MACRO_GHS), // Breakthroughs
   [AD_MWS_GHS] = COMBO(adaptiveMWS, AD_MACRO_GHS), // Breakthroughs
@@ -1026,12 +988,8 @@ combo_t key_combos[] = {
   [AD_Jqd_JOq] = COMBO(adaptiveJqd, AD_MACRO_JOq),
   [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
-  // Miscellaneous combos
-  [AD_WXg_WQ] = COMBO(adaptiveWXg, AD_MACRO_WQ), // :wq for vim
-  [ST_COMBO_gX_Q] = COMBO(combogX, KC_Q),
-
   // H Bigram combos
-  [ST_COMBO_XW] = COMBO(comboXW, ST_MACRO_WH),
+  [ST_COMBO_ZW] = COMBO(comboZW, ST_MACRO_WH),
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_TH),
   [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_TH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
@@ -1055,7 +1013,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
     case ST_COMBO_CV:
-    case ST_COMBO_XW:
+    case ST_COMBO_ZW:
     case ST_COMBO_YH:
     case ST_COMBO_MG:
         return COMBO_TERM + 10;
@@ -1183,18 +1141,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WNL, "wnl", "Wnl", "WNL");
 
   // X/Z adaptives
-    SEND_CASED_STRINGS(AD_MACRO_XP, "xp", "Xp", "XP");
-    SEND_CASED_STRINGS(AD_MACRO_XB, "xb", "Xb", "XB");
+    SEND_CASED_STRINGS(AD_MACRO_ZB, "zb", "Zb", "ZB");
     SEND_CASED_STRINGS(AD_MACRO_BZ, "bz", "Bz", "BZ");
-    SEND_CASED_STRINGS(AD_MACRO_XC, "xc", "Xc", "XC");
-    SEND_CASED_STRINGS(AD_MACRO_GZ, "gz", "Gz", "GZ");
-    SEND_CASED_STRINGS(AD_MACRO_XT, "xt", "Xt", "XT");
-    SEND_CASED_STRINGS(AD_MACRO_TZ, "tz", "Tz", "TZ");
-    SEND_CASED_STRINGS(AD_MACRO_LZ, "lz", "Lz", "LZ");
     SEND_CASED_STRINGS(AD_MACRO_XF, "xf", "Xf", "XF");
     SEND_CASED_STRINGS(AD_MACRO_GZW, "gzw", "Gzw", "GZW");
     SEND_CASED_STRINGS(AD_MACRO_ZSH, "zsh", "Zsh", "ZSH");
-    SEND_CASED_STRINGS(AD_MACRO_XCL, "xcl", "Xcl", "XCL");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
 
   // ZZ, VV, SS adaptives
@@ -1389,7 +1340,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_FORCE_Q, "q", "q", "Q");
 
   // Tap-hold keys
-    TAPHOLD_CASED(LT(0, KC_X), "z", "Z", "Z");
+    TAPHOLD_CASED(LT(0, KC_Z), "q", "Q", "q");
 
   default:
     return true;
@@ -1402,6 +1353,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LALT, KC_UP):
   case MT(MOD_LCTL, KC_DOWN):
     return g_tapping_term + 50;
+  case LT(0,KC_Z):
+    return g_tapping_term + 400;
   default:
     return g_tapping_term;
   }
