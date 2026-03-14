@@ -1331,7 +1331,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LCTL, KC_DOWN):
     return g_tapping_term + 50;
   case LT(0,KC_Z):
-    return g_tapping_term + 400;
+    return g_tapping_term + 200;
   default:
     return g_tapping_term;
   }
