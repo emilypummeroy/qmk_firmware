@@ -6,6 +6,7 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 
   ST_FORCE_EQUAL,
+  ST_FORCE_SLASH,
   ST_FORCE_MINUS,
 
   ST_FORCE_S,
@@ -200,21 +201,10 @@ enum custom_keycodes {
   AD_MACRO_EO,
   AD_MACRO_UA,
   AD_MACRO_OE,
-  AD_MACRO_Eq,
   AD_MACRO_Iq,
   AD_MACRO_YI,
-  AD_MACRO_Oq,
-  AD_MACRO_HEq,
-  AD_MACRO_IEq,
-  AD_MACRO_YEq,
-  AD_MACRO_YIq,
-
-  // J adaptives
-  AD_MACRO_JI,
-  AD_MACRO_JO,
-  AD_MACRO_JOE,
-  AD_MACRO_JOq,
-  AD_MACRO_OJ, KC_ALNUM_MACRO_LAST = AD_MACRO_OJ,
+  AD_MACRO_Yq,
+  AD_MACRO_YIq, KC_ALNUM_MACRO_LAST = AD_MACRO_YIq,
 };
 
 enum Layers {
@@ -232,36 +222,36 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_Z),           KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_DOT,         KC_QUOTE,       KC_J,           KC_BSLS,        XXXXXXX,
-    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_COMMA,       KC_A,           KC_E,           KC_I,           KC_SLASH,       XXXXXXX,
+    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_DELETE,                                      KC_INSERT,      KC_SCLN,        KC_COMMA,       KC_DOT,         KC_QUOT,        KC_BSLS,        XXXXXXX,
+    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_EQUAL,       KC_A,           KC_E,           KC_I,           KC_J,           XXXXXXX,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_H,           XXXXXXX,
-    TO(_LEFT),      KC_X,           MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        CW_TOGG,        KC_SLASH,       XXXXXXX,
+    TO(_LEFT),      KC_X,           MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_QUES,        KC_SLASH,       XXXXXXX,
     KC_R,           KC_ENTER,         XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        ST_FORCE_Q,     KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        _______,        _______,        _______,        _______,        _______,        KC_DLR,         _______,
-    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        KC_CIRC,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        XXXXXXX,        ST_FORCE_EQUAL, KC_LCBR,        KC_RCBR,        XXXXXXX,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        _______,        _______,
+    _______,        KC_PIPE,        KC_AMPR,        KC_EXLM,        KC_PERC,        KC_HASH,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        XXXXXXX,        KC_LCBR,        KC_RCBR,        ST_FORCE_EQUAL, KC_AT,                                                                          _______,        _______,        _______,        _______,        _______,        _______,
+    XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        _______,        ST_FORCE_SLASH, _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_ASTR,        KC_HASH,        KC_AMPR,        KC_PIPE,        KC_DLR,         _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PLUS,        KC_RCTL,        KC_RALT,        KC_RGUI,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_MINUS, KC_LPRN,        KC_RPRN,        ST_FORCE_EQUAL, ST_FORCE_EQUAL, _______,
-    XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_CIRC,        KC_LABK,        KC_RABK,        KC_DQUO,        KC_ASTR,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PLUS,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_DLR,         _______,
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_MINUS, ST_FORCE_EQUAL, KC_LPRN,        KC_RPRN,        KC_UNDS,        _______,
+    XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        CW_TOGG,        ST_FORCE_SLASH, _______,
     KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
   ),
 
   [_NUM] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        KC_CIRC,        KC_QUES,        KC_EXLM,        KC_PERC,        KC_AT,          _______,                                        TO(_NUMPAD),    KC_ASTR,        KC_7,           KC_8,           KC_9,           KC_DLR,         _______,
-    _______, KC_COMMA, MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,    _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           _______,        _______,
-    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           KC_EQUAL,       _______,
+    _______,        KC_PIPE,        KC_AMPR,        KC_EXLM,        KC_PERC,        KC_HASH,        _______,                                        TO(_NUMPAD),    KC_COMMA,       KC_7,           KC_8,           KC_9,           KC_ASTR,        _______,
+    _______, KC_COMMA, MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,    _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_DLR,         _______,
+    _______,        KC_LPRN,        KC_LBRC,        KC_RBRC,        KC_EQUAL,       KC_RPRN,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           KC_UNDS,        _______,
     TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_EQUAL,       _______,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
   ),
@@ -507,25 +497,13 @@ enum combo_index {
 
   // Vowel SFB adaptives
   AD_Am_AU,
-  AD_Ac_EO,
-  AD_Uc_UA,
+  AD_Ae_EO,
+  AD_Ue_UA,
   AD_Um_OE,
-  AD_Ed_Eq,
-  AD_Iq_Iq,
-  AD_Is_YI,
-  AD_sI_YI,
-  AD_Od_Oq,
-  AD_HEd_HEq,
-  AD_IEd_IEq,
-  AD_YEd_YEq,
-  AD_sIq_YIq,
-
-  // J adaptives
-  AD_qI_JI,
-  AD_Jq_JO,
-  AD_qds_JOE,
-  AD_Jqd_JOq,
-  AD_qJ_OJ, ADAPTIVE_LAST = AD_qJ_OJ,
+  AD_Id_Iq,
+  AD_YJ_YI,
+  AD_Yd_Yq,
+  AD_YJq_YIq, ADAPTIVE_LAST = AD_YJq_YIq,
 
   // H Bigram combos
   ST_COMBO_ZW,
@@ -739,25 +717,13 @@ const uint16_t PROGMEM adaptiveMGPF[] = { KC_M, KC_G, KC_G, KC_F, COMBO_END };
 
 // Vowel SFB adaptives
 const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
-const uint16_t PROGMEM adaptiveAc[] = { KC_A, KC_COMMA, COMBO_END };
-const uint16_t PROGMEM adaptiveUc[] = { KC_U, KC_COMMA, COMBO_END };
+const uint16_t PROGMEM adaptiveAe[] = { KC_A, KC_EQUAL, COMBO_END };
+const uint16_t PROGMEM adaptiveUe[] = { KC_U, KC_EQUAL, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
-const uint16_t PROGMEM adaptiveEd[] = { KC_E, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveIq[] = { KC_I, KC_QUOTE, COMBO_END };
-const uint16_t PROGMEM adaptiveIs[] = { KC_I, KC_SLASH, COMBO_END };
-const uint16_t PROGMEM adaptivesI[] = { KC_SLASH, KC_I, COMBO_END };
-const uint16_t PROGMEM adaptiveOd[] = { KC_O, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveHEd[] = { KC_H, KC_E, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveIEd[] = { KC_I, KC_E, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveYEd[] = { KC_Y, KC_E, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptivesIq[] = { KC_SLASH, KC_I, KC_QUOTE, COMBO_END };
-
-// J adaptives
-const uint16_t PROGMEM adaptiveqI[] = { KC_QUOTE, KC_I, COMBO_END };
-const uint16_t PROGMEM adaptiveJq[] = { KC_J, KC_QUOTE, COMBO_END };
-const uint16_t PROGMEM adaptiveqds[] = { KC_QUOTE, KC_DOT, KC_SCLN, COMBO_END };
-const uint16_t PROGMEM adaptiveJqd[] = { KC_J, KC_QUOTE, KC_DOT, COMBO_END };
-const uint16_t PROGMEM adaptiveqJ[] = { KC_QUOTE, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveId[] = { KC_I, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveYJ[] = { KC_Y, KC_J, COMBO_END };
+const uint16_t PROGMEM adaptiveYd[] = { KC_Y, KC_DOT, COMBO_END };
+const uint16_t PROGMEM adaptiveYJq[] = { KC_Y, KC_J, KC_QUOTE, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
@@ -949,25 +915,14 @@ combo_t key_combos[] = {
 
   // Vowel SFB adaptives
   [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
-  [AD_Ac_EO] = COMBO(adaptiveAc, AD_MACRO_EO),
-  [AD_Uc_UA] = COMBO(adaptiveUc, AD_MACRO_UA),
+  [AD_Ae_EO] = COMBO(adaptiveAe, AD_MACRO_EO),
+  [AD_Ue_UA] = COMBO(adaptiveUe, AD_MACRO_UA),
   [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
-  [AD_Ed_Eq] = COMBO(adaptiveEd, AD_MACRO_Eq),
-  [AD_Iq_Iq] = COMBO(adaptiveIq, AD_MACRO_Iq),
-  [AD_Is_YI] = COMBO(adaptiveIs, AD_MACRO_YI),
-  [AD_sI_YI] = COMBO(adaptivesI, AD_MACRO_YI),
-  [AD_Od_Oq] = COMBO(adaptiveOd, AD_MACRO_Oq),
-  [AD_HEd_HEq] = COMBO(adaptiveHEd, AD_MACRO_HEq),
-  [AD_IEd_IEq] = COMBO(adaptiveIEd, AD_MACRO_IEq),
-  [AD_YEd_YEq] = COMBO(adaptiveYEd, AD_MACRO_YEq),
-  [AD_sIq_YIq] = COMBO(adaptivesIq, AD_MACRO_YIq),
+  [AD_Id_Iq] = COMBO(adaptiveId, AD_MACRO_Iq),
+  [AD_YJ_YI] = COMBO(adaptiveYJ, AD_MACRO_YI),
+  [AD_Yd_Yq] = COMBO(adaptiveYd, AD_MACRO_Yq),
+  [AD_YJq_YIq] = COMBO(adaptiveYJq, AD_MACRO_YIq),
 
-  // J adaptives
-  [AD_qI_JI] = COMBO(adaptiveqI, AD_MACRO_JI),
-  [AD_Jq_JO] = COMBO(adaptiveJq, AD_MACRO_JO),
-  [AD_qds_JOE] = COMBO(adaptiveqds, AD_MACRO_JOE),
-  [AD_Jqd_JOq] = COMBO(adaptiveJqd, AD_MACRO_JOq),
-  [AD_qJ_OJ] = COMBO(adaptiveqJ, AD_MACRO_OJ),
 
   // H Bigram combos
   [ST_COMBO_ZW] = COMBO(comboZW, ST_MACRO_SH),
@@ -1284,21 +1239,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_EO, "eo", "Eo", "EO");
     SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
     SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
-    SEND_CASED_STRINGS(AD_MACRO_Eq, "e'", "E'", "E'");
     SEND_CASED_STRINGS(AD_MACRO_Iq, "i'", "I'", "I'");
     SEND_CASED_STRINGS(AD_MACRO_YI, "yi", "Yi", "YI");
-    SEND_CASED_STRINGS(AD_MACRO_Oq, "o'", "O'", "O'");
-    SEND_CASED_STRINGS(AD_MACRO_HEq, "he'", "He'", "HE'");
-    SEND_CASED_STRINGS(AD_MACRO_IEq, "ie'", "Ie'", "IE'");
-    SEND_CASED_STRINGS(AD_MACRO_YEq, "ye'", "Ye'", "YE'");
+    SEND_CASED_STRINGS(AD_MACRO_Yq, "y'", "Y'", "Y'");
     SEND_CASED_STRINGS(AD_MACRO_YIq, "yi'", "Yi'", "YI'");
-
-  // J adaptives
-    SEND_CASED_STRINGS(AD_MACRO_JI, "ji", "Ji", "JI");
-    SEND_CASED_STRINGS(AD_MACRO_JO, "jo", "Jo", "JO");
-    SEND_CASED_STRINGS(AD_MACRO_JOE, "joe", "Joe", "JOE");
-    SEND_CASED_STRINGS(AD_MACRO_JOq, "jo'", "Jo'", "JO'");
-    SEND_CASED_STRINGS(AD_MACRO_OJ, "oj", "Oj", "OJ");
 
   // H digraphs
     SEND_CASED_STRINGS(ST_MACRO_WH, "wh", "Wh", "WH");
@@ -1312,6 +1256,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
+    SEND_FORCED_STRING(ST_FORCE_SLASH, "/");
     SEND_FORCED_STRING(ST_FORCE_MINUS, "-");
     SEND_FORCED_STRING(ST_FORCE_S, "s");
     SEND_CASED_STRINGS(ST_FORCE_Q, "q", "q", "Q");
