@@ -157,6 +157,10 @@ enum custom_keycodes {
   AD_MACRO_THL,
   AD_MACRO_WTH,
   AD_MACRO_THW,
+  AD_MACRO_CTH,
+  AD_MACRO_THC,
+  AD_MACRO_PTH,
+  AD_MACRO_THP,
   AD_MACRO_DTH,
   AD_MACRO_THD,
   AD_MACRO_FTH,
@@ -173,8 +177,12 @@ enum custom_keycodes {
 
   AD_MACRO_NSH,
   AD_MACRO_SHN,
+  AD_MACRO_TSH,
+  AD_MACRO_SHT,
   AD_MACRO_MSH,
   AD_MACRO_SHM,
+  AD_MACRO_GSH,
+  AD_MACRO_SHG,
   AD_MACRO_WSH,
   AD_MACRO_LSH,
   AD_MACRO_SHL,
@@ -451,6 +459,10 @@ enum combo_index {
   AD_TNP_THL,
   AD_WMG_WTH,
   AD_GMW_THW,
+  AD_CMG_CTH,
+  AD_GMC_THC,
+  AD_PMG_PTH,
+  AD_GMP_THP,
   AD_NTK_THF,
   AD_KTN_FTH,
   AD_MGB_THB,
@@ -460,15 +472,19 @@ enum combo_index {
   AD_MGR_THR,
   AD_WMGS_WTHS,
   AD_GMWS_WTHS,
-  AD_CMGS_NTHS,
-  AD_CGMS_NTHS,
+  AD_CNTS_NTHS,
+  AD_CTNS_NTHS,
   AD_KTNP_FTHS,
   AD_MGBR_THBR,
 
   AD_NWZ_NSH,
   AD_ZWN_SHN,
+  AD_TWZ_TSH,
+  AD_ZWT_SHT,
   AD_MWZ_MSH,
   AD_ZWM_SHM,
+  AD_GWZ_GSH,
+  AD_ZWG_SHG,
   AD_WZg_WSH,
   AD_LWZ_LSH,
   AD_ZWL_SHL,
@@ -671,6 +687,10 @@ const uint16_t PROGMEM adaptivePNT[] = { KC_P, KC_N, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveTNP[] = { KC_T, KC_N, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
+const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKTN[] = { KC_K, KC_T, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveMGB[] = { KC_M, KC_G, KC_B, COMBO_END };
@@ -680,15 +700,19 @@ const uint16_t PROGMEM adaptiveMGS[] = { KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMGR[] = { KC_M, KC_G, KC_R, COMBO_END };
 const uint16_t PROGMEM adaptiveWMGS[] = { KC_W, KC_M, KC_G, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveGMWS[] = { KC_G, KC_M, KC_W, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveCMGS[] = { KC_C, KC_M, KC_G, KC_S, COMBO_END };
-const uint16_t PROGMEM adaptiveCGMS[] = { KC_C, KC_G, KC_M, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveCNTS[] = { KC_C, KC_N, KC_T, KC_S, COMBO_END };
+const uint16_t PROGMEM adaptiveCTNS[] = { KC_C, KC_T, KC_N, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveKTNP[] = { KC_K, KC_T, KC_N, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveMGBR[] = { KC_M, KC_G, KC_B, KC_R, COMBO_END };
 
 const uint16_t PROGMEM adaptiveNWZ[] = { KC_N, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWN[] = { LT(0,KC_Z), KC_W, KC_N, COMBO_END };
+const uint16_t PROGMEM adaptiveTWZ[] = { KC_T, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveZWT[] = { LT(0,KC_Z), KC_W, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveGWZ[] = { KC_G, KC_W, LT(0,KC_Z), COMBO_END };
+const uint16_t PROGMEM adaptiveZWG[] = { LT(0,KC_Z), KC_W, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveWZg[] = { KC_W, LT(0,KC_Z), KC_GRV, COMBO_END };
 const uint16_t PROGMEM adaptiveLWZ[] = { KC_L, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWL[] = { LT(0,KC_Z), KC_W, KC_W, COMBO_END };
@@ -869,6 +893,10 @@ combo_t key_combos[] = {
   [AD_TNP_THL] = COMBO(adaptiveTNP, AD_MACRO_THL), // Athlete
   [AD_WMG_WTH] = COMBO(adaptiveWMG, AD_MACRO_WTH), // Growth
   [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
+  [AD_CMG_CTH] = COMBO(adaptiveCMG, AD_MACRO_CTH), // Ecthyma
+  [AD_GMC_THC] = COMBO(adaptiveGMC, AD_MACRO_THC), // Forthcoming
+  [AD_PMG_PTH] = COMBO(adaptivePMG, AD_MACRO_PTH), // Depth
+  [AD_GMP_THP] = COMBO(adaptiveGMP, AD_MACRO_THP), // Southpaw
   [AD_NTK_THF] = COMBO(adaptiveNTK, AD_MACRO_THF), // Faithful
   [AD_KTN_FTH] = COMBO(adaptiveKTN, AD_MACRO_FTH), // Fifth -- Avoid high index finger
   [AD_MGB_THB] = COMBO(adaptiveMGB, AD_MACRO_THB), // Smoothbore
@@ -878,15 +906,19 @@ combo_t key_combos[] = {
   [AD_MGR_THR] = COMBO(adaptiveMGR, AD_MACRO_THR), // Threat
   [AD_WMGS_WTHS] = COMBO(adaptiveWMGS, AD_MACRO_WTHS), // Growths
   [AD_GMWS_WTHS] = COMBO(adaptiveGMWS, AD_MACRO_WTHS), // Growths
-  [AD_CMGS_NTHS] = COMBO(adaptiveCMGS, AD_MACRO_NTHS), // Tenths
-  [AD_CGMS_NTHS] = COMBO(adaptiveCGMS, AD_MACRO_NTHS), // Tenths
+  [AD_CNTS_NTHS] = COMBO(adaptiveCNTS, AD_MACRO_NTHS), // Tenths
+  [AD_CTNS_NTHS] = COMBO(adaptiveCTNS, AD_MACRO_NTHS), // Tenths
   [AD_KTNP_FTHS] = COMBO(adaptiveKTNP, AD_MACRO_FTHS), // Fifths -- None for fifthly
   [AD_MGBR_THBR] = COMBO(adaptiveMGBR, AD_MACRO_THBR), // Toothbrush
 
   [AD_NWZ_NSH] = COMBO(adaptiveNWZ, AD_MACRO_NSH), // Kinship
   [AD_ZWN_SHN] = COMBO(adaptiveZWN, AD_MACRO_SHN), // Lushness
+  [AD_TWZ_TSH] = COMBO(adaptiveTWZ, AD_MACRO_TSH), // Tshi
+  [AD_ZWT_SHT] = COMBO(adaptiveZWT, AD_MACRO_SHT), // Shtick
   [AD_MWZ_MSH] = COMBO(adaptiveMWZ, AD_MACRO_MSH), // Gumshoe
   [AD_ZWM_SHM] = COMBO(adaptiveZWM, AD_MACRO_SHM), // Establishment
+  [AD_GWZ_GSH] = COMBO(adaptiveGWZ, AD_MACRO_GSH), // Flagship
+  [AD_ZWG_SHG] = COMBO(adaptiveZWG, AD_MACRO_SHG), // Bushgoat
   [AD_WZg_WSH] = COMBO(adaptiveWZg, AD_MACRO_WSH), // Fellowship
   [AD_LWZ_LSH] = COMBO(adaptiveLWZ, AD_MACRO_LSH), // Welsh
   [AD_ZWL_SHL] = COMBO(adaptiveZWL, AD_MACRO_SHL), // Bullshit
@@ -1195,6 +1227,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_THL, "thl", "Thl", "THL");
     SEND_CASED_STRINGS(AD_MACRO_WTH, "wth", "Wth", "WTH");
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW");
+    SEND_CASED_STRINGS(AD_MACRO_CTH, "cth", "Cth", "CTH");
+    SEND_CASED_STRINGS(AD_MACRO_THC, "thc", "Thc", "THC");
+    SEND_CASED_STRINGS(AD_MACRO_PTH, "pth", "Pth", "PTH");
+    SEND_CASED_STRINGS(AD_MACRO_THP, "thp", "Thp", "THP");
     SEND_CASED_STRINGS(AD_MACRO_DTH, "dth", "Dth", "DTH");
     SEND_CASED_STRINGS(AD_MACRO_THD, "thd", "Thd", "THD");
     SEND_CASED_STRINGS(AD_MACRO_FTH, "fth", "Fth", "FTH");
@@ -1211,8 +1247,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     SEND_CASED_STRINGS(AD_MACRO_NSH, "nsh", "Nsh", "NSH");
     SEND_CASED_STRINGS(AD_MACRO_SHN, "shn", "Shn", "SHN");
+    SEND_CASED_STRINGS(AD_MACRO_TSH, "tsh", "Tsh", "TSH");
+    SEND_CASED_STRINGS(AD_MACRO_SHT, "sht", "Sht", "SHT");
     SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH");
     SEND_CASED_STRINGS(AD_MACRO_SHM, "shm", "Shm", "SHM");
+    SEND_CASED_STRINGS(AD_MACRO_GSH, "gsh", "Gsh", "GSH");
+    SEND_CASED_STRINGS(AD_MACRO_SHG, "shg", "Shg", "SHG");
     SEND_CASED_STRINGS(AD_MACRO_WSH, "wsh", "Wsh", "WSH");
     SEND_CASED_STRINGS(AD_MACRO_LSH, "lsh", "Lsh", "LSH");
     SEND_CASED_STRINGS(AD_MACRO_SHL, "shl", "Shl", "SHL");
