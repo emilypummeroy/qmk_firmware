@@ -149,6 +149,7 @@ enum custom_keycodes {
   AD_MACRO_CHS,
   AD_MACRO_MCH,
   AD_MACRO_CHM,
+  AD_MACRO_CHTH,
 
   AD_MACRO_THM,
   AD_MACRO_NTH,
@@ -451,6 +452,7 @@ enum combo_index {
   AD_MCV_MCH,
   AD_CNG_CHM, // Attachment
   AD_VCM_CHM,
+  AD_VCMG_CHTH,
 
   AD_TNW_THM,
   AD_CNT_NTH,
@@ -679,6 +681,7 @@ const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveNCS[] = { KC_N, KC_C, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveMCV[] = { KC_M, KC_C, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveVCM[] = { KC_V, KC_C, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveVCMG[] = { KC_V, KC_C, KC_M, KC_G, COMBO_END };
 
 const uint16_t PROGMEM adaptiveTNW[] = { KC_T, KC_N, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveCNT[] = { KC_C, KC_N, KC_T, COMBO_END };
@@ -885,6 +888,7 @@ combo_t key_combos[] = {
   [AD_NCS_CHS] = COMBO(adaptiveNCS, AD_MACRO_CHS), // Epochs
   [AD_MCV_MCH] = COMBO(adaptiveMCV, AD_MACRO_MCH), // Armchair
   [AD_VCM_CHM] = COMBO(adaptiveVCM, AD_MACRO_CHM), // Attachment
+  [AD_VCMG_CHTH] = COMBO(adaptiveVCMG, AD_MACRO_CHTH), // Chthonic
 
   [AD_TNW_THM] = COMBO(adaptiveTNW, AD_MACRO_THM), // Rhythm
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
@@ -1218,6 +1222,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_CHS, "chs", "Chs", "CHS");
     SEND_CASED_STRINGS(AD_MACRO_MCH, "mch", "Mch", "MCH");
     SEND_CASED_STRINGS(AD_MACRO_CHM, "chm", "Chm", "CHM");
+    SEND_CASED_STRINGS(AD_MACRO_CHTH, "chth", "Chth", "CHTH");
 
     SEND_CASED_STRINGS(AD_MACRO_THM, "thm", "Thm", "THM");
     SEND_CASED_STRINGS(AD_MACRO_NTH, "nth", "Nth", "NTH");
