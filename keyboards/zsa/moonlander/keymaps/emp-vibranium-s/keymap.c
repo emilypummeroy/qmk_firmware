@@ -235,7 +235,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_BACKSPACE,                                   KC_DELETE,      KC_EQUAL,       KC_A,           KC_E,           KC_I,           KC_SLASH,       XXXXXXX,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_MINUS,       KC_U,           KC_O,           KC_Y,           KC_H,           XXXXXXX,
     TO(_LEFT),      KC_X,           MO(_FN),        MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_QUES,        KC_J,           XXXXXXX,
-    KC_R,           KC_ENTER,         XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
+    KC_R,           KC_ENTER,         XXXXXXX,                      XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
