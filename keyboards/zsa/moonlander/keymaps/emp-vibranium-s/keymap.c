@@ -23,6 +23,9 @@ enum custom_keycodes {
 
   AD_MACRO_QU,
   AD_MACRO_WQ,
+  AD_MACRO_cWQ,
+  AD_MACRO_cW,
+  AD_MACRO_cQ,
   AD_MACRO_WS,
   AD_MACRO_MC,
   AD_MACRO_VS,
@@ -313,7 +316,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 enum combo_index {
   AD_KM_QU, ADAPTIVE_FIRST = AD_KM_QU,
-  AD_ap_WQ,
+  AD_pe_WQ,
+  AD_cpe_cWQ,
+  AD_cp_cW,
+  AD_ce_cQ,
   AD_WV_WS,
   AD_MC_MC,
   AD_VW_VS,
@@ -548,7 +554,10 @@ const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
-const uint16_t PROGMEM adaptiveAndPipe[] = { KC_AMPR, KC_PIPE, COMBO_END };
+const uint16_t PROGMEM adaptivePipeExlm[] = { KC_PIPE, KC_EXLM, COMBO_END };
+const uint16_t PROGMEM adaptiveColPipeExlm[] = { KC_SCLN, KC_PIPE, KC_EXLM, COMBO_END };
+const uint16_t PROGMEM adaptiveColPipe[] = { KC_SCLN, KC_PIPE, COMBO_END };
+const uint16_t PROGMEM adaptiveColExlm[] = { KC_SCLN, KC_EXLM, COMBO_END };
 const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
@@ -754,7 +763,10 @@ const uint16_t PROGMEM adaptiveYJq[] = { KC_Y, KC_J, KC_QUOTE, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
-  [AD_ap_WQ] = COMBO(adaptiveAndPipe, AD_MACRO_WQ),
+  [AD_pe_WQ] =   COMBO(adaptivePipeExlm, AD_MACRO_WQ),
+  [AD_cpe_cWQ] = COMBO(adaptiveColPipeExlm, AD_MACRO_cWQ),
+  [AD_cp_cW] =   COMBO(adaptiveColPipe, AD_MACRO_cW),
+  [AD_ce_cQ] =   COMBO(adaptiveColExlm, AD_MACRO_cQ),
   [AD_WV_WS] = COMBO(adaptiveWV, AD_MACRO_WS),
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC),
   [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
@@ -1020,6 +1032,7 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_A ... KC_Z:
   case ST_FORCE_S:
   case ST_FORCE_Q:
+  case KC_SCLN:
   case KC_MINS:
     add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to this key.
     return true;
@@ -1097,6 +1110,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(AD_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_WQ, "wq", "wq", "WQ"); // vim :wq
+    SEND_CASED_STRINGS(AD_MACRO_cWQ, ":wq", ":wq", ":WQ"); // vim :wq
+    SEND_CASED_STRINGS(AD_MACRO_cW, ":w", ":w", ":W"); // vim :w
+    SEND_CASED_STRINGS(AD_MACRO_cQ, ":q", ":q", ":Q"); // vim :q
     SEND_CASED_STRINGS(AD_MACRO_WS, "ws", "Ws", "WS");
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
     SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
