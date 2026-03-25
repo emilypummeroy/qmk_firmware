@@ -471,6 +471,8 @@ enum combo_index {
   AD_GMC_THC,
   AD_PMG_PTH,
   AD_GMP_THP,
+  AD_DNC_DTH,
+  AD_CND_THD,
   AD_NTK_THF,
   AD_KTN_FTH,
   AD_MGK_THB,
@@ -703,6 +705,8 @@ const uint16_t PROGMEM adaptiveCMG[] = { KC_C, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptivePMG[] = { KC_P, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
+const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNTK[] = { KC_N, KC_T, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKTN[] = { KC_K, KC_T, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveMGK[] = { KC_M, KC_G, KC_K, COMBO_END };
@@ -913,6 +917,8 @@ combo_t key_combos[] = {
   [AD_GMC_THC] = COMBO(adaptiveGMC, AD_MACRO_THC), // Forthcoming
   [AD_PMG_PTH] = COMBO(adaptivePMG, AD_MACRO_PTH), // Depth
   [AD_GMP_THP] = COMBO(adaptiveGMP, AD_MACRO_THP), // Southpaw
+  [AD_DNC_DTH] = COMBO(adaptiveDNC, AD_MACRO_DTH), // Width
+  [AD_CND_THD] = COMBO(adaptiveCND, AD_MACRO_THD), // Birthday
   [AD_NTK_THF] = COMBO(adaptiveNTK, AD_MACRO_THF), // Faithful
   [AD_KTN_FTH] = COMBO(adaptiveKTN, AD_MACRO_FTH), // Fifth -- Avoid high index finger
   [AD_MGK_THB] = COMBO(adaptiveMGK, AD_MACRO_THB), // Smoothbore
