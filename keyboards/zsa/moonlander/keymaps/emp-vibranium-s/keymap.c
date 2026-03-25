@@ -244,8 +244,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_EXLM,        KC_PIPE,        KC_AMPR,        KC_PERC,        KC_HASH,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_PIPE,        _______,
-    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_AMPR,        _______,
-    _______,        XXXXXXX,        KC_LCBR,        KC_RCBR,        ST_FORCE_EQUAL, KC_AT,                                                                          _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        ST_FORCE_S,     KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        _______,        ST_FORCE_EQUAL, _______,        _______,        _______,        ST_FORCE_SLASH, _______,
+    _______,        KC_RPRN,        KC_LCBR,        KC_RCBR,        ST_FORCE_EQUAL, KC_AT,                                                                          _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        CW_TOGG,        XXXXXXX,        XXXXXXX,        _______,                        _______,                                        KC_BSPC,                        OSM(MOD_RSFT),  _______,        KC_EXLM,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
