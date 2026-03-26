@@ -92,6 +92,8 @@ enum custom_keycodes {
   AD_MACRO_KM,
   AD_MACRO_LK,
   AD_MACRO_KL,
+  AD_MACRO_VK,
+  AD_MACRO_KV,
   AD_MACRO_CK,
   AD_MACRO_KC,
   AD_MACRO_SK,
@@ -112,6 +114,7 @@ enum custom_keycodes {
   AD_MACRO_NKL,
   AD_MACRO_LKN,
   AD_MACRO_MPK, // Pumpkin
+  AD_MACRO_MKV,
   AD_MACRO_CKL, // cackle
   AD_MACRO_CKP, // Backpack
   AD_MACRO_CKB, // Blackerry
@@ -131,7 +134,6 @@ enum custom_keycodes {
   AD_MACRO_BP,
   AD_MACRO_SB,
   AD_MACRO_BS,
-  AD_MACRO_BC,
   AD_MACRO_BD,
   AD_MACRO_DB,
   AD_MACRO_LBS,
@@ -140,6 +142,7 @@ enum custom_keycodes {
   AD_MACRO_MPB,
   AD_MACRO_NGB,
   AD_MACRO_MBS,
+  AD_MACRO_MBL,
 
   // H digraph adaptives
   AD_MACRO_LCH,
@@ -252,10 +255,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_CIRC,        KC_LABK,        KC_RABK,        KC_DQUO,        KC_PIPE,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_CIRC,        KC_LABK,        KC_RABK,        KC_LCBR,        KC_RCBR,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_PLUS,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_AMPR,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_MINUS, ST_FORCE_EQUAL, KC_LPRN,        KC_RPRN,        KC_ASTR,        _______,
-    XXXXXXX,        _______,        XXXXXXX,        XXXXXXX,        KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        KC_EXLM,        KC_DLR,         _______,
+    XXXXXXX,        _______,        XXXXXXX,        MO(_NUM),       KC_SPACE,                       _______,                                        KC_BSPC,                        _______,        _______,        KC_EXLM,        KC_DLR,         _______,
     KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
   ),
 
@@ -391,6 +394,8 @@ enum combo_index {
   AD_KG_KM,
   AD_DK_LK,
   AD_KD_KL,
+  AD_CK_VK,
+  AD_KC_KV,
   AD_NK_CK,
   AD_KN_KC,
   AD_PK_SK,
@@ -411,6 +416,7 @@ enum combo_index {
   AD_TKL_NKL,
   AD_LKT_LKN,
   AD_GLK_MPK,
+  AD_GKC_MKV,
   AD_NKG_CKL,
   AD_NKD_CKL,
   AD_NDK_CKL,
@@ -432,7 +438,6 @@ enum combo_index {
   AD_BL_BP,
   AD_PB_SB,
   AD_BP_BS,
-  AD_BN_BC,
   AD_BK_BD,
   AD_KB_DB,
   AD_DBP_LBS,
@@ -441,6 +446,7 @@ enum combo_index {
   AD_GLB_MPB,
   AD_NGB_NGB,
   AD_GBP_MBS,
+  AD_GBL_MBL,
 
   // H digraph adaptives
   AD_DCN_LCH,
@@ -630,6 +636,8 @@ const uint16_t PROGMEM adaptiveGK[] = { KC_G, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKG[] = { KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveDK[] = { KC_D, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKD[] = { KC_K, KC_D, COMBO_END };
+const uint16_t PROGMEM adaptiveCK[] = { KC_C, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveKC[] = { KC_K, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveNK[] = { KC_N, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKN[] = { KC_K, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptivePK[] = { KC_P, KC_K, COMBO_END };
@@ -650,6 +658,7 @@ const uint16_t PROGMEM adaptiveTKP[] = { KC_T, KC_K, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveTKL[] = { KC_T, KC_K, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptiveLKT[] = { KC_L, KC_K, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveGLK[] = { KC_G, KC_L, KC_K, COMBO_END };
+const uint16_t PROGMEM adaptiveGKC[] = { KC_G, KC_K, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveNKG[] = { KC_N, KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveNKD[] = { KC_N, KC_K, KC_D, COMBO_END };
 const uint16_t PROGMEM adaptiveNDK[] = { KC_N, KC_D, KC_K, COMBO_END };
@@ -671,7 +680,6 @@ const uint16_t PROGMEM adaptiveLB[] = { KC_L, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBL[] = { KC_B, KC_L, COMBO_END };
 const uint16_t PROGMEM adaptivePB[] = { KC_P, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBP[] = { KC_B, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveBN[] = { KC_B, KC_N, COMBO_END };
 const uint16_t PROGMEM adaptiveBK[] = { KC_B, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveKB[] = { KC_K, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveDBP[] = { KC_D, KC_B, KC_P, COMBO_END };
@@ -680,6 +688,7 @@ const uint16_t PROGMEM adaptiveBTP[] = { KC_B, KC_T, KC_P, COMBO_END };
 const uint16_t PROGMEM adaptiveGLB[] = { KC_G, KC_L, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveNGB[] = { KC_N, KC_G, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveGBP[] = { KC_G, KC_B, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveGBL[] = { KC_G, KC_B, KC_L, COMBO_END };
 
 // H digraph adaptives
 const uint16_t PROGMEM adaptiveLCV[] = { KC_L, KC_C, KC_V, COMBO_END };
@@ -841,6 +850,8 @@ combo_t key_combos[] = {
   [AD_KG_KM] = COMBO(adaptiveKG, AD_MACRO_KM),
   [AD_DK_LK] = COMBO(adaptiveDK, AD_MACRO_LK),
   [AD_KD_KL] = COMBO(adaptiveKD, AD_MACRO_KL),
+  [AD_CK_VK] = COMBO(adaptiveCK, AD_MACRO_VK),
+  [AD_KC_KV] = COMBO(adaptiveKC, AD_MACRO_KV),
   [AD_NK_CK] = COMBO(adaptiveNK, AD_MACRO_CK),
   [AD_KN_KC] = COMBO(adaptiveKN, AD_MACRO_KC),
   [AD_PK_SK] = COMBO(adaptivePK, AD_MACRO_SK),
@@ -861,6 +872,7 @@ combo_t key_combos[] = {
   [AD_TKL_NKL] = COMBO(adaptiveTKL, AD_MACRO_NKL), // Ankle
   [AD_LKT_LKN] = COMBO(adaptiveLKT, AD_MACRO_LKN), // Falkner
   [AD_GLK_MPK] = COMBO(adaptiveGLK, AD_MACRO_MPK), // Pumpkin
+  [AD_GKC_MKV] = COMBO(adaptiveGKC, AD_MACRO_MKV), // mkv the file format
   [AD_NKG_CKL] = COMBO(adaptiveNKG, AD_MACRO_CKL), // cackle
   [AD_NKD_CKL] = COMBO(adaptiveNKD, AD_MACRO_CKL), // cackle
   [AD_NDK_CKL] = COMBO(adaptiveNDK, AD_MACRO_CKL), // cackle
@@ -882,7 +894,6 @@ combo_t key_combos[] = {
   [AD_BL_BP] = COMBO(adaptiveBL, AD_MACRO_BP), // Webpage
   [AD_PB_SB] = COMBO(adaptivePB, AD_MACRO_SB), // Husband
   [AD_BP_BS] = COMBO(adaptiveBP, AD_MACRO_BS), // Tubs
-  [AD_BN_BC] = COMBO(adaptiveBN, AD_MACRO_BC), // Webcam
   [AD_BK_BD] = COMBO(adaptiveBK, AD_MACRO_BD), // Abdicate
   [AD_KB_DB] = COMBO(adaptiveKB, AD_MACRO_DB), // Goodbye
   [AD_DBP_LBS] = COMBO(adaptiveDBP, AD_MACRO_LBS),
@@ -891,7 +902,7 @@ combo_t key_combos[] = {
   [AD_GLB_MPB] = COMBO(adaptiveGLB, AD_MACRO_MPB), // Humpback
   [AD_NGB_NGB] = COMBO(adaptiveNGB, AD_MACRO_NGB), // Springboard
   [AD_GBP_MBS] = COMBO(adaptiveGBP, AD_MACRO_MBS), // Thumbs
-  // No MBL because it would be more twisty than typing with M+BL
+  [AD_GBL_MBL] = COMBO(adaptiveGBL, AD_MACRO_MBL), // Tumble
 
   // H digraph adaptives
   [AD_LCV_LCH] = COMBO(adaptiveLCV, AD_MACRO_LCH), // Gulch
@@ -1185,6 +1196,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_KM, "km", "Km", "KM");
     SEND_CASED_STRINGS(AD_MACRO_LK, "lk", "Lk", "LK");
     SEND_CASED_STRINGS(AD_MACRO_KL, "kl", "Kl", "KL");
+    SEND_CASED_STRINGS(AD_MACRO_VK, "vk", "Vk", "VK");
+    SEND_CASED_STRINGS(AD_MACRO_KV, "kv", "Kv", "KV");
     SEND_CASED_STRINGS(AD_MACRO_CK, "ck", "Ck", "CK");
     SEND_CASED_STRINGS(AD_MACRO_KC, "kc", "Kc", "KC");
     SEND_CASED_STRINGS(AD_MACRO_SK, "sk", "Sk", "SK");
@@ -1205,6 +1218,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_NKL, "nkl", "Nkl", "NKL");
     SEND_CASED_STRINGS(AD_MACRO_LKN, "lkn", "Lkn", "LKN");
     SEND_CASED_STRINGS(AD_MACRO_MPK, "mpk", "Mpk", "MPK"); // Pumpkin
+    SEND_CASED_STRINGS(AD_MACRO_MKV, "mkv", "Mkv", "MKV");
     SEND_CASED_STRINGS(AD_MACRO_CKL, "ckl", "Ckl", "CKL"); // cackle
     SEND_CASED_STRINGS(AD_MACRO_CKP, "ckp", "Ckp", "CKP"); // Backpack
     SEND_CASED_STRINGS(AD_MACRO_CKB, "ckb", "Ckb", "CKB"); // Blackberry
@@ -1223,7 +1237,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_BP, "bp", "Bp", "BP");
     SEND_CASED_STRINGS(AD_MACRO_SB, "sb", "Sb", "SB");
     SEND_CASED_STRINGS(AD_MACRO_BS, "bs", "Bs", "BS");
-    SEND_CASED_STRINGS(AD_MACRO_BC, "bc", "Bc", "BC");
     SEND_CASED_STRINGS(AD_MACRO_BD, "bd", "Bd", "BD");
     SEND_CASED_STRINGS(AD_MACRO_DB, "db", "dB", "DB");
     SEND_CASED_STRINGS(AD_MACRO_LBS, "lbs", "Lbs", "LBS");
@@ -1232,6 +1245,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_MPB, "mpb", "Mpb", "MPB");
     SEND_CASED_STRINGS(AD_MACRO_NGB, "ngb", "Ngb", "NGB");
     SEND_CASED_STRINGS(AD_MACRO_MBS, "mbs", "Mbs", "MBS");
+    SEND_CASED_STRINGS(AD_MACRO_MBL, "mbl", "Mbl", "MBL");
 
   // H digraph adaptives
     SEND_CASED_STRINGS(AD_MACRO_LCH, "lch", "Lch", "LCH");
