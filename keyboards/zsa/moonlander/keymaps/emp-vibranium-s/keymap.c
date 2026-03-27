@@ -43,6 +43,7 @@ enum custom_keycodes {
   AD_MACRO_WNL,
 
   // X/Z adaptives
+  AD_MACRO_SX,
   AD_MACRO_ZB,
   AD_MACRO_BZ,
   AD_MACRO_XF,
@@ -337,6 +338,7 @@ enum combo_index {
   AD_WND_WNL,
 
   // X/Z adaptives
+  AD_SV_SX,
   AD_WB_ZB,
   AD_BW_BZ,
   AD_WF_XF,
@@ -575,6 +577,7 @@ const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
 
 // X/Z adaptives
+const uint16_t PROGMEM adaptiveSV[] = { KC_S, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveWB[] = { KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBW[] = { KC_B, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
@@ -785,6 +788,7 @@ combo_t key_combos[] = {
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
 
   // X/Z adaptives
+  [AD_SV_SX] = COMBO(adaptiveSV, AD_MACRO_SX), // jsx
   [AD_WB_ZB] = COMBO(adaptiveWB, AD_MACRO_ZB), // Whizbang
   [AD_BW_BZ] = COMBO(adaptiveBW, AD_MACRO_BZ), // Subzero
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
@@ -1131,6 +1135,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WNL, "wnl", "Wnl", "WNL");
 
   // X/Z adaptives
+    SEND_CASED_STRINGS(AD_MACRO_SX, "sx", "Sx", "SX");
     SEND_CASED_STRINGS(AD_MACRO_ZB, "zb", "Zb", "ZB");
     SEND_CASED_STRINGS(AD_MACRO_BZ, "bz", "Bz", "BZ");
     SEND_CASED_STRINGS(AD_MACRO_XF, "xf", "Xf", "XF");
