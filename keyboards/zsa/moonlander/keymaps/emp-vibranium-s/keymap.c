@@ -28,9 +28,7 @@ enum custom_keycodes {
   AD_MACRO_cWQ,
   AD_MACRO_cW,
   AD_MACRO_cQ,
-  AD_MACRO_WS,
   AD_MACRO_MC,
-  AD_MACRO_VS,
   AD_MACRO_MPG,
   AD_MACRO_MPT,
   AD_MACRO_MPD,
@@ -43,6 +41,8 @@ enum custom_keycodes {
   AD_MACRO_WNL,
 
   // X/Z adaptives
+  AD_MACRO_SV,
+  AD_MACRO_VS,
   AD_MACRO_SX,
   AD_MACRO_ZB,
   AD_MACRO_BZ,
@@ -51,9 +51,8 @@ enum custom_keycodes {
   AD_MACRO_ZSH,
   AD_MACRO_XQU,
 
-  // ZZ, VV, SS adaptives
+  // ZZ, SS adaptives
   AD_MACRO_ZZ,
-  AD_MACRO_VV,
   AD_MACRO_SS,
   AD_MACRO_ZZL,
   AD_MACRO_ZZW,
@@ -322,9 +321,7 @@ enum combo_index {
   AD_cpe_cWQ,
   AD_cp_cW,
   AD_ce_cQ,
-  AD_WV_WS,
   AD_MC_MC,
-  AD_VW_VS,
   AD_MPG_MPG,
   AD_MPT_MPT,
   AD_MPD_MPD,
@@ -338,7 +335,9 @@ enum combo_index {
   AD_WND_WNL,
 
   // X/Z adaptives
-  AD_SV_SX,
+  AD_WV_SV,
+  AD_VW_VS,
+  AD_XS_SX,
   AD_WB_ZB,
   AD_BW_BZ,
   AD_WF_XF,
@@ -346,9 +345,8 @@ enum combo_index {
   AD_gZW_ZSH,
   AD_XDC_XQU,
 
-  // ZZ, VV, SS adaptives
+  // ZZ, SS adaptives
   AD_XF_ZZ,
-  AD_VK_VV,
   AD_SB_SS,
   AD_XGF_ZZL,
   AD_XFG_ZZL,
@@ -562,9 +560,7 @@ const uint16_t PROGMEM adaptivePipeExlm[] = { KC_PIPE, KC_EXLM, COMBO_END };
 const uint16_t PROGMEM adaptiveColPipeExlm[] = { KC_SCLN, KC_PIPE, KC_EXLM, COMBO_END };
 const uint16_t PROGMEM adaptiveColPipe[] = { KC_SCLN, KC_PIPE, COMBO_END };
 const uint16_t PROGMEM adaptiveColExlm[] = { KC_SCLN, KC_EXLM, COMBO_END };
-const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveMPG[] = { KC_M, KC_P, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMPT[] = { KC_M, KC_P, KC_T, COMBO_END };
 const uint16_t PROGMEM adaptiveMPD[] = { KC_M, KC_P, KC_D, COMBO_END };
@@ -577,7 +573,9 @@ const uint16_t PROGMEM adaptiveCKM[] = { KC_C, KC_K, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveWND[] = { KC_W, KC_N, KC_D, COMBO_END };
 
 // X/Z adaptives
-const uint16_t PROGMEM adaptiveSV[] = { KC_S, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
+const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
+const uint16_t PROGMEM adaptiveXS[] = { KC_X, KC_S, COMBO_END };
 const uint16_t PROGMEM adaptiveWB[] = { KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBW[] = { KC_B, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
@@ -585,9 +583,8 @@ const uint16_t PROGMEM adaptiveGZW[] = { KC_G, LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptivegZW[] = { KC_GRV, LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXDC[] = { KC_X, KC_D, KC_C, COMBO_END };
 
-// ZZ, VV, SS adaptives
+// ZZ, SS adaptives
 const uint16_t PROGMEM adaptiveXF[] = { LT(0,KC_Z), KC_F, COMBO_END };
-const uint16_t PROGMEM adaptiveVK[] = { KC_V, KC_K, COMBO_END };
 const uint16_t PROGMEM adaptiveSB[] = { KC_S, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveXGF[] = { LT(0,KC_Z), KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveXFG[] = { LT(0,KC_Z), KC_F, KC_G, COMBO_END };
@@ -773,9 +770,7 @@ combo_t key_combos[] = {
   [AD_cpe_cWQ] = COMBO(adaptiveColPipeExlm, AD_MACRO_cWQ),
   [AD_cp_cW] =   COMBO(adaptiveColPipe, AD_MACRO_cW),
   [AD_ce_cQ] =   COMBO(adaptiveColExlm, AD_MACRO_cQ),
-  [AD_WV_WS] = COMBO(adaptiveWV, AD_MACRO_WS),
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC),
-  [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS),
   [AD_MPG_MPG] = COMBO(adaptiveMPG, AD_MACRO_MPG), // Campground
   [AD_MPT_MPT] = COMBO(adaptiveMPT, AD_MACRO_MPT), // Empty
   [AD_MPD_MPD] = COMBO(adaptiveMPD, AD_MACRO_MPD), // Clampdown
@@ -787,8 +782,10 @@ combo_t key_combos[] = {
   [AD_CKM_CQU] = COMBO(adaptiveCKM, AD_MACRO_CQU), // Acquire
   [AD_WND_WNL] = COMBO(adaptiveWND, AD_MACRO_WNL), // Download
 
-  // X/Z adaptives
-  [AD_SV_SX] = COMBO(adaptiveSV, AD_MACRO_SX), // jsx
+  // V/X/Z adaptives
+  [AD_WV_SV] = COMBO(adaptiveWV, AD_MACRO_SV), // Transverse
+  [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS), // vs
+  [AD_XS_SX] = COMBO(adaptiveXS, AD_MACRO_SX), // jsx
   [AD_WB_ZB] = COMBO(adaptiveWB, AD_MACRO_ZB), // Whizbang
   [AD_BW_BZ] = COMBO(adaptiveBW, AD_MACRO_BZ), // Subzero
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
@@ -796,9 +793,9 @@ combo_t key_combos[] = {
   [AD_gZW_ZSH] = COMBO(adaptivegZW, AD_MACRO_ZSH), // Oh my zsh!
   [AD_XDC_XQU] = COMBO(adaptiveXDC, AD_MACRO_XQU),
 
-  // ZZ, VV, SS adaptives
+  // ZZ, SS adaptives
+  // No VV, prefer easier "vsk"
   [AD_XF_ZZ] = COMBO(adaptiveXF, AD_MACRO_ZZ), // Fizz
-  [AD_VK_VV] = COMBO(adaptiveVK, AD_MACRO_VV), // Savvy
   [AD_SB_SS] = COMBO(adaptiveSB, AD_MACRO_SS), // Miss
   [AD_XGF_ZZL] = COMBO(adaptiveXGF, AD_MACRO_ZZL), // Rizzler
   [AD_XFG_ZZL] = COMBO(adaptiveXFG, AD_MACRO_ZZL), // Rizzler
@@ -1120,9 +1117,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_cWQ, ":wq", ":wq", ":WQ"); // vim :wq
     SEND_CASED_STRINGS(AD_MACRO_cW, ":w", ":w", ":W"); // vim :w
     SEND_CASED_STRINGS(AD_MACRO_cQ, ":q", ":q", ":Q"); // vim :q
-    SEND_CASED_STRINGS(AD_MACRO_WS, "ws", "Ws", "WS");
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
-    SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
     SEND_CASED_STRINGS(AD_MACRO_MPG, "mpg", "Mpg", "MPG");
     SEND_CASED_STRINGS(AD_MACRO_MPT, "mpt", "Mpt", "MPT");
     SEND_CASED_STRINGS(AD_MACRO_MPD, "mpd", "Mpd", "MPD");
@@ -1135,6 +1130,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_WNL, "wnl", "Wnl", "WNL");
 
   // X/Z adaptives
+    SEND_CASED_STRINGS(AD_MACRO_SV, "sv", "Sv", "SV");
+    SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
     SEND_CASED_STRINGS(AD_MACRO_SX, "sx", "Sx", "SX");
     SEND_CASED_STRINGS(AD_MACRO_ZB, "zb", "Zb", "ZB");
     SEND_CASED_STRINGS(AD_MACRO_BZ, "bz", "Bz", "BZ");
@@ -1143,9 +1140,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_ZSH, "zsh", "Zsh", "ZSH");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
 
-  // ZZ, VV, SS adaptives
+  // ZZ, SS adaptives
     SEND_CASED_STRINGS(AD_MACRO_ZZ, "zz", "Zz", "ZZ");
-    SEND_CASED_STRINGS(AD_MACRO_VV, "vv", "Vv", "VV");
     SEND_CASED_STRINGS(AD_MACRO_SS, "ss", "Ss", "SS");
     SEND_CASED_STRINGS(AD_MACRO_ZZL, "zzl", "Zzl", "ZZL");
     SEND_CASED_STRINGS(AD_MACRO_ZZW, "zzw", "Zzw", "ZZW");
