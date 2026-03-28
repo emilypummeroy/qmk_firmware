@@ -48,7 +48,6 @@ enum custom_keycodes {
   AD_MACRO_BZ,
   AD_MACRO_XF,
   AD_MACRO_GZW,
-  AD_MACRO_ZSH,
   AD_MACRO_XQU,
 
   // ZZ, SS adaptives
@@ -342,7 +341,6 @@ enum combo_index {
   AD_BW_BZ,
   AD_WF_XF,
   AD_GZW_GZW,
-  AD_gZW_ZSH,
   AD_XDC_XQU,
 
   // ZZ, SS adaptives
@@ -580,7 +578,6 @@ const uint16_t PROGMEM adaptiveWB[] = { KC_W, KC_B, COMBO_END };
 const uint16_t PROGMEM adaptiveBW[] = { KC_B, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveWF[] = { KC_W, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveGZW[] = { KC_G, LT(0,KC_Z), KC_W, COMBO_END };
-const uint16_t PROGMEM adaptivegZW[] = { KC_GRV, LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXDC[] = { KC_X, KC_D, KC_C, COMBO_END };
 
 // ZZ, SS adaptives
@@ -790,7 +787,6 @@ combo_t key_combos[] = {
   [AD_BW_BZ] = COMBO(adaptiveBW, AD_MACRO_BZ), // Subzero
   [AD_WF_XF] = COMBO(adaptiveWF, AD_MACRO_XF), // Oxford
   [AD_GZW_GZW] = COMBO(adaptiveGZW, AD_MACRO_GZW), // Zugzwang
-  [AD_gZW_ZSH] = COMBO(adaptivegZW, AD_MACRO_ZSH), // Oh my zsh!
   [AD_XDC_XQU] = COMBO(adaptiveXDC, AD_MACRO_XQU),
 
   // ZZ, SS adaptives
@@ -1137,7 +1133,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_BZ, "bz", "Bz", "BZ");
     SEND_CASED_STRINGS(AD_MACRO_XF, "xf", "Xf", "XF");
     SEND_CASED_STRINGS(AD_MACRO_GZW, "gzw", "Gzw", "GZW");
-    SEND_CASED_STRINGS(AD_MACRO_ZSH, "zsh", "Zsh", "ZSH");
     SEND_CASED_STRINGS(AD_MACRO_XQU, "xqu", "Xqu", "XQU");
 
   // ZZ, SS adaptives
@@ -1341,7 +1336,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LCTL, KC_DOWN):
     return g_tapping_term + 50;
   case LT(0,KC_Z):
-    return g_tapping_term + 200;
+    return g_tapping_term + 150;
   default:
     return g_tapping_term;
   }
