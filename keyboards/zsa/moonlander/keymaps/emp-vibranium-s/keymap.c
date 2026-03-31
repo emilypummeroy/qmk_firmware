@@ -980,7 +980,7 @@ combo_t key_combos[] = {
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_TH),
   [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_TH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
-  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_WH), // Maybe this should be ordered?
+  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_WH),
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
@@ -1013,6 +1013,7 @@ bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
       case ST_COMBO_MG:
       case ST_COMBO_GM:
+      case ST_COMBO_DB:
           return true;
       // case AD_MGFW_MPHS:
           // return false;
