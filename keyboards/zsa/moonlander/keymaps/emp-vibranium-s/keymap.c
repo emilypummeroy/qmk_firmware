@@ -23,6 +23,7 @@ enum custom_keycodes {
   ST_MACRO_CH,
   ST_MACRO_TH,
   ST_MACRO_PH,
+  ST_MACRO_XH,
   ST_MACRO_HY,
   ST_MACRO_HI,
 
@@ -54,16 +55,10 @@ enum custom_keycodes {
   AD_MACRO_THW,
   AD_MACRO_THC,
   AD_MACRO_THP,
-  AD_MACRO_DTH,
-  AD_MACRO_THD,
 
   // SH
   AD_MACRO_MSH,
   AD_MACRO_SHM,
-
-  // WH
-  AD_MACRO_NWH,
-  AD_MACRO_LWH,
 
   // GH
   AD_MACRO_GHN,
@@ -176,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 enum combo_index {
-  AD_KM_QU, ADAPTIVE_FIRST = AD_KM_QU,
+  AD_KG_QU, ADAPTIVE_FIRST = AD_KG_QU,
   AD_ap_WQ,
   AD_cap_cWQ,
   AD_ca_cW,
@@ -193,7 +188,6 @@ enum combo_index {
   AD_XCN_XCH, // Exchange
   AD_SCN_SCH, // Schedule
   AD_NCS_CHS,
-  AD_GNC_MCH, // Armchair
 
   // TH
   AD_TNW_THM,
@@ -205,16 +199,10 @@ enum combo_index {
   AD_GMW_THW,
   AD_GMC_THC,
   AD_GMP_THP,
-  AD_DNC_DTH,
-  AD_CND_THD,
 
   // SH
   AD_MWZ_MSH,
   AD_ZWM_SHM,
-
-  // WH
-  AD_NDB_NWH,
-  AD_LDB_LWH,
 
   // GH
   AD_MWV_GHN,
@@ -238,6 +226,7 @@ enum combo_index {
   ST_COMBO_DB,
   ST_COMBO_CV,
   ST_COMBO_GF,
+  ST_COMBO_XJ,
   ST_COMBO_YH,
   ST_COMBO_IH,
 };
@@ -250,11 +239,12 @@ const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
+const uint16_t PROGMEM comboXJ[] = { KC_X, KC_J, COMBO_END};
 const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
 
 // Miscellaneous letters
-const uint16_t PROGMEM adaptiveKM[] = { KC_K, KC_M, COMBO_END };
+const uint16_t PROGMEM adaptiveKG[] = { KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveAmprPipe[] = { KC_AMPR, KC_PIPE, COMBO_END };
 const uint16_t PROGMEM adaptiveColnAmprPipe[] = { KC_SCLN, KC_AMPR, KC_PIPE, COMBO_END };
 const uint16_t PROGMEM adaptiveColnAmpr[] = { KC_SCLN, KC_AMPR, COMBO_END };
@@ -282,16 +272,10 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
-const uint16_t PROGMEM adaptiveDNC[] = { KC_D, KC_N, KC_C, COMBO_END };
-const uint16_t PROGMEM adaptiveCND[] = { KC_C, KC_N, KC_D, COMBO_END };
 
 // SH
 const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
-
-// WH
-const uint16_t PROGMEM adaptiveNDB[] = { KC_N, KC_D, KC_B, COMBO_END };
-const uint16_t PROGMEM adaptiveLDB[] = { KC_L, KC_D, KC_B, COMBO_END };
 
 // GH
 const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
@@ -308,7 +292,7 @@ const uint16_t PROGMEM adaptiveUp[] = { KC_U, KC_PLUS, COMBO_END };
 const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 
 combo_t key_combos[] = {
-  [AD_KM_QU] = COMBO(adaptiveKM, AD_MACRO_QU),
+  [AD_KG_QU] = COMBO(adaptiveKG, AD_MACRO_QU),
   [AD_ap_WQ] = COMBO(adaptiveAmprPipe, AD_MACRO_WQ),
   [AD_cap_cWQ] = COMBO(adaptiveColnAmprPipe, AD_MACRO_cWQ),
   [AD_ca_cW] = COMBO(adaptiveColnAmpr, AD_MACRO_cW),
@@ -328,7 +312,7 @@ combo_t key_combos[] = {
 
   // TH
   // There are lots for TH because it overlaps with so many
-  // other bigrams and it has a lot of consonant trigrams.
+  // other digraphs  and it has a lot of consonant trigrams.
   [AD_TNW_THM] = COMBO(adaptiveTNW, AD_MACRO_THM), // Rhythm
                                                    // No MTH because of downtown, downturn, etc.
   [AD_CNT_NTH] = COMBO(adaptiveCNT, AD_MACRO_NTH), // Tenth
@@ -339,18 +323,17 @@ combo_t key_combos[] = {
   [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
   [AD_GMC_THC] = COMBO(adaptiveGMC, AD_MACRO_THC), // Forthcoming -- because of Mc adaptive
   [AD_GMP_THP] = COMBO(adaptiveGMP, AD_MACRO_THP), // Southpaw -- GM timing is strict
-  [AD_DNC_DTH] = COMBO(adaptiveDNC, AD_MACRO_DTH), // Width
-  [AD_CND_THD] = COMBO(adaptiveCND, AD_MACRO_THD), // Birthday
   // No FTH or THF because "thful" is very practiced
   // and it's less reliable as an adaptive compared to TH+B
+  // No DTH because it's a comfortable scissor.
+  // No THD because it's only birthday and withdraw which are
+  // easier as compound words.
 
   // SH
   [AD_MWZ_MSH] = COMBO(adaptiveMWZ, AD_MACRO_MSH), // Gumshoe
   [AD_ZWM_SHM] = COMBO(adaptiveZWM, AD_MACRO_SHM), // Establishment
 
-  // WH
-  [AD_NDB_NWH] = COMBO(adaptiveNDB, AD_MACRO_NWH), // Meanwhile
-  [AD_LDB_LWH] = COMBO(adaptiveLDB, AD_MACRO_LWH), // Coolwhip
+  // WH is never before consonants and _WH is always an easy inward roll or a compound word.
 
   // GH
   [AD_MWV_GHN] = COMBO(adaptiveMWV, AD_MACRO_GHN), // Toughness
@@ -374,6 +357,7 @@ combo_t key_combos[] = {
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_WH),
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
+  [ST_COMBO_XJ] = COMBO(comboXJ, ST_MACRO_XH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
   [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
 };
@@ -532,16 +516,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW");
     SEND_CASED_STRINGS(AD_MACRO_THC, "thc", "Thc", "THC");
     SEND_CASED_STRINGS(AD_MACRO_THP, "thp", "Thp", "THP");
-    SEND_CASED_STRINGS(AD_MACRO_DTH, "dth", "Dth", "DTH");
-    SEND_CASED_STRINGS(AD_MACRO_THD, "thd", "Thd", "THD");
 
   // SH
     SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH");
     SEND_CASED_STRINGS(AD_MACRO_SHM, "shm", "Shm", "SHM");
-
-  // WH
-    SEND_CASED_STRINGS(AD_MACRO_NWH, "nwh", "Nwh", "NWH");
-    SEND_CASED_STRINGS(AD_MACRO_LWH, "lwh", "Lwh", "LWH");
 
   // GH
     SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN");
@@ -564,6 +542,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
     SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
     SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
+    SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
     SEND_CASED_STRINGS(ST_MACRO_HY, "hy", "Hy", "HY");
     SEND_CASED_STRINGS(ST_MACRO_HI, "hi", "Hi", "HI");
 
