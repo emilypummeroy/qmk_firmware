@@ -55,6 +55,7 @@ enum custom_keycodes {
   AD_MACRO_THW,
   AD_MACRO_THC,
   AD_MACRO_THP,
+  AD_MACRO_KTH,
 
   // SH
   AD_MACRO_MSH,
@@ -199,6 +200,7 @@ enum combo_index {
   AD_GMW_THW,
   AD_GMC_THC,
   AD_GMP_THP,
+  AD_KGM_KTH,
 
   // SH
   AD_MWZ_MSH,
@@ -223,6 +225,7 @@ enum combo_index {
   ST_COMBO_GM,
   ST_COMBO_MG,
   ST_COMBO_WM,
+  ST_COMBO_MW,
   ST_COMBO_DB,
   ST_COMBO_CV,
   ST_COMBO_GF,
@@ -236,6 +239,7 @@ const uint16_t PROGMEM comboZW[] = { LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM comboGM[] = { KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
+const uint16_t PROGMEM comboMW[] = { KC_M, KC_W, COMBO_END};
 const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
@@ -272,6 +276,7 @@ const uint16_t PROGMEM adaptiveWMG[] = { KC_W, KC_M, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveGMW[] = { KC_G, KC_M, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveGMC[] = { KC_G, KC_M, KC_C, COMBO_END };
 const uint16_t PROGMEM adaptiveGMP[] = { KC_G, KC_M, KC_P, COMBO_END };
+const uint16_t PROGMEM adaptiveKGM[] = { KC_K, KC_G, KC_M, COMBO_END };
 
 // SH
 const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
@@ -323,6 +328,7 @@ combo_t key_combos[] = {
   [AD_GMW_THW] = COMBO(adaptiveGMW, AD_MACRO_THW), // Southwest
   [AD_GMC_THC] = COMBO(adaptiveGMC, AD_MACRO_THC), // Forthcoming -- because of Mc adaptive
   [AD_GMP_THP] = COMBO(adaptiveGMP, AD_MACRO_THP), // Southpaw -- GM timing is strict
+  [AD_KGM_KTH] = COMBO(adaptiveKGM, AD_MACRO_KTH), // Breakthrough -- because of QU adaptive
   // No FTH or THF because "thful" is very practiced
   // and it's less reliable as an adaptive compared to TH+B
   // No DTH because it's a comfortable scissor.
@@ -338,6 +344,7 @@ combo_t key_combos[] = {
   // GH
   [AD_MWV_GHN] = COMBO(adaptiveMWV, AD_MACRO_GHN), // Toughness
   [AD_VWM_NGH] = COMBO(adaptiveVWM, AD_MACRO_NGH), // Shanghai
+  // Do GH(f/k/b) as a compound word.
 
   // PH
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
@@ -354,6 +361,7 @@ combo_t key_combos[] = {
   [ST_COMBO_GM] = COMBO(comboGM, ST_MACRO_TH),
   [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_TH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
+  [ST_COMBO_MW] = COMBO(comboMW, ST_MACRO_GH),
   [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_WH),
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
@@ -371,6 +379,9 @@ inline bool is_adaptive(uint16_t index) {
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
+    case ST_COMBO_MW:
+        return COMBO_TERM - 35;
+    case ST_COMBO_WM:
     case ST_COMBO_GM:
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
@@ -387,6 +398,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
+      case ST_COMBO_WM:
+      case ST_COMBO_MW:
       case ST_COMBO_MG:
       case ST_COMBO_GM:
       case ST_COMBO_DB:
@@ -516,6 +529,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_THW, "thw", "Thw", "THW");
     SEND_CASED_STRINGS(AD_MACRO_THC, "thc", "Thc", "THC");
     SEND_CASED_STRINGS(AD_MACRO_THP, "thp", "Thp", "THP");
+    SEND_CASED_STRINGS(AD_MACRO_KTH, "kth", "Kth", "KTH");
 
   // SH
     SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH");
