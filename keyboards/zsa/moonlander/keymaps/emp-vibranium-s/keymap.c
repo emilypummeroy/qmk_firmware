@@ -61,10 +61,6 @@ enum custom_keycodes {
   AD_MACRO_MSH,
   AD_MACRO_SHM,
 
-  // GH
-  AD_MACRO_GHN,
-  AD_MACRO_NGH,
-
   // PH
   AD_MACRO_MPH,
   AD_MACRO_PHL,
@@ -206,10 +202,6 @@ enum combo_index {
   AD_MWZ_MSH,
   AD_ZWM_SHM,
 
-  // GH
-  AD_MWV_GHN,
-  AD_VWM_NGH,
-
   // PH
   AD_MGF_MPH,
   AD_FGL_PHL,
@@ -282,10 +274,6 @@ const uint16_t PROGMEM adaptiveKGM[] = { KC_K, KC_G, KC_M, COMBO_END };
 const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
 
-// GH
-const uint16_t PROGMEM adaptiveMWV[] = { KC_M, KC_W, KC_V, COMBO_END };
-const uint16_t PROGMEM adaptiveVWM[] = { KC_V, KC_W, KC_M, COMBO_END };
-
 // PH
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
@@ -342,9 +330,9 @@ combo_t key_combos[] = {
   // WH is never before consonants and _WH is always an easy inward roll or a compound word.
 
   // GH
-  [AD_MWV_GHN] = COMBO(adaptiveMWV, AD_MACRO_GHN), // Toughness
-  [AD_VWM_NGH] = COMBO(adaptiveVWM, AD_MACRO_NGH), // Shanghai
-  // Do GH(f/k/b) as a compound word.
+  // Do NGH as upwards rolls
+  // Do GH(n/l/s) by downward rolls
+  // Do GH(f/k/b/p/c) as compound words
 
   // PH
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
@@ -381,10 +369,11 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
     case ST_COMBO_MW:
         return COMBO_TERM - 35;
-    case ST_COMBO_WM:
     case ST_COMBO_GM:
     case ST_COMBO_DB:
         return COMBO_TERM - 20;
+    case ST_COMBO_WM:
+        return COMBO_TERM - 10;
     case ST_COMBO_ZW:
     case ST_COMBO_YH:
     case ST_COMBO_MG:
@@ -534,10 +523,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   // SH
     SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH");
     SEND_CASED_STRINGS(AD_MACRO_SHM, "shm", "Shm", "SHM");
-
-  // GH
-    SEND_CASED_STRINGS(AD_MACRO_GHN, "ghn", "Ghn", "GHN");
-    SEND_CASED_STRINGS(AD_MACRO_NGH, "ngh", "Ngh", "NGH");
 
   // PH
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH");
