@@ -32,6 +32,8 @@ enum custom_keycodes {
   AD_MACRO_cWQ,
   AD_MACRO_cW,
   AD_MACRO_cQ,
+  AD_MACRO_Qe,
+  AD_MACRO_WQe,
   AD_MACRO_MC,
 
   // Left pinky adaptives
@@ -173,6 +175,8 @@ enum combo_index {
   AD_cap_cWQ,
   AD_ca_cW,
   AD_cp_cQ,
+  AD_pe_Qe,
+  AD_ape_WQe,
   AD_MC_MC,
 
   // Left pinky adaptives
@@ -245,6 +249,8 @@ const uint16_t PROGMEM adaptiveAmprPipe[] = { KC_AMPR, KC_PIPE, COMBO_END };
 const uint16_t PROGMEM adaptiveColnAmprPipe[] = { KC_SCLN, KC_AMPR, KC_PIPE, COMBO_END };
 const uint16_t PROGMEM adaptiveColnAmpr[] = { KC_SCLN, KC_AMPR, COMBO_END };
 const uint16_t PROGMEM adaptiveColnPipe[] = { KC_SCLN, KC_PIPE, COMBO_END };
+const uint16_t PROGMEM adaptivePipeExlm[] = { KC_PIPE, KC_EXLM, COMBO_END };
+const uint16_t PROGMEM adaptiveAmprPipeExlm[] = { KC_AMPR, KC_PIPE, KC_EXLM, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 
 // Left pinky adaptives
@@ -290,6 +296,8 @@ combo_t key_combos[] = {
   [AD_cap_cWQ] = COMBO(adaptiveColnAmprPipe, AD_MACRO_cWQ),
   [AD_ca_cW] = COMBO(adaptiveColnAmpr, AD_MACRO_cW),
   [AD_cp_cQ] = COMBO(adaptiveColnPipe, AD_MACRO_cQ),
+  [AD_pe_Qe] = COMBO(adaptivePipeExlm, AD_MACRO_Qe),
+  [AD_ape_WQe] = COMBO(adaptiveAmprPipeExlm, AD_MACRO_WQe),
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC),
 
   // Left pinky adaptives
@@ -495,6 +503,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_cWQ, ":wq", ":wq", ":WQ"); // vim :wq
     SEND_CASED_STRINGS(AD_MACRO_cW, ":w", ":w", ":W"); // vim :w
     SEND_CASED_STRINGS(AD_MACRO_cQ, ":q", ":q", ":Q"); // vim :q
+    SEND_CASED_STRINGS(AD_MACRO_Qe, "q!", "q!", "Q!"); // vim :q!
+    SEND_CASED_STRINGS(AD_MACRO_WQe, "wq!", "wq!", "WQ!"); // vim :q!
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
 
   // Left pinky adaptives
