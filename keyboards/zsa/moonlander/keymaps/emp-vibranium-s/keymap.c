@@ -196,8 +196,7 @@ enum combo_index {
   ST_COMBO_ZW,
   ST_COMBO_TK,
   ST_COMBO_WM,
-  ST_COMBO_MW,
-  ST_COMBO_DB,
+  ST_COMBO_MG,
   ST_COMBO_CV,
   ST_COMBO_GF,
   ST_COMBO_XJ,
@@ -209,8 +208,7 @@ enum combo_index {
 const uint16_t PROGMEM comboZW[] = { LT(0,KC_Z), KC_W, COMBO_END };
 const uint16_t PROGMEM comboTK[] = { KC_T, KC_K, COMBO_END};
 const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
-const uint16_t PROGMEM comboMW[] = { KC_M, KC_W, COMBO_END};
-const uint16_t PROGMEM comboDB[] = { KC_D, KC_B, COMBO_END};
+const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
 const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboXJ[] = { KC_X, KC_J, COMBO_END};
@@ -284,7 +282,7 @@ combo_t key_combos[] = {
   [AD_MWZ_MSH] = COMBO(adaptiveMWZ, AD_MACRO_MSH), // Gumshoe
   [AD_ZWM_SHM] = COMBO(adaptiveZWM, AD_MACRO_SHM), // Establishment
 
-  // WH is never before consonants and _WH is always an easy inward roll or a compound word.
+  // WH is never before consonants and _WH is always a compound word.
 
   // GH
   // Do NGH as upwards rolls
@@ -305,8 +303,7 @@ combo_t key_combos[] = {
   [ST_COMBO_ZW] = COMBO(comboZW, ST_MACRO_SH),
   [ST_COMBO_TK] = COMBO(comboTK, ST_MACRO_TH),
   [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
-  [ST_COMBO_MW] = COMBO(comboMW, ST_MACRO_GH),
-  [ST_COMBO_DB] = COMBO(comboDB, ST_MACRO_WH),
+  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_WH),
   [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
   [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
   [ST_COMBO_XJ] = COMBO(comboXJ, ST_MACRO_XH),
@@ -323,12 +320,6 @@ inline bool is_adaptive(uint16_t index) {
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-    case ST_COMBO_MW:
-        return COMBO_TERM - 35;
-    case ST_COMBO_DB:
-        return COMBO_TERM - 20;
-    case ST_COMBO_WM:
-        return COMBO_TERM - 10;
     case ST_COMBO_ZW:
     case ST_COMBO_YH:
     case ST_COMBO_TK:
@@ -342,9 +333,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
   switch (index) {
-      case ST_COMBO_WM:
-      case ST_COMBO_MW:
-      case ST_COMBO_DB:
+      case ST_COMBO_MG:
           return true;
       default: return is_adaptive(index);
   }
