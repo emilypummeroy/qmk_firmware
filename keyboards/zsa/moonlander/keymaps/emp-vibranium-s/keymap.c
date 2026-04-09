@@ -27,6 +27,13 @@ enum custom_keycodes {
   ST_MACRO_HY,
   ST_MACRO_HI,
 
+  // Vowel SFBs
+  ST_MACRO_AU,
+  ST_MACRO_EO,
+  ST_MACRO_UA,
+  ST_MACRO_OE,
+  ST_MACRO_YI,
+
   AD_MACRO_QU,
   AD_MACRO_WQ,
   AD_MACRO_cWQ,
@@ -53,13 +60,8 @@ enum custom_keycodes {
 
   // PH
   AD_MACRO_MPH,
-  AD_MACRO_PHL,
+  AD_MACRO_PHL, KC_ALNUM_MACRO_LAST = AD_MACRO_PHL,
 
-  // Vowel SFB adaptives
-  AD_MACRO_AU,
-  AD_MACRO_EO,
-  AD_MACRO_UA,
-  AD_MACRO_OE, KC_ALNUM_MACRO_LAST = AD_MACRO_OE,
 };
 
 enum Layers {
@@ -184,13 +186,7 @@ enum combo_index {
 
   // PH
   AD_MGF_MPH,
-  AD_FGL_PHL,
-
-  // Vowel SFB adaptives
-  AD_Am_AU,
-  AD_Ap_EO,
-  AD_Up_UA,
-  AD_Um_OE, ADAPTIVE_LAST = AD_Um_OE,
+  AD_FGL_PHL, ADAPTIVE_LAST = AD_FGL_PHL,
 
   // H Bigram combos
   ST_COMBO_ZW,
@@ -202,6 +198,13 @@ enum combo_index {
   ST_COMBO_XJ,
   ST_COMBO_YH,
   ST_COMBO_IH,
+
+  // Vowel SFBs
+  ST_COMBO_Am,
+  ST_COMBO_Ap,
+  ST_COMBO_Up,
+  ST_COMBO_Um,
+  ST_COMBO_Ia,
 };
 
 // Bigram combo
@@ -214,6 +217,13 @@ const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboXJ[] = { KC_X, KC_J, COMBO_END};
 const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
+
+// Vowel SFBs
+const uint16_t PROGMEM comboAm[] = { KC_A, KC_MINUS, COMBO_END };
+const uint16_t PROGMEM comboAp[] = { KC_A, KC_PLUS, COMBO_END };
+const uint16_t PROGMEM comboUp[] = { KC_U, KC_PLUS, COMBO_END };
+const uint16_t PROGMEM comboUm[] = { KC_U, KC_MINUS, COMBO_END };
+const uint16_t PROGMEM comboIa[] = { KC_I, KC_ASTR, COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM adaptiveKG[] = { KC_K, KC_G, COMBO_END };
@@ -243,12 +253,6 @@ const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
 // PH
 const uint16_t PROGMEM adaptiveMGF[] = { KC_M, KC_G, KC_F, COMBO_END };
 const uint16_t PROGMEM adaptiveFGL[] = { KC_F, KC_G, KC_L, COMBO_END };
-
-// Vowel SFB adaptives
-const uint16_t PROGMEM adaptiveAm[] = { KC_A, KC_MINUS, COMBO_END };
-const uint16_t PROGMEM adaptiveAp[] = { KC_A, KC_PLUS, COMBO_END };
-const uint16_t PROGMEM adaptiveUp[] = { KC_U, KC_PLUS, COMBO_END };
-const uint16_t PROGMEM adaptiveUm[] = { KC_U, KC_MINUS, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_KG_QU] = COMBO(adaptiveKG, AD_MACRO_QU),
@@ -293,12 +297,6 @@ combo_t key_combos[] = {
   [AD_MGF_MPH] = COMBO(adaptiveMGF, AD_MACRO_MPH), // Emphasis
   [AD_FGL_PHL] = COMBO(adaptiveFGL, AD_MACRO_PHL), // Phlebotomy
 
-  // Vowel SFB adaptives
-  [AD_Am_AU] = COMBO(adaptiveAm, AD_MACRO_AU),
-  [AD_Ap_EO] = COMBO(adaptiveAp, AD_MACRO_EO),
-  [AD_Up_UA] = COMBO(adaptiveUp, AD_MACRO_UA),
-  [AD_Um_OE] = COMBO(adaptiveUm, AD_MACRO_OE),
-
   // H Bigram combos
   [ST_COMBO_ZW] = COMBO(comboZW, ST_MACRO_SH),
   [ST_COMBO_TK] = COMBO(comboTK, ST_MACRO_TH),
@@ -309,6 +307,13 @@ combo_t key_combos[] = {
   [ST_COMBO_XJ] = COMBO(comboXJ, ST_MACRO_XH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
   [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
+
+  // Vowel SFBs
+  [ST_COMBO_Am] = COMBO(comboAm, ST_MACRO_AU),
+  [ST_COMBO_Ap] = COMBO(comboAp, ST_MACRO_EO),
+  [ST_COMBO_Up] = COMBO(comboUp, ST_MACRO_UA),
+  [ST_COMBO_Um] = COMBO(comboUm, ST_MACRO_OE),
+  [ST_COMBO_Ia] = COMBO(comboIa, ST_MACRO_YI),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -326,6 +331,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         return COMBO_TERM + 10;
     case ST_COMBO_CV:
         return COMBO_TERM + 20;
+    case ST_COMBO_Ia:
+        return COMBO_TERM + 40;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
     }
@@ -460,12 +467,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(AD_MACRO_MPH, "mph", "Mph", "MPH");
     SEND_CASED_STRINGS(AD_MACRO_PHL, "phl", "Phl", "PHL");
 
-  // Vowel SFB adaptives
-    SEND_CASED_STRINGS(AD_MACRO_AU, "au", "Au", "AU");
-    SEND_CASED_STRINGS(AD_MACRO_EO, "eo", "Eo", "EO");
-    SEND_CASED_STRINGS(AD_MACRO_UA, "ua", "Ua", "UA");
-    SEND_CASED_STRINGS(AD_MACRO_OE, "oe", "Oe", "OE");
-
   // H digraphs
     SEND_CASED_STRINGS(ST_MACRO_WH, "wh", "Wh", "WH");
     SEND_CASED_STRINGS(ST_MACRO_GH, "gh", "Gh", "GH");
@@ -476,6 +477,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
     SEND_CASED_STRINGS(ST_MACRO_HY, "hy", "Hy", "HY");
     SEND_CASED_STRINGS(ST_MACRO_HI, "hi", "Hi", "HI");
+
+  // Vowel SFBs
+    SEND_CASED_STRINGS(ST_MACRO_AU, "au", "Au", "AU");
+    SEND_CASED_STRINGS(ST_MACRO_EO, "eo", "Eo", "EO");
+    SEND_CASED_STRINGS(ST_MACRO_UA, "ua", "Ua", "UA");
+    SEND_CASED_STRINGS(ST_MACRO_OE, "oe", "Oe", "OE");
+    SEND_CASED_STRINGS(ST_MACRO_YI, "yi", "Yi", "YI");
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
