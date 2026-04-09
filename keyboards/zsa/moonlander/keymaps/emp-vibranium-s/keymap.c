@@ -76,10 +76,10 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           ST_FORCE_ONE,   KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           ST_FORCE_ZERO,  KC_4,           KC_8,           XXXXXXX,
-    CW_TOGG,        LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_EXLM,        KC_UNDS,
+    CW_TOGG,        LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         ST_FORCE_SLASH, KC_UNDS,
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_SPACE,                                       KC_DELETE,      KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_GRAVE,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_SCLN,        KC_U,           KC_O,           KC_Y,           KC_H,           XXXXXXX,
-    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_ASTR,        ST_FORCE_SLASH, XXXXXXX,
+    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_ASTR,        KC_EXLM,        XXXXXXX,
     KC_R,           KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
