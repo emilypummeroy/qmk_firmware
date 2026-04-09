@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_PIPE,        KC_AMPR,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        _______,        ST_FORCE_BSLS,
     _______,        KC_AT,          KC_LGUI,        KC_LALT,        KC_LCTL,        KC_HASH,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        KC_DLR,         ST_FORCE_EQUAL, KC_LPRN,        KC_RPRN,        KC_CIRC,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
+    _______,        KC_DLR,         KC_LPRN,        KC_RPRN,        ST_FORCE_EQUAL, KC_CIRC,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        KC_LPRN,        KC_RPRN,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_PIPE,        KC_AMPR,        KC_EXLM,        KC_QUES,        KC_PERC,        _______,                                        TO(_NUMPAD),    KC_MINUS,       KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
     _______, KC_DLR,  MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,     _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           _______,        _______,
-    _______,        KC_LPRN,        KC_EQUAL,       ST_FORCE_LBRC, ST_FORCE_RBRC,   KC_RPRN,                                                                        KC_COLN,        KC_1,           KC_2,           KC_3,           KC_UNDS,        _______,
+    _______,        KC_LPRN,        ST_FORCE_LBRC, ST_FORCE_RBRC,   KC_EQUAL,       KC_RPRN,                                                                        KC_COLN,        KC_1,           KC_2,           KC_3,           KC_UNDS,        _______,
     TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         _______,        _______,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
   ),
