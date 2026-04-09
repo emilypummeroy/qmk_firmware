@@ -327,9 +327,9 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
     case ST_COMBO_ZW:
     case ST_COMBO_YH:
-    case ST_COMBO_TK:
         return COMBO_TERM + 10;
     case ST_COMBO_CV:
+    case ST_COMBO_TK:
         return COMBO_TERM + 20;
     case ST_COMBO_Ia:
         return COMBO_TERM + 40;
