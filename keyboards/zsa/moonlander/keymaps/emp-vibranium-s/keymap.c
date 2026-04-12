@@ -347,6 +347,7 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_BSLS:
   case ST_FORCE_MINUS:
   case ST_FORCE_GRAVE:
+  case ST_FORCE_SLASH:
   case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
     return true;
 
