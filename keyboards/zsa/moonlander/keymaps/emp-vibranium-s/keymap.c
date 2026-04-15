@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_PERC,        ST_FORCE_LBRC,  ST_FORCE_RBRC,  KC_LCBR,        KC_RCBR,        _______,                                        TO(_NUMPAD),    KC_COLN,        KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
     _______, KC_DLR,  MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,     _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_COMMA,       _______,
     _______,        KC_LABK,        KC_EQUAL,       KC_LPRN,        KC_RPRN,        KC_RABK,                                                                        KC_MINUS,       KC_1,           KC_2,           KC_3,           KC_KP_EQUAL,    _______,
-    TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         _______,        _______,        TO(0),
+    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         _______,        _______,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
   ),
 
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_NUM,         KC_COLN,        KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        _______,        _______,
     _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_KP_MINUS,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_EQUAL,    _______,
-    TO(0),          _______,        TO(_FN),        TO(0),          KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_KP_0,        KC_KP_DOT,      _______,        KC_KP_ASTERISK, TO(0),
+    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_KP_0,        KC_KP_DOT,      _______,        KC_KP_ASTERISK, TO(0),
     TO(_NUM),       KC_KP_COMMA,    _______,                        _______,        KC_KP_ENTER,    _______
   ),
 
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MPRV,        KC_MNXT,        KC_MPLY,        KC_MUTE,        KC_VOLU,
     _______,      KC_BRIU, MT(MOD_LGUI,KC_F6), MT(MOD_LALT,KC_F5), MT(MOD_LCTL,KC_F4), KC_F22,      _______,                                        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_VOLD,
     _______,        KC_BRID,        KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                         KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
-    TO(0),          _______,        TO(0),          TO(_NUM),       KC_LEFT_SHIFT,                  _______,                                        KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          _______,        _______,        TO(0),
+    TO(0),          _______,        TO(0),          TO(_NUM),       _______,                        _______,                                        KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          _______,        _______,        TO(0),
     _______,        _______,        _______,                        _______,        _______,        _______
   ),
 
