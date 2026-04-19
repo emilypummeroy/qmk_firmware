@@ -25,8 +25,8 @@ enum custom_keycodes {
   ST_MACRO_XH,
   ST_MACRO_HY,
   ST_MACRO_HI,
+  ST_MACRO_QU,
 
-  AD_MACRO_QU,
   AD_MACRO_MC,
 
   // Left pinky adaptives
@@ -141,8 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 enum combo_index {
-  AD_KG_QU, ADAPTIVE_FIRST = AD_KG_QU,
-  AD_MC_MC,
+  AD_MC_MC, ADAPTIVE_FIRST = AD_MC_MC,
 
   // Left pinky adaptives
   AD_WV_SV,
@@ -169,6 +168,8 @@ enum combo_index {
   ST_COMBO_XJ,
   ST_COMBO_YH,
   ST_COMBO_IH,
+
+  ST_COMBO_GK,
 };
 
 // Bigram combo
@@ -181,9 +182,9 @@ const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
 const uint16_t PROGMEM comboXJ[] = { KC_X, KC_J, COMBO_END};
 const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
 const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
+const uint16_t PROGMEM comboGK[] = { KC_G, KC_K, COMBO_END };
 
 // Miscellaneous letters
-const uint16_t PROGMEM adaptiveKG[] = { KC_K, KC_G, COMBO_END };
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 
 // Left pinky adaptives
@@ -202,7 +203,6 @@ const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_Z), COMBO_END };
 const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_Z), KC_W, KC_M, COMBO_END };
 
 combo_t key_combos[] = {
-  [AD_KG_QU] = COMBO(adaptiveKG, AD_MACRO_QU),
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC), // Mc names are common, mc never starts a word.
 
   // Left pinky adaptives
@@ -247,6 +247,8 @@ combo_t key_combos[] = {
   [ST_COMBO_XJ] = COMBO(comboXJ, ST_MACRO_XH),
   [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
   [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
+
+  [ST_COMBO_GK] = COMBO(comboGK, ST_MACRO_QU),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -264,6 +266,8 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     case ST_COMBO_CV:
     case ST_COMBO_TK:
         return COMBO_TERM + 20;
+    case ST_COMBO_GK:
+        return COMBO_TERM + 50;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
     }
@@ -372,7 +376,6 @@ uint8_t current_mods;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    SEND_CASED_STRINGS(AD_MACRO_QU, "qu", "Qu", "QU");
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
 
   // Left pinky adaptives
@@ -400,6 +403,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
     SEND_CASED_STRINGS(ST_MACRO_HY, "hy", "Hy", "HY");
     SEND_CASED_STRINGS(ST_MACRO_HI, "hi", "Hi", "HI");
+
+    SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
 
   // Forced characters
     SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
