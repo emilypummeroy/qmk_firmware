@@ -60,28 +60,28 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_UNDS,
+    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_SPACE,                                       KC_DELETE,      KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_SCLN,        KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
-    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_BSLS,        KC_HASH,        XXXXXXX,
+    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_UNDS,        KC_HASH,        XXXXXXX,
     KC_R,           KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
-    ST_FORCE_GRAVE, ST_FORCE_LBRC,  ST_FORCE_RBRC,  KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, KC_TILDE,
+    ST_FORCE_GRAVE, ST_FORCE_LBRC,  ST_FORCE_RBRC,  KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
     _______,        KC_DLR,         KC_LGUI,        KC_LALT,        KC_LCTL,        KC_AMPR,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_EXLM,        _______,
     _______,        KC_CIRC,        KC_LPRN,        KC_RPRN,        ST_FORCE_EQUAL, KC_PIPE,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        ST_FORCE_X,     _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        ST_FORCE_BSLS,  KC_AT,          _______,
+    XXXXXXX,        ST_FORCE_X,     _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        KC_TILDE,       KC_AT,          _______,
     XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, KC_TILDE,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        ST_FORCE_GRAVE, KC_CIRC,        KC_AT,          _______,        _______,
-    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        ST_FORCE_BSLS,  KC_AT,          _______,
+    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        KC_TILDE,       KC_AT,          _______,
     KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
   ),
 
