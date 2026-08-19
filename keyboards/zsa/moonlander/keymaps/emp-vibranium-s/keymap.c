@@ -419,7 +419,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_FORCED_STRING(ST_FORCE_X, "x");
 
   // Tap-hold keys
-    TAPHOLD_CASED(LT(0, KC_Z), "q", "Q", "q");
+    TAPHOLD_CASED(LT(0, KC_Z), "q", "Q", "Q");
 
   default:
     return true;
