@@ -61,36 +61,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
     KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_SPACE,                                       KC_DELETE,      KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
-    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_SCLN,        KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
-    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_UNDS,        KC_HASH,        XXXXXXX,
-    KC_R,           KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
+    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_K,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
+    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
+    TO(_LEFT),      KC_X,           KC_J,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
+    KC_SPACE,       KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_R
   ),
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
     ST_FORCE_GRAVE, ST_FORCE_LBRC,  ST_FORCE_RBRC,  KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
-    _______,        KC_DLR,         KC_LGUI,        KC_LALT,        KC_LCTL,        KC_AMPR,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_EXLM,        _______,
-    _______,        KC_CIRC,        KC_LPRN,        KC_RPRN,        ST_FORCE_EQUAL, KC_PIPE,                                                                        _______,        _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        ST_FORCE_X,     _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        KC_TILDE,       KC_AT,          _______,
-    XXXXXXX,        XXXXXXX,        _______,                        _______,        _______,        _______
+    _______,        KC_AMPR,        KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
+    _______,        KC_PIPE,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_CIRC,                                                                        ST_FORCE_EQUAL, _______,        _______,        _______,        _______,        _______,
+    XXXXXXX,        ST_FORCE_X,     _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
+    _______,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        _______,        ST_FORCE_GRAVE, KC_CIRC,        KC_AT,          _______,        _______,
-    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        KC_TILDE,       KC_AT,          _______,
-    KC_R,           _______,        _______,                        _______,        XXXXXXX,        XXXXXXX
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_EQUAL, KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
+    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
+    _______,        _______,        _______,                        _______,        XXXXXXX,        _______
   ),
 
   [_NUM] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_LBRC,        KC_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        TO(_NUMPAD),    KC_MINUS,       KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
     _______, KC_DLR,  MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,     _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_COMMA,       _______,
-    _______,        KC_LABK,        KC_LPRN,        KC_RPRN,        KC_EQUAL,       KC_RABK,                                                                        KC_COLN,        KC_1,           KC_2,           KC_3,           KC_KP_EQUAL,    _______,
-    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         _______,        _______,        TO(0),
+    _______,        KC_LABK,        KC_LPRN,        KC_RPRN,        KC_EQUAL,       KC_RABK,                                                                        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_KP_EQUAL,    _______,
+    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_COLN,        KC_HASH,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
   ),
 
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_NUM,         KC_KP_MINUS,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        _______,        _______,
-    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_COLN,        KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_EQUAL,    _______,
+    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_KP_EQUAL,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_EQUAL,    _______,
     TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_KP_0,        KC_KP_DOT,      _______,        KC_KP_ASTERISK, TO(0),
     TO(_NUM),       KC_KP_COMMA,    _______,                        _______,        KC_KP_ENTER,    _______
   ),
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        KC_F14,         KC_F12,         KC_F11,         KC_F10,         KC_F15,         _______,                                        _______,        KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,         _______,
     _______,        KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MPRV,        KC_MNXT,        KC_MPLY,        KC_MUTE,        KC_VOLU,
     _______,      KC_BRIU, MT(MOD_LGUI,KC_F6), MT(MOD_LALT,KC_F5), MT(MOD_LCTL,KC_F4), KC_F22,      _______,                                        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_VOLD,
-    _______,        KC_BRID,        KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                         KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
+    _______,        KC_BRID,        KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                            KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
     TO(0),          _______,        TO(0),          TO(_NUM),       _______,                        _______,                                        KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          _______,        _______,        TO(0),
     _______,        _______,        _______,                        _______,        _______,        _______
   ),
