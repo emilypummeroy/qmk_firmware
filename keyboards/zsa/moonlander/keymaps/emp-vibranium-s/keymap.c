@@ -16,33 +16,11 @@ enum custom_keycodes {
   ST_FORCE_ONE,
   ST_FORCE_X,
 
-  ST_MACRO_WH, KC_ALNUM_MACRO_FIRST = ST_MACRO_WH,
-  ST_MACRO_GH,
-  ST_MACRO_SH,
-  ST_MACRO_CH,
-  ST_MACRO_TH,
-  ST_MACRO_PH,
-  ST_MACRO_XH,
-  ST_MACRO_HY,
-  ST_MACRO_HI,
-  ST_MACRO_QU,
+  ST_MACRO_QU, KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
 
   AD_MACRO_MC,
 
-  // Left pinky adaptives
-  AD_MACRO_SV,
-  AD_MACRO_VS,
-  AD_MACRO_SX,
-
-  // H digraph adaptives
-  // CH
-  AD_MACRO_XCH,
-  AD_MACRO_SCH,
-  AD_MACRO_CHS,
-
-  // SH
-  AD_MACRO_MSH,
-  AD_MACRO_SHM, KC_ALNUM_MACRO_LAST = AD_MACRO_SHM,
+  AD_MACRO_SX, KC_ALNUM_MACRO_LAST = AD_MACRO_SX,
 };
 
 enum Layers {
@@ -60,9 +38,9 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_J),     KC_W,           KC_M,           KC_G,           KC_F,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    KC_TAB,         KC_Z,           KC_C,           KC_N,           KC_T,           KC_K,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
-    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
+    KC_GRAVE,       LT(0,KC_J),     KC_W,           KC_M,           KC_K,           KC_B,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
+    KC_TAB,         KC_Z,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
+    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_F,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
     TO(_LEFT),      KC_X,           KC_V,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
     KC_SPACE,       KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_R
   ),
@@ -144,111 +122,26 @@ enum combo_index {
   AD_MC_MC, ADAPTIVE_FIRST = AD_MC_MC,
 
   // Left pinky adaptives
-  AD_WV_SV,
-  AD_VW_VS,
-  AD_XS_SX,
+  AD_XS_SX, ADAPTIVE_LAST = AD_XS_SX,
 
-  // H digraph adaptives
-  // CH
-  AD_XCN_XCH, // Exchange
-  AD_SCN_SCH, // Schedule
-  AD_NCS_CHS,
-
-  // SH
-  AD_MWZ_MSH,
-  AD_ZWM_SHM, ADAPTIVE_LAST = AD_ZWM_SHM,
-
-  // H Bigram combos
-  ST_COMBO_ZW,
-  ST_COMBO_TK,
-  ST_COMBO_WM,
-  ST_COMBO_MG,
-  ST_COMBO_CV,
-  ST_COMBO_GF,
-  ST_COMBO_XJ,
-  ST_COMBO_YH,
-  ST_COMBO_IH,
-
-  ST_COMBO_GK,
+  ST_COMBO_FK,
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboZW[] = { LT(0,KC_J), KC_W, COMBO_END };
-const uint16_t PROGMEM comboTK[] = { KC_T, KC_K, COMBO_END};
-const uint16_t PROGMEM comboWM[] = { KC_W, KC_M, COMBO_END};
-const uint16_t PROGMEM comboMG[] = { KC_M, KC_G, COMBO_END};
-const uint16_t PROGMEM comboCV[] = { KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM comboGF[] = { KC_G, KC_F, COMBO_END};
-const uint16_t PROGMEM comboXJ[] = { KC_X, KC_J, COMBO_END};
-const uint16_t PROGMEM comboYH[] = { KC_Y, KC_H, COMBO_END };
-const uint16_t PROGMEM comboIH[] = { KC_I, KC_H, COMBO_END };
-const uint16_t PROGMEM comboGK[] = { KC_G, KC_K, COMBO_END };
+const uint16_t PROGMEM comboFK[] = { KC_F, KC_K, COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
 
 // Left pinky adaptives
-const uint16_t PROGMEM adaptiveWV[] = { KC_W, KC_V, COMBO_END };
-const uint16_t PROGMEM adaptiveVW[] = { KC_V, KC_W, COMBO_END };
 const uint16_t PROGMEM adaptiveXS[] = { KC_X, KC_S, COMBO_END };
-
-// H digraph adaptives
-// CH
-const uint16_t PROGMEM adaptiveXCN[] = { KC_X, KC_C, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveSCN[] = { KC_S, KC_C, KC_N, COMBO_END };
-const uint16_t PROGMEM adaptiveNCS[] = { KC_N, KC_C, KC_S, COMBO_END };
-
-// SH
-const uint16_t PROGMEM adaptiveMWZ[] = { KC_M, KC_W, LT(0,KC_J), COMBO_END };
-const uint16_t PROGMEM adaptiveZWM[] = { LT(0,KC_J), KC_W, KC_M, COMBO_END };
 
 combo_t key_combos[] = {
   [AD_MC_MC] = COMBO(adaptiveMC, AD_MACRO_MC), // Mc names are common, mc never starts a word.
 
-  // Left pinky adaptives
-  [AD_WV_SV] = COMBO(adaptiveWV, AD_MACRO_SV), // Transverse
-  [AD_VW_VS] = COMBO(adaptiveVW, AD_MACRO_VS), // vs
   [AD_XS_SX] = COMBO(adaptiveXS, AD_MACRO_SX), // jsx
 
-  // H digraph adaptives
-  // CH
-  [AD_XCN_XCH] = COMBO(adaptiveXCN, AD_MACRO_XCH), // Exchange
-  [AD_SCN_SCH] = COMBO(adaptiveSCN, AD_MACRO_SCH), // Schedule
-  [AD_NCS_CHS] = COMBO(adaptiveNCS, AD_MACRO_CHS), // Epochs
-
-  // TH
-  // No FTH or THF because "thful" is very practiced
-  // and it's less reliable as an adaptive compared to TH+F
-  // No DTH because it's a comfortable scissor.
-  // No THD because it's only birthday and withdraw which are
-  // easier as compound words.
-
-  // SH
-  [AD_MWZ_MSH] = COMBO(adaptiveMWZ, AD_MACRO_MSH), // Gumshoe
-  [AD_ZWM_SHM] = COMBO(adaptiveZWM, AD_MACRO_SHM), // Establishment
-
-  // WH is never before consonants and _WH is always a compound word.
-
-  // GH
-  // Do NGH as upwards rolls
-  // Do GH(n/l/s) by downward rolls
-  // Do GH(f/k/b/p/c) as compound words
-
-  // PH
-  // No conflict with WH since this is defined second.
-
-  // H Bigram combos
-  [ST_COMBO_ZW] = COMBO(comboZW, ST_MACRO_SH),
-  [ST_COMBO_TK] = COMBO(comboTK, ST_MACRO_TH),
-  [ST_COMBO_WM] = COMBO(comboWM, ST_MACRO_GH),
-  [ST_COMBO_MG] = COMBO(comboMG, ST_MACRO_WH),
-  [ST_COMBO_CV] = COMBO(comboCV, ST_MACRO_CH),
-  [ST_COMBO_GF] = COMBO(comboGF, ST_MACRO_PH),
-  [ST_COMBO_XJ] = COMBO(comboXJ, ST_MACRO_XH),
-  [ST_COMBO_YH] = COMBO(comboYH, ST_MACRO_HY),
-  [ST_COMBO_IH] = COMBO(comboIH, ST_MACRO_HI),
-
-  [ST_COMBO_GK] = COMBO(comboGK, ST_MACRO_QU),
+  [ST_COMBO_FK] = COMBO(comboFK, ST_MACRO_QU),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -260,13 +153,7 @@ inline bool is_adaptive(uint16_t index) {
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-    case ST_COMBO_ZW:
-    case ST_COMBO_YH:
-        return COMBO_TERM + 10;
-    case ST_COMBO_CV:
-    case ST_COMBO_TK:
-        return COMBO_TERM + 20;
-    case ST_COMBO_GK:
+    case ST_COMBO_FK:
         return COMBO_TERM + 50;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
@@ -274,11 +161,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
 }
 
 bool get_combo_must_press_in_order(uint16_t index, combo_t *combo) {
-  switch (index) {
-      case ST_COMBO_MG:
-          return true;
-      default: return is_adaptive(index);
-  }
+    return is_adaptive(index);
 }
 
 // Disabled
@@ -378,31 +261,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
 
-  // Left pinky adaptives
-    SEND_CASED_STRINGS(AD_MACRO_SV, "sv", "Sv", "SV");
-    SEND_CASED_STRINGS(AD_MACRO_VS, "vs", "Vs", "VS");
     SEND_CASED_STRINGS(AD_MACRO_SX, "sx", "Sx", "SX");
-
-  // H digraph adaptives
-  // CH
-    SEND_CASED_STRINGS(AD_MACRO_XCH, "xch", "Xch", "XCH");
-    SEND_CASED_STRINGS(AD_MACRO_SCH, "sch", "Sch", "SCH");
-    SEND_CASED_STRINGS(AD_MACRO_CHS, "chs", "Chs", "CHS");
-
-  // SH
-    SEND_CASED_STRINGS(AD_MACRO_MSH, "msh", "Msh", "MSH");
-    SEND_CASED_STRINGS(AD_MACRO_SHM, "shm", "Shm", "SHM");
-
-  // H digraphs
-    SEND_CASED_STRINGS(ST_MACRO_WH, "wh", "Wh", "WH");
-    SEND_CASED_STRINGS(ST_MACRO_GH, "gh", "Gh", "GH");
-    SEND_CASED_STRINGS(ST_MACRO_SH, "sh", "Sh", "SH");
-    SEND_CASED_STRINGS(ST_MACRO_CH, "ch", "Ch", "CH");
-    SEND_CASED_STRINGS(ST_MACRO_TH, "th", "Th", "TH");
-    SEND_CASED_STRINGS(ST_MACRO_PH, "ph", "Ph", "PH");
-    SEND_CASED_STRINGS(ST_MACRO_XH, "xh", "Xh", "XH");
-    SEND_CASED_STRINGS(ST_MACRO_HY, "hy", "Hy", "HY");
-    SEND_CASED_STRINGS(ST_MACRO_HI, "hi", "Hi", "HI");
 
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
 
