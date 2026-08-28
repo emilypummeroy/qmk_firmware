@@ -38,10 +38,10 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_J),     KC_W,           KC_M,           KC_K,           KC_B,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    KC_TAB,         KC_Z,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
-    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_F,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_H,           CW_TOGG,
-    TO(_LEFT),      KC_X,           KC_V,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
+    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_H,           KC_M,           KC_B,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
+    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
+    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_K,           KC_D,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_J,           CW_TOGG,
+    TO(_LEFT),      KC_X,           KC_F,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
     KC_SPACE,       KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_R
   ),
 
@@ -124,11 +124,11 @@ enum combo_index {
   // Left pinky adaptives
   AD_XS_SX, ADAPTIVE_LAST = AD_XS_SX,
 
-  ST_COMBO_FK,
+  ST_COMBO_KG,
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboFK[] = { KC_F, KC_K, COMBO_END };
+const uint16_t PROGMEM comboKG[] = { KC_K, KC_G, COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
@@ -141,7 +141,7 @@ combo_t key_combos[] = {
 
   [AD_XS_SX] = COMBO(adaptiveXS, AD_MACRO_SX), // jsx
 
-  [ST_COMBO_FK] = COMBO(comboFK, ST_MACRO_QU),
+  [ST_COMBO_KG] = COMBO(comboKG, ST_MACRO_QU),
 };
 
 inline bool is_adaptive(uint16_t index) {
@@ -153,7 +153,7 @@ inline bool is_adaptive(uint16_t index) {
 
 uint16_t get_combo_term(uint16_t index, combo_t *combo) {
     switch (index) {
-    case ST_COMBO_FK:
+    case ST_COMBO_KG:
         return COMBO_TERM + 50;
     default:
         return is_adaptive(index) ? ADAPTIVE_TERM : COMBO_TERM;
@@ -278,7 +278,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_FORCED_STRING(ST_FORCE_X, "x");
 
   // Tap-hold keys
-    TAPHOLD_CASED(LT(0,KC_J), "q", "Q", "Q");
+    TAPHOLD_CASED(LT(0,KC_Z), "q", "Q", "Q");
 
   default:
     return true;
@@ -291,7 +291,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LALT, KC_UP):
   case MT(MOD_LCTL, KC_DOWN):
     return g_tapping_term + 50;
-  case LT(0,KC_J):
+  case LT(0,KC_Z):
     return g_tapping_term + 150;
   default:
     return g_tapping_term;
