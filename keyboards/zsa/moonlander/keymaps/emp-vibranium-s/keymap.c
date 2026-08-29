@@ -49,16 +49,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
-    ST_GRAVE,       ST_LBRC,        ST_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_MINUS,       _______,        ST_COMMA,       ST_DOT,         ST_SLASH,       ST_BSLS,
-    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        KC_SPACE,       _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
-    _______,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_LABK,        KC_RABK,                                                                        ST_EQUAL,       _______,        _______,        _______,        _______,        _______,
+    ST_GRAVE,       ST_LBRC,        ST_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
+    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        _______,        _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
+    _______,        _______,         KC_LPRN,        KC_RPRN,       KC_DLR,         KC_SPACE,                                                                        ST_EQUAL,       _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
     _______,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_MINUS,       _______,        ST_COMMA,       ST_DOT,         ST_SLASH,       ST_BSLS,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_EQUAL,       KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
     XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_LBRC,        KC_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        TO(_NUMPAD),    KC_MINUS,       KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
     _______, KC_CIRC,   MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,   _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_ASTR,        _______,
-    _______,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_LABK,        KC_RABK,                                                                        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_COMMA,       _______,
+    _______,        _______,         KC_LPRN,        KC_RPRN,       KC_DLR,         KC_SPACE,                                                                       KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_COMMA,       _______,
     TO(0),          ST_X,           TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_COLN,        KC_HASH,        TO(0),
     TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       KC_SPACE
   ),
