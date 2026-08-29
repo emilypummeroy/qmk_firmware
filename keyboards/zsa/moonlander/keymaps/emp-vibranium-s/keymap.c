@@ -5,16 +5,18 @@
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 
-  ST_FORCE_EQUAL,
-  ST_FORCE_SLASH,
-  ST_FORCE_BSLS,
-  ST_FORCE_MINUS,
-  ST_FORCE_GRAVE,
-  ST_FORCE_LBRC,
-  ST_FORCE_RBRC,
-  ST_FORCE_ZERO,
-  ST_FORCE_ONE,
-  ST_FORCE_X,
+  ST_EQUAL,
+  ST_SLASH,
+  ST_BSLS,
+  ST_MINUS,
+  ST_GRAVE,
+  ST_COMMA,
+  ST_DOT,
+  ST_LBRC,
+  ST_RBRC,
+  ST_ZERO,
+  ST_ONE,
+  ST_X,
 
   ST_MACRO_QU, KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
 
@@ -46,19 +48,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_LMOD] = LAYOUT_moonlander(
-    _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
-    ST_FORCE_GRAVE, ST_FORCE_LBRC,  ST_FORCE_RBRC,  KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
-    _______,        KC_AMPR,        KC_LGUI,        KC_LALT,        KC_LCTL,        XXXXXXX,        _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
-    _______,        KC_PIPE,        KC_LPRN,        KC_RPRN,        KC_DLR,         KC_CIRC,                                                                        ST_FORCE_EQUAL, _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        ST_FORCE_X,     _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
+    _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
+    ST_GRAVE,       ST_LBRC,        ST_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_MINUS,       _______,        ST_COMMA,       ST_DOT,         ST_SLASH,       ST_BSLS,
+    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        KC_SPACE,       _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
+    _______,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_LABK,        KC_RABK,                                                                        ST_EQUAL,       _______,        _______,        _______,        _______,        _______,
+    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
     _______,        XXXXXXX,        _______,                        _______,        _______,        _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
-    _______,        _______,        _______,        ST_FORCE_ONE,   _______,        _______,        _______,                                        _______,        _______,        _______,        ST_FORCE_ZERO,  _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_FORCE_MINUS, _______,        _______,        _______,        ST_FORCE_SLASH, ST_FORCE_BSLS,
+    _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_MINUS,       _______,        ST_COMMA,       ST_DOT,         ST_SLASH,       ST_BSLS,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_FORCE_EQUAL, KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_EQUAL,       KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
     XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
     _______,        _______,        _______,                        _______,        XXXXXXX,        _______
   ),
@@ -66,10 +68,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_NUM] = LAYOUT_moonlander(
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
     _______,        KC_LBRC,        KC_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        TO(_NUMPAD),    KC_MINUS,       KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
-    _______, KC_DLR,  MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,     _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_COMMA,       _______,
-    _______,        KC_LABK,        KC_LPRN,        KC_RPRN,        KC_EQUAL,       KC_RABK,                                                                        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_KP_EQUAL,    _______,
-    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_COLN,        KC_HASH,        TO(0),
-    TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       _______
+    _______, KC_CIRC,   MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,   _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_ASTR,        _______,
+    _______,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_LABK,        KC_RABK,                                                                        KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_COMMA,       _______,
+    TO(0),          ST_X,           TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_COLN,        KC_HASH,        TO(0),
+    TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       KC_SPACE
   ),
 
   [_NUMPAD] = LAYOUT_moonlander(
@@ -202,9 +204,11 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_PLUS:
   case KC_ASTR:
   case KC_BSLS:
-  case ST_FORCE_MINUS:
-  case ST_FORCE_GRAVE:
-  case ST_FORCE_SLASH:
+  case KC_DOT:
+  case ST_MINUS:
+  case ST_GRAVE:
+  case ST_SLASH:
+  case ST_DOT:
   case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
     return true;
 
@@ -266,16 +270,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
 
   // Forced characters
-    SEND_FORCED_STRING(ST_FORCE_EQUAL, "=");
-    SEND_FORCED_STRING(ST_FORCE_SLASH, "/");
-    SEND_FORCED_STRING(ST_FORCE_BSLS, "\\");
-    SEND_FORCED_STRING(ST_FORCE_MINUS, "-");
-    SEND_FORCED_STRING(ST_FORCE_GRAVE, "`");
-    SEND_FORCED_STRING(ST_FORCE_LBRC, "[");
-    SEND_FORCED_STRING(ST_FORCE_RBRC, "]");
-    SEND_FORCED_STRING(ST_FORCE_ZERO, "0");
-    SEND_FORCED_STRING(ST_FORCE_ONE, "1");
-    SEND_FORCED_STRING(ST_FORCE_X, "x");
+    SEND_FORCED_STRING(ST_EQUAL, "=");
+    SEND_FORCED_STRING(ST_SLASH, "/");
+    SEND_FORCED_STRING(ST_BSLS, "\\");
+    SEND_FORCED_STRING(ST_DOT, ".");
+    SEND_FORCED_STRING(ST_COMMA, ",");
+    SEND_FORCED_STRING(ST_MINUS, "-");
+    SEND_FORCED_STRING(ST_GRAVE, "`");
+    SEND_FORCED_STRING(ST_LBRC, "[");
+    SEND_FORCED_STRING(ST_RBRC, "]");
+    SEND_FORCED_STRING(ST_ZERO, "0");
+    SEND_FORCED_STRING(ST_ONE, "1");
+    SEND_FORCED_STRING(ST_X, "x");
 
   // Tap-hold keys
     TAPHOLD_CASED(LT(0,KC_Z), "q", "Q", "Q");
