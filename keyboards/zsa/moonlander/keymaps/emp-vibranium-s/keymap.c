@@ -44,13 +44,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_J,           CW_TOGG,
     TO(_LEFT),      KC_X,           KC_F,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
-    KC_SPACE,       KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_R
+    KC_R,           KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
     ST_GRAVE,       ST_LBRC,        ST_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
-    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        _______,        _______,                                        KC_SPACE,       _______,        _______,        _______,        _______,        KC_EXLM,        _______,
+    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_EXLM,        _______,
     _______,        _______,         KC_LPRN,        KC_RPRN,       KC_DLR,         KC_SPACE,                                                                        ST_EQUAL,       _______,        _______,        _______,        _______,        _______,
     XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
     _______,        XXXXXXX,        _______,                        _______,        _______,        _______
@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RMOD] = LAYOUT_moonlander(
     _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
+    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_SPACE,       _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
     _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_EQUAL,       KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
     XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
     _______,        _______,        _______,                        _______,        XXXXXXX,        _______
