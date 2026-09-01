@@ -40,7 +40,7 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_moonlander(
     XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_H,           KC_M,           KC_K,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
+    KC_GRAVE,       KC_Z,           KC_W,           KC_H,           KC_M,           LT(0,KC_K),     KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
     KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
     MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_J,           CW_TOGG,
     TO(_LEFT),      KC_X,           KC_F,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
@@ -130,7 +130,7 @@ enum combo_index {
 };
 
 // Bigram combo
-const uint16_t PROGMEM comboBK[] = { KC_B, KC_K, COMBO_END };
+const uint16_t PROGMEM comboBK[] = { KC_B, LT(0,KC_K), COMBO_END };
 
 // Miscellaneous letters
 const uint16_t PROGMEM adaptiveMC[] = { KC_M, KC_C, COMBO_END };
@@ -284,7 +284,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_FORCED_STRING(ST_X, "x");
 
   // Tap-hold keys
-    TAPHOLD_CASED(LT(0,KC_Z), "q", "Q", "Q");
+    TAPHOLD_CASED(LT(0,KC_K), "q", "Q", "Q");
 
   default:
     return true;
@@ -297,7 +297,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   case MT(MOD_LALT, KC_UP):
   case MT(MOD_LCTL, KC_DOWN):
     return g_tapping_term + 50;
-  case LT(0,KC_Z):
+  case LT(0,KC_K):
     return g_tapping_term + 150;
   default:
     return g_tapping_term;
