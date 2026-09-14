@@ -6,8 +6,6 @@ enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
 
   ST_EQUAL,
-  ST_SLASH,
-  ST_BSLS,
   ST_MINUS,
   ST_COMMA,
   ST_DOT,
@@ -149,11 +147,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
           // Upper
           _______,
+          KC_PERC,
           ST_LBRC,
           ST_RBRC,
           KC_LCBR,
           KC_RCBR,
-          KC_PERC,
           _______,
 
           _______,
@@ -161,12 +159,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,
           _______,
           _______,
-          ST_SLASH,
-          ST_BSLS,
+          KC_HASH,
+          _______,
 
           // Middle
           _______,
-          KC_CIRC,
+          _______,
           KC_LGUI,
           KC_LALT,
           KC_LCTL,
@@ -179,14 +177,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,
           _______,
           KC_EXLM,
-          _______,
+          KC_AMPR,
 
           // Lower
           _______,
           _______,
+          KC_DLR,
           KC_LPRN,
           KC_RPRN,
-          KC_DLR,
           KC_SPACE,
 
           ST_EQUAL,
@@ -199,7 +197,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           // Base
           XXXXXXX,
           _______,
-          _______,
+          KC_CIRC,
           _______,
           _______,
           _______,
@@ -253,8 +251,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,
           _______,
           _______,
-          ST_SLASH,
-          ST_BSLS,
+          KC_HASH,
+          KC_BSLS,
 
           // Middle
           _______,
@@ -271,7 +269,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           KC_RALT,
           KC_RGUI,
           KC_EXLM,
-          _______,
+          KC_AMPR,
 
           // Lower
           _______,
@@ -282,9 +280,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,
 
           ST_EQUAL,
-          KC_AMPR,
-          KC_PIPE,
-          KC_HASH,
+          _______,
+          _______,
+          _______,
           _______,
           _______,
 
@@ -333,11 +331,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
           // Upper
           _______,
+          KC_PERC,
           KC_LBRC,
           KC_RBRC,
           KC_LCBR,
           KC_RCBR,
-          KC_PERC,
           _______,
 
           TO(_NUMPAD),
@@ -350,7 +348,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
           // Middle
           _______,
-          KC_CIRC,
+          _______,
           MT(MOD_LGUI, KC_LEFT),
           MT(MOD_LALT, KC_UP),
           MT(MOD_LCTL, KC_DOWN),
@@ -368,9 +366,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           // Lower
           _______,
           _______,
+          KC_DLR,
           KC_LPRN,
           KC_RPRN,
-          KC_DLR,
           KC_SPACE,
 
           KC_EQUAL,
@@ -383,7 +381,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           // Base
           TO(0),
           ST_X,
-          TO(_FN),
+          KC_CIRC,
           TO(0),
           _______,
           _______,
@@ -953,7 +951,6 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_GRAVE:
   case KC_DOT:
   case ST_MINUS:
-  case ST_SLASH:
   case ST_DOT:
   case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
     return true;
@@ -1017,8 +1014,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   // Forced characters
     SEND_FORCED_STRING(ST_EQUAL, "=");
-    SEND_FORCED_STRING(ST_SLASH, "/");
-    SEND_FORCED_STRING(ST_BSLS, "\\");
     SEND_FORCED_STRING(ST_DOT, ".");
     SEND_FORCED_STRING(ST_COMMA, ",");
     SEND_FORCED_STRING(ST_MINUS, "-");
