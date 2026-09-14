@@ -38,85 +38,832 @@ enum Layers {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT_moonlander(
-    XXXXXXX,        KC_7,           KC_3,           KC_1,           KC_5,           KC_9,           XXXXXXX,                                        XXXXXXX,        KC_6,           KC_2,           KC_0,           KC_4,           KC_8,           XXXXXXX,
-    KC_GRAVE,       LT(0,KC_Z),     KC_W,           KC_H,           KC_M,           KC_K,           KC_BACKSPACE,                                   KC_INSERT,      KC_MINUS,       KC_QUOT,        KC_COMMA,       KC_DOT,         KC_SLASH,       KC_BSLS,
-    KC_TAB,         KC_V,           KC_C,           KC_N,           KC_T,           KC_G,           KC_DELETE,                                      KC_UNDS,        KC_PLUS,        KC_A,           KC_E,           KC_I,           KC_QUES,        KC_ASTR,
-    MO(_LEFT),      KC_S,           KC_P,           KC_L,           KC_D,           KC_B,                                                                           KC_EQUAL,       KC_U,           KC_O,           KC_Y,           KC_J,           CW_TOGG,
-    TO(_LEFT),      KC_X,           KC_F,           MO(_NUM),       LM(_LMOD,MOD_LSFT),             KC_ESCAPE,                                      RCTL(KC_BSPC),             LM(_RMOD,MOD_RSFT),  MO(_FN),        KC_SCLN,        KC_AT,          XXXXXXX,
-    KC_R,           KC_ENTER,       XXXXXXX,                        XXXXXXX,        KC_ENTER,       KC_SPACE
+    [_BASE] = LAYOUT_moonlander(
+          // Top
+          XXXXXXX,
+          KC_7,
+          KC_3,
+          KC_1,
+          KC_5,
+          KC_9,
+          XXXXXXX,
+
+          XXXXXXX,
+          KC_6,
+          KC_2,
+          KC_0,
+          KC_4,
+          KC_8,
+          XXXXXXX,
+
+          // Upper
+          KC_GRAVE,
+          LT(0, KC_Z),
+          KC_W,
+          KC_H,
+          KC_M,
+          KC_K,
+          KC_BACKSPACE,
+
+          KC_INSERT,
+          KC_MINUS,
+          KC_QUOT,
+          KC_COMMA,
+          KC_DOT,
+          KC_SLASH,
+          KC_BSLS,
+
+          // Middle
+          KC_TAB,
+          KC_V,
+          KC_C,
+          KC_N,
+          KC_T,
+          KC_G,
+          KC_DELETE,
+
+          KC_UNDS,
+          KC_PLUS,
+          KC_A,
+          KC_E,
+          KC_I,
+          KC_QUES,
+          KC_ASTR,
+
+          // Lower
+          MO(_LEFT),
+          KC_S,
+          KC_P,
+          KC_L,
+          KC_D,
+          KC_B,
+
+          KC_EQUAL,
+          KC_U,
+          KC_O,
+          KC_Y,
+          KC_J,
+          CW_TOGG,
+
+          // Base
+          TO(_LEFT),
+          KC_X,
+          KC_F,
+          MO(_NUM),
+          LM(_LMOD, MOD_LSFT),
+          KC_ESCAPE,
+
+          RCTL(KC_BSPC),
+          LM(_RMOD, MOD_RSFT),
+          MO(_FN),
+          KC_SCLN,
+          KC_AT,
+          XXXXXXX,
+
+          // Thumb
+          KC_R,
+          KC_ENTER,
+          XXXXXXX,
+
+          XXXXXXX,
+          KC_ENTER,
+          KC_SPACE
   ),
 
   [_LMOD] = LAYOUT_moonlander(
-    _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
-    ST_GRAVE,       ST_LBRC,        ST_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
-    _______,        KC_CIRC,        KC_LGUI,        KC_LALT,        KC_LCTL,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        KC_EXLM,        _______,
-    _______,        _______,         KC_LPRN,        KC_RPRN,       KC_DLR,         KC_SPACE,                                                                        ST_EQUAL,       _______,        _______,        _______,        _______,        _______,
-    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
-    _______,        XXXXXXX,        _______,                        _______,        _______,        _______
+          // Top
+          _______,
+          _______,
+          _______,
+          ST_ONE,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          ST_ZERO,
+          _______,
+          _______,
+          _______,
+
+          // Upper
+          ST_GRAVE,
+          ST_LBRC,
+          ST_RBRC,
+          KC_LCBR,
+          KC_RCBR,
+          KC_PERC,
+          _______,
+
+          _______,
+          ST_MINUS,
+          _______,
+          _______,
+          _______,
+          ST_SLASH,
+          ST_BSLS,
+
+          // Middle
+          _______,
+          KC_CIRC,
+          KC_LGUI,
+          KC_LALT,
+          KC_LCTL,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          KC_EXLM,
+          _______,
+
+          // Lower
+          _______,
+          _______,
+          KC_LPRN,
+          KC_RPRN,
+          KC_DLR,
+          KC_SPACE,
+
+          ST_EQUAL,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Base
+          XXXXXXX,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          RCTL(KC_BSPC),
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Thumb
+          _______,
+          XXXXXXX,
+          _______,
+
+          _______,
+          _______,
+          _______
   ),
 
   [_RMOD] = LAYOUT_moonlander(
-    _______,        _______,        _______,        ST_ONE,         _______,        _______,        _______,                                        _______,        _______,        _______,        ST_ZERO,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        ST_MINUS,       _______,        _______,        _______,        ST_SLASH,       ST_BSLS,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_SPACE,       _______,        KC_RCTL,        KC_RALT,        KC_RGUI,        KC_EXLM,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,                                                                        ST_EQUAL,       KC_AMPR,        KC_PIPE,        KC_HASH,        _______,        _______,
-    XXXXXXX,        _______,        _______,        _______,        _______,                        _______,                                        RCTL(KC_BSPC),                  _______,        _______,        _______,        _______,          _______,
-    _______,        _______,        _______,                        _______,        XXXXXXX,        _______
+          // Top
+          _______,
+          _______,
+          _______,
+          ST_ONE,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          ST_ZERO,
+          _______,
+          _______,
+          _______,
+
+          // Upper
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          ST_MINUS,
+          _______,
+          _______,
+          _______,
+          ST_SLASH,
+          ST_BSLS,
+
+          // Middle
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          KC_SPACE,
+          _______,
+          KC_RCTL,
+          KC_RALT,
+          KC_RGUI,
+          KC_EXLM,
+          _______,
+
+          // Lower
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          ST_EQUAL,
+          KC_AMPR,
+          KC_PIPE,
+          KC_HASH,
+          _______,
+          _______,
+
+          // Base
+          XXXXXXX,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          RCTL(KC_BSPC),
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Thumb
+          _______,
+          _______,
+          _______,
+
+          _______,
+          XXXXXXX,
+          _______
   ),
 
   [_NUM] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        KC_LBRC,        KC_RBRC,        KC_LCBR,        KC_RCBR,        KC_PERC,        _______,                                        TO(_NUMPAD),    KC_MINUS,       KC_7,           KC_8,           KC_9,           KC_SLASH,       _______,
-    _______, KC_CIRC,   MT(MOD_LGUI,KC_LEFT), MT(MOD_LALT,KC_UP), MT(MOD_LCTL,KC_DOWN), KC_RIGHT,   _______,                                        _______,        KC_PLUS,        KC_4,           KC_5,           KC_6,           KC_ASTR,        _______,
-    _______,        _______,         KC_LPRN,        KC_RPRN,       KC_DLR,         KC_SPACE,                                                                       KC_EQUAL,       KC_1,           KC_2,           KC_3,           KC_COMMA,       _______,
-    TO(0),          ST_X,           TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_0,           KC_DOT,         KC_COLN,        KC_HASH,        TO(0),
-    TO(_NUMPAD),    _______,        _______,                        _______,        KC_ENTER,       KC_SPACE
+          // Top
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Upper
+          _______,
+          KC_LBRC,
+          KC_RBRC,
+          KC_LCBR,
+          KC_RCBR,
+          KC_PERC,
+          _______,
+
+          TO(_NUMPAD),
+          KC_MINUS,
+          KC_7,
+          KC_8,
+          KC_9,
+          KC_SLASH,
+          _______,
+
+          // Middle
+          _______,
+          KC_CIRC,
+          MT(MOD_LGUI, KC_LEFT),
+          MT(MOD_LALT, KC_UP),
+          MT(MOD_LCTL, KC_DOWN),
+          KC_RIGHT,
+          _______,
+
+          _______,
+          KC_PLUS,
+          KC_4,
+          KC_5,
+          KC_6,
+          KC_ASTR,
+          _______,
+
+          // Lower
+          _______,
+          _______,
+          KC_LPRN,
+          KC_RPRN,
+          KC_DLR,
+          KC_SPACE,
+
+          KC_EQUAL,
+          KC_1,
+          KC_2,
+          KC_3,
+          KC_COMMA,
+          _______,
+
+          // Base
+          TO(0),
+          ST_X,
+          TO(_FN),
+          TO(0),
+          _______,
+          _______,
+
+          KC_BSPC,
+          KC_0,
+          KC_DOT,
+          KC_COLN,
+          KC_HASH,
+          TO(0),
+
+          // Thumb
+          TO(_NUMPAD),
+          _______,
+          _______,
+
+          _______,
+          KC_ENTER,
+          KC_SPACE
   ),
 
   [_NUMPAD] = LAYOUT_moonlander(
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        KC_NUM,         KC_KP_MINUS,    KC_KP_7,        KC_KP_8,        KC_KP_9,        KC_KP_SLASH,    _______,
-    _______,        _______,        _______,        _______,        _______,        _______,        _______,                                        _______,        KC_KP_PLUS,     KC_KP_4,        KC_KP_5,        KC_KP_6,        _______,        _______,
-    _______,        KC_LPRN,        KC_EQUAL,       KC_LBRC,        KC_RBRC,        KC_RPRN,                                                                        KC_KP_EQUAL,    KC_KP_1,        KC_KP_2,        KC_KP_3,        KC_KP_EQUAL,    _______,
-    TO(0),          _______,        TO(_FN),        TO(0),          _______,                        _______,                                        KC_BSPC,                        KC_KP_0,        KC_KP_DOT,      _______,        KC_KP_ASTERISK, TO(0),
-    TO(_NUM),       KC_KP_COMMA,    _______,                        _______,        KC_KP_ENTER,    _______
+          // Top
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Upper
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          KC_NUM,
+          KC_KP_MINUS,
+          KC_KP_7,
+          KC_KP_8,
+          KC_KP_9,
+          KC_KP_SLASH,
+          _______,
+
+          // Middle
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          _______,
+          KC_KP_PLUS,
+          KC_KP_4,
+          KC_KP_5,
+          KC_KP_6,
+          _______,
+          _______,
+
+          // Lower
+          _______,
+          KC_LPRN,
+          KC_EQUAL,
+          KC_LBRC,
+          KC_RBRC,
+          KC_RPRN,
+
+          KC_KP_EQUAL,
+          KC_KP_1,
+          KC_KP_2,
+          KC_KP_3,
+          KC_KP_EQUAL,
+          _______,
+
+          // Base
+          TO(0),
+          _______,
+          TO(_FN),
+          TO(0),
+          _______,
+          _______,
+
+          KC_BSPC,
+          KC_KP_0,
+          KC_KP_DOT,
+          _______,
+          KC_KP_ASTERISK,
+          TO(0),
+
+          // Thumb
+          TO(_NUM),
+          KC_KP_COMMA,
+          _______,
+
+          _______,
+          KC_KP_ENTER,
+          _______
   ),
 
   [_FN] = LAYOUT_moonlander(
-    _______,        KC_F14,         KC_F12,         KC_F11,         KC_F10,         KC_F15,         _______,                                        _______,        KC_F16,         KC_F17,         KC_F18,         KC_F19,         KC_F20,         _______,
-    _______,        KC_F13,         KC_F9,          KC_F8,          KC_F7,          KC_F23,         KC_F24,                                         KC_INSERT,      KC_ESCAPE,      KC_MPRV,        KC_MNXT,        KC_MPLY,        KC_MUTE,        KC_VOLU,
-    _______,      KC_BRIU, MT(MOD_LGUI,KC_F6), MT(MOD_LALT,KC_F5), MT(MOD_LCTL,KC_F4), KC_F22,      _______,                                        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_TAB,         KC_VOLD,
-    _______,        KC_BRID,        KC_F3,       KC_F2,          KC_F1,          KC_F21,                                                                            KC_HOME,        KC_PGDN,        KC_PAGE_UP,     KC_END,         LCTL(KC_G),     KC_WWW_SEARCH,
-    TO(0),          _______,        TO(0),          TO(_NUM),       _______,                        _______,                                        KC_BSPC,                        KC_RIGHT_SHIFT, TO(0),          _______,        _______,        TO(0),
-    _______,        _______,        _______,                        _______,        _______,        _______
+          // Top
+          _______,
+          KC_F14,
+          KC_F12,
+          KC_F11,
+          KC_F10,
+          KC_F15,
+          _______,
+
+          _______,
+          KC_F16,
+          KC_F17,
+          KC_F18,
+          KC_F19,
+          KC_F20,
+          _______,
+
+          // Upper
+          _______,
+          KC_F13,
+          KC_F9,
+          KC_F8,
+          KC_F7,
+          KC_F23,
+          KC_F24,
+
+          KC_INSERT,
+          KC_ESCAPE,
+          KC_MPRV,
+          KC_MNXT,
+          KC_MPLY,
+          KC_MUTE,
+          KC_VOLU,
+
+          // Middle
+          _______,
+          KC_BRIU,
+          MT(MOD_LGUI, KC_F6),
+          MT(MOD_LALT, KC_F5),
+          MT(MOD_LCTL, KC_F4),
+          KC_F22,
+          _______,
+
+          KC_DELETE,
+          KC_LEFT,
+          KC_DOWN,
+          KC_UP,
+          KC_RIGHT,
+          KC_TAB,
+          KC_VOLD,
+
+          // Lower
+          _______,
+          KC_BRID,
+          KC_F3,
+          KC_F2,
+          KC_F1,
+          KC_F21,
+
+          KC_HOME,
+          KC_PGDN,
+          KC_PAGE_UP,
+          KC_END,
+          LCTL(KC_G),
+          KC_WWW_SEARCH,
+
+          // Base
+          TO(0),
+          _______,
+          TO(0),
+          TO(_NUM),
+          _______,
+          _______,
+
+          KC_BSPC,
+          KC_RIGHT_SHIFT,
+          TO(0),
+          _______,
+          _______,
+          TO(0),
+
+          // Thumb
+          _______,
+          _______,
+          _______,
+
+          _______,
+          _______,
+          _______
   ),
 
   [_LEFT] = LAYOUT_moonlander(
-    _______,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           _______,                                        _______,        KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           _______,
-    KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,                                           KC_LBRC,        KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_MINUS,
-    KC_TAB,         KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                           KC_EQUAL,       KC_H,           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,
-    MO(_LFN),       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RIGHT_CTRL,
-    KC_LEFT_ALT,    _______,        KC_LEFT_GUI,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,                  KC_ESCAPE,                                      KC_BSPC,                        KC_RIGHT_SHIFT, KC_RIGHT_ALT,   KC_CAPS,        _______,        TO(0),
-    KC_SPACE,       KC_ENTER,       _______,                        _______,        _______,        _______
+          // Top
+          _______,
+          KC_1,
+          KC_2,
+          KC_3,
+          KC_4,
+          KC_5,
+          _______,
+
+          _______,
+          KC_6,
+          KC_7,
+          KC_8,
+          KC_9,
+          KC_0,
+          _______,
+
+          // Upper
+          KC_GRAVE,
+          KC_Q,
+          KC_W,
+          KC_E,
+          KC_R,
+          KC_T,
+          KC_Y,
+
+          KC_LBRC,
+          KC_Y,
+          KC_U,
+          KC_I,
+          KC_O,
+          KC_P,
+          KC_MINUS,
+
+          // Middle
+          KC_TAB,
+          KC_A,
+          KC_S,
+          KC_D,
+          KC_F,
+          KC_G,
+          KC_H,
+
+          KC_EQUAL,
+          KC_H,
+          KC_J,
+          KC_K,
+          KC_L,
+          KC_SCLN,
+          KC_QUOTE,
+
+          // Lower
+          MO(_LFN),
+          KC_Z,
+          KC_X,
+          KC_C,
+          KC_V,
+          KC_B,
+
+          KC_N,
+          KC_M,
+          KC_COMMA,
+          KC_DOT,
+          KC_SLASH,
+          KC_RIGHT_CTRL,
+
+          // Base
+          KC_LEFT_ALT,
+          _______,
+          KC_LEFT_GUI,
+          KC_LEFT_CTRL,
+          KC_LEFT_SHIFT,
+          KC_ESCAPE,
+
+          KC_BSPC,
+          KC_RIGHT_SHIFT,
+          KC_RIGHT_ALT,
+          KC_CAPS,
+          _______,
+          TO(0),
+
+          // Thumb
+          KC_SPACE,
+          KC_ENTER,
+          _______,
+
+          _______,
+          _______,
+          _______
   ),
 
   [_LFN] = LAYOUT_moonlander(
-    _______,        KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          _______,                                        _______,        _______,        _______,        _______,        _______,        _______,        _______,
-    KC_DELETE,      KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_U,                                           KC_RBRC,        UG_VALU,        UG_VALU,        UG_VALU,        DT_UP,          DT_PRNT,        KC_SCRL,
-    KC_BSPC,        KC_F11,         KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       KC_L,                                           XXXXXXX,        UG_VALD,        UG_VALD,        UG_VALD,        DT_DOWN,        KC_PAUSE,       KC_PSCR,
-    KC_RIGHT_ALT,   KC_F12,         KC_HOME,        KC_PAGE_UP,     KC_PGDN,        KC_END,                                                                         CM_OFF,         CM_ON,          LED_LEVEL,      AU_TOGG,        KC_BSLS,        KC_RIGHT_CTRL,
-    _______,        _______,        KC_RIGHT_GUI,   KC_RIGHT_CTRL,  KC_LEFT_SHIFT,                  KC_ESCAPE,                                      KC_BSPC,                        MO(_FIRMWARE),  _______,        _______,        _______,        TO(0),
-    KC_SPACE,       KC_ENTER,       _______,                        _______,        TO(0),          _______
+          // Top
+          _______,
+          KC_F1,
+          KC_F2,
+          KC_F3,
+          KC_F4,
+          KC_F5,
+          _______,
+
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+          _______,
+
+          // Upper
+          KC_DELETE,
+          KC_F6,
+          KC_F7,
+          KC_F8,
+          KC_F9,
+          KC_F10,
+          KC_U,
+
+          KC_RBRC,
+          UG_VALU,
+          UG_VALU,
+          UG_VALU,
+          DT_UP,
+          DT_PRNT,
+          KC_SCRL,
+
+          // Middle
+          KC_BSPC,
+          KC_F11,
+          KC_LEFT,
+          KC_UP,
+          KC_DOWN,
+          KC_RIGHT,
+          KC_L,
+
+          XXXXXXX,
+          UG_VALD,
+          UG_VALD,
+          UG_VALD,
+          DT_DOWN,
+          KC_PAUSE,
+          KC_PSCR,
+
+          // Lower
+          KC_RIGHT_ALT,
+          KC_F12,
+          KC_HOME,
+          KC_PAGE_UP,
+          KC_PGDN,
+          KC_END,
+
+          CM_OFF,
+          CM_ON,
+          LED_LEVEL,
+          AU_TOGG,
+          KC_BSLS,
+          KC_RIGHT_CTRL,
+
+          // Base
+          _______,
+          _______,
+          KC_RIGHT_GUI,
+          KC_RIGHT_CTRL,
+          KC_LEFT_SHIFT,
+          KC_ESCAPE,
+
+          KC_BSPC,
+          MO(_FIRMWARE),
+          _______,
+          _______,
+          _______,
+          TO(0),
+
+          // Thumb
+          KC_SPACE,
+          KC_ENTER,
+          _______,
+
+          _______,
+          TO(0),
+          _______
   ),
 
   [_FIRMWARE] = LAYOUT_moonlander(
-    XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-    XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        EE_CLR,         XXXXXXX,                                        XXXXXXX,        QK_BOOT,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-    XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-    XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                                                                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,
-    TO(0),          XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,                                        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX,        XXXXXXX,        TO(0),
-    XXXXXXX,        XXXXXXX,        XXXXXXX,                        XXXXXXX,        XXXXXXX,        XXXXXXX
+          // Top
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          // Upper
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          EE_CLR,
+          XXXXXXX,
+
+          XXXXXXX,
+          QK_BOOT,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          // Middle
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          // Lower
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          // Base
+          TO(0),
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+          TO(0),
+
+          // Thumb
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX,
+
+          XXXXXXX,
+          XXXXXXX,
+          XXXXXXX
   ),
 };
 
