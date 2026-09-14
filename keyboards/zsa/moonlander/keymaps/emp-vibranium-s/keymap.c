@@ -9,7 +9,6 @@ enum custom_keycodes {
   ST_SLASH,
   ST_BSLS,
   ST_MINUS,
-  ST_GRAVE,
   ST_COMMA,
   ST_DOT,
   ST_LBRC,
@@ -149,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           _______,
 
           // Upper
-          ST_GRAVE,
+          _______,
           ST_LBRC,
           ST_RBRC,
           KC_LCBR,
@@ -951,9 +950,9 @@ bool caps_word_press_user(uint16_t keycode) {
   case KC_PLUS:
   case KC_ASTR:
   case KC_BSLS:
+  case KC_GRAVE:
   case KC_DOT:
   case ST_MINUS:
-  case ST_GRAVE:
   case ST_SLASH:
   case ST_DOT:
   case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
@@ -1023,7 +1022,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     SEND_FORCED_STRING(ST_DOT, ".");
     SEND_FORCED_STRING(ST_COMMA, ",");
     SEND_FORCED_STRING(ST_MINUS, "-");
-    SEND_FORCED_STRING(ST_GRAVE, "`");
     SEND_FORCED_STRING(ST_LBRC, "[");
     SEND_FORCED_STRING(ST_RBRC, "]");
     SEND_FORCED_STRING(ST_ZERO, "0");
