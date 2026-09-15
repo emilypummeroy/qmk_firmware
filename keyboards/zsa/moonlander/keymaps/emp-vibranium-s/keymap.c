@@ -147,11 +147,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
           // Upper
           _______,
-          KC_PERC,
           ST_LBRC,
           ST_RBRC,
           KC_LCBR,
           KC_RCBR,
+          KC_PERC,
           _______,
 
           _______,
@@ -182,9 +182,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           // Lower
           _______,
           _______,
-          KC_DLR,
           KC_LPRN,
           KC_RPRN,
+          KC_DLR,
           KC_SPACE,
 
           ST_EQUAL,
@@ -331,11 +331,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
           // Upper
           _______,
-          KC_PERC,
           KC_LBRC,
           KC_RBRC,
           KC_LCBR,
           KC_RCBR,
+          KC_PERC,
           _______,
 
           TO(_NUMPAD),
@@ -366,9 +366,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
           // Lower
           _______,
           _______,
-          KC_DLR,
           KC_LPRN,
           KC_RPRN,
+          KC_DLR,
           KC_SPACE,
 
           KC_EQUAL,
