@@ -11,8 +11,8 @@ enum custom_keycodes {
     ST_DOT,
     ST_LBRC,
     ST_RBRC,
-    ST_ZERO,
-    ST_ONE,
+    ST_BSLS,
+    ST_GRAVE,
     ST_X,
 
     ST_MACRO_QU,
@@ -44,19 +44,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         XXXXXXX, KC_6, KC_2, KC_0, KC_4, KC_8, XXXXXXX,
 
         // Upper
-        KC_GRAVE, LT(0, KC_Z), KC_W, KC_H, KC_M, KC_K, KC_BACKSPACE,
+        KC_Q, KC_Z, KC_W, KC_H, KC_M, KC_K, KC_BACKSPACE,
 
-        KC_LBRC, KC_RBRC, KC_COMMA, KC_DOT, KC_QUOT, KC_SLASH, KC_BSLS,
+        KC_LBRC, KC_RBRC, KC_COMMA, KC_DOT, KC_QUOT, KC_SLASH, ST_GRAVE,
 
         // Middle
         KC_TAB, KC_V, KC_C, KC_N, KC_T, KC_G, KC_DELETE,
 
-        KC_PLUS, ST_MINUS, KC_A, KC_E, KC_I, KC_QUES, KC_ASTR,
+        ST_EQUAL, ST_MINUS, KC_A, KC_E, KC_I, KC_ASTR, ST_EQUAL,
 
         // Lower
         MO(_LEFT), KC_S, KC_P, KC_L, KC_D, KC_B,
 
-        ST_EQUAL, KC_U, KC_O, KC_Y, KC_J, CW_TOGG,
+        KC_PLUS, KC_U, KC_O, KC_Y, KC_J, CW_TOGG,
 
         // Base
         TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
@@ -70,29 +70,29 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LMOD] = LAYOUT_moonlander(
         // Top
-        _______, _______, _______, ST_ONE, _______, _______, _______,
+        _______, KC_AMPR, KC_PIPE, KC_EXLM, KC_PERC, KC_LPRN, _______,
 
-        _______, _______, _______, ST_ZERO, _______, _______, _______,
+        _______, KC_CIRC, KC_AT, KC_QUES, KC_DLR, KC_TILDE, _______,
 
         // Upper
-        _______, ST_LBRC, ST_RBRC, KC_LCBR, KC_RCBR, KC_PERC, _______,
+        _______, ST_LBRC, ST_RBRC, KC_CIRC, KC_DLR, _______, _______,
 
-        _______, _______, _______, _______, _______, KC_HASH, _______,
+        _______, _______, _______, _______, _______, KC_BSLS, _______,
 
         // Middle
         _______, _______, KC_LGUI, KC_LALT, KC_LCTL, _______, _______,
 
-        _______, _______, _______, _______, _______, KC_EXLM, KC_AMPR,
+        _______, _______, _______, _______, _______, KC_HASH, _______,
 
         // Lower
-        _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
+        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
 
         _______, _______, _______, _______, _______, _______,
 
         // Base
-        XXXXXXX, _______, KC_CIRC, _______, _______, _______,
+        XXXXXXX, _______, _______, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, _______, KC_AT, _______,
+        RCTL(KC_BSPC), _______, _______, _______, _______, _______,
 
         // Thumb
         _______, XXXXXXX, _______,
@@ -101,19 +101,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_RMOD] = LAYOUT_moonlander(
         // Top
-        _______, _______, _______, ST_ONE, _______, _______, _______,
+        _______, KC_AMPR, KC_PIPE, KC_EXLM, KC_PERC, KC_LPRN, _______,
 
-        _______, _______, _______, ST_ZERO, _______, _______, _______,
+        _______, KC_CIRC, KC_AT, KC_QUES, KC_DLR, KC_TILDE, _______,
 
         // Upper
         _______, _______, _______, _______, _______, _______, _______,
 
-        _______, _______, _______, _______, _______, KC_HASH, KC_BSLS,
+        _______, _______, _______, _______, _______, ST_BSLS, _______,
 
         // Middle
         _______, _______, _______, _______, _______, _______, _______,
 
-        _______, _______, KC_RCTL, KC_RALT, KC_RGUI, KC_EXLM, KC_AMPR,
+        _______, _______, KC_RCTL, KC_RALT, KC_RGUI, KC_HASH, _______,
 
         // Lower
         _______, _______, _______, _______, _______, _______,
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, _______, KC_AT, _______,
+        RCTL(KC_BSPC), _______, _______, _______, _______, _______,
 
         // Thumb
         _______, _______, _______,
@@ -132,14 +132,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT_moonlander(
         // Top
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_AMPR, KC_PIPE, KC_EXLM, KC_PERC, KC_LPRN, _______,
 
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_CIRC, KC_AT, KC_QUES, KC_DLR, KC_TILDE, _______,
 
         // Upper
-        _______, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_PERC, _______,
+        _______, ST_LBRC, ST_RBRC, KC_CIRC, KC_DLR, _______, _______,
 
-        TO(_NUMPAD), KC_PLUS, KC_7, KC_8, KC_9, KC_SLASH, _______,
+        TO(_NUMPAD), KC_CIRC, KC_7, KC_8, KC_9, KC_SLASH, _______,
 
         // Middle
         _______, _______, MT(MOD_LGUI, KC_LEFT), MT(MOD_LALT, KC_UP), MT(MOD_LCTL, KC_DOWN), KC_RIGHT, _______,
@@ -147,12 +147,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_MINUS, KC_4, KC_5, KC_6, KC_ASTR, _______,
 
         // Lower
-        _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
+        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
 
-        KC_EQUAL, KC_1, KC_2, KC_3, KC_COMMA, _______,
+        _______, KC_1, KC_2, KC_3, KC_COMMA, _______,
 
         // Base
-        TO(0), ST_X, KC_CIRC, TO(0), _______, _______,
+        TO(0), ST_X, TO(_LEFT), TO(0), _______, _______,
 
         KC_BSPC, KC_0, KC_DOT, KC_COLN, KC_HASH, TO(0),
 
@@ -163,22 +163,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUMPAD] = LAYOUT_moonlander(
         // Top
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_AMPR, KC_PIPE, KC_EXLM, KC_PERC, KC_LPRN, _______,
 
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, KC_CIRC, KC_AT, KC_QUES, KC_DLR, KC_TILDE, _______,
 
         // Upper
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, ST_LBRC, ST_RBRC, KC_CIRC, KC_DLR, _______, _______,
 
         KC_NUM, KC_KP_MINUS, KC_KP_7, KC_KP_8, KC_KP_9, KC_KP_SLASH, _______,
 
         // Middle
-        _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, MT(MOD_LGUI, KC_LEFT), MT(MOD_LALT, KC_UP), MT(MOD_LCTL, KC_DOWN), KC_RIGHT, _______,
 
         _______, KC_KP_PLUS, KC_KP_4, KC_KP_5, KC_KP_6, _______, _______,
 
         // Lower
-        _______, KC_LPRN, KC_EQUAL, KC_LBRC, KC_RBRC, KC_RPRN,
+        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
 
         KC_KP_EQUAL, KC_KP_1, KC_KP_2, KC_KP_3, KC_KP_EQUAL, _______,
 
@@ -409,6 +409,7 @@ bool caps_word_press_user(uint16_t keycode) {
         case KC_DOT:
         case ST_MINUS:
         case ST_DOT:
+        case ST_GRAVE:
         case KC_ALNUM_MACRO_FIRST ... KC_ALNUM_MACRO_LAST:
             return true;
 
@@ -473,19 +474,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_CASED(AD_MACRO_SX, "sx", "Sx", "SX");
         SEND_CASED(ST_MACRO_QU, "qu", "Qu", "QU");
 
-        // Forced characters
+        // Unshifted characters
         SEND_UNSHIFTED(ST_EQUAL, "=");
         SEND_UNSHIFTED(ST_DOT, ".");
         SEND_UNSHIFTED(ST_COMMA, ",");
         SEND_UNSHIFTED(ST_MINUS, "-");
         SEND_UNSHIFTED(ST_LBRC, "[");
         SEND_UNSHIFTED(ST_RBRC, "]");
-        SEND_UNSHIFTED(ST_ZERO, "0");
-        SEND_UNSHIFTED(ST_ONE, "1");
+        SEND_UNSHIFTED(ST_GRAVE, "`");
+        SEND_UNSHIFTED(ST_BSLS, "\\");
         SEND_UNSHIFTED(ST_X, "x");
-
-        // Tap-hold keys
-        TAPHOLD_CASED(LT(0, KC_Z), "q", "Q", "Q");
 
         default:
             return true;
@@ -498,8 +496,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LALT, KC_UP):
         case MT(MOD_LCTL, KC_DOWN):
             return g_tapping_term + 50;
-        case LT(0, KC_Z):
-            return g_tapping_term + 150;
         default:
             return g_tapping_term;
     }
