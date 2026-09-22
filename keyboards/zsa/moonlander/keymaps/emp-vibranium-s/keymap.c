@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Base
         TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
 
-        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_SCLN, KC_AT, XXXXXXX,
+        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_SCLN, KC_UNDS, XXXXXXX,
 
         // Thumb
         KC_R, KC_ENTER, XXXXXXX,
@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Base
         XXXXXXX, _______, KC_CIRC, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, _______, _______, _______,
+        RCTL(KC_BSPC), _______, _______, _______, KC_AT, _______,
 
         // Thumb
         _______, XXXXXXX, _______,
@@ -123,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, _______, _______, _______,
+        RCTL(KC_BSPC), _______, _______, _______, KC_AT, _______,
 
         // Thumb
         _______, _______, _______,
