@@ -423,6 +423,11 @@ uint8_t current_mods;
     clear_mods();               \
     SEND_STRING(KEYS);          \
     register_mods(current_mods);
+#define SEND_STRING_UNSHIFTED(KEYS)  \
+    current_mods = get_mods();       \
+    unregister_mods(MOD_MASK_SHIFT); \
+    SEND_STRING(KEYS);               \
+    register_mods(current_mods);
 
 #define SEND_STRINGS(BASE, SHIFTED, CAPS)                          \
     if (is_caps_word_on())                                         \
@@ -432,18 +437,18 @@ uint8_t current_mods;
     } else                                                         \
         SEND_STRING(BASE);
 
-#define SEND_CASED_STRINGS(NAME, BASE, SHIFTED, CAPS) \
-    case (NAME):                                      \
-        if (record->event.pressed) {                  \
-            SEND_STRINGS(BASE, SHIFTED, CAPS);        \
-        }                                             \
+#define SEND_CASED(NAME, BASE, SHIFTED, CAPS)  \
+    case (NAME):                               \
+        if (record->event.pressed) {           \
+            SEND_STRINGS(BASE, SHIFTED, CAPS); \
+        }                                      \
         return true;
 
-#define SEND_FORCED_STRING(NAME, RESULT) \
-    case (NAME):                         \
-        if (record->event.pressed) {     \
-            SEND_STRING_CLEAR(RESULT);   \
-        }                                \
+#define SEND_UNSHIFTED(NAME, RESULT)       \
+    case (NAME):                           \
+        if (record->event.pressed) {       \
+            SEND_STRING_UNSHIFTED(RESULT); \
+        }                                  \
         return true;
 
 #define TAPHOLD_CODE16(NAME, RESULT)                       \
@@ -464,22 +469,20 @@ uint8_t current_mods;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        SEND_CASED_STRINGS(AD_MACRO_MC, "mc", "Mc", "MC");
-
-        SEND_CASED_STRINGS(AD_MACRO_SX, "sx", "Sx", "SX");
-
-        SEND_CASED_STRINGS(ST_MACRO_QU, "qu", "Qu", "QU");
+        SEND_CASED(AD_MACRO_MC, "mc", "Mc", "MC");
+        SEND_CASED(AD_MACRO_SX, "sx", "Sx", "SX");
+        SEND_CASED(ST_MACRO_QU, "qu", "Qu", "QU");
 
         // Forced characters
-        SEND_FORCED_STRING(ST_EQUAL, "=");
-        SEND_FORCED_STRING(ST_DOT, ".");
-        SEND_FORCED_STRING(ST_COMMA, ",");
-        SEND_FORCED_STRING(ST_MINUS, "-");
-        SEND_FORCED_STRING(ST_LBRC, "[");
-        SEND_FORCED_STRING(ST_RBRC, "]");
-        SEND_FORCED_STRING(ST_ZERO, "0");
-        SEND_FORCED_STRING(ST_ONE, "1");
-        SEND_FORCED_STRING(ST_X, "x");
+        SEND_UNSHIFTED(ST_EQUAL, "=");
+        SEND_UNSHIFTED(ST_DOT, ".");
+        SEND_UNSHIFTED(ST_COMMA, ",");
+        SEND_UNSHIFTED(ST_MINUS, "-");
+        SEND_UNSHIFTED(ST_LBRC, "[");
+        SEND_UNSHIFTED(ST_RBRC, "]");
+        SEND_UNSHIFTED(ST_ZERO, "0");
+        SEND_UNSHIFTED(ST_ONE, "1");
+        SEND_UNSHIFTED(ST_X, "x");
 
         // Tap-hold keys
         TAPHOLD_CASED(LT(0, KC_Z), "q", "Q", "Q");
