@@ -52,12 +52,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Middle
         KC_TAB, KC_V, KC_C, KC_N, KC_T, KC_G, KC_DELETE,
 
-        ST_BSLS, ST_EQUAL, KC_A, KC_E, KC_I, KC_QUOT, KC_ASTR,
+        ST_BSLS, ST_MINUS, KC_A, KC_E, KC_I, KC_QUOT, KC_ASTR,
 
         // Lower
         MO(_LEFT), KC_S, KC_P, KC_L, KC_D, KC_B,
 
-        ST_MINUS, KC_U, KC_O, KC_Y, KC_J, CW_TOGG,
+        ST_EQUAL, KC_U, KC_O, KC_Y, KC_J, CW_TOGG,
 
         // Base
         TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_1, KC_2, KC_3, KC_COMMA, _______,
 
         // Base
-        TO(0), ST_X, TO(_LEFT), TO(0), _______, _______,
+        TO(0), ST_X, TO(_FN), TO(0), _______, _______,
 
         KC_BSPC, KC_0, KC_DOT, _______, _______, TO(0),
 
