@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Top
         _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
 
-        _______, KC_TILDE, KC_AT, KC_QUES, KC_HASH, KC_RPRN, _______,
+        _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
         _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Top
         _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
 
-        _______, KC_TILDE, KC_AT, KC_QUES, KC_HASH, KC_RPRN, _______,
+        _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
         _______, _______, _______, _______, _______, _______, _______,
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Top
         _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
 
-        _______, KC_TILDE, KC_AT, KC_QUES, KC_HASH, KC_RPRN, _______,
+        _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
         _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
@@ -166,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Top
         _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
 
-        _______, KC_TILDE, KC_AT, KC_QUES, KC_HASH, KC_RPRN, _______,
+        _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
         _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
