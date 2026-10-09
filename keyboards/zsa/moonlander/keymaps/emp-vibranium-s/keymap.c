@@ -220,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_BSPC, KC_RIGHT_SHIFT, TO(0), _______, _______, TO(0),
 
         // Thumb
-        _______, _______, _______,
+        KC_SPACE, _______, _______,
 
         _______, _______, _______),
 
