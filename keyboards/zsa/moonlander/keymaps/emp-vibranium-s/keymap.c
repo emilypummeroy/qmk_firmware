@@ -71,12 +71,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LMOD] = LAYOUT_moonlander(
         // Top
-        _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
+        _______, KC_PERC, KC_AMPR, KC_PIPE, KC_EXLM, KC_LPRN, _______,
 
         _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
-        _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
+        _______, KC_CIRC, KC_PERC, KC_EXLM, KC_QUES, _______, _______,
 
         _______, _______, _______, _______, _______, _______, _______,
 
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______,
 
         // Lower
-        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
+        _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
 
         _______, _______, _______, _______, _______, _______,
 
@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_RMOD] = LAYOUT_moonlander(
         // Top
-        _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
+        _______, KC_PERC, KC_AMPR, KC_PIPE, KC_EXLM, KC_LPRN, _______,
 
         _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
@@ -133,12 +133,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT_moonlander(
         // Top
-        _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
+        _______, KC_PERC, KC_AMPR, KC_PIPE, KC_EXLM, KC_LPRN, _______,
 
         _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
-        _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
+        _______, KC_CIRC, KC_PERC, KC_EXLM, KC_QUES, _______, _______,
 
         TO(_NUMPAD), KC_EQUAL, KC_7, KC_8, KC_9, _______, _______,
 
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, KC_4, KC_5, KC_6, _______, _______,
 
         // Lower
-        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
+        _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
 
         _______, KC_1, KC_2, KC_3, KC_COMMA, _______,
 
@@ -164,12 +164,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUMPAD] = LAYOUT_moonlander(
         // Top
-        _______, KC_PERC, KC_AMPR, KC_EXLM, KC_PIPE, KC_LPRN, _______,
+        _______, KC_PERC, KC_AMPR, KC_PIPE, KC_EXLM, KC_LPRN, _______,
 
         _______, KC_RPRN, KC_AT, KC_QUES, KC_TILDE, KC_HASH, _______,
 
         // Upper
-        _______, ST_LBRC, ST_RBRC, KC_DLR, KC_CIRC, _______, _______,
+        _______, KC_CIRC, KC_PERC, KC_EXLM, KC_QUES, _______, _______,
 
         KC_NUM, KC_KP_EQUAL, KC_KP_7, KC_KP_8, KC_KP_9, _______, _______,
 
@@ -179,7 +179,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, KC_KP_MINUS, KC_KP_4, KC_KP_5, KC_KP_6, KC_KP_SLASH, KC_KP_ASTERISK,
 
         // Lower
-        _______, _______, KC_LPRN, KC_RPRN, KC_SPACE, _______,
+        _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
 
         KC_KP_PLUS, KC_KP_1, KC_KP_2, KC_KP_3, KC_COMMA, _______,
 
