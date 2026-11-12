@@ -47,17 +47,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Upper
         KC_Q, KC_Z, KC_W, KC_H, KC_M, KC_K, KC_BACKSPACE,
 
-        KC_ASTR, KC_QUOT, KC_COMMA, ST_EQUAL, KC_DOT, KC_LBRC, KC_RBRC,
+        ST_GRAVE, KC_QUOT, KC_COMMA, ST_EQUAL, KC_DOT, KC_LBRC, KC_RBRC,
 
         // Middle
         KC_TAB, KC_V, KC_C, KC_N, KC_T, KC_G, KC_DELETE,
 
-        ST_SLASH, ST_MINUS, KC_A, KC_E, KC_I, KC_QUES, ST_GRAVE,
+        CW_TOGG, ST_MINUS, KC_A, KC_E, KC_I, KC_QUES, KC_ASTR,
 
         // Lower
         MO(_LEFT), KC_S, KC_P, KC_L, KC_D, KC_B,
 
-        KC_PLUS, KC_U, KC_O, KC_Y, KC_J, CW_TOGG,
+        KC_PLUS, KC_U, KC_O, KC_Y, KC_J, ST_SLASH,
 
         // Base
         TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
@@ -114,12 +114,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Middle
         _______, _______, _______, _______, _______, _______, _______,
 
-        ST_BSLS, _______, KC_RCTL, KC_RALT, KC_RGUI, KC_EXLM, _______,
+        _______, _______, KC_RCTL, KC_RALT, KC_RGUI, KC_EXLM, _______,
 
         // Lower
         _______, _______, _______, _______, _______, _______,
 
-        _______, KC_AT, _______, _______, _______, _______,
+        _______, KC_AT, _______, _______, _______, ST_BSLS,
 
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
