@@ -241,12 +241,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_EQUAL, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOTE,
 
         // Lower
-        MO(_LFN), KC_Z, KC_X, KC_C, KC_V, KC_B,
+        _______, KC_Z, KC_X, KC_C, KC_V, KC_B,
 
         KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RIGHT_CTRL,
 
         // Base
-        KC_LEFT_ALT, _______, KC_LEFT_GUI, KC_LEFT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
+        MO(_LFN), KC_LEFT_ALT, KC_LEFT_GUI, KC_LEFT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
 
         KC_BSPC, KC_RIGHT_SHIFT, KC_RIGHT_ALT, KC_CAPS, _______, TO(0),
 
@@ -269,15 +269,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Middle
         KC_BSPC, KC_F11, KC_LEFT, KC_UP, KC_DOWN, KC_RIGHT, KC_L,
 
-        XXXXXXX, UG_VALD, UG_VALD, UG_VALD, DT_DOWN, KC_PAUSE, KC_PSCR,
+        KC_CAPS, UG_VALD, UG_VALD, UG_VALD, DT_DOWN, KC_PAUSE, KC_PSCR,
 
         // Lower
-        KC_RIGHT_ALT, KC_F12, KC_HOME, KC_PAGE_UP, KC_PGDN, KC_END,
+        _______, KC_F12, KC_HOME, KC_PAGE_UP, KC_PGDN, KC_END,
 
         CM_OFF, CM_ON, LED_LEVEL, AU_TOGG, KC_BSLS, KC_RIGHT_CTRL,
 
         // Base
-        _______, _______, KC_RIGHT_GUI, KC_RIGHT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
+        _______, KC_RIGHT_ALT, KC_RIGHT_GUI, KC_RIGHT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
 
         KC_BSPC, MO(_FIRMWARE), _______, _______, _______, TO(0),
 
@@ -545,7 +545,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_MOD,
+               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
 
                CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_FN,
 
@@ -577,7 +577,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_BASE,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_MOD,
+               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_BASE,
 
                CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_FN,
 
@@ -609,7 +609,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_NUM,      CL_BASE, CL_NUM,  CL_MOD,
 
-               CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_MOD,
+               CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_BASE,
 
                CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_FN,
 
@@ -627,7 +627,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
               CL_OFF,    CL_NUM, CL_TAP_HOLD, CL_NUM, CL_FN,
 
-              CL_OFF,    CL_NUM, CL_TAP_HOLD, CL_NUM, CL_BASE,
+              CL_OFF,    CL_NUM, CL_TAP_HOLD, CL_NUM, CL_CLEAR,
 
               CL_OFF,    CL_NUM, CL_TAP_HOLD, CL_NUM, CL_MOD,
 
@@ -705,7 +705,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
              CL_FN,  CL_MEDIA, CL_FN,       CL_FN,    CL_FN,
 
-             CL_FN,  CL_MEDIA, CL_FN,       CL_FN,    CL_MOD,
+             CL_FN,  CL_MEDIA, CL_FN,       CL_FN,    CL_BASE,
 
              CL_FN,  CL_MEDIA, CL_FN,       CL_FN,    CL_CLEAR,
 
@@ -717,9 +717,9 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
              CL_FN,  CL_FN,    CL_FN,       CL_FN},
 
-    [_LEFT] = {CL_LEFT, CL_LEFT, CL_LEFT, CL_LFN,  CL_MOD,
+    [_LEFT] = {CL_LEFT, CL_LEFT, CL_LEFT, CL_CLEAR, CL_LFN,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,
+               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
 
                CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
 
@@ -749,9 +749,9 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF},
 
-    [_LFN] = {CL_LFN, CL_LFN,          CL_LFN,          CL_MOD,          CL_CLEAR,
+    [_LFN] = {CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_CLEAR,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_LFN,
+              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
 
               CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
 
@@ -769,7 +769,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
               CL_OFF, CL_FIRMWARE,     CL_LFN,          CL_LFN,          CL_LFN,
 
-              CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_MOD,
+              CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_LFN,
 
               CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_MOD,
 
