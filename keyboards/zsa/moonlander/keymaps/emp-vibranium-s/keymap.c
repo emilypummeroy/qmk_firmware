@@ -57,12 +57,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Lower
         MO(_LEFT), KC_S, KC_P, KC_L, KC_D, KC_B,
 
-        KC_PLUS, KC_U, KC_O, KC_Y, KC_J, ST_SLASH,
+        KC_PLUS, KC_U, KC_O, KC_Y, ST_SLASH, KC_J,
 
         // Base
         TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
 
-        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_SCLN, KC_UNDS, XXXXXXX,
+        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_SCLN, KC_UNDS, KC_HASH,
 
         // Thumb
         KC_R, KC_ENTER, XXXXXXX,
@@ -119,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Lower
         _______, _______, _______, _______, _______, _______,
 
-        _______, KC_AT, _______, _______, _______, ST_BSLS,
+        _______, KC_AT, KC_TILDE, _______, _______, ST_BSLS,
 
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
@@ -145,12 +145,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Middle
         _______, _______, MT(MOD_LGUI, KC_LEFT), MT(MOD_LALT, KC_UP), MT(MOD_LCTL, KC_DOWN), KC_RIGHT, _______,
 
-        _______, _______, KC_4, KC_5, KC_6, KC_ASTR, KC_SLASH,
+        _______, _______, KC_4, KC_5, KC_6, KC_ASTR, _______,
 
         // Lower
         _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
 
-        _______, KC_1, KC_2, KC_3, KC_COMMA, _______,
+        _______, KC_1, KC_2, KC_3, KC_SLASH, KC_COMMA,
 
         // Base
         TO(0), ST_X, TO(_FN), TO(0), _______, _______,
@@ -248,7 +248,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Base
         MO(_LFN), KC_LEFT_ALT, KC_LEFT_GUI, KC_LEFT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
 
-        KC_BSPC, KC_RIGHT_SHIFT, KC_RIGHT_ALT, KC_CAPS, _______, TO(0),
+        KC_BSPC, KC_RIGHT_SHIFT, KC_RIGHT_CTRL, KC_RIGHT_GUI, KC_RIGHT_ALT, TO(0),
 
         // Thumb
         KC_SPACE, KC_ENTER, _______,
@@ -262,12 +262,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, _______,
 
         // Upper
-        KC_DELETE, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_U,
+        KC_AUDIO_VOL_UP, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_BACKSPACE,
 
         KC_RBRC, UG_VALU, UG_VALU, UG_VALU, DT_UP, DT_PRNT, KC_SCRL,
 
         // Middle
-        KC_BSPC, KC_F11, KC_LEFT, KC_UP, KC_DOWN, KC_RIGHT, KC_L,
+        KC_AUDIO_VOL_DOWN, KC_F11, KC_LEFT, KC_UP, KC_DOWN, KC_RIGHT, KC_DELETE,
 
         KC_CAPS, UG_VALD, UG_VALD, UG_VALD, DT_DOWN, KC_PAUSE, KC_PSCR,
 
@@ -511,6 +511,7 @@ void keyboard_post_init_user(void) {
 
 #define CL_BASE {93, 255, 191}
 #define CL_NUM {36, 255, 193}
+#define CL_SYMBOL {105, 251, 181}
 #define CL_NUMPAD {52, 255, 193}
 #define CL_FN {203, 196, 165}
 #define CL_FIRMWARE {8, 235, 250}
@@ -525,101 +526,101 @@ void keyboard_post_init_user(void) {
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
-    [_BASE] = {CL_BASE, CL_BASE, CL_BASE, CL_LEFT, CL_LEFT,
+    [_BASE] = {CL_BASE, CL_BASE,   CL_BASE,   CL_LEFT,   CL_LEFT,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_NUM,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,   CL_NUM,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_MOD,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,   CL_MOD,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_SYMBOL,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_FN,
+               CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_FN,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE, CL_MOD,
+               CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_MOD,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_BASE, CL_BASE,
+               CL_BASE, CL_SYMBOL, CL_MOD,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE},
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
-    [_LMOD] = {CL_MOD,  CL_OFF,  CL_BASE, CL_LEFT, CL_OFF,
+    [_LMOD] = {CL_MOD,  CL_OFF,    CL_BASE,   CL_LEFT,   CL_OFF,
 
-               CL_OFF,  CL_NUM,  CL_BASE, CL_OFF,  CL_MOD,
+               CL_OFF,  CL_SYMBOL, CL_OFF,    CL_OFF,    CL_OFF,
 
-               CL_OFF,  CL_NUM,  CL_MOD,  CL_NUM,  CL_OFF,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_SYMBOL, CL_OFF,
 
-               CL_OFF,  CL_NUM,  CL_MOD,  CL_NUM,  CL_OFF,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_SYMBOL, CL_OFF,
 
-               CL_OFF,  CL_NUM,  CL_MOD,  CL_NUM,  CL_CLEAR,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_SYMBOL, CL_CLEAR,
 
-               CL_OFF,  CL_NUM,  CL_BASE, CL_OFF,
+               CL_OFF,  CL_OFF,    CL_OFF,    CL_OFF,
 
-               CL_MOD,  CL_OFF,  CL_OFF,
+               CL_MOD,  CL_OFF,    CL_OFF,
 
-               CL_OFF,  CL_OFF,  CL_BASE, CL_OFF,
+               CL_OFF,  CL_OFF,    CL_BASE,   CL_OFF,
 
-               CL_BASE, CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_BASE,
+               CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_FN,
+               CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_FN,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE, CL_MOD,
+               CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_MOD,
 
-               CL_OFF,  CL_BASE, CL_BASE, CL_BASE,
+               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_OFF,  CL_OFF,
+               CL_BASE, CL_SYMBOL, CL_MOD,
 
-               CL_BASE, CL_BASE, CL_BASE, CL_BASE},
+               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
-    [_RMOD] = {CL_BASE, CL_BASE,     CL_BASE, CL_LEFT, CL_OFF,
+    [_RMOD] = {CL_BASE, CL_BASE,     CL_BASE,   CL_LEFT,   CL_OFF,
 
-               CL_OFF,  CL_BASE,     CL_BASE, CL_BASE, CL_BASE,
+               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE, CL_BASE, CL_OFF,
+               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE, CL_BASE, CL_OFF,
+               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_NUM,
 
-               CL_OFF,  CL_BASE,     CL_BASE, CL_BASE, CL_BASE,
+               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE, CL_BASE,
+               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,
 
                CL_BASE, CL_OFF,      CL_OFF,
 
-               CL_BASE, CL_TAP_HOLD, CL_BASE, CL_BASE,
+               CL_BASE, CL_TAP_HOLD, CL_BASE,   CL_BASE,
 
-               CL_MOD,  CL_OFF,      CL_OFF,  CL_OFF,  CL_OFF,
+               CL_MOD,  CL_SYMBOL,   CL_OFF,    CL_SYMBOL, CL_OFF,
 
-               CL_OFF,  CL_NUM,      CL_BASE, CL_NUM,  CL_MOD,
+               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_OFF,    CL_OFF,
 
-               CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_BASE,
+               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_OFF,    CL_SYMBOL,
 
-               CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_FN,
+               CL_OFF,  CL_OFF,      CL_MOD,    CL_SYMBOL, CL_FN,
 
-               CL_OFF,  CL_NUM,      CL_MOD,  CL_NUM,  CL_CLEAR,
+               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_SYMBOL, CL_CLEAR,
 
-               CL_OFF,  CL_NUM,      CL_NUM,  CL_BASE,
+               CL_OFF,  CL_SYMBOL,   CL_OFF,    CL_OFF,
 
-               CL_MOD,  CL_OFF,      CL_OFF,
+               CL_MOD,  CL_OFF,      CL_MOD,
 
-               CL_OFF,  CL_OFF,      CL_MOD,  CL_OFF},
+               CL_OFF,  CL_OFF,      CL_MOD,    CL_OFF},
 
     [_NUM] = {CL_NUM,    CL_OFF, CL_OFF,      CL_OFF, CL_BASE,
 
@@ -643,7 +644,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
               CL_OFF,    CL_NUM, CL_NUM,      CL_NUM, CL_NUM,
 
-              CL_OFF,    CL_NUM, CL_NUM,      CL_NUM, CL_TAP_HOLD,
+              CL_OFF,    CL_NUM, CL_NUM,      CL_NUM, CL_NUM,
 
               CL_OFF,    CL_NUM, CL_NUM,      CL_NUM, CL_NUM,
 
@@ -719,13 +720,13 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [_LEFT] = {CL_LEFT, CL_LEFT, CL_LEFT, CL_CLEAR, CL_LFN,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
+               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
+               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
+               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT, CL_MOD,
+               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
 
                CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,
 
@@ -733,15 +734,15 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,  CL_BASE,
+               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_BASE,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
 
                CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
 
@@ -749,7 +750,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF},
 
-    [_LFN] = {CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_CLEAR,
+    [_LFN] = {CL_LFN, CL_MEDIA,        CL_MEDIA,        CL_LFN,          CL_CLEAR,
 
               CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
 
