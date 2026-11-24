@@ -31,8 +31,8 @@ enum Layers {
     _NUM,
     _NUMPAD,
     _FN,
-    _LEFT,
-    _LFN,
+    _QWERTY,
+    _QFN,
     _FIRMWARE,
 };
 
@@ -54,12 +54,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         CW_TOGG, ST_MINUS, KC_A, KC_E, KC_I, KC_SCLN, KC_QUOT,
 
         // Lower
-        MO(_LEFT), KC_S, KC_P, KC_L, KC_D, KC_B,
+        MO(_QWERTY), KC_S, KC_P, KC_L, KC_D, KC_B,
 
         KC_COLN, KC_U, KC_O, KC_Y, ST_SLASH, KC_PLUS,
 
         // Base
-        TO(_LEFT), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
+        TO(_QWERTY), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
 
         RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_J, KC_UNDS, KC_HASH,
 
@@ -223,7 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         _______, _______, _______),
 
-    [_LEFT] = LAYOUT_moonlander(
+    [_QWERTY] = LAYOUT_moonlander(
         // Top
         _______, KC_1, KC_2, KC_3, KC_4, KC_5, _______,
 
@@ -242,10 +242,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Lower
         _______, KC_Z, KC_X, KC_C, KC_V, KC_B,
 
-        KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_RIGHT_CTRL,
+        KC_N, KC_M, KC_COMMA, KC_DOT, KC_SLASH, KC_BSLS,
 
         // Base
-        MO(_LFN), KC_LEFT_ALT, KC_LEFT_GUI, KC_LEFT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
+        MO(_QFN), KC_LEFT_ALT, KC_LEFT_GUI, KC_LEFT_CTRL, KC_LEFT_SHIFT, KC_ESCAPE,
 
         KC_BSPC, KC_RIGHT_SHIFT, KC_RIGHT_CTRL, KC_RIGHT_GUI, KC_RIGHT_ALT, TO(0),
 
@@ -254,7 +254,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
         _______, _______, _______),
 
-    [_LFN] = LAYOUT_moonlander(
+    [_QFN] = LAYOUT_moonlander(
         // Top
         _______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, _______,
 
@@ -513,18 +513,18 @@ void keyboard_post_init_user(void) {
 #define CL_NUMPAD {63, 255, 193}
 #define CL_FN {203, 196, 165}
 #define CL_FIRMWARE {8, 235, 250}
-#define CL_LEFT {130, 198, 157}
+#define CL_QWERTY {130, 198, 157}
 #define CL_MOD {80, 255, 204}
 #define CL_OFF {0, 0, 0}
 #define CL_CLEAR {67, 180, 255}
 #define CL_MEDIA {102, 255, 143}
-#define CL_LFN {237, 234, 175}
+#define CL_QFN {237, 234, 175}
 
 #define CL_TAP_HOLD {128, 242, 161}
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
-    [_BASE] = {CL_BASE, CL_BASE,   CL_BASE,   CL_LEFT,   CL_LEFT,
+    [_BASE] = {CL_BASE, CL_BASE,   CL_BASE,   CL_QWERTY, CL_QWERTY,
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
@@ -556,7 +556,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
-    [_LMOD] = {CL_MOD,  CL_OFF,    CL_BASE,   CL_LEFT,   CL_OFF,
+    [_LMOD] = {CL_MOD,  CL_OFF,    CL_BASE,   CL_QWERTY, CL_OFF,
 
                CL_OFF,  CL_SYMBOL, CL_OFF,    CL_OFF,    CL_OFF,
 
@@ -588,7 +588,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
-    [_RMOD] = {CL_BASE, CL_BASE,     CL_BASE,   CL_LEFT,   CL_OFF,
+    [_RMOD] = {CL_BASE, CL_BASE,     CL_BASE,   CL_QWERTY, CL_OFF,
 
                CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
 
@@ -620,7 +620,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_OFF,      CL_MOD,    CL_OFF},
 
-    [_NUM] = {CL_NUM,    CL_BASE,   CL_BASE,     CL_LEFT,   CL_BASE,
+    [_NUM] = {CL_NUM,    CL_BASE,   CL_BASE,     CL_QWERTY, CL_BASE,
 
               CL_NUM,    CL_NUM,    CL_BASE,     CL_BASE,   CL_BASE,
 
@@ -652,7 +652,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
               CL_BASE,   CL_BASE,   CL_NUM,      CL_NUM},
 
-    [_NUMPAD] = {CL_NUMPAD, CL_BASE,   CL_BASE,     CL_LEFT,   CL_BASE,
+    [_NUMPAD] = {CL_NUMPAD, CL_BASE,   CL_BASE,     CL_QWERTY, CL_BASE,
 
                  CL_NUMPAD, CL_NUMPAD, CL_BASE,     CL_BASE,   CL_BASE,
 
@@ -716,59 +716,59 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
              CL_FN,  CL_FN,    CL_FN,       CL_FN},
 
-    [_LEFT] = {CL_LEFT, CL_LEFT, CL_LEFT, CL_CLEAR, CL_LFN,
+    [_QWERTY] = {CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_CLEAR,  CL_QFN,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,  CL_MOD,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY,
 
-               CL_LEFT, CL_LEFT, CL_LEFT,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY,
 
-               CL_LEFT, CL_LEFT, CL_LEFT, CL_LEFT,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_BASE,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,    CL_BASE,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,   CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_MOD,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY,
 
-               CL_OFF,  CL_OFF,  CL_OFF,
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY,
 
-               CL_OFF,  CL_OFF,  CL_OFF,  CL_OFF},
+                 CL_QWERTY, CL_QWERTY, CL_QWERTY, CL_QWERTY},
 
-    [_LFN] = {CL_LFN, CL_MEDIA,        CL_MEDIA,        CL_LFN,          CL_CLEAR,
+    [_QFN] = {CL_QFN, CL_MEDIA,        CL_MEDIA,        CL_QFN,          CL_CLEAR,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,          CL_MOD,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,          CL_MOD,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,          CL_MOD,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,          CL_MOD,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,          CL_MOD,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,
 
-              CL_LFN, CL_LFN,          CL_LFN,
+              CL_QFN, CL_QFN,          CL_QFN,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_LFN,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_QFN,
 
-              CL_LFN, CL_LFN,          CL_LFN,          CL_MOD,          CL_LFN,
+              CL_QFN, CL_QFN,          CL_QFN,          CL_MOD,          CL_QFN,
 
-              CL_OFF, CL_FIRMWARE,     CL_LFN,          CL_LFN,          CL_LFN,
+              CL_OFF, CL_FIRMWARE,     CL_QFN,          CL_QFN,          CL_QFN,
 
-              CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_LFN,
+              CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_QFN,
 
               CL_OFF, {253, 174, 200}, {253, 174, 200}, {253, 174, 200}, CL_MOD,
 
@@ -776,9 +776,9 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
               CL_OFF, {253, 174, 200}, {253, 174, 200}, {12, 255, 186},
 
-              CL_LFN, CL_FIRMWARE,     CL_FIRMWARE,
+              CL_QFN, CL_FIRMWARE,     CL_FIRMWARE,
 
-              CL_OFF, CL_BASE,         CL_LFN,          CL_LFN},
+              CL_OFF, CL_BASE,         CL_QFN,          CL_QFN},
 
     [_FIRMWARE] = {CL_FIRMWARE,     CL_FIRMWARE,     CL_FIRMWARE, CL_FIRMWARE, CL_BASE,
 
