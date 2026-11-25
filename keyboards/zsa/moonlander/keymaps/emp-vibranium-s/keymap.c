@@ -14,6 +14,7 @@ enum custom_keycodes {
     ST_SLASH,
     ST_BSLS,
     ST_GRAVE,
+    ST_SCLN,
 
     ST_MACRO_QU,
     KC_ALNUM_MACRO_FIRST = ST_MACRO_QU,
@@ -46,22 +47,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Upper
         KC_Q, KC_Z, KC_W, KC_H, KC_M, KC_K, KC_BACKSPACE,
 
-        ST_GRAVE, KC_RBRC, KC_COMMA, ST_EQUAL, KC_DOT, KC_LBRC, KC_ASTR,
+        KC_BSLS, KC_UNDS, KC_LT, KC_GT, ST_EQUAL, KC_LBRC, KC_RBRC,
 
         // Middle
         KC_TAB, KC_V, KC_C, KC_N, KC_T, KC_G, KC_DELETE,
 
-        CW_TOGG, ST_MINUS, KC_A, KC_E, KC_I, KC_SCLN, KC_QUOT,
+        ST_SLASH, KC_COMMA, KC_A, KC_E, KC_I, ST_MINUS, KC_QUES,
 
         // Lower
         MO(_QWERTY), KC_S, KC_P, KC_L, KC_D, KC_B,
 
-        KC_COLN, KC_U, KC_O, KC_Y, ST_SLASH, KC_PLUS,
+        KC_DOT, KC_U, KC_O, KC_J, KC_Y, KC_QUOT,
 
         // Base
         TO(_QWERTY), KC_X, KC_F, MO(_NUM), LM(_LMOD, MOD_LSFT), KC_ESCAPE,
 
-        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_J, KC_UNDS, KC_HASH,
+        RCTL(KC_BSPC), LM(_RMOD, MOD_RSFT), MO(_FN), KC_AT, KC_HASH, CW_TOGG,
 
         // Thumb
         KC_R, KC_ENTER, XXXXXXX,
@@ -77,25 +78,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Upper
         _______, KC_CIRC, KC_PERC, KC_AMPR, KC_PIPE, _______, _______,
 
-        _______, _______, _______, _______, _______, _______, _______,
+        ST_BSLS, KC_TILD, KC_LCBR, KC_RCBR, ST_EQUAL, ST_LBRC, ST_RBRC,
 
         // Middle
         _______, _______, KC_LGUI, KC_LALT, KC_LCTL, _______, _______,
 
-        _______, _______, _______, _______, _______, KC_EXLM, _______,
+        KC_ASTR, ST_SCLN, _______, _______, _______, KC_PLUS, KC_EXLM,
 
         // Lower
         _______, _______, KC_LPRN, KC_RPRN, KC_DLR, KC_SPACE,
 
-        KC_QUES, _______, _______, _______, _______, _______,
+        KC_COLN, _______, _______, _______, _______, _______,
 
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, _______, _______, _______,
+        _______, _______, _______, ST_GRAVE, KC_HASH, _______,
 
         // Thumb
-        _______, XXXXXXX, _______,
+        _______, _______, _______,
 
         _______, _______, _______),
 
@@ -108,27 +109,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Upper
         _______, _______, _______, _______, _______, _______, _______,
 
-        _______, _______, _______, _______, _______, _______, _______,
+        ST_BSLS, KC_TILD, KC_LCBR, KC_RCBR, ST_EQUAL, ST_LBRC, ST_RBRC,
 
         // Middle
         _______, _______, _______, _______, _______, _______, _______,
 
-        _______, _______, KC_RCTL, KC_RALT, KC_RGUI, KC_EXLM, _______,
+        KC_ASTR, ST_SCLN, KC_RCTL, KC_RALT, KC_RGUI, KC_PLUS, KC_EXLM,
 
         // Lower
         _______, _______, _______, _______, _______, _______,
 
-        KC_QUES, KC_AT, KC_TILDE, _______, _______, _______,
+        KC_COLN, _______, _______, _______, _______, _______,
 
         // Base
         XXXXXXX, _______, _______, _______, _______, _______,
 
-        RCTL(KC_BSPC), _______, _______, ST_BSLS, _______, _______,
+        _______, _______, _______, ST_GRAVE, KC_HASH, _______,
 
         // Thumb
         _______, _______, _______,
 
-        _______, XXXXXXX, _______),
+        _______, _______, _______),
 
     [_NUM] = LAYOUT_moonlander(
         // Top
@@ -484,6 +485,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_UNSHIFTED(ST_GRAVE, "`");
         SEND_UNSHIFTED(ST_BSLS, "\\");
         SEND_UNSHIFTED(ST_SLASH, "/");
+        SEND_UNSHIFTED(ST_SCLN, ";");
 
         default:
             return true;
@@ -540,11 +542,11 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_MOD,
 
-               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_BASE,
+               CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_SYMBOL,
 
                CL_BASE, CL_SYMBOL, CL_BASE,   CL_BASE,   CL_FN,
 
@@ -552,7 +554,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_SYMBOL, CL_MOD,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL,
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
@@ -570,13 +572,13 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_MOD,  CL_OFF,    CL_OFF,
 
-               CL_OFF,  CL_OFF,    CL_MOD,    CL_OFF,
+               CL_OFF,  CL_BASE,   CL_MOD,    CL_OFF,
 
-               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_MOD,
 
-               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_BASE,
+               CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_SYMBOL,
 
                CL_OFF,  CL_SYMBOL, CL_BASE,   CL_BASE,   CL_FN,
 
@@ -584,7 +586,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_SYMBOL, CL_MOD,
+               CL_BASE, CL_SYMBOL, CL_SYMBOL,
 
                CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
 
@@ -604,21 +606,21 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_BASE, CL_TAP_HOLD, CL_BASE,   CL_BASE,
 
-               CL_MOD,  CL_OFF,      CL_SYMBOL, CL_OFF,    CL_OFF,
+               CL_MOD,  CL_SYMBOL,   CL_SYMBOL, CL_SYMBOL, CL_MOD,
 
-               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_OFF,    CL_OFF,
+               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_OFF,    CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_OFF,      CL_MOD,    CL_SYMBOL, CL_FN,
+               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_FN,
 
-               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_SYMBOL, CL_CLEAR,
+               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_CLEAR,
 
-               CL_OFF,  CL_SYMBOL,   CL_OFF,    CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_SYMBOL,
 
-               CL_MOD,  CL_OFF,      CL_MOD,
+               CL_MOD,  CL_SYMBOL,   CL_SYMBOL,
 
-               CL_OFF,  CL_OFF,      CL_MOD,    CL_OFF},
+               CL_OFF,  CL_BASE,     CL_MOD,    CL_OFF},
 
     [_NUM] = {CL_NUM,    CL_BASE,   CL_BASE,     CL_QWERTY, CL_BASE,
 
