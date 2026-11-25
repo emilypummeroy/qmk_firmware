@@ -403,6 +403,7 @@ bool caps_word_press_user(uint16_t keycode) {
         case KC_COLN:
         case KC_QUOTE:
         case KC_SLASH:
+        case ST_SLASH:
         case KC_PLUS:
         case KC_ASTR:
         case KC_BSLS:
@@ -511,7 +512,7 @@ void keyboard_post_init_user(void) {
 
 #define CL_BASE {93, 255, 194}
 #define CL_NUM {28, 255, 193}
-#define CL_SYMBOL {108, 234, 194}
+#define CL_SYMBOL {118, 255, 166}
 #define CL_NUMPAD {63, 255, 193}
 #define CL_FN {203, 196, 165}
 #define CL_FIRMWARE {8, 235, 250}
@@ -572,9 +573,9 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_MOD,  CL_OFF,    CL_OFF,
 
-               CL_OFF,  CL_BASE,   CL_MOD,    CL_OFF,
+               CL_BASE, CL_BASE,   CL_MOD,    CL_BASE,
 
-               CL_BASE, CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_MOD,
+               CL_MOD,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_MOD,
 
                CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
@@ -586,41 +587,41 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
                CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_SYMBOL, CL_SYMBOL,
+               CL_MOD,  CL_SYMBOL, CL_SYMBOL,
 
-               CL_BASE, CL_BASE,   CL_BASE,   CL_BASE},
+               CL_BASE, CL_BASE,   CL_MOD,    CL_BASE},
 
-    [_RMOD] = {CL_BASE, CL_BASE,     CL_BASE,   CL_QWERTY, CL_OFF,
+    [_RMOD] = {CL_MOD,  CL_BASE,   CL_BASE,   CL_QWERTY, CL_OFF,
 
-               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
+               CL_OFF,  CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
+               CL_OFF,  CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_NUM,
+               CL_OFF,  CL_BASE,   CL_BASE,   CL_BASE,   CL_NUM,
 
-               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,   CL_BASE,
+               CL_OFF,  CL_BASE,   CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_OFF,  CL_BASE,     CL_BASE,   CL_BASE,
+               CL_OFF,  CL_BASE,   CL_BASE,   CL_BASE,
 
-               CL_BASE, CL_OFF,      CL_OFF,
+               CL_MOD,  CL_OFF,    CL_OFF,
 
-               CL_BASE, CL_TAP_HOLD, CL_BASE,   CL_BASE,
+               CL_BASE, CL_BASE,   CL_MOD,    CL_BASE,
 
-               CL_MOD,  CL_SYMBOL,   CL_SYMBOL, CL_SYMBOL, CL_MOD,
+               CL_MOD,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL, CL_MOD,
 
-               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_BASE,   CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_BASE,   CL_SYMBOL,
 
-               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_FN,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_BASE,   CL_FN,
 
-               CL_OFF,  CL_SYMBOL,   CL_MOD,    CL_BASE,   CL_CLEAR,
+               CL_OFF,  CL_SYMBOL, CL_MOD,    CL_BASE,   CL_CLEAR,
 
-               CL_OFF,  CL_SYMBOL,   CL_SYMBOL, CL_SYMBOL,
+               CL_OFF,  CL_SYMBOL, CL_SYMBOL, CL_SYMBOL,
 
-               CL_MOD,  CL_SYMBOL,   CL_SYMBOL,
+               CL_MOD,  CL_SYMBOL, CL_SYMBOL,
 
-               CL_OFF,  CL_BASE,     CL_MOD,    CL_OFF},
+               CL_BASE, CL_BASE,   CL_MOD,    CL_BASE},
 
     [_NUM] = {CL_NUM,    CL_BASE,   CL_BASE,     CL_QWERTY, CL_BASE,
 
